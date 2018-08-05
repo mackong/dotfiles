@@ -163,6 +163,11 @@ Plugin 'ctrlp.vim'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|svn)$'
 "}}}
 
+"{{{ag
+Plugin 'rking/ag.vim'
+let g:ag_working_path_mode="r"
+"}}}
+
 "{{{NERD tree
 Plugin 'scrooloose/nerdtree'
 noremap <silent><F5> :NERDTreeToggle<cr>
