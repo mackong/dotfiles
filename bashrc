@@ -48,6 +48,9 @@ export QT_IM_MODULE=ibus
 # FZF
 [ -f /usr/share/fzf/shell/key-bindings.bash ] && source /usr/share/fzf/shell/key-bindings.bash
 
+# Exercism
+[ -f /usr/share/exercism/shell/exercism_completion.bash ] && source /usr/share/exercism/shell/exercism_completion.bash
+
 # Custom aliases
 
 # Path to the bash it configuration
