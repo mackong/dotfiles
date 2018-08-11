@@ -48,7 +48,7 @@
   (setq org-plantuml-jar-path (expand-file-name
                                (if (string= system-type "darwin")
                                    "~/Library/Plantuml/plantuml.jar"
-                                 "~/Tools/plantuml/plantuml.jar"))))
+                                 "/opt/plantuml/plantuml.jar"))))
 
 (defun setup-org-agenda ()
   "Setup org agenda."
@@ -65,15 +65,15 @@
           ("MEETING" :foreground "forest green")
           ("PHONE" :foreground "forest green")))
 
-  (setq org-agenda-files '("~/Dropbox/Orgs/agenda" "~/Documents/Orgs/agenda")))
+  (setq org-agenda-files '("~/MEGA/Orgs/agenda" "~/Documents/Orgs/agenda")))
 
 (defun setup-org-capture ()
   "Setup org capture."
-  (setq org-default-notes-file "~/Dropbox/Orgs/notes/notes.org")
+  (setq org-default-notes-file "~/MEGA/Orgs/notes/notes.org")
   (setq org-capture-templates
-        '(("t" "todo" entry (file "~/Dropbox/Orgs/agenda/todo.org")
+        '(("t" "todo" entry (file "~/MEGA/Orgs/agenda/todo.org")
            "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-          ("n" "note" entry (file "~/Dropbox/Orgs/notes/notes.org")
+          ("n" "note" entry (file "~/MEGA/Orgs/notes/notes.org")
            "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t))))
 
 (defun setup-org-mode ()

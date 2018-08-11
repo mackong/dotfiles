@@ -22,7 +22,7 @@ pathmunge () {
 
 # Golang
 export GOROOT=/opt/go
-go_path_arr=("$HOME/Tools/go-tools" "$HOME/Codes/go")
+go_path_arr=("/opt/go-tools" "$HOME/Codes/go")
 go_path=$(printf ":%s" "${go_path_arr[@]}")
 export GOPATH=${go_path:1}
 
