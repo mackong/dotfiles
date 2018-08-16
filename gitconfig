@@ -15,4 +15,4 @@
     current = rev-parse --abbrev-ref HEAD
     ru = !git pull origin $(git current)
 
-    fzfrebase = !HASH=`git log --pretty=oneline | head - n 100 | fzf` && git rebase - i `echo ${HASH} | awk '{print $1}'`^
+    fzfrebase = !HASH=`git log --pretty=oneline | head -n 100 | fzf` && git rebase -i `echo ${HASH} | awk '{print $1}'`^
