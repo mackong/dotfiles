@@ -191,10 +191,10 @@ user."
                 lsp-inhibit-message t
                 lsp-ui-doc-enable nil
                 lsp-ui-peek-enable nil
-                lsp-ui-sideline-enable t
+                lsp-ui-sideline-enable nil
                 lsp-ui-imenu-enable nil
                 lsp-ui-flycheck-enable t)
-            (lsp-enable-imenu)
+            ;; (lsp-enable-imenu)
             (lsp-ui-mode)
             (push 'company-lsp company-backends)))
 
