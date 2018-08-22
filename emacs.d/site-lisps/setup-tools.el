@@ -128,7 +128,20 @@ user."
 
 ;; rainbow-identifiers
 ;; from spacemacs
+(defun tweak-rainbow-identifiers-color ()
+  (loop for i from 1 to 15 do
+	(let* ((lightness 55)
+               (saturation 40)
+               (angle (* 2 pi (/ i 15.0)))
+               (a (* saturation (cos angle)))
+               (b (* saturation (sin angle))))
+          (set-face-attribute
+           (intern (format "rainbow-identifiers-identifier-%s" i))
+           nil
+           :foreground (apply 'color-rgb-to-hex
+                              (color-lab-to-srgb lightness a b))))))
 (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
+(add-hook 'rainbow-identifiers-mode-hook 'tweak-rainbow-identifiers-color)
 
 ;; sr-speedbar
 (setq speedbar-show-unknown-files t
@@ -180,6 +193,7 @@ user."
                                       (company-dabbrev-code company-keywords) company-dabbrev))
 (define-key company-active-map (kbd "\C-n") 'company-select-next)
 (define-key company-active-map (kbd "\C-p") 'company-select-previous)
+(global-set-key (kbd "C-c y") 'company-yasnippet)
 
 ;; lsp
 (require 'lsp-imenu)
@@ -194,7 +208,6 @@ user."
                 lsp-ui-sideline-enable nil
                 lsp-ui-imenu-enable nil
                 lsp-ui-flycheck-enable t)
-            ;; (lsp-enable-imenu)
             (lsp-ui-mode)
             (push 'company-lsp company-backends)))
 
@@ -205,7 +218,6 @@ user."
 ;; multi term
 (global-set-key (kbd "C-c m t") 'multi-term)
 
-;; stolen https://github.com/daimrod/Emacs-config/blob/master/config/config-multi-term.el
 (add-hook 'term-mode-hook
           (lambda ()
             (copy-face 'default 'term-face)
@@ -216,35 +228,8 @@ user."
             ;; awesome bindings available!
             (compilation-shell-minor-mode t)))
 
-(cl-flet ((set-color (pair)
-                     (multiple-value-bind (face color)
-                         pair
-                       (set-face-attribute face nil
-                                           :foreground color
-                                           :background nil))))
-  (mapc #'set-color
-        '((term-color-black "#2e3434")
-          (term-color-red "tomato")
-          (term-color-green "#6ac214")
-          (term-color-yellow "#edd400")
-          (term-color-blue "light sky blue")
-          (term-color-magenta "magenta")
-          (term-color-cyan "cyan")
-          (term-color-white "#eeeeec"))))
-
-(setq-default ansi-term-color-vector
-              [term-face
-               term-color-black
-               term-color-red
-               term-color-green
-               term-color-yellow
-               term-color-blue
-               term-color-magenta
-               term-color-cyan
-               term-color-white])
-
 ;; editorconfig
-(editorconfig-mode 1)
+(add-hook 'prog-mode-hook 'editorconfig-mode)
 
 ;; smooth scrolling
 (smooth-scrolling-mode 1)
