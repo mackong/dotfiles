@@ -32,12 +32,7 @@
   (install-el-get))
 
 (setq el-get-sources
-      '((:name evil-nerd-commenter
-               :type git
-               :url "git://github.com/redguardtoo/evil-nerd-commenter.git"
-               :features evil-nerd-commenter
-               :post-init (evilnc-default-hotkeys))
-        (:name dpaste
+      '((:name dpaste
                :description "Emacs mode to post to dpaste.com"
                :type github
                :pkgname "mackong/dpaste.el")

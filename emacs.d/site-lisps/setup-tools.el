@@ -37,11 +37,6 @@
 (setq bongo-default-directory (expand-file-name "~/Music")
       bongo-insert-whole-directory-trees t)
 
-;; evil-nerd-commenter
-;; the default key-binding M-; is used by paredit-mode
-(global-set-key (kbd "C-M-;") 'evilnc-comment-or-uncomment-lines)
-(global-set-key (kbd "C-M-'") 'evilnc-comment-or-uncomment-paragraphs)
-
 ;; highlight symbol
 (global-set-key [f8] 'highlight-symbol-at-point)
 (global-set-key [(control f8)] 'highlight-symbol-next)
@@ -171,6 +166,7 @@ user."
       helm-ff-file-name-history-use-recentf t)
 
 ;; projectile
+(setq projectile-keymap-prefix (kbd "C-c p"))
 (projectile-global-mode)
 (helm-projectile-on)
 (setq projectile-completion-system 'helm
@@ -191,12 +187,11 @@ user."
       company-echo-delay 0
       company-backends '(company-nxml company-css company-semantic company-cmake company-capf company-files
                                       (company-dabbrev-code company-keywords) company-dabbrev))
-(define-key company-active-map (kbd "\C-n") 'company-select-next)
-(define-key company-active-map (kbd "\C-p") 'company-select-previous)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
 (global-set-key (kbd "C-c y") 'company-yasnippet)
 
 ;; lsp
-(require 'lsp-imenu)
 (add-hook 'lsp-after-open-hook
           (lambda ()
           (setq lsp-enable-completion-at-point t
