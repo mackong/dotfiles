@@ -1,5 +1,5 @@
 [user]
-	name = mackong
+    name = mackong
     email = mackonghp@gmail.com
 [credential]
     helper = cache --timeout=3600
@@ -14,5 +14,3 @@
     show-patch = format-patch -1 --stdout
     current = rev-parse --abbrev-ref HEAD
     ru = !git pull origin $(git current)
-
-    fzfrebase = !HASH=`git log --pretty=oneline | head -n 100 | fzf` && git rebase -i `echo ${HASH} | awk '{print $1}'`^
