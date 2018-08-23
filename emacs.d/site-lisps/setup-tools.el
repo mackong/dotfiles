@@ -192,6 +192,7 @@ user."
 (global-set-key (kbd "C-c y") 'company-yasnippet)
 
 ;; lsp
+(require 'lsp-imenu)
 (add-hook 'lsp-after-open-hook
           (lambda ()
           (setq lsp-enable-completion-at-point t
@@ -203,8 +204,10 @@ user."
                 lsp-ui-sideline-enable nil
                 lsp-ui-imenu-enable nil
                 lsp-ui-flycheck-enable t)
-            (lsp-ui-mode)
-            (push 'company-lsp company-backends)))
+          (lsp-enable-imenu)
+          (lsp-ui-mode)
+          (push 'company-lsp company-backends)))
+(setq imenu-max-item-length 'Unlimited)
 
 ;; multi scratch
 (require 'multi-scratch)
@@ -257,9 +260,9 @@ user."
 (setq imaxima-fnt-size "Large")
 
 ;; helm-dash
-(global-set-key (kbd "C-c M-h a") 'helm-dash-activate-docset)
-(global-set-key (kbd "C-c M-h d") 'helm-dash)
-(global-set-key (kbd "C-c M-h h") 'helm-dash-at-point)
+(global-set-key (kbd "C-c d a") 'helm-dash-activate-docset)
+(global-set-key (kbd "C-c d d") 'helm-dash)
+(global-set-key (kbd "C-c d h") 'helm-dash-at-point)
 
 ;; flycheck
 (add-hook 'prog-mode-hook 'flycheck-mode)
