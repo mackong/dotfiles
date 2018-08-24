@@ -54,13 +54,15 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(let ((han-font-family "KaiTi")
+(let ((frame-font "Fira Code-16:weight=normal")
+      (han-font-family "KaiTi")
       (han-font-size 20))
   (if (string= system-type "darwin")
       (progn
+        (setq frame-font "Fira Code-16:weight=light")
         (setq han-font-family "Kaiti SC")
         (setq han-font-size 18)))
-  (set-frame-font "Fira Code-16:weight=light")
+  (set-frame-font frame-font)
   (set-fontset-font t 'han (font-spec :family han-font-family :size han-font-size)))
 
 (fset 'yes-or-no-p 'y-or-n-p)
