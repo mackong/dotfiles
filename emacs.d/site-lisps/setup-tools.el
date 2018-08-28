@@ -20,7 +20,7 @@
 (load-theme 'monokai t)
 
 ;; linum-mode
-(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; undo-tree
 (global-undo-tree-mode)
@@ -179,7 +179,9 @@ user."
                                                       projectile-globally-ignored-directories))
 
 ;; company
-(global-company-mode t)
+(dolist (hook '(prog-mode-hook
+                org-mode-hook))
+  (add-hook hook 'company-mode))
 (setq company-minimum-prefix-length 1
       company-tooltip-align-annotations t
       company-show-numbers t
