@@ -31,13 +31,12 @@ export VIRTUALENVWRAPPER_PYTHON=python3
 export WORKON_HOME=$HOME/.virtualenvs
 
 # JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/java
+export JAVA_HOME=/usr/lib64/jvm/default
 
 # Additional PATH
 for p in "${go_path_arr[@]}"; do
     pathmunge "$p/bin" after
 done
-pathmunge /opt/gradle/bin after
 export PATH
 
 # Ibus
