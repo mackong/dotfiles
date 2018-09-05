@@ -59,7 +59,7 @@
       (han-font-size 20))
   (if (string= system-type "darwin")
       (progn
-        (setq frame-font "Fira Code-16:weight=light")
+        (setq frame-font "SF Mono-16")
         (setq han-font-family "Kaiti SC")
         (setq han-font-size 18)))
   (set-frame-font frame-font)
