@@ -164,6 +164,7 @@ user."
       helm-move-to-line-cycle-in-source t
       helm-ff-search-library-in-sexp t
       helm-ff-file-name-history-use-recentf t)
+(setq helm-grep-ag-command "rg --color=always --smart-case --no-heading --line-number %s %s %s")
 
 ;; projectile
 (setq projectile-keymap-prefix (kbd "C-c p"))

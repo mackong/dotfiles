@@ -15,7 +15,8 @@
 
 (defun setup-js3-mode ()
   "Setup the js3 mode."
-  (linum-mode)
+  (display-line-numbers-mode)
+  (rainbow-identifiers-mode)
   (tern-mode)
 
   (setq js3-auto-indent-p t
