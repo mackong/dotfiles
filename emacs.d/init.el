@@ -54,7 +54,7 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(let ((frame-font "Fira Code-16:weight=normal")
+(let ((frame-font "SF Mono-16")
       (han-font-family "KaiTi")
       (han-font-size 20))
   (if (string= system-type "darwin")

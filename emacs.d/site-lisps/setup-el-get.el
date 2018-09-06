@@ -116,14 +116,12 @@
          paredit
          multi-scratch
          smooth-scrolling
-         ag
          editorconfig
          dired-plus
          monokai-theme
          ob-ipython
 
          helm-dash
-         helm-ag
          helm-projectile
 
          gnuplot-mode
