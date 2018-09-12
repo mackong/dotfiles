@@ -44,7 +44,8 @@
    nil
    '((font-lock-if0 (0 font-lock-comment-face prepend))) 'add-to-end)
 
-  (lsp-cquery-enable)
+  (if (not (string-equal major-mode "glsl-mode"))
+      (lsp-cquery-enable))
 
   (hs-minor-mode 1)
   (add-to-list 'hs-special-modes-alist

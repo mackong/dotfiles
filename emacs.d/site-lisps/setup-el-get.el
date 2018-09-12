@@ -147,7 +147,9 @@
          slime-company
 
          sphinx-doc
-         pyvenv)
+         pyvenv
+
+         glsl-mode)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-el-get-packages)
