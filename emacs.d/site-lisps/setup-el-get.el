@@ -110,7 +110,6 @@
          expand-region
          multiple-cursors
          sr-speedbar
-         highlight-symbol
          exec-path-from-shell
          magit
          paredit
@@ -126,7 +125,6 @@
 
          gnuplot-mode
          graphviz-dot-mode
-         adoc-mode
          markdown-mode
          json-mode
 
