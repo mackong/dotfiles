@@ -62,7 +62,7 @@
       (progn
         (setq frame-font "SF Mono-16")
         (setq han-font-family "Kaiti SC")
-        (setq han-font-size 18)))
+        (setq han-font-size 20)))
   (set-frame-font frame-font)
   (set-fontset-font t 'han (font-spec :family han-font-family :size han-font-size)))
 
@@ -85,6 +85,7 @@
 (setq x-gtk-use-system-tooltips nil)
 
 (setq browse-url-browser-function 'eww-browse-url)
+(setq shr-use-fonts nil)
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
 (require 'setup-el-get)
