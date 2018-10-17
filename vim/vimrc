@@ -156,8 +156,9 @@ Plugin 'gmarik/Vundle.vim'
 "}}}
 
 "{{{
-Plugin 'crusoexia/vim-monokai'
-colorscheme monokai
+Plugin 'morhetz/gruvbox'
+set background=dark
+colorscheme gruvbox
 "}}}
 
 "{{{ctrlp

@@ -29,7 +29,8 @@
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
-(setq-default cursor-type 'box)
+(setq-default cursor-type 'hbar)
+(setq default-text-properties '(line-spacing 0.25 line-height 1.25))
 
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
@@ -61,7 +62,7 @@
       (han-font-size 20))
   (if (string= system-type "darwin")
       (progn
-        (setq frame-font "SF Mono-16")
+        (setq frame-font "SF Mono-16:weight=light")
         (setq han-font-family "Kaiti SC")
         (setq han-font-size 20)))
   (set-frame-font frame-font)
