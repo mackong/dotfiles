@@ -93,6 +93,10 @@
                :description "Java support for lsp-mode using the Eclipse JDT Language Server."
                :type github
                :pkgname "emacs-lsp/lsp-java")
+        (:name helm-rg
+               :description "ripgrep is nice"
+               :type github
+               :pkgname "cosmicexplorer/helm-rg")
         ))
 
 (setq my-el-get-packages
