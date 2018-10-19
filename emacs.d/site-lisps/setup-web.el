@@ -13,27 +13,10 @@
 
 ;;; Code:
 
-(defun setup-js3-mode ()
-  "Setup the js3 mode."
-  (display-line-numbers-mode)
-  (rainbow-identifiers-mode)
-  (tern-mode)
+(require 'lsp-typescript)
 
-  (setq js3-auto-indent-p t
-        js3-curly-indent-offset 0
-        js3-enter-indents-newline t
-        js3-expr-indent-offset 2
-        js3-indent-on-enter-key t
-        js3-lazy-commas t
-        js3-lazy-dots t
-        js3-lazy-operators t
-        js3-paren-indent-offset 2
-        js3-square-indent-offset 4)
-
-  (eval-after-load 'company
-    '(add-to-list 'company-backends 'company-tern)))
-
-(add-hook 'js3-mode-hook 'setup-js3-mode)
+(add-hook 'js-mode-hook #'js2-minor-mode)
+(add-hook 'js-mode-hook #'lsp-typescript-enable)
 
 ;; web-mode
 (defun setup-web-mode ()

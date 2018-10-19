@@ -25,11 +25,7 @@
         lsp-java-workspace-cache-dir (expand-file-name "~/.jdt-workspace/.cache/")
         lsp-java-server-install-dir "/opt/jdt"
         lsp-java-import-maven-enabled nil)
-  (lsp-java-enable)
-
-  (local-set-key (kbd "C-.") 'xref-find-definitions)
-  (local-set-key (kbd "C-,") 'xref-pop-marker-stack)
-  (local-set-key (kbd "C-c C-j") 'helm-imenu))
+  (lsp-java-enable))
 
 (add-hook 'java-mode-hook 'setup-java-mode)
 (global-set-key (kbd "C-c j w f") 'set-java-workspace-folder)

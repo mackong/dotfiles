@@ -23,10 +23,7 @@
   (lsp-python-enable)
   (sphinx-doc-mode t)
   (define-key python-mode-map (kbd "C-c C-c")
-    (lambda () (interactive) (python-shell-send-buffer t)))
-  (local-set-key (kbd "C-.") 'xref-find-definitions)
-  (local-set-key (kbd "C-,") 'xref-pop-marker-stack)
-  (local-set-key (kbd "C-c C-j") 'helm-imenu))
+    (lambda () (interactive) (python-shell-send-buffer t))))
 
 (add-hook 'python-mode-hook 'setup-python-mode)
 

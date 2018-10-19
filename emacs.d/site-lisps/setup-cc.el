@@ -52,10 +52,6 @@
                '(c-mode "[\n\t ]*{" "}" "/[*/]" nil nil))
   (local-set-key (kbd "M-+") 'hs-toggle-hiding)
 
-  (local-set-key (kbd "C-.") 'xref-find-definitions)
-  (local-set-key (kbd "C-,") 'xref-pop-marker-stack)
-  (local-set-key (kbd "C-c C-j") 'helm-imenu)
-
   (local-set-key (kbd "C-x C-o") 'ff-find-other-file)
   (c-toggle-hungry-state 1)
   (c-set-offset 'cpp-define-intro 2)

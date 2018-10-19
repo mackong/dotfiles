@@ -93,6 +93,11 @@
                :description "Java support for lsp-mode using the Eclipse JDT Language Server."
                :type github
                :pkgname "emacs-lsp/lsp-java")
+        (:name lsp-javascript
+               :description "Javascript&Typescript support for lsp-mode"
+               :type github
+               :pkgname "emacs-lsp/lsp-javascript"
+               :depends (typescript-mode))
         (:name helm-rg
                :description "ripgrep is nice"
                :type github
@@ -136,12 +141,10 @@
 
          company-auctex
 
-         js3-mode
-         nodejs-repl
          web-mode
-         jinja2-mode
          emmet-mode
-         company-tern
+         indium
+         js2-refactor
 
          go-eldoc
          go-company

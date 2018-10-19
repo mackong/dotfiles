@@ -197,18 +197,21 @@ user."
 (require 'lsp-imenu)
 (add-hook 'lsp-after-open-hook
           (lambda ()
-          (setq lsp-enable-completion-at-point t
-                lsp-hover-text-function 'lsp--text-document-signature-help
-                lsp-enable-eldoc t
-                lsp-inhibit-message t
-                lsp-ui-doc-enable nil
-                lsp-ui-peek-enable nil
-                lsp-ui-sideline-enable nil
-                lsp-ui-imenu-enable nil
-                lsp-ui-flycheck-enable t)
-          (lsp-enable-imenu)
-          (lsp-ui-mode)
-          (push 'company-lsp company-backends)))
+            (setq lsp-enable-completion-at-point t
+                  lsp-hover-text-function 'lsp--text-document-signature-help
+                  lsp-enable-eldoc t
+                  lsp-inhibit-message t
+                  lsp-ui-doc-enable nil
+                  lsp-ui-peek-enable nil
+                  lsp-ui-sideline-enable nil
+                  lsp-ui-imenu-enable nil
+                  lsp-ui-flycheck-enable t)
+            (lsp-enable-imenu)
+            (lsp-ui-mode)
+            (push 'company-lsp company-backends)
+            (local-set-key (kbd "C-.") 'xref-find-definitions)
+            (local-set-key (kbd "C-,") 'xref-pop-marker-stack)
+            (local-set-key (kbd "C-c C-j") 'helm-imenu)))
 (setq imenu-max-item-length 'Unlimited)
 
 ;; multi scratch
