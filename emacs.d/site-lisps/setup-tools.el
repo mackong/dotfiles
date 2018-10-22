@@ -144,8 +144,6 @@ user."
       sr-speedbar-right-side nil
       sr-speedbar-auto-refresh nil)
 
-(global-set-key (kbd "C-c b t") 'sr-speedbar-toggle)
-
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
 
