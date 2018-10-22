@@ -35,7 +35,7 @@
       '((:name dpaste
                :description "Emacs mode to post to dpaste.com"
                :type github
-               :pkgname "mackong/dpaste.el")
+               :pkgname "gregnewman/dpaste.el")
         (:name emacs-euler
                :description "Fetch project euler problem into file."
                :type github
