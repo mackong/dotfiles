@@ -15,8 +15,17 @@
 
 (require 'lsp-typescript)
 
-(add-hook 'js-mode-hook #'js2-minor-mode)
-(add-hook 'js-mode-hook #'lsp-typescript-enable)
+(defun js-company-transformer (candidates)
+  (let ((completion-ignore-case t))
+    (all-completions (company-grab-symbol) candidates)))
+
+(defun my-js-hook nil
+  (js2-minor-mode)
+  (lsp-typescript-enable)
+  (make-local-variable 'company-transformers)
+  (push 'js-company-transformer company-transformers))
+
+(add-hook 'js-mode-hook #'my-js-hook)
 
 ;; web-mode
 (defun setup-web-mode ()
@@ -48,8 +57,25 @@
 
 (add-hook 'json-mode-hook
           (lambda ()
+            (lsp-mode -1)
             (make-local-variable 'js-indent-level)
             (setq js-indent-level 2)))
+
+(defun create-indium-json ()
+  "Create a default .indium.json in current project root."
+  (interactive)
+  (with-current-buffer (find-file (concat (projectile-project-root) ".indium.json"))
+    (insert "{
+  \"configurations\": [
+    {
+      \"name\": \"\",
+      \"type\": \"\",
+      \"root\": \"\",
+      \"url\": \"\"
+    }
+  ]
+}")
+    (goto-char 46)))
 
 (provide 'setup-web)
 
