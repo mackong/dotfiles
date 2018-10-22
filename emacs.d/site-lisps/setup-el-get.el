@@ -128,6 +128,7 @@
          dired-plus
          monokai-theme
          ob-ipython
+         google-translate
 
          helm-dash
          helm-projectile

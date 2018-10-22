@@ -81,6 +81,15 @@
 (add-hook 'c-mode-hook 'setup-c-mode)
 (add-hook 'c++-mode-hook 'setup-c++-mode)
 
+(defun create-dot-cquery ()
+  "Create a default .cquery in current project root."
+  (interactive)
+  (with-current-buffer (find-file (concat (projectile-project-root) ".cquery"))
+    (insert "%clang
+%c -std=gnu11
+%cpp -std=gnu++14
+-pthread")))
+
 (provide 'setup-cc)
 
 ;; Local Variables:

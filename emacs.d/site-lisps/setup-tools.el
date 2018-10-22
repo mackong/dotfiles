@@ -25,13 +25,13 @@
 ;; undo-tree
 (global-undo-tree-mode)
 
-;; stardict
-(defun stardict-search-wordap (&optional word)
-  "Use python script dict to look up WORD under point."
-  (interactive)
-  (or word (setq word (current-word)))
-  (shell-command (format "sdcv -n %s" word)))
-(global-set-key (kbd "C-c s d") 'stardict-search-wordap)
+;; google-translate
+(setq google-translate-translation-directions-alist '(("en" . "zh-CN")))
+(global-set-key (kbd "C-c g t")
+                '(lambda ()
+                   (interactive)
+                   (google-translate-smooth-translate)
+                   (other-window 1)))
 
 ;; bongo
 (setq bongo-default-directory (expand-file-name "~/Music")
@@ -143,8 +143,6 @@ user."
       sr-speedbar-width 30
       sr-speedbar-right-side nil
       sr-speedbar-auto-refresh nil)
-
-(global-set-key (kbd "C-c b t") 'sr-speedbar-toggle)
 
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
