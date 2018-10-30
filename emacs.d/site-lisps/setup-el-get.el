@@ -50,10 +50,6 @@
                :pkgname "dbrock/bongo"
                :build (("makeinfo" "-o" "bongo.info" "bongo.texi"))
                :info "bongo.info")
-        (:name go-dlv
-               :description "Go Delve - Debug Go programs interactively with the GUD."
-               :type github
-               :pkgname "benma/go-dlv.el")
         (:name go-playground
                :description "GNU/Emacs mode that setup local Go playground for code snippets like play.golang.org or even better :)"
                :type github
@@ -98,6 +94,11 @@
                :type github
                :pkgname "emacs-lsp/lsp-javascript"
                :depends (typescript-mode))
+        (:name lsp-go
+               :description "Golang support for lsp-mode"
+               :type github
+               :pkgname "emacs-lsp/lsp-go"
+               :depends (go-mode))
         (:name helm-rg
                :description "ripgrep is nice"
                :type github
@@ -146,9 +147,6 @@
          emmet-mode
          indium
          js2-refactor
-
-         go-eldoc
-         go-company
 
          slime-company
 

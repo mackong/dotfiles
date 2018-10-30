@@ -12,25 +12,22 @@
 
 ;;; Code:
 
+(require 'lsp-go)
+
 (defun setup-go-mode ()
   "Setup for go mode."
   (setq gdb-many-windows t)
+  (setq tab-width 4)
 
   ;; use goimports for go-fmt
   (setq gofmt-command "goimports")
+  ;; use gogetdoc for doc
+  (setq godoc-at-point-function #'godoc-gogetdoc)
 
   ;; Call gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)
-  (add-hook 'go-mode-hook
-            (lambda ()
-              (setq tab-width 4)))
 
-  (go-eldoc-setup)
-
-  (add-to-list 'company-backends 'company-go)
-
-  ;; use gogetdoc for doc
-  (setq godoc-at-point-function #'godoc-gogetdoc)
+  (lsp-go-enable)
 
   (define-key go-mode-map (kbd "C-.") 'godef-jump)
   (define-key go-mode-map (kbd "C-,") 'pop-tag-mark)
@@ -38,8 +35,8 @@
   (define-key go-mode-map (kbd "C-c s p") 'go-set-project)
   (define-key go-mode-map (kbd "C-c C-k") 'godoc-at-point))
 
-(with-eval-after-load "go-mode"
-  (setup-go-mode))
+(add-hook 'go-mode-hook 'setup-go-mode)
+
 
 ;; go-playground
 (setq go-playground-basedir "~/Codes/go/playground"
