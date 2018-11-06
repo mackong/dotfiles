@@ -14,3 +14,19 @@
     show-patch = format-patch -1 --stdout
     current = rev-parse --abbrev-ref HEAD
     ru = !git pull origin $(git current)
+[core]
+    pager = "diff-so-fancy | less --tabs=4 -RFX"
+[color]
+    ui = true
+    [diff-highlight]
+        oldNormal = "red bold"
+        oldHighlight = "red bold 52"
+        newNormal = "green bold"
+        newHighlight = "green bold 22"
+    [diff]
+        meta = "yellow"
+        frag = "magenta bold"
+        commit = "yellow bold"
+        old = "red bold"
+        new = "green bold"
+        whitespace = "red reverse"
