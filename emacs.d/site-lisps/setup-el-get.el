@@ -130,6 +130,7 @@
          monokai-theme
          ob-ipython
          google-translate
+         plantuml-mode
 
          helm-dash
          helm-projectile
@@ -152,6 +153,7 @@
 
          sphinx-doc
          pyvenv
+         py-yapf
 
          glsl-mode)
        (mapcar 'el-get-source-name el-get-sources)))

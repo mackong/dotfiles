@@ -41,14 +41,12 @@
      (shell . t)
      (sql . t)))
   (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
+  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 
   (setq org-confirm-babel-evaluate nil)
   (setq org-babel-results-keyword "results")
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
-  (setq org-plantuml-jar-path (expand-file-name
-                               (if (string= system-type "darwin")
-                                   "~/Library/Plantuml/plantuml.jar"
-                                 "/opt/plantuml/plantuml.jar"))))
+  (setq org-plantuml-jar-path plantuml-jar-path))
 
 (defun setup-org-agenda ()
   "Setup org agenda."
