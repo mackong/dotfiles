@@ -14,21 +14,11 @@
 
 (require 'lsp-java)
 
-(defun set-java-workspace-folder (folder)
-  "Set FOLDER as jdt workspace folder."
-  (interactive (list (read-directory-name "workspace folder: " nil)))
-  (setq lsp-java--workspace-folders (list folder)))
-
-(defun setup-java-mode ()
-  "Setup for java mode."
-  (setq lsp-java-workspace-dir (expand-file-name "~/.jdt-workspace/")
-        lsp-java-workspace-cache-dir (expand-file-name "~/.jdt-workspace/.cache/")
-        lsp-java-server-install-dir "/opt/jdt"
-        lsp-java-import-maven-enabled nil)
-  (lsp-java-enable))
-
-(add-hook 'java-mode-hook 'setup-java-mode)
-(global-set-key (kbd "C-c j w f") 'set-java-workspace-folder)
+(setq lsp-java-workspace-dir (expand-file-name "~/.emacs.d/others/jdt/workspace")
+      lsp-java-workspace-cache-dir (expand-file-name "~/.emacs.d/others/jdt/workspace/.cache")
+      lsp-java-server-install-dir (expand-file-name "~/.emacs.d/others/jdt/server")
+      lsp-java-import-maven-enabled nil)
+(add-hook 'java-mode-hook 'lsp-java-enable)
 
 (provide 'setup-java)
 

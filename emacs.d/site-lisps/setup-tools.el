@@ -37,10 +37,8 @@
 (setq bongo-default-directory (expand-file-name "~/Music")
       bongo-insert-whole-directory-trees t)
 
-;; highlight symbol
-(global-set-key [f8] 'highlight-symbol-at-point)
-(global-set-key [(control f8)] 'highlight-symbol-next)
-(global-set-key [(shift f8)] 'highlight-symbol-prev)
+;; symbol overlay
+(global-set-key [f12] 'symbol-overlay-put)
 
 ;; irfc
 (setq irfc-directory "~/Documents/RFC/")
@@ -232,8 +230,11 @@ user."
 ;; editorconfig
 (add-hook 'prog-mode-hook 'editorconfig-mode)
 
-;; smooth scrolling
-(smooth-scrolling-mode 1)
+;; sublimity
+(require 'sublimity-scroll)
+(setq sublimity-scroll-weight 10
+      sublimity-scroll-drift-length 5)
+(sublimity-mode 1)
 
 ;; dired
 (add-hook 'dired-mode-hook

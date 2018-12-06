@@ -29,9 +29,6 @@
 
   (lsp-go-enable)
 
-  (define-key go-mode-map (kbd "C-.") 'godef-jump)
-  (define-key go-mode-map (kbd "C-,") 'pop-tag-mark)
-  (define-key go-mode-map (kbd "C-c C-j") 'helm-imenu)
   (define-key go-mode-map (kbd "C-c s p") 'go-set-project)
   (define-key go-mode-map (kbd "C-c C-k") 'godoc-at-point))
 

@@ -44,6 +44,10 @@
                :description "Helper functions to make angular2 development more easily."
                :type github
                :pkgname "mackong/emacs-angular2-helper")
+        (:name symbol-overlay
+               :description "Highlight symbols with keymap-enabled overlays"
+               :type github
+               :pkgname "wolray/symbol-overlay")
         (:name bongo
                :description "Play music with GNU Emacs"
                :type github
@@ -88,7 +92,8 @@
         (:name lsp-java
                :description "Java support for lsp-mode using the Eclipse JDT Language Server."
                :type github
-               :pkgname "emacs-lsp/lsp-java")
+               :pkgname "emacs-lsp/lsp-java"
+               :depends (ht))
         (:name lsp-javascript
                :description "Javascript&Typescript support for lsp-mode"
                :type github
@@ -124,17 +129,17 @@
          magit
          paredit
          multi-scratch
-         smooth-scrolling
+         sublimity
          editorconfig
          dired-plus
          monokai-theme
          ob-ipython
          google-translate
-         plantuml-mode
 
          helm-dash
          helm-projectile
 
+         plantuml-mode
          gnuplot-mode
          graphviz-dot-mode
          markdown-mode
