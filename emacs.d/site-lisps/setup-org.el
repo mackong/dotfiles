@@ -63,7 +63,8 @@
           ("MEETING" :foreground "forest green")
           ("PHONE" :foreground "forest green")))
 
-  (setq org-agenda-files '("~/MEGA/Orgs/agenda" "~/Documents/Orgs/agenda")))
+  (setq org-agenda-files '("~/MEGA/Orgs/agenda" "~/Documents/Orgs/agenda"))
+  (global-set-key (kbd "C-c o a") 'org-agenda))
 
 (defun setup-org-capture ()
   "Setup org capture."
@@ -72,12 +73,12 @@
         '(("t" "todo" entry (file "~/MEGA/Orgs/agenda/todo.org")
            "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
           ("n" "note" entry (file "~/MEGA/Orgs/notes/notes.org")
-           "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t))))
+           "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)))
+  (global-set-key (kbd "C-c o c") 'org-capture))
 
 (defun setup-org-mode ()
   "Setup org mode."
   (turn-on-org-cdlatex)
-  (org-bullets-mode 1)
   (setup-org-babel)
   (setq truncate-lines nil)
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"))

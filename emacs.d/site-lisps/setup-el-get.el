@@ -67,12 +67,7 @@
                :description "Fast input methods for LaTeX environments and math"
                :type github
                :pkgname "cdominik/cdlatex")
-        (:name org-bullets
-               :description "Show org-mode bullets as UTF-8 characters."
-               :type github
-               :pkgname "sabof/org-bullets"
-               :features org-bullets)
-	(:name lsp-mode
+        (:name lsp-mode
 	       :description "Emacs client/library for the Language Server Protocol"
 	       :type github
 	       :pkgname "emacs-lsp/lsp-mode")
