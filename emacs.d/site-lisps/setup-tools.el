@@ -119,23 +119,6 @@ user."
 ;; dpaste.el
 (setq dpaste-poster "mackong(mackonghp@gmail.com)")
 
-;; rainbow-identifiers
-;; from spacemacs
-(defun tweak-rainbow-identifiers-color ()
-  (loop for i from 1 to 15 do
-	(let* ((lightness 55)
-               (saturation 40)
-               (angle (* 2 pi (/ i 15.0)))
-               (a (* saturation (cos angle)))
-               (b (* saturation (sin angle))))
-          (set-face-attribute
-           (intern (format "rainbow-identifiers-identifier-%s" i))
-           nil
-           :foreground (apply 'color-rgb-to-hex
-                              (color-lab-to-srgb lightness a b))))))
-(add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
-(add-hook 'rainbow-identifiers-mode-hook 'tweak-rainbow-identifiers-color)
-
 ;; sr-speedbar
 (setq speedbar-show-unknown-files t
       sr-speedbar-width 30
