@@ -12,15 +12,13 @@
 
 ;;; Code:
 
-(require 'lsp-mode)
-
 (defun setup-python-mode ()
   "Setup for python mode."
-  (lsp-define-stdio-client lsp-python "python"
-                         #'projectile-project-root
-                         '("pyls"))
+  (require 'lsp-clients)
+  (condition-case nil
+      (lsp)
+    (error nil))
 
-  (lsp-python-enable)
   (sphinx-doc-mode t)
   (py-yapf-enable-on-save)
   (define-key python-mode-map (kbd "C-c C-c")

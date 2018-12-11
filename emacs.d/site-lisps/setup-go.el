@@ -12,8 +12,6 @@
 
 ;;; Code:
 
-(require 'lsp-go)
-
 (defun setup-go-mode ()
   "Setup for go mode."
   (setq gdb-many-windows t)
@@ -27,7 +25,10 @@
   ;; Call gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)
 
-  (lsp-go-enable)
+  (require 'lsp-clients)
+  (condition-case nil
+      (lsp)
+    (error nil))
 
   (define-key go-mode-map (kbd "C-c s p") 'go-set-project)
   (define-key go-mode-map (kbd "C-c C-k") 'godoc-at-point))

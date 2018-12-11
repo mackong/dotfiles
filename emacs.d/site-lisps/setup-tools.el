@@ -17,6 +17,8 @@
 (exec-path-from-shell-initialize)
 
 ;; Theme
+(setq monokai-doc-face-as-comment t)
+(setq monokai-background "#1E1E1E")
 (load-theme 'monokai t)
 
 ;; linum-mode
@@ -173,21 +175,17 @@ user."
 (global-set-key (kbd "C-c y") 'company-yasnippet)
 
 ;; lsp
-(require 'lsp-imenu)
-(add-hook 'lsp-after-open-hook
+(add-hook 'lsp-before-initialize-hook
           (lambda ()
-            (setq lsp-enable-completion-at-point t
-                  lsp-hover-text-function 'lsp--text-document-signature-help
-                  lsp-enable-eldoc t
-                  lsp-inhibit-message t
+            (setq lsp-keep-workspace-alive nil
+                  lsp-eldoc-render-all nil
+                  lsp-prefer-flymake nil
                   lsp-ui-doc-enable nil
                   lsp-ui-peek-enable nil
-                  lsp-ui-sideline-enable nil
                   lsp-ui-imenu-enable nil
-                  lsp-ui-flycheck-enable t)
-            (lsp-enable-imenu)
-            (lsp-ui-mode)
-            (push 'company-lsp company-backends)
+                  lsp-ui-sideline-show-code-actions nil
+                  lsp-ui-sideline-show-symbol nil
+                  lsp-ui-sideline-show-hover nil)
             (local-set-key (kbd "C-.") 'xref-find-definitions)
             (local-set-key (kbd "C-,") 'xref-pop-marker-stack)
             (local-set-key (kbd "C-c C-j") 'helm-imenu)))
@@ -250,9 +248,6 @@ user."
 (global-set-key (kbd "C-c d a") 'helm-dash-activate-docset)
 (global-set-key (kbd "C-c d d") 'helm-dash)
 (global-set-key (kbd "C-c d h") 'helm-dash-at-point)
-
-;; flycheck
-(add-hook 'prog-mode-hook 'flycheck-mode)
 
 (provide 'setup-tools)
 

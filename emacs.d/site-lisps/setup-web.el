@@ -13,15 +13,18 @@
 
 ;;; Code:
 
-(require 'lsp-typescript)
-
 (defun js-company-transformer (candidates)
   (let ((completion-ignore-case t))
     (all-completions (company-grab-symbol) candidates)))
 
 (defun my-js-hook nil
   (js2-minor-mode)
-  (lsp-typescript-enable)
+
+  (require 'lsp-clients)
+  (condition-case nil
+      (lsp)
+    (error nil))
+
   (make-local-variable 'company-transformers)
   (push 'js-company-transformer company-transformers))
 

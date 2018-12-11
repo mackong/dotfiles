@@ -100,7 +100,6 @@
 (require 'setup-org)
 (require 'setup-web)
 (require 'setup-go)
-(require 'setup-java)
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

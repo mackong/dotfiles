@@ -68,37 +68,28 @@
                :type github
                :pkgname "cdominik/cdlatex")
         (:name lsp-mode
-	       :description "Emacs client/library for the Language Server Protocol"
-	       :type github
-	       :pkgname "emacs-lsp/lsp-mode")
+               :description "Emacs client/library for the Language Server Protocol"
+               :type github
+               :pkgname "emacs-lsp/lsp-mode"
+               :depends (spinner))
         (:name lsp-ui
-	       :description "This contains all the higher level UI modules of lsp-mode"
-	       :type github
-	       :pkgname "emacs-lsp/lsp-ui"
+               :description "This contains all the higher level UI modules of lsp-mode"
+               :type github
+               :pkgname "emacs-lsp/lsp-ui"
                :depends (flycheck))
         (:name company-lsp
-	       :description "Company completion backend for lsp-mode"
-	       :type github
-	       :pkgname "tigersoldier/company-lsp")
-	(:name emacs-cquery
-	       :description "Emacs client for cquery, a low-latency language server supporting multi-million line C++ code-bases"
-	       :type github
-	       :pkgname "cquery-project/emacs-cquery")
+               :description "Company completion backend for lsp-mode"
+               :type github
+               :pkgname "tigersoldier/company-lsp")
+        (:name emacs-cquery
+               :description "Emacs client for cquery, a low-latency language server supporting multi-million line C++ code-bases"
+               :type github
+               :pkgname "cquery-project/emacs-cquery")
         (:name lsp-java
                :description "Java support for lsp-mode using the Eclipse JDT Language Server."
                :type github
                :pkgname "emacs-lsp/lsp-java"
                :depends (ht))
-        (:name lsp-javascript
-               :description "Javascript&Typescript support for lsp-mode"
-               :type github
-               :pkgname "emacs-lsp/lsp-javascript"
-               :depends (typescript-mode))
-        (:name lsp-go
-               :description "Golang support for lsp-mode"
-               :type github
-               :pkgname "emacs-lsp/lsp-go"
-               :depends (go-mode))
         (:name helm-rg
                :description "ripgrep is nice"
                :type github
@@ -115,6 +106,7 @@
          avy
          json-reformat
          restclient
+         rainbow-identifiers
          rainbow-delimiters
          expand-region
          multiple-cursors
@@ -138,6 +130,8 @@
          graphviz-dot-mode
          markdown-mode
          json-mode
+         typescript-mode
+         glsl-mode
 
          yasnippet-snippets
 
@@ -152,9 +146,7 @@
 
          sphinx-doc
          pyvenv
-         py-yapf
-
-         glsl-mode)
+         py-yapf)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-el-get-packages)
