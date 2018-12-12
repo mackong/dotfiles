@@ -18,6 +18,8 @@
     (all-completions (company-grab-symbol) candidates)))
 
 (defun my-js-hook nil
+  (setq js-indent-level 2)
+  
   (js2-minor-mode)
 
   (require 'lsp-clients)
@@ -63,22 +65,6 @@
             (lsp-mode -1)
             (make-local-variable 'js-indent-level)
             (setq js-indent-level 2)))
-
-(defun create-indium-json ()
-  "Create a default .indium.json in current project root."
-  (interactive)
-  (with-current-buffer (find-file (concat (projectile-project-root) ".indium.json"))
-    (insert "{
-  \"configurations\": [
-    {
-      \"name\": \"\",
-      \"type\": \"\",
-      \"root\": \"\",
-      \"url\": \"\"
-    }
-  ]
-}")
-    (goto-char 46)))
 
 (provide 'setup-web)
 

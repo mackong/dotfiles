@@ -130,7 +130,6 @@
          graphviz-dot-mode
          markdown-mode
          json-mode
-         typescript-mode
          glsl-mode
 
          yasnippet-snippets
@@ -139,8 +138,7 @@
 
          web-mode
          emmet-mode
-         indium
-         js2-refactor
+         js2-mode
 
          slime-company
 
