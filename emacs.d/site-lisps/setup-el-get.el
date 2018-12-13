@@ -115,6 +115,7 @@
          magit
          paredit
          multi-scratch
+         visual-regexp
          sublimity
          editorconfig
          dired-plus
