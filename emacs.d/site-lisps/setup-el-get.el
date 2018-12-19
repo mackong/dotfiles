@@ -132,6 +132,7 @@
          markdown-mode
          json-mode
          glsl-mode
+         protobuf-mode
 
          yasnippet-snippets
 
