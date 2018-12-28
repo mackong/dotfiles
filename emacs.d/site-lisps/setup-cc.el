@@ -23,7 +23,9 @@
         c-basic-offset 4)
   (c-set-offset 'arglist-close 0)
   (c-set-offset 'innamespace 0)
-  
+
+  (doxymacs-mode)
+  (doxymacs-font-lock)
   (hs-minor-mode 1)
   (add-to-list 'hs-special-modes-alist
                '(c-mode "[\n\t ]*{" "}" "/[*/]" nil nil))
@@ -73,7 +75,8 @@ The name of the project-relative directory used for this is given by cquery-cach
 (setq lsp-java-workspace-dir (expand-file-name "~/.emacs.d/others/jdt/workspace")
       lsp-java-workspace-cache-dir (expand-file-name "~/.emacs.d/others/jdt/workspace/.cache")
       lsp-java-server-install-dir (expand-file-name "~/.emacs.d/others/jdt/server")
-      lsp-java-import-maven-enabled nil)
+      lsp-java-import-maven-enabled t
+      lsp-java-import-gradle-enabled nil)
 (add-hook 'java-mode-hook 'setup-java-mode)
 
 (provide 'setup-cc)

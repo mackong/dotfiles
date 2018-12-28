@@ -132,6 +132,7 @@
          markdown-mode
          json-mode
          glsl-mode
+         doxymacs
 
          yasnippet-snippets
 
