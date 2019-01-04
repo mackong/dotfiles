@@ -91,8 +91,16 @@
  '(nxml-child-indent 4)
  '(nxml-outline-child-indent 4)
  '(nxml-slash-auto-complete-flag t))
+(add-to-list 'hs-special-modes-alist
+             '(nxml-mode
+               "<!--\\|<[^/>]*[^/]>"
+               "-->\\|</[^/>]*[^/]>"
+               "<!--"
+               sgml-skip-tag-forward
+               nil))
 (add-hook 'nxml-mode-hook
           (lambda ()
+            (hs-minor-mode)
             (setq indent-tabs-mode nil)))
 
 ;; gnuplot
