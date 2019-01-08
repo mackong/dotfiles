@@ -10,85 +10,85 @@ if v:progname =~? "evim"
 endif
 
 " Making VIM behavier in a more useful way
-set nocompatible 
+set nocompatible
 
 " Map Leader Setting
-let mapleader="," 
+let mapleader=","
 
 set backspace=indent,eol,start
 
 " no backup file
-set nobackup 
+set nobackup
 set nowritebackup
 
 " no swap file for buffer
-set noswapfile            
+set noswapfile
 
 " maximum width of text that is being inserted
 set textwidth=120
 
 " keep 50 lines of command line history
-set history=50            
+set history=50
 
 " show line number always
-set number                
+set number
 
 " display command in the last  line of the screen
-set showcmd               
+set showcmd
 
 " do incremental searching
-set incsearch             
+set incsearch
 
 " highlight search results
-set hlsearch              
+set hlsearch
 
 " ignore case when input search pattern
-set ignorecase            
+set ignorecase
 
 " smart case
-set smartcase             
+set smartcase
 
 " always show page labels
-set showtabline=2         
+set showtabline=2
 
 " briefly jump to the matching bracket
-set showmatch             
+set showmatch
 
 " Number of screen lines for command-line
-set cmdheight=3           
+set cmdheight=1
 
 " always show status line
-set laststatus=2          
+set laststatus=2
 
 " number of spaces for each step of (auto)indent
-set shiftwidth=4          
+set shiftwidth=4
 
 " number of spaces that a <Tab> in the file counts for
-set tabstop=4             
+set tabstop=4
 
 " number of spaces that a <Tab> counts for while performing editing operations
-set softtabstop=4         
+set softtabstop=4
 
 " use appropriate number of spaces to insert a <Tab>
 set expandtab
 
 " a <Tab> in front of a line inserts blanks according to 'shitfwidth', 'tabstop', 'ssofttabstop' is used in other palces
-set smarttab              
+set smarttab
 
 " warp long lines
-set linebreak             
+set linebreak
 
 " lines longer than the width of the window will wrap
-set wrap                  
+set wrap
 
 " program to use for the :grep command
-set grepprg=grep\ -nH\ $* 
+set grepprg=grep\ -nH\ $*
 
 " auto indent
-set autoindent            
+set autoindent
 
 " smart indent
-set smartindent           
+set smartindent
 
 " c indent
 if has("cindent")
@@ -96,7 +96,7 @@ if has("cindent")
 endif
 
 " mmarkers are used to specify folds
-set foldmethod=marker     
+set foldmethod=marker
 
 " Error No Bell
 set noerrorbells
@@ -126,7 +126,7 @@ set wildmenu
 "{{{ Key Mappings
 
 "use Q for formatting
-noremap Q gq 
+noremap Q gq
 
 " ctags Config
 noremap <F3> :!ctags -R --c-kinds=+p --fields=+S .<CR><CR>
@@ -148,7 +148,7 @@ autocmd! bufwritepost .vimrc source ~/.vim/vimrc
 
 "{{{ Plugins
 
-"{{{vundle 
+"{{{vundle
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
@@ -201,9 +201,9 @@ noremap <silent><F4> :TagbarToggle<cr>
 " {{{ Special
 
 "enable filetype plugin
-filetype plugin indent on 
+filetype plugin indent on
 
 "enable syntax
-syntax enable on 
+syntax enable on
 
 " }}}

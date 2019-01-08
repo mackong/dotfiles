@@ -133,6 +133,7 @@
          json-mode
          glsl-mode
          protobuf-mode
+         doxymacs
 
          yasnippet-snippets
 
