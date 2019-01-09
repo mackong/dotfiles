@@ -219,12 +219,6 @@ user."
 ;; editorconfig
 (add-hook 'prog-mode-hook 'editorconfig-mode)
 
-;; sublimity
-(require 'sublimity-scroll)
-(setq sublimity-scroll-weight 10
-      sublimity-scroll-drift-length 5)
-(sublimity-mode 1)
-
 ;; dired
 (add-hook 'dired-mode-hook
           (lambda ()
