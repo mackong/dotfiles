@@ -13,7 +13,8 @@
 ;;; Code:
 
 ;; Shell Path
-(setq exec-path-from-shell-check-startup-files nil)
+(setq exec-path-from-shell-check-startup-files nil
+      exec-path-from-shell-variables '("PATH" "MANPATH" "WORKON_HOME" "JAVA_HOME" "GOPATH" "GOROOT"))
 (exec-path-from-shell-initialize)
 
 ;; Theme
