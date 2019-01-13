@@ -163,6 +163,7 @@ colorscheme molokai
 "{{{ctrlp
 Plugin 'ctrlp.vim'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|svn)$'
+noremap <silent> <leader>bt :CtrlPBufTag<cr>
 "}}}
 
 "{{{ag
