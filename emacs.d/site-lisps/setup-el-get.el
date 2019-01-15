@@ -89,7 +89,7 @@
                :description "Java support for lsp-mode using the Eclipse JDT Language Server."
                :type github
                :pkgname "emacs-lsp/lsp-java"
-               :depends (ht))
+               :depends (ht request))
         (:name helm-rg
                :description "ripgrep is nice"
                :type github
