@@ -252,6 +252,11 @@ user."
 (global-set-key (kbd "C-c d d") 'helm-dash)
 (global-set-key (kbd "C-c d h") 'helm-dash-at-point)
 
+;; whitespace mode
+(add-hook 'prog-mode-hook 'whitespace-mode)
+(add-hook 'before-save-hook 'whitespace-cleanup)
+(setq whitespace-style '(face tabs empty trailing lines-tail))
+
 (provide 'setup-tools)
 
 ;; Local Variables:
