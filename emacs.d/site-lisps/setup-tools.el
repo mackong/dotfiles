@@ -255,7 +255,7 @@ user."
 ;; whitespace mode
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'before-save-hook 'whitespace-cleanup)
-(setq whitespace-style '(face tabs empty trailing lines-tail))
+(setq whitespace-style '(face tabs empty trailing))
 
 (provide 'setup-tools)
 
