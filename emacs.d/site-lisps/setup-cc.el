@@ -23,8 +23,6 @@
         c-basic-offset 4)
   (c-set-offset 'arglist-close 0)
   (c-set-offset 'innamespace 0)
-  (c-set-offset 'statement-block-intro 0)
-  (c-set-offset 'block-close '-)
 
   (doxymacs-mode)
   (doxymacs-font-lock)
