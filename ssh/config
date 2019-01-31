@@ -3,3 +3,7 @@ ControlPath /tmp/%r@%h:%p
 ControlPersist yes
 Host *
     ServerAliveInterval 240
+Host github.com
+    IdentityFile ~/.ssh/id_github.com
+Host coding.net
+    IdentityFile ~/.ssh/id_coding.net

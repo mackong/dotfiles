@@ -117,8 +117,6 @@ set completeopt=menu
 " Use 256 colors
 set t_Co=256
 
-set termguicolors
-
 set wildmenu
 
 "}}}
