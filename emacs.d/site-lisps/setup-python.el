@@ -26,6 +26,8 @@
 
 (add-hook 'python-mode-hook 'setup-python-mode)
 
+(pyvenv-workon (car (seq-filter '(lambda (x) (equal "daily" (car (split-string x "-")))) (pyvenv-virtualenv-list))))
+
 (provide 'setup-python)
 
 ;; Local Variables:
