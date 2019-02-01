@@ -120,8 +120,8 @@ noremap <silent> <leader>ee :tabnew ~/.config/nvim/init.vim<cr>
 autocmd! bufwritepost .vimrc source ~/.config/nvim/init.vim
 
 " Leaderf
-noremap <silent> <leader>ff :LeaderfFunction!<cr>
-noremap <silent> <leader>tt :LeaderfTag<cr>
+noremap <silent> <leader>ff :LeaderfFunction<cr>
+noremap <silent> <leader>tt :LeaderfBufTag<cr>
 
 " NERDTree
 noremap <silent> <F5> :NERDTreeToggle<cr>
