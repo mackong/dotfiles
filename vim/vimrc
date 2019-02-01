@@ -2,6 +2,36 @@
 " desc vimrc settings
 " author kyc
 
+"{{{ Plugins
+
+"{{{vim-plug
+call plug#begin('~/.vim/plugged')
+"}}}
+
+"{{{
+Plug 'tomasr/molokai'
+"}}}
+
+"{{{ LeaderF
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+let g:Lf_ShortcutF = '<C-p>'
+let g:Lf_ShortcutB = '<A-n>'
+let g:Lf_WindowHeight = 0.30
+let g:Lf_WorkingDirectoryMode = 'Ac'
+"}}}
+
+"{{{ag
+Plug 'jremmen/vim-ripgrep'
+let g:rg_highlight=1
+"}}}
+
+"{{{NERD tree
+Plug 'scrooloose/nerdtree'
+"}}}
+
+call plug#end()
+"}}}
+
 "{{{ Generic Settings
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -114,20 +144,21 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 " Only menu for complete
 set completeopt=menu
 
-" Use 256 colors
-set t_Co=256
-
 set wildmenu
+
+"enable filetype plugin
+filetype plugin indent on
+
+"enable syntax
+syntax enable on
+
+set termguicolors 
+
+colorscheme molokai
 
 "}}}
 
 "{{{ Key Mappings
-
-"use Q for formatting
-noremap Q gq
-
-" ctags Config
-noremap <F3> :!ctags -R --c-kinds=+p --fields=+S .<CR><CR>
 
 " Tab Label's Key Map Settings
 noremap tc :tabnew<cr>
@@ -142,67 +173,11 @@ noremap <silent> <leader>ss :source ~/.vim/vimrc<cr>
 noremap <silent> <leader>ee :tabnew ~/.vim/vimrc<cr>
 autocmd! bufwritepost .vimrc source ~/.vim/vimrc
 
+" Leaderf
+noremap <silent> <leader>ff :LeaderfFunction!<cr>
+noremap <silent> <leader>tt :LeaderfTag<cr>
+
+" NERDTree
+noremap <silent> <F5> :NERDTreeToggle<cr>
+
 "}}}
-
-"{{{ Plugins
-
-"{{{vundle
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
-Plugin 'gmarik/Vundle.vim'
-"}}}
-
-"{{{
-Plugin 'tomasr/molokai'
-colorscheme molokai
-"}}}
-
-"{{{ctrlp
-Plugin 'ctrlp.vim'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|svn)$'
-noremap <silent> <leader>bt :CtrlPBufTag<cr>
-"}}}
-
-"{{{ag
-Plugin 'jremmen/vim-ripgrep'
-let g:rg_highlight=1
-"}}}
-
-"{{{NERD tree
-Plugin 'scrooloose/nerdtree'
-noremap <silent><F5> :NERDTreeToggle<cr>
-"}}}
-
-"{{{NERD-Commenter
-Plugin 'The-NERD-Commenter'
-"}}}
-
-"{{{Tabular
-Plugin 'Tabular'
-"if exists(":Tabularize")
-noremap <leader>= :Tabularize /=<CR>
-noremap <leader>: :Tabularize /:\zs<CR>
-noremap <leader>- :Tabularize /)<CR>
-"endif
-"}}}
-
-"{{{Tagbar
-Plugin 'Tagbar'
-let g:tagbar_ctags_bin = "/usr/bin/ctags"
-let g:tagbar_width     = 30
-noremap <silent><F4> :TagbarToggle<cr>
-"}}}
-
-"call vundle#end()
-"}}}
-
-" {{{ Special
-
-"enable filetype plugin
-filetype plugin indent on
-
-"enable syntax
-syntax enable on
-
-" }}}
