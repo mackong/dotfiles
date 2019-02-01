@@ -86,7 +86,6 @@ pathmunge () {
     esac
 }
 
-alias vim=nvim
 export EDITOR=vim
 
 # Golang
