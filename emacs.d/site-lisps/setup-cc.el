@@ -17,7 +17,6 @@
 
 (defun setup-c-mode-common ()
   "Setup for cc-mode-common-hook."
-  (c-set-style "linux")
   (c-toggle-hungry-state 1)
   (setq indent-tabs-mode nil
         c-basic-offset 4)
@@ -50,6 +49,8 @@ The name of the project-relative directory used for this is given by cquery-cach
   "Setup for c/c++ mode"
   (setup-c-mode-common)
 
+  (c-set-style "linux")
+
   (setq gdb-many-windows t)
   (setq gdb-use-separate-io-buffer t)
 
@@ -64,9 +65,25 @@ The name of the project-relative directory used for this is given by cquery-cach
 (add-hook 'c-mode-hook 'setup-c/c++-mode)
 (add-hook 'c++-mode-hook 'setup-c/c++-mode)
 
+(defun inside-java-lambda-p ()
+  "Returns true if point is the first statement inside of a lambda"
+  (save-excursion
+    (c-beginning-of-statement-1)
+    (let ((start (point)))
+      (forward-line -1)
+      (if (search-forward " -> {" start t) t nil))))
+
+(defun my/statement-block-intro (arg)
+  (if (and (c-at-statement-start-p) (inside-java-lambda-p))
+      0
+    '+))
+
 (defun setup-java-mode ()
   "Setup for java mode"
   (setup-c-mode-common)
+
+  (c-set-style "java")
+  (c-set-offset 'statement-block-intro 'my/statement-block-intro)
 
   (condition-case nil
       (lsp)
