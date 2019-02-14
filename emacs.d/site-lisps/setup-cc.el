@@ -47,9 +47,9 @@ The name of the project-relative directory used for this is given by cquery-cach
 
 (defun setup-c/c++-mode ()
   "Setup for c/c++ mode"
-  (setup-c-mode-common)
-
   (c-set-style "linux")
+
+  (setup-c-mode-common)
 
   (setq gdb-many-windows t)
   (setq gdb-use-separate-io-buffer t)
@@ -80,10 +80,10 @@ The name of the project-relative directory used for this is given by cquery-cach
 
 (defun setup-java-mode ()
   "Setup for java mode"
-  (setup-c-mode-common)
-
   (c-set-style "java")
   (c-set-offset 'statement-block-intro 'my/statement-block-intro)
+
+  (setup-c-mode-common)
 
   (condition-case nil
       (lsp)
