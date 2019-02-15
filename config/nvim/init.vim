@@ -121,7 +121,9 @@ autocmd! bufwritepost .vimrc source ~/.config/nvim/init.vim
 
 " Leaderf
 noremap <silent> <leader>ff :LeaderfFunction<cr>
+noremap <silent> <leader>FF :LeaderfFunctionAll<cr>
 noremap <silent> <leader>tt :LeaderfBufTag<cr>
+noremap <silent> <leader>TT :LeaderfTag<cr>
 
 " NERDTree
 noremap <silent> <F5> :NERDTreeToggle<cr>
