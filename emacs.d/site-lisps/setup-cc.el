@@ -65,7 +65,7 @@ The name of the project-relative directory used for this is given by cquery-cach
 (add-hook 'c-mode-hook 'setup-c/c++-mode)
 (add-hook 'c++-mode-hook 'setup-c/c++-mode)
 
-(defun inside-java-lambda-p ()
+(defun java-inside-lambda-p ()
   "Returns true if point is the first statement inside of a lambda"
   (save-excursion
     (c-beginning-of-statement-1)
@@ -73,8 +73,8 @@ The name of the project-relative directory used for this is given by cquery-cach
       (forward-line -1)
       (if (search-forward " -> {" start t) t nil))))
 
-(defun my/statement-block-intro (arg)
-  (if (and (c-at-statement-start-p) (inside-java-lambda-p))
+(defun java-statement-block-intro (arg)
+  (if (and (c-at-statement-start-p) (java-inside-lambda-p))
       0
     '+))
 
@@ -83,7 +83,7 @@ The name of the project-relative directory used for this is given by cquery-cach
   (setup-c-mode-common)
 
   (c-set-style "java")
-  (c-set-offset 'statement-block-intro 'my/statement-block-intro)
+  (c-set-offset 'statement-block-intro 'java-statement-block-intro)
 
   (condition-case nil
       (lsp)
