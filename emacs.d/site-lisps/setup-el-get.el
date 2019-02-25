@@ -67,16 +67,6 @@
                :description "Fast input methods for LaTeX environments and math"
                :type github
                :pkgname "cdominik/cdlatex")
-        (:name lsp-mode
-               :description "Emacs client/library for the Language Server Protocol"
-               :type github
-               :pkgname "emacs-lsp/lsp-mode"
-               :depends (spinner))
-        (:name lsp-ui
-               :description "This contains all the higher level UI modules of lsp-mode"
-               :type github
-               :pkgname "emacs-lsp/lsp-ui"
-               :depends (flycheck))
         (:name company-lsp
                :description "Company completion backend for lsp-mode"
                :type github
@@ -89,7 +79,7 @@
                :description "Java support for lsp-mode using the Eclipse JDT Language Server."
                :type github
                :pkgname "emacs-lsp/lsp-java"
-               :depends (ht request))
+               :depends (lsp-mode ht request))
         (:name helm-rg
                :description "ripgrep is nice"
                :type github
@@ -135,6 +125,8 @@
          doxymacs
 
          yasnippet-snippets
+         flycheck
+         lsp-ui
 
          company-auctex
 

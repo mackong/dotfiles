@@ -12,9 +12,6 @@
 
 ;;; Code:
 
-(require 'cquery)
-(require 'lsp-java)
-
 (defun setup-c-mode-common ()
   "Setup for cc-mode-common-hook."
   (c-toggle-hungry-state 1)
@@ -59,7 +56,10 @@ The name of the project-relative directory used for this is given by cquery-cach
   (setq cquery-cache-dir-function #'my-cquery-cache-dir-in-project)
   (if (not (string-equal major-mode "glsl-mode"))
       (condition-case nil
-          (lsp)
+          (progn
+            (require 'cquery)
+
+            (lsp))
         (error nil))))
 
 (add-hook 'c-mode-hook 'setup-c/c++-mode)
@@ -98,7 +98,10 @@ The name of the project-relative directory used for this is given by cquery-cach
   (setup-c-mode-common)
 
   (condition-case nil
-      (lsp)
+      (progn
+        (require 'lsp-java)
+
+        (lsp))
     (error nil)))
 
 (setq lsp-java-workspace-dir (expand-file-name "~/.emacs.d/others/jdt/workspace")
