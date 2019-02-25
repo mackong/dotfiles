@@ -73,15 +73,27 @@ The name of the project-relative directory used for this is given by cquery-cach
       (forward-line -1)
       (if (search-forward " -> {" start t) t nil))))
 
+(defun java-end-of-lambda-p ()
+  (save-excursion
+    (move-beginning-of-line nil)
+    (let ((bound (line-end-position)))
+      (if (search-forward ");" bound t) t nil))))
+
 (defun java-statement-block-intro (arg)
   (if (and (c-at-statement-start-p) (java-inside-lambda-p))
       0
     '+))
 
+(defun java-block-close (arg)
+  (if (java-end-of-lambda-p)
+      '-
+    0))
+
 (defun setup-java-mode ()
   "Setup for java mode"
   (c-set-style "java")
   (c-set-offset 'statement-block-intro 'java-statement-block-intro)
+  (c-set-offset 'block-close 'java-block-close)
 
   (setup-c-mode-common)
 
