@@ -217,9 +217,6 @@ user."
             ;; awesome bindings available!
             (compilation-shell-minor-mode t)))
 
-;; editorconfig
-(add-hook 'prog-mode-hook 'editorconfig-mode)
-
 ;; dired
 (add-hook 'dired-mode-hook
           (lambda ()

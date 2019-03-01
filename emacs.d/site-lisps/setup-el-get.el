@@ -106,7 +106,6 @@
          paredit
          multi-scratch
          visual-regexp
-         editorconfig
          dired-plus
          monokai-theme
          ob-ipython
