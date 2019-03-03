@@ -18,9 +18,7 @@
 (exec-path-from-shell-initialize)
 
 ;; Theme
-(setq monokai-doc-face-as-comment t)
-(setq monokai-background "#1E1E1E")
-(load-theme 'monokai t)
+(load-theme 'jazz t)
 
 ;; linum-mode
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)

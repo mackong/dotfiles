@@ -96,7 +96,6 @@
          avy
          json-reformat
          restclient
-         rainbow-identifiers
          rainbow-delimiters
          expand-region
          multiple-cursors
@@ -107,7 +106,7 @@
          multi-scratch
          visual-regexp
          dired-plus
-         monokai-theme
+         jazz-theme
          ob-ipython
          google-translate
 
