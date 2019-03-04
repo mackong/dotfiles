@@ -84,6 +84,11 @@
                :description "ripgrep is nice"
                :type github
                :pkgname "cosmicexplorer/helm-rg")
+        (:name gruber-darker-theme
+               :description "A darker variant of the Gruber Dark theme for BBEdit"
+               :type http
+               :url "https://jblevins.org/git/misc.git/plain/gruber-darker-theme.el"
+               :prepare (add-to-list 'custom-theme-load-path default-directory))
         ))
 
 (setq my-el-get-packages
@@ -106,7 +111,6 @@
          multi-scratch
          visual-regexp
          dired-plus
-         jazz-theme
          ob-ipython
          google-translate
 

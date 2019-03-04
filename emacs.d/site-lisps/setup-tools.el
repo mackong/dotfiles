@@ -18,7 +18,7 @@
 (exec-path-from-shell-initialize)
 
 ;; Theme
-(load-theme 'jazz t)
+(load-theme 'gruber-darker t)
 
 ;; linum-mode
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
