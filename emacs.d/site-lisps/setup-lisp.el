@@ -42,7 +42,6 @@
               (autopair-mode)
               (paredit-mode)
               (eldoc-mode)
-              (rainbow-delimiters-mode)
 
               (setq indent-tabs-mode nil)
               (local-set-key (kbd "C-x C-e") 'pp-eval-last-sexp)

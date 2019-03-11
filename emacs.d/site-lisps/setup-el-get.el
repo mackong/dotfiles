@@ -101,7 +101,7 @@
          avy
          json-reformat
          restclient
-         rainbow-delimiters
+         highlight-parentheses
          expand-region
          multiple-cursors
          sr-speedbar
