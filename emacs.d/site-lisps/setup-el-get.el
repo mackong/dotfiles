@@ -84,6 +84,11 @@
                :description "ripgrep is nice"
                :type github
                :pkgname "cosmicexplorer/helm-rg")
+        (:name transient
+               :description "Transient commands"
+               :type github
+               :load-path ("lisp")
+               :pkgname "magit/transient")
         (:name gruber-darker-theme
                :description "A darker variant of the Gruber Dark theme for BBEdit"
                :type http
