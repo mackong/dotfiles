@@ -25,6 +25,10 @@ let g:rg_highlight=1
 Plug 'scrooloose/nerdtree'
 "}}}
 
+"{{{commentary
+Plug 'tpope/vim-commentary'
+"}}}
+
 call plug#end()
 "}}}
 
