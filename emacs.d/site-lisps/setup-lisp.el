@@ -39,7 +39,6 @@
                 scheme-mode-hook))
   (add-hook hook
             (lambda ()
-              (autopair-mode)
               (paredit-mode)
               (eldoc-mode)
 
