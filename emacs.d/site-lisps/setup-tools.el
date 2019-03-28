@@ -252,9 +252,6 @@ user."
 (add-hook 'before-save-hook 'whitespace-cleanup)
 (setq whitespace-style '(face tabs empty trailing))
 
-;; highlight-parent-mode
-(global-highlight-parentheses-mode)
-
 (provide 'setup-tools)
 
 ;; Local Variables:

@@ -32,18 +32,10 @@
   (install-el-get))
 
 (setq el-get-sources
-      '((:name dpaste
-               :description "Emacs mode to post to dpaste.com"
-               :type github
-               :pkgname "gregnewman/dpaste.el")
-        (:name emacs-euler
+      '((:name emacs-euler
                :description "Fetch project euler problem into file."
                :type github
                :pkgname "mackong/emacs-euler")
-        (:name emacs-angular2-helper
-               :description "Helper functions to make angular2 development more easily."
-               :type github
-               :pkgname "mackong/emacs-angular2-helper")
         (:name symbol-overlay
                :description "Highlight symbols with keymap-enabled overlays"
                :type github
@@ -102,11 +94,9 @@
          irfc
          window-number
          multi-term
-         autopair
          avy
          json-reformat
          restclient
-         highlight-parentheses
          expand-region
          multiple-cursors
          sr-speedbar
@@ -144,8 +134,7 @@
          slime-company
 
          sphinx-doc
-         pyvenv
-         py-yapf)
+         pyvenv)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-el-get-packages)
