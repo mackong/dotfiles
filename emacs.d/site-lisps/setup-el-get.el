@@ -108,6 +108,7 @@
          dired-plus
          ob-ipython
          google-translate
+         smart-mode-line
 
          helm-dash
          helm-projectile

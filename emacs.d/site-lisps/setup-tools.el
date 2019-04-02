@@ -20,6 +20,18 @@
 ;; Theme
 (load-theme 'gruber-darker t)
 
+;; smart-mode-line
+(setq rm-blacklist
+      (format "^ \\(%s\\)$"
+              (mapconcat #'identity
+                         '("Abbrev.*" "Fly.*" "Projectile.*" "Undo-Tree.*" "company.*"
+                           "Helm.*" "ElDoc.*" "ws.*" "doxy.*" "Paredit.*")
+                         "\\|")))
+(setq sml/shorten-directory t
+      sml/shorten-modes t
+      sml/no-confirm-load-theme t)
+(sml/setup)
+
 ;; linum-mode
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
