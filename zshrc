@@ -107,11 +107,6 @@ for p in "${go_path_arr[@]}"; do
 done
 export PATH
 
-# Ibus
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-
 if [ -n "$INSIDE_EMACS" ]; then
     chpwd() {
         print -P "\032/$(pwd)"

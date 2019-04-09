@@ -1,0 +1,6 @@
+export LC_CTYPE="zh_CN.UTF-8"
+
+export XMODIFIERS='@im=fcitx'
+export GTK_IM_MODULE=xim
+export GTK3_IM_MODULE=xim
+export QT_IM_MODULE=xim
