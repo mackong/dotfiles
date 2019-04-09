@@ -29,6 +29,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 "}}}
 
+"{{{surround
+Plug 'tpope/vim-surround'
+"}}}
+
 call plug#end()
 "}}}
 
