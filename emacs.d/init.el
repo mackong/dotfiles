@@ -58,14 +58,12 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(let ((frame-font "SF Mono-12")
+(let ((frame-font "Fira Code-13")
       (han-font-family "KaiTi")
       (han-font-size 20))
   (if (string= system-type "darwin")
       (progn
-        (setq frame-font "SF Mono-16:weight=light")
-        (setq han-font-family "Kaiti SC")
-        (setq han-font-size 20)))
+        (setq han-font-family "Kaiti SC")))
   (set-frame-font frame-font)
   (set-fontset-font t 'han (font-spec :family han-font-family :size han-font-size)))
 
@@ -89,6 +87,19 @@
 
 (setq browse-url-browser-function 'eww-browse-url)
 (setq shr-use-fonts nil)
+
+(defun read-lines (fp)
+  (with-temp-buffer
+    (insert-file-contents fp)
+    (split-string (buffer-string) "\n" t)))
+
+(setq lantern-settings-file (expand-file-name "~/.lantern/settings.yaml"))
+(if (file-exists-p lantern-settings-file)
+    (let* ((settings (read-lines lantern-settings-file))
+           (addr (car settings))
+           (proxy (car (cdr (split-string addr " " t)))))
+      (setq url-proxy-services (list (cons "http" proxy)
+                                     (cons "https" proxy)))))
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
 (require 'setup-el-get)
