@@ -88,6 +88,10 @@
 (setq browse-url-browser-function 'eww-browse-url)
 (setq shr-use-fonts nil)
 
+(require 'dired-x)
+(setq-default dired-omit-files-p t)
+(setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+
 (defun read-lines (fp)
   (with-temp-buffer
     (insert-file-contents fp)
