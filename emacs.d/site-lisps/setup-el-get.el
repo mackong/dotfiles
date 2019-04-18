@@ -98,6 +98,7 @@
          json-reformat
          restclient
          expand-region
+         change-inner
          multiple-cursors
          sr-speedbar
          exec-path-from-shell

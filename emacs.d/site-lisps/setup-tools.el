@@ -149,6 +149,12 @@ user."
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; change-inner
+(global-unset-key (kbd "M-i"))
+(global-set-key (kbd "M-i") 'change-inner)
+(global-unset-key (kbd "M-o"))
+(global-set-key (kbd "M-o") 'change-outer)
+
 ;; magit
 (global-set-key (kbd "C-c m s") 'magit-status)
 
