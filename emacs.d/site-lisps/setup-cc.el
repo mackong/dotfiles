@@ -101,6 +101,9 @@ The name of the project-relative directory used for this is given by cquery-cach
       (progn
         (require 'lsp-java)
 
+        (setq lsp-java-format-on-type-enabled nil
+              lsp-java-format-enabled nil
+              lsp-java-signature-help-enabled t)
         (lsp))
     (error nil)))
 
