@@ -84,7 +84,9 @@
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"))
   (setq org-latex-listings t)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
-  (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t))
+  (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
+
+  (local-set-key (kbd "C-c C-j") 'helm-imenu))
 
 (setup-org-agenda)
 (setup-org-capture)
