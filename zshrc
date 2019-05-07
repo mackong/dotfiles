@@ -90,6 +90,7 @@ export EDITOR=vim
 
 # Golang
 export GOROOT=/usr/lib/go
+export GO111MODULE=on
 go_path_arr=("/opt/go-tools" "$HOME/Codes/go")
 go_path=$(printf ":%s" "${go_path_arr[@]}")
 export GOPATH=${go_path:1}
