@@ -83,6 +83,7 @@
   (setq truncate-lines nil)
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"))
   (setq org-latex-listings t)
+  (setq org-src-preserve-indentation t)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
   (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)")
   (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
