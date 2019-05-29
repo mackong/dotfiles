@@ -20,8 +20,11 @@ pathmunge () {
     esac
 }
 
+export EDITOR=vim
+
 # Golang
 export GOROOT=/usr/lib/go
+export GO111MODULE=on
 go_path_arr=("/opt/go-tools" "$HOME/Codes/go")
 go_path=$(printf ":%s" "${go_path_arr[@]}")
 export GOPATH=${go_path:1}
@@ -39,15 +42,17 @@ for p in "${go_path_arr[@]}"; do
 done
 export PATH
 
-# Ibus
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+# Auto change directory in emacs
+if [ -n "$INSIDE_EMACS" ]; then
+    chpwd() {
+        print -P "\032/$(pwd)"
+    }
+fi
 
 # Custom aliases
 
 # Path to the bash it configuration
-export BASH_IT="/home/kyc/.bash_it"
+export BASH_IT="$HOME/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
@@ -64,7 +69,7 @@ unset MAILCHECK
 export TODO="t"
 
 # Set this to false to turn off version control status checking within the prompt for all themes
-export SCM_CHECK=true
+export SCM_CHECK=false
 
 # Set Xterm/screen/Tmux title with only a short hostname.
 # Uncomment this (or set SHORT_HOSTNAME to something else),
