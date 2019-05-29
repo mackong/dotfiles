@@ -113,3 +113,6 @@ if [ -n "$INSIDE_EMACS" ]; then
         print -P "\032/$(pwd)"
     }
 fi
+
+# Keybindings
+bindkey '\e#' pound-insert
