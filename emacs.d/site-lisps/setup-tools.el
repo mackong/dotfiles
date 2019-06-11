@@ -18,7 +18,8 @@
 (exec-path-from-shell-initialize)
 
 ;; Theme
-(load-theme 'gruber-darker t)
+(setq base16-distinct-fringe-background nil)
+(load-theme 'base16-apathy t)
 
 ;; smart-mode-line
 (setq rm-blacklist
@@ -29,7 +30,8 @@
                          "\\|")))
 (setq sml/shorten-directory t
       sml/shorten-modes t
-      sml/no-confirm-load-theme t)
+      sml/no-confirm-load-theme t
+      sml/theme 'dark)
 (sml/setup)
 
 ;; linum-mode

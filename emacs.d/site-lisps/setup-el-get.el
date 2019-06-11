@@ -81,11 +81,6 @@
                :type github
                :load-path ("lisp")
                :pkgname "magit/transient")
-        (:name gruber-darker-theme
-               :description "A darker variant of the Gruber Dark theme for BBEdit"
-               :type http
-               :url "https://jblevins.org/git/misc.git/plain/gruber-darker-theme.el"
-               :prepare (add-to-list 'custom-theme-load-path default-directory))
         ))
 
 (setq my-el-get-packages
@@ -110,6 +105,7 @@
          ob-ipython
          google-translate
          smart-mode-line
+         base16
 
          helm-dash
          helm-projectile
