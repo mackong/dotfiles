@@ -19,7 +19,7 @@
 
 ;; Theme
 (setq base16-distinct-fringe-background nil)
-(load-theme 'base16-apathy t)
+(load-theme 'base16-google-dark t)
 
 ;; smart-mode-line
 (setq rm-blacklist
