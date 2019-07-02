@@ -72,6 +72,10 @@
                :type github
                :pkgname "emacs-lsp/lsp-java"
                :depends (lsp-mode ht request))
+        (:name lsp-python-ms
+               :description "emacs lsp-mode client for Microsoft's python language server"
+               :type github
+               :pkgname "emacs-lsp/lsp-python-ms")
         (:name helm-rg
                :description "ripgrep is nice"
                :type github
