@@ -33,6 +33,10 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 "}}}
 
+"{{{
+Plug 'henrik/vim-indexed-search'
+"}}}
+
 call plug#end()
 "}}}
 
