@@ -19,7 +19,7 @@
 
 ;; Theme
 (setq base16-distinct-fringe-background nil)
-(load-theme 'base16-google-dark t)
+(load-theme 'base16-atelier-forest t)
 
 ;; smart-mode-line
 (setq rm-blacklist
@@ -182,6 +182,7 @@ user."
       projectile-known-projects-file "~/.emacs.d/el-get/projectile/projectile-bookmarks.eld"
       projectile-globally-ignored-directories (append '("bin" "pkg" "vendor"  ;; for golang workspaces
                                                         "target" ".settings"  ;; for maven project
+                                                        ".metals" ".bloop"    ;; for sbt project
                                                         ".cquery_cached_index" ;; for cquery cache
                                                         )
                                                       projectile-globally-ignored-directories))
