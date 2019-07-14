@@ -85,6 +85,11 @@
                :type github
                :load-path ("lisp")
                :pkgname "magit/transient")
+        (:name cyberpunk-theme
+               :description "Cyberpunk theme for emacs built-in color theme support"
+               :type github
+               :pkgname "n3mo/cyberpunk-theme.el"
+               :prepare (add-to-list 'custom-theme-load-path default-directory))
         ))
 
 (setq my-el-get-packages
@@ -109,7 +114,6 @@
          ob-ipython
          google-translate
          smart-mode-line
-         base16
 
          helm-dash
          helm-projectile

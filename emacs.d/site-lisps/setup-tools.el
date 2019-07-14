@@ -18,8 +18,7 @@
 (exec-path-from-shell-initialize)
 
 ;; Theme
-(setq base16-distinct-fringe-background nil)
-(load-theme 'base16-atelier-forest t)
+(load-theme 'cyberpunk t)
 
 ;; smart-mode-line
 (setq rm-blacklist
@@ -181,7 +180,7 @@ user."
       projectile-cache-file "~/.emacs.d/others/projectile/projectile.cache"
       projectile-known-projects-file "~/.emacs.d/el-get/projectile/projectile-bookmarks.eld"
       projectile-globally-ignored-directories (append '("bin" "pkg" "vendor"  ;; for golang workspaces
-                                                        "target" ".settings"  ;; for maven project
+                                                        "project" "target" ".settings"  ;; for maven project
                                                         ".metals" ".bloop"    ;; for sbt project
                                                         ".cquery_cached_index" ;; for cquery cache
                                                         )
