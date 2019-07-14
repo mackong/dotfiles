@@ -4,10 +4,6 @@
 call plug#begin('~/.config/nvim/plugged')
 "}}}
 
-"{{{
-Plug 'tomasr/molokai'
-"}}}
-
 "{{{ LeaderF
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 let g:Lf_ShortcutF = '<C-p>'
@@ -16,24 +12,24 @@ let g:Lf_WindowHeight = 0.30
 let g:Lf_WorkingDirectoryMode = 'Ac'
 "}}}
 
-"{{{ag
+"{{{ rg
 Plug 'jremmen/vim-ripgrep'
 let g:rg_highlight=1
 "}}}
 
-"{{{NERD tree
+"{{{ NERD tree
 Plug 'scrooloose/nerdtree'
 "}}}
 
-"{{{commentary
+"{{{ commentary
 Plug 'tpope/vim-commentary'
 "}}}
 
-"{{{surround
+"{{{ surround
 Plug 'tpope/vim-surround'
 "}}}
 
-"{{{
+"{{{ vim-indexed-search
 Plug 'henrik/vim-indexed-search'
 "}}}
 
@@ -64,17 +60,14 @@ set ignorecase
 " smart case
 set smartcase
 
-" always show page labels
-set showtabline=2
-
 " briefly jump to the matching bracket
 set showmatch
 
 " Number of screen lines for command-line
 set cmdheight=1
 
-" always show status line
-set laststatus=2
+" disable status line
+set laststatus=0
 
 " number of spaces for each step of (auto)indent
 set shiftwidth=4
@@ -105,16 +98,12 @@ endif
 " mmarkers are used to specify folds
 set foldmethod=marker
 
-set cursorline      "highlight the screen line of the cursor with CursorLine
-
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " Only menu for complete
 set completeopt=menu
 
-set termguicolors 
-
-colorscheme molokai
+set termguicolors
 
 "}}}
 
@@ -128,8 +117,7 @@ noremap tl :tabclose<cr>
 
 " .vimrc edit key map settings
 noremap <silent> <leader>ss :source ~/.config/nvim/init.vim<cr>
-noremap <silent> <leader>ee :tabnew ~/.config/nvim/init.vim<cr>
-autocmd! bufwritepost .vimrc source ~/.config/nvim/init.vim
+noremap <silent> <leader>ee :vs ~/.config/nvim/init.vim<cr>
 
 " Leaderf
 noremap <silent> <leader>ff :LeaderfFunction<cr>
