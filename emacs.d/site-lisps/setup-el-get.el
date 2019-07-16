@@ -90,6 +90,10 @@
                :type github
                :pkgname "n3mo/cyberpunk-theme.el"
                :prepare (add-to-list 'custom-theme-load-path default-directory))
+        (:name dash-docs
+               :description "A elisp library that exposes functionality to work with and search dash docsets."
+               :type github
+               :pkgname "dash-docs-el/dash-docs")
         ))
 
 (setq my-el-get-packages
