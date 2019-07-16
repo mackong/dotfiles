@@ -54,9 +54,12 @@
 ;; symbol overlay
 (global-set-key [f12] 'symbol-overlay-put)
 
-;; irfc
+;; rfc
 (setq irfc-directory "~/Documents/RFC/")
 (setq irfc-assoc-mode t)
+(setq rfc-mode-directory (expand-file-name "~/Documents/RFC/"))
+(require 'rfc-mode)
+(add-hook 'rfc-mode-hook '(lambda () (irfc-mode)))
 
 ;; avy
 (global-set-key (kbd "C-:") 'avy-goto-char)

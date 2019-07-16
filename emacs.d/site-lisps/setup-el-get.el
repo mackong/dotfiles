@@ -88,12 +88,16 @@
         (:name cyberpunk-theme
                :description "Cyberpunk theme for emacs built-in color theme support"
                :type github
-               :pkgname "n3mo/cyberpunk-theme.el"
+               :pkgname "mackong/cyberpunk-theme.el"
                :prepare (add-to-list 'custom-theme-load-path default-directory))
         (:name dash-docs
                :description "A elisp library that exposes functionality to work with and search dash docsets."
                :type github
                :pkgname "dash-docs-el/dash-docs")
+        (:name rfc-mode
+               :description "An Emacs major mode to read and browse RFC documents."
+               :type github
+               :pkgname "galdor/rfc-mode")
         ))
 
 (setq my-el-get-packages
