@@ -24,12 +24,14 @@
   (setq TeX-parse-self t)
   (setq TeX-auto-untabify t)
   (setq TeX-engine 'xetex)
-  (setq TeX-view-program-list '(("Zathura" "zathura %o")))
-  (setq TeX-view-program-selection '((output-pdf "Zathura")))
+  (setq  TeX-view-program-selection '((output-pdf "PDF Tools"))
+         TeX-source-correlate-start-server t)
   (setq TeX-global-PDF-mode t)
   (setq TeX-save-query nil)
   (local-set-key (kbd "TAB") 'TeX-complete-symbol))
 
+(add-hook 'TeX-after-compilation-finished-functions
+           #'TeX-revert-document-buffer)
 (add-hook 'latex-mode-hook 'setup-tex-mode)
 (add-hook 'LaTeX-mode-hook 'setup-tex-mode)
 

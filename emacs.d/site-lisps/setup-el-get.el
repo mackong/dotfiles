@@ -121,6 +121,7 @@
          dired-plus
          ob-ipython
          google-translate
+         pdf-tools
          smart-mode-line
 
          helm-dash

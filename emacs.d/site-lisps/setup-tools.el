@@ -275,6 +275,15 @@ user."
 (add-hook 'before-save-hook 'whitespace-cleanup)
 (setq whitespace-style '(face tabs empty trailing))
 
+;; pdf-tools
+(pdf-loader-install)
+(add-hook 'pdf-tools-enabled-hook '(lambda ()
+                                     (progn
+                                       (setq pdf-view-display-size 'fit-page
+                                             pdf-view-resize-factor 1.1)
+                                       (pdf-view-midnight-minor-mode 1)
+                                       (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))))
+
 (provide 'setup-tools)
 
 ;; Local Variables:
