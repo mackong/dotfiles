@@ -62,7 +62,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git z mvn
+  git z mvn sbt
 )
 
 source $ZSH/oh-my-zsh.sh
