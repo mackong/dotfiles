@@ -98,6 +98,16 @@
                :description "An Emacs major mode to read and browse RFC documents."
                :type github
                :pkgname "galdor/rfc-mode")
+        (:name emacs-zmq
+               :description "Emacs bindings to ØMQ"
+               :type github
+               :pkgname "dzop/emacs-zmq"
+               :build (("make")))
+        (:name emacs-jupyter
+               :description "An interface to communicate with Jupyter kernels."
+               :type github
+               :pkgname "dzop/emacs-jupyter"
+               :depends (simple-httpd websocket emacs-zmq))
         ))
 
 (setq my-el-get-packages
@@ -119,7 +129,6 @@
          multi-scratch
          visual-regexp
          dired-plus
-         ob-ipython
          google-translate
          pdf-tools
          smart-mode-line
@@ -156,9 +165,6 @@
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-el-get-packages)
-
-(if (not (package-installed-p 'cl-generic))
-    (package-install cl-generic))
 
 (provide 'setup-el-get)
 

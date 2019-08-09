@@ -12,8 +12,6 @@
 
 ;;; Code:
 
-(package-initialize)
-
 (setq frame-title-format
       '("emacs@" (:eval (system-name)) ": "
         (:eval (if (buffer-file-name)

@@ -34,7 +34,7 @@
      (makefile . t)
      (plantuml . t)
      (python . t)
-     (ipython . t)
+     (jupyter . t)
      (R . t)
      (ruby . t)
      (scheme . t)
@@ -44,7 +44,6 @@
   (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 
   (setq org-confirm-babel-evaluate nil)
-  (setq org-babel-results-keyword "results")
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
   (setq org-plantuml-jar-path plantuml-jar-path))
 
