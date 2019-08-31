@@ -91,9 +91,7 @@ export EDITOR=vim
 # Golang
 export GOROOT=/usr/lib/go
 export GO111MODULE=on
-go_path_arr=("/opt/go-tools" "$HOME/Codes/go")
-go_path=$(printf ":%s" "${go_path_arr[@]}")
-export GOPATH=${go_path:1}
+export GOPATH=$HOME/.go
 
 # Python virtualenv
 export VIRTUALENVWRAPPER_PYTHON=python3
@@ -103,9 +101,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export JAVA_HOME=/usr/lib64/jvm/default
 
 # Additional PATH
-for p in "${go_path_arr[@]}"; do
-    pathmunge "$p/bin" after
-done
+pathmunge $GOPATH/bin after
 export PATH
 
 if [ -n "$INSIDE_EMACS" ]; then
