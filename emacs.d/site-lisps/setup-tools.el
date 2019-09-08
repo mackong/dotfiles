@@ -147,12 +147,6 @@ user."
 ;; dpaste.el
 (setq dpaste-poster "mackong(mackonghp@gmail.com)")
 
-;; sr-speedbar
-(setq speedbar-show-unknown-files t
-      sr-speedbar-width 30
-      sr-speedbar-right-side nil
-      sr-speedbar-auto-refresh nil)
-
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
 
