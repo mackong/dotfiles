@@ -19,8 +19,6 @@
 
   ;; use goimports for go-fmt
   (setq gofmt-command "goimports")
-  ;; use gogetdoc for doc
-  (setq godoc-at-point-function #'godoc-gogetdoc)
 
   ;; Call gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)
@@ -28,10 +26,7 @@
   (require 'lsp-clients)
   (condition-case nil
       (lsp)
-    (error nil))
-
-  (define-key go-mode-map (kbd "C-c s p") 'go-set-project)
-  (define-key go-mode-map (kbd "C-c C-k") 'godoc-at-point))
+    (error nil)))
 
 (add-hook 'go-mode-hook 'setup-go-mode)
 
