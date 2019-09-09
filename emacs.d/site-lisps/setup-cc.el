@@ -94,6 +94,7 @@ The name of the project-relative directory used for this is given by cquery-cach
   (c-set-style "java")
   (c-set-offset 'statement-block-intro 'java-statement-block-intro)
   (c-set-offset 'block-close 'java-block-close)
+  (c-set-offset 'arglist-intro '+)
 
   (setup-c-mode-common)
 
