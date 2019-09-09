@@ -43,7 +43,9 @@
 (global-undo-tree-mode)
 
 ;; google-translate
-(setq google-translate-translation-directions-alist '(("en" . "zh-CN")))
+(setq google-translate-translation-directions-alist
+      '(("en" . "zh-CN")
+        ("zh-CN" . "en")))
 (global-set-key (kbd "C-c g t")
                 '(lambda ()
                    (interactive)
