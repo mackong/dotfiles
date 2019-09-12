@@ -65,6 +65,8 @@ plugins=(
   git z mvn sbt
 )
 
+DISABLE_MAGIC_FUNCTIONS=true
+
 source $ZSH/oh-my-zsh.sh
 
 if [ -f ~/.zshenv ]; then
