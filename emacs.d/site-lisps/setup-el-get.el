@@ -85,11 +85,6 @@
                :type github
                :load-path ("lisp")
                :pkgname "magit/transient")
-        (:name cyberpunk-theme
-               :description "Cyberpunk theme for emacs built-in color theme support"
-               :type github
-               :pkgname "mackong/cyberpunk-theme.el"
-               :prepare (add-to-list 'custom-theme-load-path default-directory))
         (:name dash-docs
                :description "A elisp library that exposes functionality to work with and search dash docsets."
                :type github
@@ -129,6 +124,7 @@
          dired-plus
          google-translate
          pdf-tools
+         monokai-theme
          smart-mode-line
 
          helm-dash

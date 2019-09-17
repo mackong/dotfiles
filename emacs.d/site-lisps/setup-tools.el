@@ -21,7 +21,7 @@
 (exec-path-from-shell-initialize)
 
 ;; Theme
-(load-theme 'cyberpunk t)
+(load-theme 'monokai t)
 
 ;; smart-mode-line
 (setq rm-blacklist
