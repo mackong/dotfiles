@@ -100,7 +100,7 @@ export VIRTUALENVWRAPPER_PYTHON=python3
 export WORKON_HOME=$HOME/.virtualenvs
 
 # JAVA_HOME
-export JAVA_HOME=/usr/lib64/jvm/default
+export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 
 # Additional PATH
 pathmunge $GOPATH/bin after
