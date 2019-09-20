@@ -33,10 +33,6 @@ Plug 'tpope/vim-surround'
 Plug 'henrik/vim-indexed-search'
 "}}}
 
-"{{{ tagbar
-Plug 'majutsushi/tagbar'
-"}}}
-
 call plug#end()
 "}}}
 
@@ -131,8 +127,5 @@ noremap <silent> <leader>TT :LeaderfTag<cr>
 
 " NERDTree
 noremap <silent> <F5> :NERDTreeToggle<cr>
-
-" Tagbar
-noremap <silent> <F4> :TagbarToggle<CR>
 
 "}}}
