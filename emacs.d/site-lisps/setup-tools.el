@@ -283,6 +283,9 @@ user."
                                        (pdf-view-midnight-minor-mode 1)
                                        (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))))
 
+;; cmake-mode
+(require 'cmake-mode nil 'noerror)
+
 (provide 'setup-tools)
 
 ;; Local Variables:
