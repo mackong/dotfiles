@@ -4,12 +4,19 @@
 call plug#begin('~/.config/nvim/plugged')
 "}}}
 
-"{{{ LeaderF
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-let g:Lf_ShortcutF = '<C-p>'
-let g:Lf_ShortcutB = '<A-n>'
-let g:Lf_WindowHeight = 0.30
-let g:Lf_WorkingDirectoryMode = 'Ac'
+"{{{ lightline
+Plug 'itchyny/lightline.vim'
+"}}}
+
+"{{{ CtrlP
+Plug 'ctrlpvim/ctrlp.vim'
+if executable('rg')
+  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
+endif
+"}}}
+
+"{{{ Tagbar
+Plug 'majutsushi/tagbar'
 "}}}
 
 "{{{ rg
@@ -67,7 +74,7 @@ set showmatch
 set cmdheight=1
 
 " disable status line
-set laststatus=0
+" set laststatus=0
 
 " number of spaces for each step of (auto)indent
 set shiftwidth=4
@@ -119,11 +126,8 @@ noremap tl :tabclose<cr>
 noremap <silent> <leader>ss :source ~/.config/nvim/init.vim<cr>
 noremap <silent> <leader>ee :vs ~/.config/nvim/init.vim<cr>
 
-" Leaderf
-noremap <silent> <leader>ff :LeaderfFunction<cr>
-noremap <silent> <leader>FF :LeaderfFunctionAll<cr>
-noremap <silent> <leader>tt :LeaderfBufTag<cr>
-noremap <silent> <leader>TT :LeaderfTag<cr>
+" Tagbar
+noremap <silent> <F4> :TagbarToggle<cr>
 
 " NERDTree
 noremap <silent> <F5> :NERDTreeToggle<cr>
