@@ -28,7 +28,7 @@
 (autoload 'inferior-scheme-mode "cmuscheme" "Major mode for Inferior Scheme." t)
 (autoload 'run-scheme "cmuscheme" "Switch to interactive Scheme buffer." t)
 (setq auto-mode-alist (cons '("\\.ss" . scheme-mode) auto-mode-alist))
-(custom-set-variables '(scheme-program-name "petite"))
+(custom-set-variables '(scheme-program-name "guile"))
 
 ;; autopair, paredit, highlight-parentheses
 (dolist (hook '(lisp-mode-hook
