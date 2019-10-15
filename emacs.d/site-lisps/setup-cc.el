@@ -27,21 +27,6 @@
                '(c-mode "[\n\t ]*{" "}" "/[*/]" nil nil))
   (local-set-key (kbd "M-+") 'hs-toggle-hiding))
 
-(defun create-dot-cquery ()
-  "Create a default .cquery in current project root."
-  (interactive)
-  (with-current-buffer (find-file (concat (projectile-project-root) ".cquery"))
-    (insert "%clang
-%c -std=gnu11
-%cpp -std=gnu++14
--pthread")))
-
-(defun my-cquery-cache-dir-in-project (proj-dir)
-  "Return project relative cache directory (see cquery-cache-dir-function).
-
-The name of the project-relative directory used for this is given by cquery-cache-dir."
-  (expand-file-name cquery-cache-dir (projectile-root-bottom-up proj-dir)))
-
 (defun setup-c/c++-mode ()
   "Setup for c/c++ mode"
   (c-set-style "linux")
@@ -53,12 +38,9 @@ The name of the project-relative directory used for this is given by cquery-cach
 
   (local-set-key (kbd "C-x C-o") 'ff-find-other-file)
 
-  (setq cquery-cache-dir-function #'my-cquery-cache-dir-in-project)
   (if (not (string-equal major-mode "glsl-mode"))
       (condition-case nil
           (progn
-            (require 'cquery)
-
             (lsp))
         (error nil))))
 

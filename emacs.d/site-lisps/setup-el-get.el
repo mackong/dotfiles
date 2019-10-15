@@ -63,10 +63,6 @@
                :description "Company completion backend for lsp-mode"
                :type github
                :pkgname "tigersoldier/company-lsp")
-        (:name emacs-cquery
-               :description "Emacs client for cquery, a low-latency language server supporting multi-million line C++ code-bases"
-               :type github
-               :pkgname "cquery-project/emacs-cquery")
         (:name lsp-java
                :description "Java support for lsp-mode using the Eclipse JDT Language Server."
                :type github
