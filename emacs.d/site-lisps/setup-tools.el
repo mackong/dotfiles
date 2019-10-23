@@ -280,7 +280,6 @@ user."
                                      (progn
                                        (setq pdf-view-display-size 'fit-page
                                              pdf-view-resize-factor 1.1)
-                                       (pdf-view-midnight-minor-mode 1)
                                        (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))))
 
 ;; cmake-mode
