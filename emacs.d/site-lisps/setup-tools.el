@@ -190,7 +190,8 @@ user."
 
 ;; company
 (dolist (hook '(prog-mode-hook
-                org-mode-hook))
+                org-mode-hook
+                jupyter-repl-mode-hook))
   (add-hook hook 'company-mode))
 (setq company-minimum-prefix-length 1
       company-tooltip-align-annotations t
