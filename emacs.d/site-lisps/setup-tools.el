@@ -227,6 +227,7 @@ user."
 
 ;; multi term
 (global-set-key (kbd "C-c m t") 'multi-term)
+(add-hook 'term-mode-hook (lambda () (setq-local global-hl-line-mode nil)))
 
 (add-hook 'term-mode-hook
           (lambda ()
