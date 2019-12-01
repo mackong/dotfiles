@@ -20,8 +20,7 @@
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(if (not (string= system-type "darwin"))
-    (menu-bar-mode -1))
+(menu-bar-mode -1)
 (fringe-mode -1)
 (delete-selection-mode 1)
 
@@ -56,14 +55,8 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(let ((frame-font "Input Mono-13")
-      (han-font-family "KaiTi")
-      (han-font-size 20))
-  (if (string= system-type "darwin")
-      (progn
-        (setq han-font-family "Kaiti SC")))
-  (set-frame-font frame-font)
-  (set-fontset-font t 'han (font-spec :family han-font-family :size han-font-size)))
+(set-frame-font "Input Mono-13")
+(set-fontset-font t 'han (font-spec :family "KaiTi" :size 20))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -89,18 +82,8 @@
 (setq-default dired-omit-files-p t)
 (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
 
-(defun read-lines (fp)
-  (with-temp-buffer
-    (insert-file-contents fp)
-    (split-string (buffer-string) "\n" t)))
-
-(setq lantern-settings-file (expand-file-name "~/.lantern/settings.yaml"))
-(if (file-exists-p lantern-settings-file)
-    (let* ((settings (read-lines lantern-settings-file))
-           (addr (car settings))
-           (proxy (car (cdr (split-string addr " " t)))))
-      (setq url-proxy-services (list (cons "http" proxy)
-                                     (cons "https" proxy)))))
+(setq url-proxy-services (list (cons "http" "127.0.0.1:12345")
+                               (cons "https" "127.0.0.1:12345")))
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
 (require 'setup-el-get)

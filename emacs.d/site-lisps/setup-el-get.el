@@ -59,6 +59,10 @@
                :description "Fast input methods for LaTeX environments and math"
                :type github
                :pkgname "cdominik/cdlatex")
+        (:name lv
+               :description "Other echo area"
+               :type http
+               :url "https://raw.githubusercontent.com/abo-abo/hydra/master/lv.el")
         (:name company-lsp
                :description "Company completion backend for lsp-mode"
                :type github
@@ -67,7 +71,7 @@
                :description "Java support for lsp-mode using the Eclipse JDT Language Server."
                :type github
                :pkgname "emacs-lsp/lsp-java"
-               :depends (lsp-mode ht request))
+               :depends (lsp-mode ht request lv))
         (:name lsp-python-ms
                :description "emacs lsp-mode client for Microsoft's python language server"
                :type github
@@ -76,6 +80,10 @@
                :description "ripgrep is nice"
                :type github
                :pkgname "cosmicexplorer/helm-rg")
+        (:name helm-xref
+               :description "Helm interface for xref results"
+               :type github
+               :pkgname "brotzeit/helm-xref")
         (:name transient
                :description "Transient commands"
                :type github
@@ -126,8 +134,8 @@
          helm-dash
          helm-projectile
 
+         auctex
          plantuml-mode
-         gnuplot-mode
          graphviz-dot-mode
          markdown-mode
          json-mode
@@ -135,11 +143,8 @@
          protobuf-mode
          doxymacs
 
-         yasnippet-snippets
          flycheck
          lsp-ui
-
-         company-auctex
 
          web-mode
          emmet-mode

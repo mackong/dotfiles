@@ -14,7 +14,6 @@
 
 (defun setup-go-mode ()
   "Setup for go mode."
-  (setq gdb-many-windows t)
   (setq tab-width 4)
 
   ;; use goimports for go-fmt

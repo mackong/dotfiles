@@ -79,24 +79,6 @@
 (custom-set-faces
  '(window-number-face ((t nil)) t))
 
-;; yasnippet
-(setq yas-prompt-functions '(yas-dropdown-prompt))
-
-(add-hook 'prog-mode-hook #'yas-minor-mode)
-
-(defvar yas/temp-snippet nil "Content of the temporary snippet.")
-
-(defun yas/save-temp-snippet ()
-  "Save the temporary snippet."
-  (interactive)
-  (setq yas/temp-snippet
-        (buffer-substring (region-beginning) (region-end))))
-
-(defun yas/expand-temp-snippet ()
-  "Expand the temporary snippet."
-  (interactive)
-  (yas/expand-snippet yas/temp-snippet))
-
 ;; graphviz-dot-mode
 (autoload 'graphviz-dot-mode "graphviz-dot-mode.el" "Graphviz major mode." t)
 
@@ -123,11 +105,6 @@
             (hs-minor-mode)
             (setq indent-tabs-mode nil)))
 
-;; gnuplot
-(setq gnuplot-program "/usr/bin/gnuplot")
-(setq auto-mode-alist
-      (append '(("\\.\\(gp\\|gnuplot\\)$" . gnuplot-mode)) auto-mode-alist))
-
 ;; find file as root
 (defun find-file-as-root ()
   "Find file as root.
@@ -141,13 +118,6 @@ user."
       (setq file (concat "/sudo:root@localhost:" file)))
     (find-file file)))
 (global-set-key (kbd "C-x F") 'find-file-as-root)
-
-;; ascii doc
-(autoload 'adoc-mode "adoc-mode")
-(add-to-list 'auto-mode-alist (cons "\\.asc\\'" 'adoc-mode))
-
-;; dpaste.el
-(setq dpaste-poster "mackong(mackonghp@gmail.com)")
 
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -167,26 +137,29 @@ user."
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-s") 'helm-occur)
-(setq helm-mode-fuzzy-match t
-      helm-completion-in-region-fuzzy-match t
-      helm-split-window-in-side-p t
+(setq helm-split-window-inside-p t
       helm-move-to-line-cycle-in-source t
       helm-ff-search-library-in-sexp t
       helm-ff-file-name-history-use-recentf t)
 
+;; helm-xref
+(require 'helm-xref)
+(setq-default xref-prompt-for-identifier nil)
+(setq helm-xref-candidate-formatting-function 'helm-xref-format-candidate-long)
+
 ;; projectile
-(setq projectile-keymap-prefix (kbd "C-c p"))
+(setq projectile-keymap-prefix (kbd "C-c p")
+      projectile-completion-system 'helm
+      projectile-cache-file "~/.emacs.d/others/projectile/projectile.cache"
+      projectile-known-projects-file "~/.emacs.d/el-get/projectile/projectile-bookmarks.eld")
 (projectile-global-mode)
 (helm-projectile-on)
-(setq projectile-completion-system 'helm
-      projectile-cache-file "~/.emacs.d/others/projectile/projectile.cache"
-      projectile-known-projects-file "~/.emacs.d/el-get/projectile/projectile-bookmarks.eld"
-      projectile-globally-ignored-directories (append '("bin" "pkg" "vendor"  ;; for golang workspaces
-                                                        "project" "target" ".settings"  ;; for maven project
-                                                        ".metals" ".bloop"    ;; for sbt project
-                                                        ".cquery_cached_index" ;; for cquery cache
-                                                        )
-                                                      projectile-globally-ignored-directories))
+(setq projectile-globally-ignored-directories
+      (append '("bin" "pkg" "vendor"  ;; for golang workspaces
+                "project" "target" ".settings"  ;; for maven project
+                ".metals" ".bloop"    ;; for sbt project
+                )
+              projectile-globally-ignored-directories))
 
 ;; company
 (dolist (hook '(prog-mode-hook
@@ -202,7 +175,6 @@ user."
                                       (company-dabbrev-code company-keywords) company-dabbrev))
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
-(global-set-key (kbd "C-c y") 'company-yasnippet)
 
 ;; lsp
 (add-hook 'lsp-before-initialize-hook
@@ -232,9 +204,6 @@ user."
 (add-hook 'term-mode-hook
           (lambda ()
             (copy-face 'default 'term-face)
-
-            ;; Disable yasnippet
-            (yas-minor-mode -1)
 
             ;; awesome bindings available!
             (compilation-shell-minor-mode t)))

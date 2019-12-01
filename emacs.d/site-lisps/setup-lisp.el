@@ -20,10 +20,6 @@
      (setq inferior-lisp-program "/usr/bin/sbcl")
      (setq slime-lisp-implementations '((sbcl ("sbcl"))))))
 
-(add-hook 'slime-repl-mode-hook
-          (lambda ()
-            (yas-activate-extra-mode 'lisp-mode)))
-
 (autoload 'scheme-mode "cmuscheme" "Major mode for Scheme." t)
 (autoload 'inferior-scheme-mode "cmuscheme" "Major mode for Inferior Scheme." t)
 (autoload 'run-scheme "cmuscheme" "Switch to interactive Scheme buffer." t)
