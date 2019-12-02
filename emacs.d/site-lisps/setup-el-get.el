@@ -151,6 +151,7 @@
          js2-mode
 
          slime-company
+         yasnippet-snippets
 
          sphinx-doc
          pyvenv

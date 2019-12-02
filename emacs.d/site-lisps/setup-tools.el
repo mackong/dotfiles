@@ -79,6 +79,10 @@
 (custom-set-faces
  '(window-number-face ((t nil)) t))
 
+;; yasnippet
+(setq yas-prompt-functions '(yas-dropdown-prompt))
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
 ;; graphviz-dot-mode
 (autoload 'graphviz-dot-mode "graphviz-dot-mode.el" "Graphviz major mode." t)
 
@@ -175,6 +179,7 @@ user."
                                       (company-dabbrev-code company-keywords) company-dabbrev))
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
+(global-set-key (kbd "C-c y") 'company-yasnippet)
 
 ;; lsp
 (add-hook 'lsp-before-initialize-hook
@@ -182,6 +187,7 @@ user."
             (setq lsp-keep-workspace-alive nil
                   lsp-eldoc-render-all nil
                   lsp-prefer-flymake nil
+                  lsp-enable-snippet t
                   lsp-ui-doc-enable nil
                   lsp-ui-peek-enable nil
                   lsp-ui-imenu-enable nil
@@ -204,6 +210,9 @@ user."
 (add-hook 'term-mode-hook
           (lambda ()
             (copy-face 'default 'term-face)
+
+            ;; Disable yasnippet
+            (yas-minor-mode -1)
 
             ;; awesome bindings available!
             (compilation-shell-minor-mode t)))
