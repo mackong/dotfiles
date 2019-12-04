@@ -36,10 +36,6 @@
                :description "Fetch project euler problem into file."
                :type github
                :pkgname "mackong/emacs-euler")
-        (:name symbol-overlay
-               :description "Highlight symbols with keymap-enabled overlays"
-               :type github
-               :pkgname "wolray/symbol-overlay")
         (:name bongo
                :description "Play music with GNU Emacs"
                :type github
@@ -128,8 +124,8 @@
          dired-plus
          google-translate
          pdf-tools
-         monokai-theme
          smart-mode-line
+         gruber-darker-theme
 
          helm-dash
          helm-projectile
@@ -142,6 +138,7 @@
          glsl-mode
          protobuf-mode
          doxymacs
+         org-bullets
 
          flycheck
          lsp-ui

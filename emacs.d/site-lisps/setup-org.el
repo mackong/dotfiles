@@ -79,6 +79,7 @@
   "Setup org mode."
   (turn-on-org-cdlatex)
   (setup-org-babel)
+  (org-bullets-mode)
   (setq truncate-lines nil)
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"))
   (setq org-latex-listings t)

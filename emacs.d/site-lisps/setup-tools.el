@@ -21,7 +21,7 @@
 (exec-path-from-shell-initialize)
 
 ;; Theme
-(load-theme 'monokai t)
+(load-theme 'gruber-darker t)
 
 ;; smart-mode-line
 (setq rm-blacklist
@@ -55,9 +55,6 @@
 ;; bongo
 (setq bongo-default-directory (expand-file-name "~/Music")
       bongo-insert-whole-directory-trees t)
-
-;; symbol overlay
-(global-set-key [f12] 'symbol-overlay-put)
 
 ;; rfc
 (setq irfc-directory "~/Documents/RFC/")
@@ -187,7 +184,6 @@ user."
             (setq lsp-keep-workspace-alive nil
                   lsp-eldoc-render-all nil
                   lsp-prefer-flymake nil
-                  lsp-enable-snippet t
                   lsp-ui-doc-enable nil
                   lsp-ui-peek-enable nil
                   lsp-ui-imenu-enable nil
