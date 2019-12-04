@@ -19,7 +19,7 @@
 
 (defun my-js-hook nil
   (setq js-indent-level 2)
-  
+
   (js2-minor-mode)
 
   (require 'lsp-clients)

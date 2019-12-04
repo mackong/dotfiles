@@ -15,8 +15,8 @@
 (defun setup-c-mode-common ()
   "Setup for cc-mode-common-hook."
   (c-toggle-hungry-state 1)
-  (setq indent-tabs-mode nil
-        c-basic-offset 4)
+  (setq-local indent-tabs-mode nil)
+  (setq-local c-basic-offset 8)
   (c-set-offset 'arglist-close 0)
   (c-set-offset 'innamespace 0)
 
@@ -33,8 +33,8 @@
 
   (setup-c-mode-common)
 
-  (setq gdb-many-windows t)
-  (setq gdb-use-separate-io-buffer t)
+  (setq-local gdb-many-windows t)
+  (setq-local gdb-use-separate-io-buffer t)
 
   (local-set-key (kbd "C-x C-o") 'ff-find-other-file)
 

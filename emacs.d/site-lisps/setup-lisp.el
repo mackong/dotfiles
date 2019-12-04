@@ -38,7 +38,7 @@
               (paredit-mode)
               (eldoc-mode)
 
-              (setq indent-tabs-mode nil)
+              (setq-local indent-tabs-mode nil)
               (local-set-key (kbd "C-x C-e") 'pp-eval-last-sexp)
               (local-set-key (kbd "<return>") 'reindent-then-newline-and-indent)
               (local-set-key (kbd "C-.") 'xref-find-definitions)

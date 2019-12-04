@@ -124,7 +124,6 @@
          dired-plus
          google-translate
          pdf-tools
-         smart-mode-line
          gruber-darker-theme
 
          helm-dash
