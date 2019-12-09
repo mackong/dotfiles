@@ -56,7 +56,8 @@
 (prefer-coding-system 'utf-8)
 
 (set-frame-font "Input Mono:pixelsize=16" t)
-(set-fontset-font (frame-parameter nil 'font) 'han (font-spec :family "KaiTi" :size 20))
+(dolist (charset '(han symbol cjk-misc))
+ (set-fontset-font (frame-parameter nil 'font) charset (font-spec :family "KaiTi" :size 20)))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
