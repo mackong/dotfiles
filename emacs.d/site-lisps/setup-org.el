@@ -45,34 +45,37 @@
 
   (setq org-confirm-babel-evaluate nil)
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+  (setq plantuml-default-exec-mode 'jar)
   (setq org-plantuml-jar-path plantuml-jar-path))
 
 (defun setup-org-agenda ()
   "Setup org agenda."
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-          (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING")))
+          (sequence "HOLD(h@/!)" "|" "CANCELLED(c@/!)")))
   (setq org-todo-keyword-faces
         '(("TODO" :foreground "red")
           ("NEXT" :foreground "blue")
           ("DONE" :foreground "forest green")
-          ("WAITING" :foreground "orange")
           ("HOLD" :foreground "magenta")
-          ("CANCELLED" :foreground "forest green")
-          ("MEETING" :foreground "forest green")
-          ("PHONE" :foreground "forest green")))
+          ("CANCELLED" :foreground "forest green")))
 
   (setq org-agenda-files '("~/Documents/Orgs/agenda"))
   (global-set-key (kbd "C-c o a") 'org-agenda))
 
 (defun setup-org-capture ()
   "Setup org capture."
-  (setq org-default-notes-file "~/Documents/Orgs/notes/notes.org")
+  (setq org-default-notes-file "~/Documents/Orgs/agenda/journal.org")
   (setq org-capture-templates
-        '(("t" "todo" entry (file "~/Documents/Orgs/agenda/todo.org")
-           "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-          ("n" "note" entry (file "~/Documents/Orgs/notes/notes.org")
-           "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)))
+        '(("t" "task" entry (file "~/Documents/Orgs/agenda/task.org")
+           "* TODO %?\t%^g\n" :jump-to-captured t)
+          ("p" "project task" entry (file "~/Documents/Orgs/agenda/project.org")
+           "* TODO %?\t%^g\n" :jump-to-captured t)
+          ("n" "note" entry (file "~/Documents/Orgs/agenda/journal.org")
+           "* %?\n" :jump-to-captured t)
+          ("r" "reminder" entry (file "~/Documents/Orgs/agenda/someday.org")
+           "* %?\n" :jump-to-captured t)
+          ))
   (global-set-key (kbd "C-c o c") 'org-capture))
 
 (defun setup-org-mode ()
@@ -86,6 +89,7 @@
   (setq org-src-preserve-indentation t)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
   (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)")
+  (setq-local truncate-lines t)
   (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
 
   (local-set-key (kbd "C-c C-j") 'helm-imenu))
