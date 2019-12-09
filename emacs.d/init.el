@@ -55,8 +55,8 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(set-frame-font "Input Mono-13")
-(set-fontset-font t 'han (font-spec :family "KaiTi" :size 20))
+(set-frame-font "Input Mono:pixelsize=16" t)
+(set-fontset-font (frame-parameter nil 'font) 'han (font-spec :family "KaiTi" :size 20))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
