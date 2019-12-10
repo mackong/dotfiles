@@ -59,7 +59,13 @@
           ("DONE" :foreground "forest green")
           ("HOLD" :foreground "magenta")
           ("CANCELLED" :foreground "forest green")))
-
+  (setq org-agenda-custom-commands
+        '(("c" "Simple agenda view"
+           ((tags "PRIORITY=\"A\""
+                  ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                   (org-agenda-overriding-header "High-priority TODOS:")))
+            (agenda "")
+            (alltodo "")))))
   (setq org-agenda-files '("~/Documents/Orgs/agenda"))
   (global-set-key (kbd "C-c o a") 'org-agenda))
 
@@ -68,9 +74,9 @@
   (setq org-default-notes-file "~/Documents/Orgs/agenda/journal.org")
   (setq org-capture-templates
         '(("t" "task" entry (file "~/Documents/Orgs/agenda/task.org")
-           "* TODO %?\t%^g\n" :jump-to-captured t)
+           "* TODO %?\n" :jump-to-captured t)
           ("p" "project task" entry (file "~/Documents/Orgs/agenda/project.org")
-           "* TODO %?\t%^g\n" :jump-to-captured t)
+           "* TODO %?\n" :jump-to-captured t)
           ("n" "note" entry (file "~/Documents/Orgs/agenda/journal.org")
            "* %?\n" :jump-to-captured t)
           ("r" "reminder" entry (file "~/Documents/Orgs/agenda/someday.org")
