@@ -80,6 +80,8 @@
 
   (setup-c-mode-common)
 
+  (setq-local c-basic-offset 4)
+
   (condition-case nil
       (progn
         (require 'lsp-java)
