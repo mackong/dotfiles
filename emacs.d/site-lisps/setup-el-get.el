@@ -103,6 +103,10 @@
                :type github
                :pkgname "dzop/emacs-jupyter"
                :depends (simple-httpd websocket emacs-zmq))
+        (:name elispfl
+               :description "Extra font lock made your Emacs lisp mode fancy"
+               :type github
+               :pkgname "cireu/elispfl")
         ))
 
 (setq my-el-get-packages
