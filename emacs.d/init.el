@@ -55,9 +55,12 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(set-frame-font "Input Mono:pixelsize=16" t)
-(dolist (charset '(han symbol cjk-misc))
- (set-fontset-font (frame-parameter nil 'font) charset (font-spec :family "KaiTi" :size 20)))
+(setq face-font-rescale-alist '(("微软雅黑" . 1.2)))
+(set-face-attribute 'default nil :font "DejaVu Sans Mono:pixelsize=17")
+(set-fontset-font t 'symbol (font-spec :family "Unifont") nil 'append)
+(set-fontset-font t nil (font-spec :family "DejaVu Sans"))
+(dolist (charset '(han cjk-misc))
+  (set-fontset-font t charset (font-spec :family "Microsoft Yahei")))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
