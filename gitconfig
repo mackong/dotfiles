@@ -32,3 +32,5 @@
         whitespace = "red reverse"
 [includeIf "gitdir:~/Gitlab/"]
     path = ~/Gitlab/.gitconfig
+[http]
+	proxy = http://localhost:12345
