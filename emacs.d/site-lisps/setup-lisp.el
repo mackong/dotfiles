@@ -45,11 +45,6 @@
               (local-set-key (kbd "C-.") 'xref-find-definitions)
               (local-set-key (kbd "C-,") 'xref-pop-marker-stack))))
 
-(with-eval-after-load 'elisp-mode
-  (elispfl-mode))
-(with-eval-after-load 'ielm
-  (elispfl-ielm-mode))
-
 (provide 'setup-lisp)
 
 ;; Local Variables:

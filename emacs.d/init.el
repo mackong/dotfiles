@@ -57,6 +57,7 @@
 
 (setq face-font-rescale-alist '(("微软雅黑" . 1.2)))
 (set-face-attribute 'default nil :font "DejaVu Sans Mono:pixelsize=17")
+(set-face-attribute 'fixed-pitch-serif nil :font "DejaVu Sans Mono:pixelsize=17")
 (set-fontset-font t 'symbol (font-spec :family "Unifont") nil 'append)
 (set-fontset-font t nil (font-spec :family "DejaVu Sans"))
 (dolist (charset '(han cjk-misc))
@@ -100,6 +101,7 @@
 (require 'setup-web)
 (require 'setup-go)
 (require 'setup-scala)
+(require 'setup-hydras)
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

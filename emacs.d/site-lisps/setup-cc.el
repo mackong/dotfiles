@@ -33,8 +33,8 @@
 
   (setup-c-mode-common)
 
-  (setq-local gdb-many-windows t)
-  (setq-local gdb-use-separate-io-buffer t)
+  (setq gdb-many-windows t)
+  (setq gdb-use-separate-io-buffer t)
 
   (local-set-key (kbd "C-x C-o") 'ff-find-other-file)
 

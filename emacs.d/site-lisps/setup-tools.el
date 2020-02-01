@@ -33,11 +33,6 @@
 (setq google-translate-translation-directions-alist
       '(("en" . "zh-CN")
         ("zh-CN" . "en")))
-(global-set-key (kbd "C-c g t")
-                '(lambda ()
-                   (interactive)
-                   (google-translate-smooth-translate)
-                   (other-window 1)))
 
 ;; bongo
 (setq bongo-default-directory (expand-file-name "~/Music")
@@ -49,11 +44,6 @@
 (setq rfc-mode-directory (expand-file-name "~/Documents/RFC/"))
 (require 'rfc-mode)
 (add-hook 'rfc-mode-hook '(lambda () (irfc-mode)))
-
-;; avy
-(global-set-key (kbd "C-:") 'avy-goto-char)
-(global-set-key (kbd "M-g f") 'avy-goto-line)
-(global-set-key (kbd "M-g w") 'avy-goto-word-1)
 
 ;; window-number
 (autoload 'window-number-mode "window-number" t)
@@ -72,8 +62,6 @@
 
 ;; multiple-cursors
 (setq mc/list-file "~/.emacs.d/others/.mc-lists.el")
-(global-set-key (kbd "C-c m m") 'mc/mark-all-like-this)
-(global-set-key (kbd "C-c m e") 'mc/edit-lines)
 
 ;; nXML
 (custom-set-variables
@@ -101,23 +89,10 @@ Like `find-file, but automatically edit the file with
 root-previleges (using tramp/sudo), if the file is not writable by
 user."
   (interactive)
-  (let ((file (read-file-name "Edit as root: ")))
+  (let ((file (read-file-name "Edit As Root: ")))
     (unless (file-writable-p file)
       (setq file (concat "/sudo:root@localhost:" file)))
     (find-file file)))
-(global-set-key (kbd "C-x F") 'find-file-as-root)
-
-;; expand-region
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;; change-inner
-(global-unset-key (kbd "M-i"))
-(global-set-key (kbd "M-i") 'change-inner)
-(global-unset-key (kbd "M-o"))
-(global-set-key (kbd "M-o") 'change-outer)
-
-;; magit
-(global-set-key (kbd "C-c m s") 'magit-status)
 
 ;; helm
 (helm-autoresize-mode 1)
@@ -178,21 +153,19 @@ user."
                   lsp-ui-sideline-show-symbol nil
                   lsp-ui-sideline-show-hover nil)
             (local-set-key (kbd "C-.") 'xref-find-definitions)
-            (local-set-key (kbd "C-,") 'xref-pop-marker-stack)
-            (local-set-key (kbd "C-c C-j") 'helm-imenu)))
+            (local-set-key (kbd "C-,") 'xref-pop-marker-stack)))
 (setq imenu-max-item-length 'Unlimited)
 
 ;; multi scratch
 (require 'multi-scratch)
-(global-set-key (kbd "C-c s n") 'multi-scratch-new)
 
 ;; multi term
-(global-set-key (kbd "C-c m t") 'multi-term)
-(add-hook 'term-mode-hook (lambda () (setq-local global-hl-line-mode nil)))
-
 (add-hook 'term-mode-hook
           (lambda ()
             (copy-face 'default 'term-face)
+
+            ;; Disable hl-line-mode
+            (setq-local global-hl-line-mode nil)
 
             ;; Disable yasnippet
             (yas-minor-mode -1)
@@ -210,14 +183,12 @@ user."
       dired-dwim-target t)
 
 ;; compilation
-(require 'dwim-compile)
 (require 'ansi-color)
 (defun colorize-compilation-buffer ()
   "Colorize the compilation buffer."
   (ansi-color-apply-on-region compilation-filter-start (point)))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 (setq compilation-scroll-output 'first-error)
-(global-set-key (kbd "C-c d c") 'dwim-c/compile)
 
 ;; maxima
 (autoload 'maxima-mode "maxima" "Maxima mode" t)
@@ -227,11 +198,6 @@ user."
 (setq imaxima-use-maxima-mode-flag t)
 (setq imaxima-fnt-size "Large")
 
-;; helm-dash
-(global-set-key (kbd "C-c d a") 'helm-dash-activate-docset)
-(global-set-key (kbd "C-c d d") 'helm-dash)
-(global-set-key (kbd "C-c d h") 'helm-dash-at-point)
-
 ;; whitespace mode
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'before-save-hook 'whitespace-cleanup)
@@ -239,11 +205,10 @@ user."
 
 ;; pdf-tools
 (pdf-loader-install)
-(add-hook 'pdf-tools-enabled-hook '(lambda ()
-                                     (progn
-                                       (setq pdf-view-display-size 'fit-page
-                                             pdf-view-resize-factor 1.1)
-                                       (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))))
+(add-hook 'pdf-tools-enabled-hook
+          '(lambda ()
+             (setq pdf-view-display-size 'fit-page
+                   pdf-view-resize-factor 1.1)))
 
 ;; cmake-mode
 (require 'cmake-mode nil 'noerror)

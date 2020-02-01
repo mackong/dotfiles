@@ -47,18 +47,10 @@
                :type github
                :pkgname "grafov/go-playground"
                :depends (go-test))
-        (:name dwim-compile
-               :description "context-aware compile command"
-               :type http
-               :url "https://raw.githubusercontent.com/cinsk/emacs-scripts/master/src/dwim-compile.el")
         (:name cdlatex-mode
                :description "Fast input methods for LaTeX environments and math"
                :type github
                :pkgname "cdominik/cdlatex")
-        (:name lv
-               :description "Other echo area"
-               :type http
-               :url "https://raw.githubusercontent.com/abo-abo/hydra/master/lv.el")
         (:name company-lsp
                :description "Company completion backend for lsp-mode"
                :type github
@@ -67,7 +59,7 @@
                :description "Java support for lsp-mode using the Eclipse JDT Language Server."
                :type github
                :pkgname "emacs-lsp/lsp-java"
-               :depends (lsp-mode ht request lv))
+               :depends (lsp-mode ht request hydra))
         (:name lsp-python-ms
                :description "emacs lsp-mode client for Microsoft's python language server"
                :type github
@@ -103,10 +95,11 @@
                :type github
                :pkgname "dzop/emacs-jupyter"
                :depends (simple-httpd websocket emacs-zmq))
-        (:name elispfl
-               :description "Extra font lock made your Emacs lisp mode fancy"
+        (:name major-mode-hydra
+               :description "Spacemacs-esque major mode leader key powered by Hydra"
                :type github
-               :pkgname "cireu/elispfl")
+               :pkgname "jerrypnz/major-mode-hydra.el"
+               :depends (hydra))
         ))
 
 (setq my-el-get-packages

@@ -34,8 +34,6 @@
 ;; go-playground
 (setq go-playground-basedir "~/Codes/go/playground"
       go-playground-confirm-deletion nil)
-(global-set-key (kbd "C-c C-p n") 'go-playground)
-(global-set-key (kbd "C-c C-p r") 'go-playground-rm)
 
 (provide 'setup-go)
 
