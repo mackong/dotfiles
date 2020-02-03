@@ -145,6 +145,7 @@ user."
           (lambda ()
             (setq lsp-keep-workspace-alive nil
                   lsp-eldoc-render-all nil
+                  lsp-signature-render-documentation nil
                   lsp-prefer-flymake nil
                   lsp-ui-doc-enable nil
                   lsp-ui-peek-enable nil
