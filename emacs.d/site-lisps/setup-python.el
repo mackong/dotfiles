@@ -14,7 +14,6 @@
 
 (defun setup-python-mode ()
   "Setup for python mode."
-  (require 'lsp-python-ms)
   (condition-case nil
       (lsp)
     (error nil))
@@ -22,8 +21,6 @@
   (sphinx-doc-mode t)
   (define-key python-mode-map (kbd "C-c C-c")
     (lambda () (interactive) (python-shell-send-buffer t))))
-
-(defvar lsp-python-ms-dir (expand-file-name "~/.emacs.d/others/mspyls/"))
 
 (add-hook 'python-mode-hook 'setup-python-mode)
 
