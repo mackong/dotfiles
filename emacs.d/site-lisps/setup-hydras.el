@@ -12,6 +12,39 @@
 
 ;;; Code:
 
+;;; run function and move to other window
+(defun run-in-other-window (func)
+  (interactive)
+  (call-interactively func)
+  (other-window 1))
+
+;;; describe this point lisp only
+(defun describe-foo-at-point ()
+  "Show the documentation of the Elisp function and variable near point.
+This checks in turn:
+-- for a function name where point is
+-- for a variable name where point is
+-- for a surrounding function call
+"
+  (interactive)
+  (let (sym)
+    ;; sigh, function-at-point is too clever.  we want only the first half.
+    (cond ((setq sym (ignore-errors
+                       (with-syntax-table emacs-lisp-mode-syntax-table
+                         (save-excursion
+                           (or (not (zerop (skip-syntax-backward "_w")))
+                               (eq (char-syntax (char-after (point))) ?w)
+                               (eq (char-syntax (char-after (point))) ?_)
+                               (forward-sexp -1))
+                           (skip-chars-forward "`'")
+                           (let ((obj (read (current-buffer))))
+                             (and (symbolp obj) (fboundp obj) obj))))))
+           (describe-function sym))
+          ((setq sym (variable-at-point)) (describe-variable sym))
+          ;; now let it operate fully -- i.e. also check the
+          ;; surrounding sexp for a function call.
+          ((setq sym (function-at-point)) (describe-function sym)))))
+
 (defun fake-mode-hydra ()
   (interactive)
   (major-mode-hydra-dispatch 'fake-mode))
@@ -30,12 +63,12 @@
     ("gw" avy-goto-word-1 "goto word"))
    "Tools"
    (("bg" bongo-playlist "bongo")
-    ("gt" (progn (google-translate-smooth-translate) (other-window 1)) "google translate")
+    ("gt" (run-in-other-window 'google-translate-smooth-translate) "google translate")
     ("ms" magit-status "magit")
     ("mt" multi-term "terminal")
     ("sn" (multi-scratch-new t) "scratch"))
    "Runners"
-   (("rp" run-python "python")
+   (("rp" (run-in-other-window 'run-python) "python")
     ("rj" jupyter-run-repl "jupyter repl")
     ("rg" go-playground "go playground")
     ("rl" slime "common lisp"))
@@ -87,12 +120,10 @@
 (major-mode-hydra-define (java-mode scala-mode python-mode c-mode c++-mode go-mode) nil
   ("Symbol"
    (("d" lsp-find-declaration "declaration")
-    ("D" lsp-ui-peek-find-definitions "definition")
-    ("R" lsp-ui-peek-find-references "references")
-    ("i" lsp-ui-peek-find-implementation "implementation")
-    ("t" lsp-find-type-definition "type")
-    ("s" lsp-signature-help "signature")
-    ("o" lsp-describe-thing-at-point "documentation")
+    ("t" lsp-find-definition "definition")
+    ("R" lsp-find-references "references")
+    ("i" lsp-find-implementation "implementation")
+    ("o" (run-in-other-window 'lsp-describe-thing-at-point) "documentation")
     ("r" lsp-rename "rename"))
    "Buffer"
    (("f" lsp-format-buffer "format")
@@ -104,22 +135,35 @@
     ("M-s" lsp-describe-session "describe session"))))
 
 (major-mode-hydra-define+ emacs-lisp-mode nil
-  ("REPL"
+  ("Eval"
+   (("b" eval-buffer "buffer"))
+   "REPL"
    (("I" ielm "ielm"))
    "Test"
    (("t" ert "prompt")
     ("T" (ert t) "all")
     ("F" (ert :failed) "failed"))
    "Doc"
-   (("d" describe-foo-at-point "thing-at-pt")
-    ("f" describe-function "function")
-    ("v" describe-variable "variable")
-    ("i" info-lookup-symbol "info lookup"))))
+   (("d" (run-in-other-window 'describe-foo-at-point) "thing-at-pt")
+    ("f" (run-in-other-window 'describe-function) "function")
+    ("v" (run-in-other-window 'describe-variable) "variable")
+    ("i" (run-in-other-window 'info-lookup-symbol) "info lookup"))))
 
 (major-mode-hydra-define+ go-mode nil
   ("Playground"
    (("pe" go-playground-exec "execute")
     ("pr" go-playground-rm "remove"))))
+
+(major-mode-hydra-define+ org-mode nil
+  ("Table"
+   (("ic" org-table-insert-column "insert column")
+    ("ira" org-table-insert-row "insert row above")
+    ("irb" (org-table-insert-row t) "insert row below")
+    ("dc" org-table-delete-column "delete column")
+    ("ml" org-table-move-column-left "move column left")
+    ("mr" org-table-move-column-right "move column right")
+    ("mu" org-table-move-row-up "move row up")
+    ("md" org-table-move-row-down "move row down"))))
 
 (provide 'setup-hydras)
 
