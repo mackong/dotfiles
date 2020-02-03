@@ -12,11 +12,6 @@
 ;; see http://www.cnblogs.com/visayafan/archive/2012/06/16/2552023.html
 
 ;;; Code:
-(custom-set-variables
- '(org-export-backends '(ascii beamer html latex man md)))
-
-(add-to-list 'load-path "~/.emacs.d/el-get/cdlatex-mode")
-(require 'ox-latex)
 
 (defun setup-org-babel ()
   "Setup org babel."
@@ -86,9 +81,16 @@
 
 (defun setup-org-mode ()
   "Setup org mode."
+  (require 'ox-confluence)
+
   (turn-on-org-cdlatex)
-  (setup-org-babel)
   (org-bullets-mode)
+
+  (setup-org-babel)
+
+  (custom-set-variables
+   '(org-export-backends '(ascii beamer html latex man md)))
+
   (setq truncate-lines nil)
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"))
   (setq org-latex-listings t)
