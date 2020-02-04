@@ -89,6 +89,8 @@
 
 (setq url-proxy-services (list (cons "http" "127.0.0.1:12345")
                                (cons "https" "127.0.0.1:12345")))
+(setenv "HTTPS_PROXY" "http://127.0.0.1:12345")
+(setenv "HTTP_PROXY" "http://127.0.0.1:12345")
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
 (require 'setup-el-get)
