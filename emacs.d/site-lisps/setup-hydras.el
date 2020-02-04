@@ -135,7 +135,9 @@ This checks in turn:
     ("M-s" lsp-describe-session "describe session"))))
 
 (major-mode-hydra-define+ emacs-lisp-mode nil
-  ("Eval"
+  ("Compile"
+   (("c" (byte-compile-file (buffer-file-name)) "this file"))
+   "Eval"
    (("b" eval-buffer "buffer"))
    "REPL"
    (("I" ielm "ielm"))
@@ -155,7 +157,9 @@ This checks in turn:
     ("pr" go-playground-rm "remove"))))
 
 (major-mode-hydra-define+ org-mode nil
-  ("Table"
+  ("Export"
+   (("ec" org-confluence-export-as-confluence "confluence"))
+   "Table"
    (("ic" org-table-insert-column "insert column")
     ("ira" org-table-insert-row "insert row above")
     ("irb" (org-table-insert-row t) "insert row below")
