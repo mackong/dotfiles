@@ -105,6 +105,7 @@
    '(org-export-backends '(ascii beamer html latex man md confluence)))
 
   (setq truncate-lines nil)
+  (setq org-use-speed-commands t)
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"))
   (setq org-latex-listings t)
   (setq org-src-preserve-indentation t)
