@@ -145,6 +145,7 @@
          js2-mode
 
          slime-company
+         geiser
          yasnippet-snippets
 
          sphinx-doc

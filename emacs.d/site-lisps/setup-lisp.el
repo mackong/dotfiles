@@ -20,17 +20,13 @@
      (setq inferior-lisp-program "/usr/bin/sbcl")
      (setq slime-lisp-implementations '((sbcl ("sbcl"))))))
 
-(autoload 'scheme-mode "cmuscheme" "Major mode for Scheme." t)
-(autoload 'inferior-scheme-mode "cmuscheme" "Major mode for Inferior Scheme." t)
-(autoload 'run-scheme "cmuscheme" "Switch to interactive Scheme buffer." t)
+(setq geiser-active-implementations '(chez racket))
 (setq auto-mode-alist (cons '("\\.ss" . scheme-mode) auto-mode-alist))
-(custom-set-variables '(scheme-program-name "guile"))
 
 ;; autopair, paredit, highlight-parentheses
 (dolist (hook '(lisp-mode-hook
                 lisp-interaction-mode-hook
                 emacs-lisp-mode-hook
-                scheme-mode-hook
                 slime-repl-mode-hook
                 scheme-mode-hook))
   (add-hook hook
