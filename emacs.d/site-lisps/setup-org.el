@@ -43,6 +43,21 @@
   (setq plantuml-default-exec-mode 'jar)
   (setq org-plantuml-jar-path plantuml-jar-path))
 
+(defun setup-org-jira ()
+  "Setup org jira."
+  (setq jiralib-url "http://jira.vpgame.cn")
+  (setq org-jira-working-dir "~/Documents/Orgs/agenda")
+  (setq org-jira-jira-status-to-org-keyword-alist
+        '(("TO-DO" . "TODO")
+          ("IN-PROGRESS" . "NEXT")))
+  (setq org-jira-priority-to-org-priority-alist
+        '(("Highest" . ?A)
+          ("High" . ?A)
+          ("Medium" . ?B)
+          ("Low" . ?C)
+          ("Lowest" . ?C)))
+  (setq org-jira-default-jql "project = DATAPLAT AND issuetype != 数据需求 ORDER BY Rank ASC"))
+
 (defun setup-org-agenda ()
   "Setup org agenda."
   (setq org-todo-keywords
@@ -69,8 +84,6 @@
   (setq org-default-notes-file "~/Documents/Orgs/agenda/journal.org")
   (setq org-capture-templates
         '(("t" "task" entry (file "~/Documents/Orgs/agenda/task.org")
-           "* TODO %?\n" :jump-to-captured t)
-          ("p" "project task" entry (file "~/Documents/Orgs/agenda/project.org")
            "* TODO %?\n" :jump-to-captured t)
           ("n" "note" entry (file "~/Documents/Orgs/agenda/journal.org")
            "* %?\n" :jump-to-captured t)
@@ -102,6 +115,7 @@
 
   (local-set-key (kbd "C-c C-j") 'helm-imenu))
 
+(setup-org-jira)
 (setup-org-agenda)
 (setup-org-capture)
 (add-hook 'org-mode-hook 'setup-org-mode)

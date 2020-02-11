@@ -135,6 +135,7 @@
          protobuf-mode
          doxymacs
          org-bullets
+         org-jira
 
          flycheck
          lsp-ui
