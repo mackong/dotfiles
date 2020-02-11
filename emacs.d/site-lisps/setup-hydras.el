@@ -61,6 +61,9 @@ This checks in turn:
    (("gc" avy-goto-char "goto char")
     ("gl" avy-goto-line "goto line")
     ("gw" avy-goto-word-1 "goto word"))
+   "Multiple Cursors"
+   (("ma" mc/mark-all-like-this "mark all like this" :exit t)
+    ("me" mc/edit-lines "mark lines to edit" :exit t))
    "Tools"
    (("bg" bongo-playlist "bongo")
     ("gt" (run-in-other-window 'google-translate-smooth-translate) "google translate")
@@ -71,14 +74,13 @@ This checks in turn:
    (("rp" (run-in-other-window 'run-python) "python")
     ("rj" jupyter-run-repl "jupyter repl")
     ("rg" go-playground "go playground")
-    ("rl" slime "common lisp"))
+    ("rl" slime "common lisp")
+    ("rs" run-geiser "geiser"))
    "Misc"
    (("zz" text-scale-adjust "zoom")
     ("er" er/expand-region "expand region")
     ("ci" change-inner "change inner")
     ("co" change-outer "change outer")
-    ("ma" mc/mark-all-like-this "mark all like this")
-    ("me" mc/edit-lines "mark lines to edit")
     ("vr" vr/replace "visual regexp")
     ("fr" find-file-as-root "edit as root"))))
 
