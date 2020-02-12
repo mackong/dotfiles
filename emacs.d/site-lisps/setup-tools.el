@@ -62,6 +62,12 @@
 
 ;; multiple-cursors
 (setq mc/list-file "~/.emacs.d/others/.mc-lists.el")
+(global-set-key (kbd "C-c m e") 'mc/edit-lines)
+(global-set-key (kbd "C-c m a") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c m n") 'mc/insert-numbers)
+
+;; expand-region
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; nXML
 (custom-set-variables
