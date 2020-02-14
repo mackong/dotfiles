@@ -75,6 +75,12 @@
 
 (setq kill-ring-max 1000)
 
+; 100 mb
+(setq gc-cons-threshold 100000000)
+
+;; 1mb
+(setq read-process-output-max (* 1024 1024))
+
 (setq-default kill-whole-line t)
 
 (setq Man-notify-method 'pushy)
