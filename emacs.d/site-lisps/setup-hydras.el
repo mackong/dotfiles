@@ -155,9 +155,7 @@ This checks in turn:
     ("pr" go-playground-rm "remove"))))
 
 (major-mode-hydra-define+ org-mode nil
-  ("Export"
-   (("ec" org-confluence-export-as-confluence "confluence"))
-   "Table"
+  ("Table"
    (("ic" org-table-insert-column "insert column")
     ("ira" org-table-insert-row "insert row above")
     ("irb" (org-table-insert-row t) "insert row below")

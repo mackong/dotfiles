@@ -96,10 +96,6 @@
                :type github
                :pkgname "jerrypnz/major-mode-hydra.el"
                :depends (hydra))
-        (:name ox-confluence
-               :description "Confluence Wiki Back-End for Org Export Engine"
-               :type http
-               :url "https://raw.githubusercontent.com/emacsmirror/org/master/contrib/lisp/ox-confluence.el")
         ))
 
 (setq my-el-get-packages
