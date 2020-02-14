@@ -40,6 +40,14 @@ Plug 'tpope/vim-surround'
 Plug 'henrik/vim-indexed-search'
 "}}}
 
+"{{{ confluence-wiki
+Plug 'vim-scripts/confluencewiki.vim'
+augroup confluencewiki
+  au!
+  autocmd BufNewFile,BufRead *.confluence set filetype=confluencewiki
+augroup END
+"}}}
+
 call plug#end()
 "}}}
 
