@@ -41,6 +41,7 @@
   (if (not (string-equal major-mode "glsl-mode"))
       (condition-case nil
           (progn
+            (setq lsp-clients-clangd-args '("--header-insertion=never"))
             (lsp))
         (error nil))))
 
