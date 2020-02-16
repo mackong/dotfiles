@@ -48,8 +48,9 @@
   (setq jiralib-url "http://jira.vpgame.cn")
   (setq org-jira-working-dir "~/Documents/Orgs/agenda")
   (setq org-jira-jira-status-to-org-keyword-alist
-        '(("TO-DO" . "TODO")
-          ("IN-PROGRESS" . "NEXT")))
+        '(("To Do" . "TODO")
+          ("In Progress" . "NEXT")
+          ("Done" . "DONE")))
   (setq org-jira-priority-to-org-priority-alist
         '(("Highest" . ?A)
           ("High" . ?A)
@@ -65,9 +66,9 @@
           (sequence "HOLD(h@/!)" "|" "CANCELLED(c@/!)")))
   (setq org-todo-keyword-faces
         '(("TODO" :foreground "red")
-          ("NEXT" :foreground "blue")
-          ("DONE" :foreground "forest green")
-          ("HOLD" :foreground "magenta")
+          ("NEXT" :foreground "deep sky blue")
+          ("DONE" :foreground "dark red")
+          ("HOLD" :foreground "yellow")
           ("CANCELLED" :foreground "forest green")))
   (setq org-agenda-custom-commands
         '(("c" "Simple agenda view"
