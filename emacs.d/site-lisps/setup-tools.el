@@ -69,6 +69,12 @@
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; avy
+(global-unset-key (kbd "M-g c"))
+(global-unset-key (kbd "M-g g"))
+(global-set-key (kbd "M-g c") 'avy-goto-char)
+(global-set-key (kbd "M-g g") 'avy-goto-line)
+
 ;; nXML
 (custom-set-variables
  '(nxml-auto-insert-xml-declaration-flag t)
@@ -105,7 +111,6 @@ user."
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-s") 'helm-occur)
 (setq helm-split-window-inside-p t
       helm-move-to-line-cycle-in-source t
       helm-ff-search-library-in-sexp t

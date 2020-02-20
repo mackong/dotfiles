@@ -57,10 +57,6 @@ This checks in turn:
     ("da" dash-docs-activate-docset "activate")
     ("dh" helm-dash-at-point "dash at point")
     ("dd" helm-dash "dash"))
-   "Avy"
-   (("gc" avy-goto-char "goto char")
-    ("gl" avy-goto-line "goto line")
-    ("gw" avy-goto-word-1 "goto word"))
    "Tools"
    (("bg" bongo-playlist "bongo")
     ("gt" (run-in-other-window 'google-translate-smooth-translate) "google translate")
