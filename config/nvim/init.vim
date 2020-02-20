@@ -11,7 +11,8 @@ Plug 'itchyny/lightline.vim'
 "{{{ CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
 if executable('rg')
-  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_cacheing = 0
 endif
 "}}}
 
@@ -38,6 +39,13 @@ Plug 'tpope/vim-surround'
 
 "{{{ vim-indexed-search
 Plug 'henrik/vim-indexed-search'
+"}}}
+
+"{{{ vim-easy-align
+Plug 'junegunn/vim-easy-align'
+let g:easy_align_delimiters = {
+\ '|': { 'pattern': '||\||' }
+\}
 "}}}
 
 "{{{ confluence-wiki
@@ -113,7 +121,7 @@ endif
 " mmarkers are used to specify folds
 set foldmethod=marker
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " Only menu for complete
 set completeopt=menu
@@ -139,5 +147,9 @@ noremap <silent> <F4> :TagbarToggle<cr>
 
 " NERDTree
 noremap <silent> <F5> :NERDTreeToggle<cr>
+
+" vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 "}}}
