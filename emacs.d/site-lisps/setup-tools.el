@@ -254,6 +254,9 @@ user."
 ;; cmake-mode
 (require 'cmake-mode nil 'noerror)
 
+;; plantuml
+(setq plantuml-default-exec-mode 'jar)
+
 (provide 'setup-tools)
 
 ;; Local Variables:

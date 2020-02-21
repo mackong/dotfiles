@@ -40,7 +40,6 @@
 
   (setq org-confirm-babel-evaluate nil)
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
-  (setq plantuml-default-exec-mode 'jar)
   (setq org-plantuml-jar-path plantuml-jar-path))
 
 (defun setup-org-jira ()
