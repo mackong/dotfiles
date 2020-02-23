@@ -16,6 +16,7 @@
     ru = !git pull origin $(git current)
 [core]
     pager = "diff-so-fancy | less --tabs=4 -RFX"
+	quotepath = off
 [color]
     ui = true
     [diff-highlight]
