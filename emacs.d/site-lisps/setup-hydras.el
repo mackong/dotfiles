@@ -65,7 +65,6 @@ This checks in turn:
     ("sn" (multi-scratch-new t) "scratch"))
    "Runners"
    (("rp" (run-in-other-window 'run-python) "python")
-    ("rj" jupyter-run-repl "jupyter repl")
     ("rg" go-playground "go playground")
     ("rl" slime "common lisp")
     ("rs" run-geiser "geiser"))

@@ -29,7 +29,6 @@
      (makefile . t)
      (plantuml . t)
      (python . t)
-     (jupyter . t)
      (R . t)
      (ruby . t)
      (scheme . t)

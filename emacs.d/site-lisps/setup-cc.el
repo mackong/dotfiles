@@ -21,11 +21,7 @@
   (c-set-offset 'innamespace 0)
 
   (doxymacs-mode)
-  (doxymacs-font-lock)
-  (hs-minor-mode 1)
-  (add-to-list 'hs-special-modes-alist
-               '(c-mode "[\n\t ]*{" "}" "/[*/]" nil nil))
-  (local-set-key (kbd "M-+") 'hs-toggle-hiding))
+  (doxymacs-font-lock))
 
 (defun setup-c/c++-mode ()
   "Setup for c/c++ mode"
@@ -35,8 +31,6 @@
 
   (setq gdb-many-windows t)
   (setq gdb-use-separate-io-buffer t)
-
-  (local-set-key (kbd "C-x C-o") 'ff-find-other-file)
 
   (if (not (string-equal major-mode "glsl-mode"))
       (condition-case nil

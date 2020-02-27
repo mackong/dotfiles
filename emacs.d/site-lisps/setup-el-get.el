@@ -81,16 +81,6 @@
                :description "An Emacs major mode to read and browse RFC documents."
                :type github
                :pkgname "galdor/rfc-mode")
-        (:name emacs-zmq
-               :description "Emacs bindings to ØMQ"
-               :type github
-               :pkgname "dzop/emacs-zmq"
-               :build (("make")))
-        (:name emacs-jupyter
-               :description "An interface to communicate with Jupyter kernels."
-               :type github
-               :pkgname "dzop/emacs-jupyter"
-               :depends (simple-httpd websocket emacs-zmq))
         (:name major-mode-hydra
                :description "Spacemacs-esque major mode leader key powered by Hydra"
                :type github
@@ -135,6 +125,7 @@
 
          flycheck
          lsp-ui
+         ein
 
          web-mode
          emmet-mode

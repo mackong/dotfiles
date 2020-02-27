@@ -24,7 +24,7 @@
 (load-theme 'gruber-darker t)
 
 ;; linum-mode
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(global-display-line-numbers-mode)
 
 ;; undo-tree
 (global-undo-tree-mode)
@@ -81,16 +81,8 @@
  '(nxml-child-indent 4)
  '(nxml-outline-child-indent 4)
  '(nxml-slash-auto-complete-flag t))
-(add-to-list 'hs-special-modes-alist
-             '(nxml-mode
-               "<!--\\|<[^/>]*[^/]>"
-               "-->\\|</[^/>]*[^/]>"
-               "<!--"
-               sgml-skip-tag-forward
-               nil))
 (add-hook 'nxml-mode-hook
           (lambda ()
-            (hs-minor-mode)
             (setq indent-tabs-mode nil)))
 
 ;; find file as root
@@ -256,6 +248,9 @@ user."
 
 ;; plantuml
 (setq plantuml-default-exec-mode 'jar)
+
+;; ein
+(setq ein:jupyter-default-notebook-directory (expand-file-name "~/Codes/python/daily/notebooks"))
 
 (provide 'setup-tools)
 
