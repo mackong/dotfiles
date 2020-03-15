@@ -89,6 +89,7 @@
 
 (setq lsp-java-workspace-dir (expand-file-name "~/.emacs.d/others/jdt/workspace")
       lsp-java-workspace-cache-dir (expand-file-name "~/.emacs.d/others/jdt/workspace/.cache")
+      lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz"
       lsp-java-server-install-dir (expand-file-name "~/.emacs.d/others/jdt/server")
       lsp-java-import-maven-enabled t
       lsp-java-import-gradle-enabled nil)
