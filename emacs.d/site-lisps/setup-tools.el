@@ -69,12 +69,6 @@
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-;; avy
-(global-unset-key (kbd "M-g c"))
-(global-unset-key (kbd "M-g g"))
-(global-set-key (kbd "M-g c") 'avy-goto-char)
-(global-set-key (kbd "M-g g") 'avy-goto-line)
-
 ;; nXML
 (custom-set-variables
  '(nxml-auto-insert-xml-declaration-flag t)

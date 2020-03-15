@@ -94,7 +94,6 @@
          irfc
          window-number
          multi-term
-         avy
          restclient
          expand-region
          change-inner
