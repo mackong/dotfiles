@@ -24,7 +24,7 @@
 (load-theme 'gruber-darker t)
 
 ;; linum-mode
-(global-display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; undo-tree
 (global-undo-tree-mode)
