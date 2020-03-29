@@ -97,9 +97,6 @@ user."
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-s") 'helm-occur)
-(global-set-key (kbd "M-g g") 'avy-goto-line)
-(global-set-key (kbd "M-g c") 'avy-goto-subword-1)
 (setq helm-split-window-inside-p t
       helm-move-to-line-cycle-in-source t
       helm-ff-search-library-in-sexp t
@@ -157,6 +154,10 @@ user."
             (local-set-key (kbd "C-.") 'xref-find-definitions)
             (local-set-key (kbd "C-,") 'xref-pop-marker-stack)))
 (setq imenu-max-item-length 'Unlimited)
+(custom-set-faces
+ '(lsp-face-highlight-read ((t :inherit nil :background "#033e5d")))
+ '(lsp-face-highlight-write ((t :inherit nil :background "#033e5d")))
+ '(lsp-face-highlight-textual ((t :inherit nil :background "#033e5d"))))
 
 ;; multi scratch
 (require 'multi-scratch)
@@ -248,6 +249,10 @@ user."
 
 ;; ein
 (setq ein:jupyter-default-notebook-directory (expand-file-name "~/Codes/python/daily/notebooks"))
+
+;; avy
+(global-set-key (kbd "M-g g") 'avy-goto-line)
+(global-set-key (kbd "M-g c") 'avy-goto-subword-1)
 
 (provide 'setup-tools)
 
