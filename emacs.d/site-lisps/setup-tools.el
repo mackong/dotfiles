@@ -253,6 +253,7 @@ user."
 ;; avy
 (global-set-key (kbd "M-g g") 'avy-goto-line)
 (global-set-key (kbd "M-g c") 'avy-goto-subword-1)
+(global-set-key (kbd "C-*") 'isearch-forward-symbol-at-point)
 
 (provide 'setup-tools)
 
