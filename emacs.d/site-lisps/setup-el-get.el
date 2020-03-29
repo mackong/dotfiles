@@ -86,6 +86,11 @@
                :type github
                :pkgname "jerrypnz/major-mode-hydra.el"
                :depends (hydra))
+        (:name alect-theme
+               :description "Configurable custom themes for GNU Emacs"
+               :type github
+               :pkgname "alezost/alect-themes"
+               :prepare (add-to-list 'custom-theme-load-path default-directory))
         ))
 
 (setq my-el-get-packages
@@ -106,7 +111,8 @@
          dired-plus
          google-translate
          pdf-tools
-         gruber-darker-theme
+         emojify
+         avy
 
          helm-dash
          helm-projectile
