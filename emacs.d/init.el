@@ -87,7 +87,7 @@
 
 (setq x-gtk-use-system-tooltips nil)
 
-(setq browse-url-browser-function 'browse-url-chrome)
+(setq browse-url-browser-function 'eww)
 
 (require 'dired-x)
 (setq-default dired-omit-files-p t)
