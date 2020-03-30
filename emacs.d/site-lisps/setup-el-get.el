@@ -91,6 +91,13 @@
                :type github
                :pkgname "alezost/alect-themes"
                :prepare (add-to-list 'custom-theme-load-path default-directory))
+        (:name forge
+               :description "Work with Git forges from the comfort of Magit"
+               :type github
+               :load-path "lisp/"
+               :pkgname "magit/forge"
+               :depends (ghub closql emacsql)
+               :features forge)
         ))
 
 (setq my-el-get-packages
