@@ -42,7 +42,6 @@
 (setq irfc-directory "~/Documents/RFC/")
 (setq irfc-assoc-mode t)
 (setq rfc-mode-directory (expand-file-name "~/Documents/RFC/"))
-(require 'rfc-mode)
 (add-hook 'rfc-mode-hook '(lambda () (irfc-mode)))
 
 ;; window-number
@@ -104,7 +103,6 @@ user."
       helm-buffer-max-length nil)
 
 ;; helm-xref
-(require 'helm-xref)
 (setq-default xref-prompt-for-identifier nil)
 (setq helm-xref-candidate-formatting-function 'helm-xref-format-candidate-long)
 
@@ -254,6 +252,10 @@ user."
 (global-set-key (kbd "M-g g") 'avy-goto-line)
 (global-set-key (kbd "M-g c") 'avy-goto-subword-1)
 (global-set-key (kbd "C-*") 'isearch-forward-symbol-at-point)
+
+;; magit forge
+(setq forge-alist (add-to-list 'forge-alist
+                               '("git.vpgame.cn" "git.vpgame.cn/api/v4" "git.vpgame.cn" forge-gitlab-repository)))
 
 (provide 'setup-tools)
 

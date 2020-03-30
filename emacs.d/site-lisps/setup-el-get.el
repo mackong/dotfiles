@@ -67,7 +67,8 @@
         (:name helm-xref
                :description "Helm interface for xref results"
                :type github
-               :pkgname "brotzeit/helm-xref")
+               :pkgname "brotzeit/helm-xref"
+               :features helm-xref)
         (:name transient
                :description "Transient commands"
                :type github
@@ -80,7 +81,8 @@
         (:name rfc-mode
                :description "An Emacs major mode to read and browse RFC documents."
                :type github
-               :pkgname "galdor/rfc-mode")
+               :pkgname "galdor/rfc-mode"
+               :features rfc-mode)
         (:name major-mode-hydra
                :description "Spacemacs-esque major mode leader key powered by Hydra"
                :type github
