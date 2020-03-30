@@ -87,7 +87,9 @@
 
 (setq x-gtk-use-system-tooltips nil)
 
-(setq browse-url-browser-function 'eww)
+(setq browse-url-browser-function
+      '(("^file://.*" . eww)
+        ("^https?://.*" . browse-url-chrome)))
 
 (require 'dired-x)
 (setq-default dired-omit-files-p t)
