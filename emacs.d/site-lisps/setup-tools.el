@@ -148,7 +148,8 @@ user."
                   lsp-ui-imenu-enable nil
                   lsp-ui-sideline-show-code-actions nil
                   lsp-ui-sideline-show-symbol nil
-                  lsp-ui-sideline-show-hover nil)
+                  lsp-ui-sideline-show-hover nil
+                  lsp-enable-file-watchers nil)
             (local-set-key (kbd "C-.") 'xref-find-definitions)
             (local-set-key (kbd "C-,") 'xref-pop-marker-stack)))
 (setq imenu-max-item-length 'Unlimited)
