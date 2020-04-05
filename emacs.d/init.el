@@ -113,7 +113,7 @@ mouse-3: Toggle minor modes"
 
 (setq url-proxy-services '(("http" . "127.0.0.1:12345")
                            ("https" . "127.0.0.1:12345")
-                           ("no_proxy" . "^\\(vpgame\\.cn\\|localhost\\|127\\.0\\.0\\.1\\)")))
+                           ("no_proxy" . "\\(.*\\.vpgame\\.cn\\|localhost\\|127\\.0\\.0\\.1\\)")))
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
 (require 'setup-el-get)
