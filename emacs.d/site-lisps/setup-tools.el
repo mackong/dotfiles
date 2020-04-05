@@ -261,6 +261,13 @@ user."
 (setq forge-alist (add-to-list 'forge-alist
                                '("git.vpgame.cn" "git.vpgame.cn/api/v4" "git.vpgame.cn" forge-gitlab-repository)))
 
+;; sr-speedbar
+(setq speedbar-show-unknown-files t
+      speedbar-use-images nil
+      sr-speedbar-width 30
+      sr-speedbar-right-side nil
+      sr-speedbar-auto-refresh nil)
+
 (provide 'setup-tools)
 
 ;; Local Variables:

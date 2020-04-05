@@ -62,7 +62,8 @@ This checks in turn:
     ("gt" (run-in-other-window 'google-translate-smooth-translate) "google translate")
     ("ms" magit-status "magit")
     ("mt" multi-term "terminal")
-    ("sn" (multi-scratch-new t) "scratch"))
+    ("sn" (multi-scratch-new t) "scratch")
+    ("sb" (sr-speedbar-toggle) "sr-speedbar"))
    "Runners"
    (("rp" (run-in-other-window 'run-python) "python")
     ("rg" go-playground "go playground")

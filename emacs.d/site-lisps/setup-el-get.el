@@ -118,6 +118,7 @@
          emojify
          doom-themes
          avy
+         sr-speedbar
 
          helm-dash
          helm-projectile
