@@ -32,7 +32,11 @@ mouse-3: Toggle minor modes"
 	      '("" mode-line-process)
               ")"
 	      (propertize "%]" 'help-echo recursive-edit-help-echo)
-	      " ")))
+	      " "
+              "["
+              `(:eval (number-to-string (window-number)))
+              "]"
+              )))
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
