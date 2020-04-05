@@ -21,7 +21,11 @@
 (exec-path-from-shell-initialize)
 
 ;; Theme
-(load-theme 'alect-black t)
+(setq doom-themes-enable-bold t
+      doom-themes-enable-italic t)
+(doom-themes-org-config)
+(doom-themes-treemacs-config)
+(load-theme 'doom-acario-dark t)
 
 ;; linum-mode
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
@@ -153,10 +157,6 @@ user."
             (local-set-key (kbd "C-.") 'xref-find-definitions)
             (local-set-key (kbd "C-,") 'xref-pop-marker-stack)))
 (setq imenu-max-item-length 'Unlimited)
-(custom-set-faces
- '(lsp-face-highlight-read ((t :inherit nil :background "#033e5d")))
- '(lsp-face-highlight-write ((t :inherit nil :background "#033e5d")))
- '(lsp-face-highlight-textual ((t :inherit nil :background "#033e5d"))))
 
 ;; multi scratch
 (require 'multi-scratch)
@@ -204,13 +204,16 @@ user."
             (compilation-shell-minor-mode t)))
 
 ;; dired
+(require 'dired-x)
 (add-hook 'dired-mode-hook
           (lambda ()
             (dired-hide-details-mode 0)))
 (diredp-toggle-find-file-reuse-dir 1)
+(setq-default dired-omit-files-p t)
 (setq dired-recursive-copies 'always
       dired-recursive-deletes 'top
-      dired-dwim-target t)
+      dired-dwim-target t
+      dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
 
 ;; compilation
 (require 'ansi-color)

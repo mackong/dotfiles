@@ -88,11 +88,6 @@
                :type github
                :pkgname "jerrypnz/major-mode-hydra.el"
                :depends (hydra))
-        (:name alect-theme
-               :description "Configurable custom themes for GNU Emacs"
-               :type github
-               :pkgname "alezost/alect-themes"
-               :prepare (add-to-list 'custom-theme-load-path default-directory))
         (:name forge
                :description "Work with Git forges from the comfort of Magit"
                :type github
@@ -121,6 +116,7 @@
          google-translate
          pdf-tools
          emojify
+         doom-themes
          avy
 
          helm-dash
