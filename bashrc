@@ -25,21 +25,18 @@ export EDITOR=vim
 # Golang
 export GOROOT=/usr/lib/go
 export GO111MODULE=on
-go_path_arr=("/opt/go-tools" "$HOME/Codes/go")
-go_path=$(printf ":%s" "${go_path_arr[@]}")
-export GOPATH=${go_path:1}
+export GOPATH=$HOME/.go
 
 # Python virtualenv
 export VIRTUALENVWRAPPER_PYTHON=python3
 export WORKON_HOME=$HOME/.virtualenvs
 
 # JAVA_HOME
-export JAVA_HOME=/usr/lib64/jvm/default
+export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 
 # Additional PATH
-for p in "${go_path_arr[@]}"; do
-    pathmunge "$p/bin" after
-done
+pathmunge $GOPATH/bin after
+pathmunge $HOME/.virtualenvs/daily-*/bin after
 export PATH
 
 # Auto change directory in emacs
@@ -48,51 +45,4 @@ if [ -n "$INSIDE_EMACS" ]; then
         print -P "\032/$(pwd)"
     }
 fi
-
-# Custom aliases
-
-# Path to the bash it configuration
-export BASH_IT="$HOME/.bash_it"
-
-# Lock and Load a custom theme file
-# location /.bash_it/themes/
-export BASH_IT_THEME='mairan'
-
-# (Advanced): Change this to the name of your remote repo if you
-# cloned bash-it with a remote other than origin such as `bash-it`.
-# export BASH_IT_REMOTE='bash-it'
-
-# Don't check mail when opening terminal.
-unset MAILCHECK
-
-# Set this to the command you use for todo.txt-cli
-export TODO="t"
-
-# Set this to false to turn off version control status checking within the prompt for all themes
-export SCM_CHECK=false
-
-# Set Xterm/screen/Tmux title with only a short hostname.
-# Uncomment this (or set SHORT_HOSTNAME to something else),
-# Will otherwise fall back on $HOSTNAME.
-#export SHORT_HOSTNAME=$(hostname -s)
-
-# Set Xterm/screen/Tmux title with only a short username.
-# Uncomment this (or set SHORT_USER to something else),
-# Will otherwise fall back on $USER.
-#export SHORT_USER=${USER:0:8}
-
-# Set Xterm/screen/Tmux title with shortened command and directory.
-# Uncomment this to set.
-#export SHORT_TERM_LINE=true
-
-# Set vcprompt executable path for scm advance info in prompt (demula theme)
-# https://github.com/djl/vcprompt
-#export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
-
-# (Advanced): Uncomment this to make Bash-it reload itself automatically
-# after enabling or disabling aliases, plugins, and completions.
-# export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
-
-# Load Bash It
-source "$BASH_IT"/bash_it.sh
 
