@@ -24,8 +24,7 @@
 (setq doom-themes-enable-bold t
       doom-themes-enable-italic t)
 (doom-themes-org-config)
-(doom-themes-treemacs-config)
-(load-theme 'doom-acario-dark t)
+(load-theme 'doom-dark+ t)
 
 ;; linum-mode
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
@@ -153,7 +152,11 @@ user."
                   lsp-ui-sideline-show-code-actions nil
                   lsp-ui-sideline-show-symbol nil
                   lsp-ui-sideline-show-hover nil
-                  lsp-enable-file-watchers nil)
+                  lsp-enable-file-watchers nil
+                  lsp-enable-on-type-formatting nil
+                  company-lsp-cache-candidates 'auto
+                  lsp-enable-links nil
+                  lsp-enable-folding nil)
             (local-set-key (kbd "C-.") 'xref-find-definitions)
             (local-set-key (kbd "C-,") 'xref-pop-marker-stack)))
 (setq imenu-max-item-length 'Unlimited)
@@ -172,6 +175,7 @@ user."
   (mapc #'set-color
         '((term-color-black "#2e3434")
           (term-color-red "tomato")
+          (term-color-green "#6ac214")
           (term-color-green "#6ac214")
           (term-color-yellow "#edd400")
           (term-color-blue "light sky blue")
@@ -240,6 +244,7 @@ user."
 (pdf-loader-install)
 (add-hook 'pdf-tools-enabled-hook
           '(lambda ()
+             (pdf-view-midnight-minor-mode)
              (setq pdf-view-display-size 'fit-page
                    pdf-view-resize-factor 1.1)))
 
@@ -251,15 +256,16 @@ user."
 
 ;; ein
 (setq ein:jupyter-default-notebook-directory (expand-file-name "~/Codes/python/daily/notebooks"))
+(add-hook 'ein:notebook-mode-hook
+          '(lambda ()
+             (set-face-attribute 'ein:cell-input-area nil :background nil)
+             (set-face-attribute 'ein:cell-output-area nil :background nil)
+             (whitespace-mode -1)))
 
 ;; avy
 (global-set-key (kbd "M-g g") 'avy-goto-line)
 (global-set-key (kbd "M-g c") 'avy-goto-subword-1)
 (global-set-key (kbd "C-*") 'isearch-forward-symbol-at-point)
-
-;; magit forge
-(setq forge-alist (add-to-list 'forge-alist
-                               '("git.vpgame.cn" "git.vpgame.cn/api/v4" "git.vpgame.cn" forge-gitlab-repository)))
 
 ;; sr-speedbar
 (setq speedbar-show-unknown-files t

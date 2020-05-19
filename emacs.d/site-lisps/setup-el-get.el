@@ -42,19 +42,10 @@
                :pkgname "dbrock/bongo"
                :build (("makeinfo" "-o" "bongo.info" "bongo.texi"))
                :info "bongo.info")
-        (:name go-playground
-               :description "GNU/Emacs mode that setup local Go playground for code snippets like play.golang.org or even better :)"
-               :type github
-               :pkgname "grafov/go-playground"
-               :depends (go-test))
         (:name cdlatex-mode
                :description "Fast input methods for LaTeX environments and math"
                :type github
                :pkgname "cdominik/cdlatex")
-        (:name company-lsp
-               :description "Company completion backend for lsp-mode"
-               :type github
-               :pkgname "tigersoldier/company-lsp")
         (:name lsp-java
                :description "Java support for lsp-mode using the Eclipse JDT Language Server."
                :type github
@@ -69,11 +60,6 @@
                :type github
                :pkgname "brotzeit/helm-xref"
                :features helm-xref)
-        (:name transient
-               :description "Transient commands"
-               :type github
-               :load-path ("lisp")
-               :pkgname "magit/transient")
         (:name dash-docs
                :description "A elisp library that exposes functionality to work with and search dash docsets."
                :type github
@@ -88,13 +74,10 @@
                :type github
                :pkgname "jerrypnz/major-mode-hydra.el"
                :depends (hydra))
-        (:name forge
-               :description "Work with Git forges from the comfort of Magit"
+        (:name ob-restclient
+               :description "An org-mode extension to restclient.el"
                :type github
-               :load-path "lisp/"
-               :pkgname "magit/forge"
-               :depends (ghub closql emacsql)
-               :features forge)
+               :pkgname "alf/ob-restclient.el")
         ))
 
 (setq my-el-get-packages
@@ -133,9 +116,11 @@
          doxymacs
          org-bullets
          org-jira
+         ob-go
 
          flycheck
          lsp-ui
+         company-lsp
          ein
 
          web-mode
@@ -148,6 +133,8 @@
 
          sphinx-doc
          pyvenv
+
+         go-mode
 
          scala-mode)
        (mapcar 'el-get-source-name el-get-sources)))

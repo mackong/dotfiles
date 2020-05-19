@@ -24,7 +24,6 @@ export EDITOR=vim
 
 # Golang
 export GOROOT=/usr/lib/go
-export GO111MODULE=on
 export GOPATH=$HOME/.go
 
 # Python virtualenv
