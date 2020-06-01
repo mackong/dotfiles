@@ -66,7 +66,6 @@ This checks in turn:
     ("sb" (sr-speedbar-toggle) "sr-speedbar"))
    "Runners"
    (("rp" (run-in-other-window 'run-python) "python")
-    ("rg" go-playground "go playground")
     ("rl" slime "common lisp")
     ("rs" run-geiser "geiser"))
    "Misc"
@@ -144,11 +143,6 @@ This checks in turn:
     ("f" (run-in-other-window 'describe-function) "function")
     ("v" (run-in-other-window 'describe-variable) "variable")
     ("i" (run-in-other-window 'info-lookup-symbol) "info lookup"))))
-
-(major-mode-hydra-define+ go-mode nil
-  ("Playground"
-   (("pe" go-playground-exec "execute")
-    ("pr" go-playground-rm "remove"))))
 
 (major-mode-hydra-define+ org-mode nil
   ("Table"

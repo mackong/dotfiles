@@ -30,11 +30,6 @@
 
 (add-hook 'go-mode-hook 'setup-go-mode)
 
-
-;; go-playground
-(setq go-playground-basedir "~/Codes/go/playground"
-      go-playground-confirm-deletion nil)
-
 (provide 'setup-go)
 
 ;; Local Variables:

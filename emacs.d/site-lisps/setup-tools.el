@@ -165,47 +165,21 @@ user."
 (require 'multi-scratch)
 
 ;; multi term
-(cl-flet ((set-color (pair)
-                     (multiple-value-bind (face color)
-                         pair
-                       (set-face-attribute face
-                                           nil
-                                           :foreground color
-                                           :background nil))))
-  (mapc #'set-color
-        '((term-color-black "#2e3434")
-          (term-color-red "tomato")
-          (term-color-green "#6ac214")
-          (term-color-green "#6ac214")
-          (term-color-yellow "#edd400")
-          (term-color-blue "light sky blue")
-          (term-color-magenta "magenta")
-          (term-color-cyan "cyan")
-          (term-color-white "#eeeeec"))))
+(defun term-toggle-mode ()
+  (interactive)
+  (if (term-in-char-mode)
+      (term-line-mode)
+    (term-char-mode)))
 
-(setq-default ansi-term-color-vector
-              [term-face
-               term-color-black
-               term-color-red
-               term-color-green
-               term-color-yellow
-               term-color-blue
-               term-color-magenta
-               term-color-cyan
-               term-color-white])
+(defun setup-term ()
+  (setq-local global-hl-line-mode nil)
+  (yas-minor-mode -1)
+  (compilation-shell-minor-mode t)
 
-(add-hook 'term-mode-hook
-          (lambda ()
-            (copy-face 'default 'term-face)
+  (define-key term-mode-map (kbd "C-c C-j") 'term-toggle-mode)
+  (define-key term-raw-map (kbd "C-c C-j") 'term-toggle-mode))
 
-            ;; Disable hl-line-mode
-            (setq-local global-hl-line-mode nil)
-
-            ;; Disable yasnippet
-            (yas-minor-mode -1)
-
-            ;; awesome bindings available!
-            (compilation-shell-minor-mode t)))
+(add-hook 'term-mode-hook 'setup-term)
 
 ;; dired
 (require 'dired-x)
