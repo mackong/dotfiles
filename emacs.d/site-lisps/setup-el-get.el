@@ -78,6 +78,27 @@
                :description "An org-mode extension to restclient.el"
                :type github
                :pkgname "alf/ob-restclient.el")
+        (:name doxymacs
+               :website "http://doxymacs.sourceforge.net/"
+               :description "Doxymacs is Doxygen + {X}Emacs."
+               :type git
+               :url "git://git.code.sf.net/p/doxymacs/code"
+               :load-path ("./lisp")
+               :build (("sed" "-i"
+                        "-e" "s/-fexpensive-optimizations//"
+                        "-e" "s/-Werror//" "./c/Makefile.am")
+                       ("sed" "-i" "-e" "s/^inline/static inline/" "./c/doxymacs_parser.c")
+                       ("./bootstrap") ("./configure") ("make"))
+               :prepare (progn
+                          (autoload 'doxymacs-mode "doxymacs" nil t)))
+        (:name ein
+               :description "IPython notebook client in Emacs"
+               :type github
+               :pkgname "millejoh/emacs-ipython-notebook"
+               :depends (websocket request dash deferred polymode markdown-mode anaphora)
+               :load-path ("lisp")
+               :submodule nil
+               :features ein)
         ))
 
 (setq my-el-get-packages
@@ -121,7 +142,6 @@
          flycheck
          lsp-ui
          company-lsp
-         ein
 
          web-mode
          emmet-mode
