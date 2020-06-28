@@ -8,6 +8,10 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 "}}}
 
+"{{{ vim-code-dark
+Plug 'tomasiser/vim-code-dark'
+"}}}
+
 "{{{ CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
 if executable('rg')
@@ -127,6 +131,8 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
+
+colorscheme codedark
 
 "}}}
 
