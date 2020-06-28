@@ -134,7 +134,6 @@
          json-mode
          glsl-mode
          protobuf-mode
-         doxymacs
          org-bullets
          org-jira
          ob-go
