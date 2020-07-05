@@ -20,7 +20,7 @@
      (setq inferior-lisp-program "/usr/bin/sbcl")
      (setq slime-lisp-implementations '((sbcl ("sbcl"))))))
 
-(setq geiser-active-implementations '(chez racket))
+(setq geiser-active-implementations '(chez))
 (setq auto-mode-alist (cons '("\\.ss" . scheme-mode) auto-mode-alist))
 
 ;; autopair, paredit, highlight-parentheses
