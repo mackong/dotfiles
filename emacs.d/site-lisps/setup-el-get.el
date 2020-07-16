@@ -32,11 +32,7 @@
   (install-el-get))
 
 (setq el-get-sources
-      '((:name emacs-euler
-               :description "Fetch project euler problem into file."
-               :type github
-               :pkgname "mackong/emacs-euler")
-        (:name bongo
+      '((:name bongo
                :description "Play music with GNU Emacs"
                :type github
                :pkgname "dbrock/bongo"
@@ -123,6 +119,7 @@
          doom-themes
          avy
          sr-speedbar
+         symbol-overlay
 
          helm-dash
          helm-projectile

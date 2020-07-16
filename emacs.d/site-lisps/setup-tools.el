@@ -241,6 +241,9 @@ user."
 (global-set-key (kbd "M-g c") 'avy-goto-subword-1)
 (global-set-key (kbd "C-*") 'isearch-forward-symbol-at-point)
 
+;; symbol overlay
+(global-set-key (kbd "M-*") 'symbol-overlay-put)
+
 ;; sr-speedbar
 (setq speedbar-show-unknown-files t
       speedbar-use-images nil
