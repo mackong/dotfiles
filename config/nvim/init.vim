@@ -161,4 +161,6 @@ nmap ga <Plug>(EasyAlign)
 " confluence
 noremap <silent> <leader>cp :!~/.virtualenvs/atlassian-cli-WaKN0spQ/bin/confluence push "%:p"<cr><cr>
 
+noremap <leader>ru :%s/\<<C-r><C-w>\>/
+
 "}}}
