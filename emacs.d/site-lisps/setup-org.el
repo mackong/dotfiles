@@ -27,6 +27,7 @@
      (latex . t)
      (lisp . t)
      (makefile . t)
+     (maxima . t)
      (plantuml . t)
      (python . t)
      (R . t)
