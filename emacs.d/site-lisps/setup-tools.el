@@ -21,10 +21,7 @@
 (exec-path-from-shell-initialize)
 
 ;; Theme
-(setq doom-themes-enable-bold t
-      doom-themes-enable-italic t)
-(doom-themes-org-config)
-(load-theme 'doom-dark+ t)
+(load-theme 'vscode-dark-plus t)
 
 ;; linum-mode
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)

@@ -95,6 +95,10 @@
                :load-path ("lisp")
                :submodule nil
                :features ein)
+        (:name vscode-dark-plus-emacs-theme
+               :type github
+               :pkgname "ianpan870102/vscode-dark-plus-emacs-theme"
+               :prepare (add-to-list 'custom-theme-load-path default-directory))
         ))
 
 (setq my-el-get-packages
@@ -116,7 +120,6 @@
          google-translate
          pdf-tools
          emojify
-         doom-themes
          avy
          sr-speedbar
          symbol-overlay
