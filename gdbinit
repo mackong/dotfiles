@@ -7,6 +7,8 @@ set print pretty
 # Allow setting pending breakpoints
 set breakpoint pending on
 
+source ~/.gdbinit-gef.py
+
 define td
     tui disable
 end
