@@ -248,6 +248,10 @@ user."
       sr-speedbar-right-side nil
       sr-speedbar-auto-refresh nil)
 
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq highlight-indent-guides-character ?¦)
+(setq highlight-indent-guides-method 'character)
+
 (provide 'setup-tools)
 
 ;; Local Variables:

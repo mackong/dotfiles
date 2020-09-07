@@ -107,7 +107,7 @@ mouse-3: Toggle minor modes"
 
 (setq x-gtk-use-system-tooltips nil)
 
-(setq browse-url-browser-function
+(setq browse-url-handlers
       '(("^file://.*" . eww)
         ("^https?://.*" . browse-url-chrome)))
 

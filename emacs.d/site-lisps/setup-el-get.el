@@ -123,6 +123,7 @@
          avy
          sr-speedbar
          symbol-overlay
+         highlight-indentation-guides
 
          helm-dash
          helm-projectile
