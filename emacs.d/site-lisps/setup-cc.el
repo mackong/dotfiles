@@ -18,10 +18,7 @@
   (setq-local indent-tabs-mode nil)
   (setq-local c-basic-offset 8)
   (c-set-offset 'arglist-close 0)
-  (c-set-offset 'innamespace 0)
-
-  (doxymacs-mode)
-  (doxymacs-font-lock))
+  (c-set-offset 'innamespace 0))
 
 (defun setup-c/c++-mode ()
   "Setup for c/c++ mode"
@@ -79,20 +76,12 @@
 
   (condition-case nil
       (progn
-        (require 'lsp-java)
-
         (setq lsp-java-format-on-type-enabled nil
               lsp-java-format-enabled nil
               lsp-java-signature-help-enabled t)
         (lsp))
     (error nil)))
 
-(setq lsp-java-workspace-dir (expand-file-name "~/.emacs.d/others/jdt/workspace")
-      lsp-java-workspace-cache-dir (expand-file-name "~/.emacs.d/others/jdt/workspace/.cache")
-      lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz"
-      lsp-java-server-install-dir (expand-file-name "~/.emacs.d/others/jdt/server")
-      lsp-java-import-maven-enabled t
-      lsp-java-import-gradle-enabled nil)
 (add-hook 'java-mode-hook 'setup-java-mode)
 
 (provide 'setup-cc)

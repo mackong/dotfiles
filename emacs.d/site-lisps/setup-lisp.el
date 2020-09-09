@@ -12,15 +12,6 @@
 
 ;;; Code:
 
-(eval-after-load "slime"
-  '(progn
-     (slime-setup '(slime-fancy slime-asdf slime-banner slime-company))
-     (setq slime-complete-symbol*-fancy t)
-     (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
-     (setq inferior-lisp-program "/usr/bin/sbcl")
-     (setq slime-lisp-implementations '((sbcl ("sbcl"))))))
-
-(setq geiser-active-implementations '(chez))
 (setq auto-mode-alist (cons '("\\.ss" . scheme-mode) auto-mode-alist))
 
 ;; autopair, paredit, highlight-parentheses

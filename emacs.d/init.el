@@ -18,34 +18,13 @@
                    (abbreviate-file-name (buffer-file-name))
                  "%b")) " [%*]"))
 
-(setq mode-line-modes
-      (let ((recursive-edit-help-echo "Recursive edit, type C-M-c to get out"))
-        (list (propertize "%[" 'help-echo recursive-edit-help-echo)
-	      "("
-	      `(:propertize ("" mode-name)
-			    help-echo "Major mode\n\
-mouse-1: Display major mode menu\n\
-mouse-2: Show help for major mode\n\
-mouse-3: Toggle minor modes"
-			    mouse-face mode-line-highlight
-			    local-map ,mode-line-major-mode-keymap)
-	      '("" mode-line-process)
-              ")"
-	      (propertize "%]" 'help-echo recursive-edit-help-echo)
-	      " "
-              "["
-              `(:eval (number-to-string (window-number)))
-              "]"
-              )))
-
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (fringe-mode -1)
 (delete-selection-mode 1)
 
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+(custom-set-variables '(initial-frame-alist '((fullscreen . maximized))))
 
 (setq-default cursor-type 'hbar)
 (setq default-text-properties '(line-spacing 0.25 line-height 1.25))
@@ -115,17 +94,60 @@ mouse-3: Toggle minor modes"
                            ("https" . "127.0.0.1:12345")
                            ("no_proxy" . "\\(.*\\.vpgame\\.cn\\|localhost\\|127\\.0\\.0\\.1\\|mirrors.tuna.tsinghua.edu.cn\\)")))
 
+;; linum-mode
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+;; dired
+(require 'dired-x)
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (dired-hide-details-mode 0)))
+(setq-default dired-omit-files-p t)
+(setq dired-recursive-copies 'always
+      dired-recursive-deletes 'top
+      dired-dwim-target t
+      dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+
+;; compilation
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  "Colorize the compilation buffer."
+  (ansi-color-apply-on-region compilation-filter-start (point)))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+(setq compilation-scroll-output 'first-error)
+
+;; maxima
+(autoload 'maxima-mode "maxima" "Maxima mode" t)
+(autoload 'imaxima "imaxima" "Frontend for maxima with Image support" t)
+(autoload 'maxima "maxima" "Maxima interaction" t)
+(autoload 'imath-mode "imath" "Imath mode for math formula input" t)
+(setq imaxima-use-maxima-mode-flag t)
+(setq imaxima-fnt-size "Large")
+
+;; whitespace mode
+(add-hook 'prog-mode-hook 'whitespace-mode)
+(add-hook 'before-save-hook 'whitespace-cleanup)
+(setq whitespace-style '(face tabs empty trailing))
+
+;; nxml
+
+(add-hook 'nxml-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)))
+
+;; cmake-mode
+(require 'cmake-mode nil 'noerror)
+
+;; imenu
+(setq imenu-max-item-length 'Unlimited)
+
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
-(require 'setup-el-get)
-(require 'setup-tools)
+(require 'setup-packages)
 (require 'setup-cc)
 (require 'setup-lisp)
-(require 'setup-tex)
 (require 'setup-python)
 (require 'setup-org)
-(require 'setup-web)
 (require 'setup-go)
-(require 'setup-scala)
 (require 'setup-hydras)
 
 ;; Local Variables:

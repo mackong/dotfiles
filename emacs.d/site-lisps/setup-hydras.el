@@ -62,8 +62,7 @@ This checks in turn:
     ("gt" (run-in-other-window 'google-translate-smooth-translate) "google translate")
     ("ms" magit-status "magit")
     ("mt" multi-term "terminal")
-    ("sn" (multi-scratch-new t) "scratch")
-    ("sb" (sr-speedbar-toggle) "sr-speedbar"))
+    ("sn" (multi-scratch-new t) "scratch"))
    "Runners"
    (("rp" (run-in-other-window 'run-python) "python")
     ("rl" slime "common lisp")
@@ -73,7 +72,7 @@ This checks in turn:
     ("ci" change-inner "change inner")
     ("co" change-outer "change outer")
     ("vr" vr/replace "visual regexp")
-    ("fr" find-file-as-root "edit as root"))))
+    ("tm" treemacs "treemacs"))))
 
 (major-mode-hydra-define pdf-view-mode nil
   ("Move"
@@ -120,7 +119,9 @@ This checks in turn:
     ("r" lsp-rename "rename"))
    "Buffer"
    (("f" lsp-format-buffer "format")
+    ("e" lsp-treemacs-errors-list "errors")
     ("m" helm-imenu "imenu")
+    ("l" lsp-treemacs-symbols "symbols")
     ("x" lsp-execute-code-action "code action"))
    "Server"
    (("S" lsp-shutdown-workspace "shutdown")

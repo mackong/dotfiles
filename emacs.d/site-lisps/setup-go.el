@@ -23,7 +23,6 @@
   ;; Call gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)
 
-  (require 'lsp-clients)
   (condition-case nil
       (lsp)
     (error nil)))

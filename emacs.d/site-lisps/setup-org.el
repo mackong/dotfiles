@@ -96,7 +96,6 @@
 
 (defun setup-org-mode ()
   "Setup org mode."
-  (turn-on-org-cdlatex)
   (org-bullets-mode)
 
   (setup-org-babel)
