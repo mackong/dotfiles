@@ -52,12 +52,9 @@ let g:easy_align_delimiters = {
 \}
 "}}}
 
-"{{{ confluence-wiki
-Plug 'vim-scripts/confluencewiki.vim'
-augroup confluencewiki
-  au!
-  autocmd BufNewFile,BufRead *.confluence set filetype=confluencewiki
-augroup END
+"{{{ vim-indent-line
+Plug 'Yggdroot/indentLine'
+let g:indentLine_char = '¦'
 "}}}
 
 call plug#end()
@@ -130,9 +127,16 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 " Only menu for complete
 set completeopt=menu
 
+set cursorline
+
 set termguicolors
 
 colorscheme codedark
+
+au BufReadPost *
+\ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+\ | exe "normal! g`\""
+\ | endif
 
 "}}}
 
@@ -157,10 +161,5 @@ noremap <silent> <F5> :NERDTreeToggle<cr>
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-" confluence
-noremap <silent> <leader>cp :!~/.virtualenvs/atlassian-cli-WaKN0spQ/bin/confluence push "%:p"<cr><cr>
-
-noremap <leader>ru :%s/\<<C-r><C-w>\>/
 
 "}}}
