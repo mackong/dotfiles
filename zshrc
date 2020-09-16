@@ -104,6 +104,8 @@ export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 # Additional PATH
 pathmunge $GOPATH/bin after
 pathmunge $HOME/.virtualenvs/daily-*/bin after
+pathmunge /usr/share/bcc/tools/ after
+pathmunge /usr/share/bcc/introspection/ after
 export PATH
 
 if [ -n "$INSIDE_EMACS" ]; then
