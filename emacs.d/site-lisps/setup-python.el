@@ -14,6 +14,7 @@
 
 (defun setup-python-mode ()
   "Setup for python mode."
+  (require 'lsp-pyright)
   (condition-case nil
       (lsp)
     (error nil))

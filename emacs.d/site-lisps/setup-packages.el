@@ -116,7 +116,7 @@ mouse-3: Toggle minor modes"
          ("C-c m a" . mc/mark-all-like-this)
          ("C-c m n" . mc/insert-numbers))
   :config
-  (setq mc/list-file "~/.emacs.d/others/.mc-lists.el"))
+  (setq mc/list-file (expand-file-name "~/.emacs.d/others/.mc-lists.el")))
 
 ;; magit
 (use-package magit
@@ -179,8 +179,8 @@ mouse-3: Toggle minor modes"
   ("C-c p" . projectile-command-map)
   :init
   (setq projectile-completion-system 'helm
-        projectile-cache-file "~/.emacs.d/others/projectile/projectile.cache"
-        projectile-known-projects-file "~/.emacs.d/el-get/projectile/projectile-bookmarks.eld")
+        projectile-cache-file (expand-file-name "~/.emacs.d/others/projectile/projectile.cache")
+        projectile-known-projects-file (expand-file-name "~/.emacs.d/el-get/projectile/projectile-bookmarks.eld"))
   :config
   (projectile-global-mode)
   (setq projectile-globally-ignored-directories (append '("bin" "pkg" "vendor"  ;; for golang workspaces
@@ -285,7 +285,10 @@ mouse-3: Toggle minor modes"
                                         (company-dabbrev-code company-keywords) company-dabbrev)))
 
 ;; treemacs
-(use-package treemacs)
+(use-package treemacs
+  :config
+  (setq treemacs-position 'right
+        treemacs-persist-file (expand-file-name "~/.emacs.d/others/treemacs-persist")))
 
 ;; lsp-mode
 (use-package lsp-mode
@@ -304,7 +307,11 @@ mouse-3: Toggle minor modes"
         lsp-enable-on-type-formatting nil
         company-lsp-cache-candidates 'auto
         lsp-enable-links nil
-        lsp-enable-folding nil)
+        lsp-enable-folding nil
+        lsp-server-install-dir (expand-file-name "~/.emacs.d/others/lsp")
+        lsp-session-file (expand-file-name "~/.emacs.d/others/.lsp-session-v1")
+        lsp-treemacs-deps-position-params `((side . left) (slot . 1) (window-width . ,treemacs-width))
+        lsp-treemacs-symbols-position-params `((side . left) (slot . 2) (window-width . ,treemacs-width)))
   :bind (:map lsp-mode-map
               ("C-." . xref-find-definitions)
               ("C-," . xref-pop-marker-stack)))
@@ -315,10 +322,10 @@ mouse-3: Toggle minor modes"
 ;; lsp-java
 (use-package lsp-java
   :init
-  (setq lsp-java-workspace-dir (expand-file-name "~/.emacs.d/others/jdt/workspace")
-        lsp-java-workspace-cache-dir (expand-file-name "~/.emacs.d/others/jdt/workspace/.cache")
+  (setq lsp-java-workspace-dir (expand-file-name "~/.emacs.d/others/lsp/jdt/workspace")
+        lsp-java-workspace-cache-dir (expand-file-name "~/.emacs.d/others/lsp/jdt/workspace/.cache")
         lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz"
-        lsp-java-server-install-dir (expand-file-name "~/.emacs.d/others/jdt/server")
+        lsp-java-server-install-dir (expand-file-name "~/.emacs.d/others/lsp/jdt/server")
         lsp-java-import-maven-enabled t
         lsp-java-import-gradle-enabled nil))
 
@@ -327,9 +334,15 @@ mouse-3: Toggle minor modes"
   :config
   (add-hook 'scala-mode-hook #'lsp))
 
+;; lsp-pyright
+(use-package lsp-pyright
+  :config
+  (setq lsp-pyright-log-level "error"))
+
 ;; dap-mode
 (use-package dap-mode
   :config
+  (setq dap-breakpoints-file (expand-file-name "~/.emacs.d/others/.dap-breakpoints"))
   (add-hook 'dap-stopped-hook
             (lambda (arg) (call-interactively #'dap-hydra))))
 
