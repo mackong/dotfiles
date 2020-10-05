@@ -58,7 +58,7 @@
           ("Medium" . ?B)
           ("Low" . ?C)
           ("Lowest" . ?C)))
-  (setq org-jira-default-jql "project = DATAPLAT AND issuetype != 数据需求 ORDER BY Rank ASC"))
+  (setq org-jira-default-jql "project = DATAPLAT AND assignee = \"kongyichao@vpgame.cn\" ORDER BY Rank ASC"))
 
 (defun setup-org-agenda ()
   "Setup org agenda."
@@ -109,6 +109,9 @@
   (setq org-latex-listings t)
   (setq org-src-preserve-indentation t)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+  (set-face-attribute 'org-block nil :background "#121212")
+  (set-face-attribute 'org-block-begin-line nil :background "#121212")
+  (set-face-attribute 'org-block-end-line nil :background "#121212")
   (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)")
   (setq-local truncate-lines t)
   (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
