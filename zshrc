@@ -62,7 +62,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  z mvn
+  z mvn golang docker
 )
 
 DISABLE_MAGIC_FUNCTIONS=true
