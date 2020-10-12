@@ -259,6 +259,7 @@ mouse-3: Toggle minor modes"
         company-show-numbers t
         company-idle-delay .1
         company-echo-delay 0
+        company-dabbrev-downcase nil
         company-backends '(company-nxml company-css company-semantic company-cmake company-capf company-files
                                         (company-dabbrev-code company-keywords) company-dabbrev)))
 
@@ -403,7 +404,15 @@ mouse-3: Toggle minor modes"
 
 (use-package evil-magit)
 
-(use-package evil-org)
+(use-package evil-org
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 (provide 'setup-packages)
 
