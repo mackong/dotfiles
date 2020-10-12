@@ -360,6 +360,9 @@ mouse-3: Toggle minor modes"
 ;; go-mode
 (use-package go-mode)
 
+;; go-dlv
+(use-package go-dlv)
+
 ;; scala-mode
 (use-package scala-mode)
 
