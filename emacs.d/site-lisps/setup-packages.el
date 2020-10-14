@@ -123,14 +123,16 @@ mouse-3: Toggle minor modes"
 (defun setup-pdf-tools ()
   (pdf-view-midnight-minor-mode)
   (setq pdf-view-display-size 'fit-page
-        pdf-view-resize-factor 1.1))
+        pdf-view-resize-factor 1.1)
+  (set (make-local-variable 'evil-emacs-state-cursor) (list nil)))
 
 (use-package pdf-tools
   :load-path "site-lisp/pdf-tools/lisp"
   :magic ("%PDF" . pdf-view-mode)
   :config
   (pdf-loader-install :no-query)
-  (add-hook 'pdf-tools-enabled-hook #'setup-pdf-tools))
+  (evil-set-initial-state 'pdf-view-mode 'emacs)
+  (add-hook 'pdf-view-mode-hook #'setup-pdf-tools))
 
 ;; symbol-overlay
 (use-package symbol-overlay
