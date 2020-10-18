@@ -28,6 +28,8 @@
 
               (setq-local indent-tabs-mode nil)
               (local-set-key (kbd "C-x C-e") 'pp-eval-last-sexp)
+              (local-set-key (kbd "C-.") 'xref-find-definitions)
+              (local-set-key (kbd "C-,") 'xref-pop-marker-stack)
               (local-set-key (kbd "<return>") 'reindent-then-newline-and-indent))))
 
 (provide 'setup-lisp)

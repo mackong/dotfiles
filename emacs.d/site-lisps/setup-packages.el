@@ -82,6 +82,11 @@ mouse-3: Toggle minor modes"
                 "]"
                 ))))
 
+;; multi-scratch
+(use-package multi-scratch
+  :straight nil
+  :load-path "~/.emacs.d/others/packages/multi-scratch")
+
 ;; multi-term
 (defun term-toggle-mode ()
   (interactive)
@@ -101,9 +106,17 @@ mouse-3: Toggle minor modes"
   :config
   (add-hook 'term-mode-hook #'setup-term))
 
-;; expand-region
-(use-package expand-region
+;; change-inner
+(use-package change-inner
   :bind (("C-=" . er/expand-region)))
+
+;; multiple-cursors
+(use-package multiple-cursors
+  :bind (("C-c m e" . mc/edit-lines)
+         ("C-c m a" . mc/mark-all-like-this)
+         ("C-c m n" . mc/insert-numbers))
+  :config
+  (setq mc/list-file (expand-file-name "~/.emacs.d/others/.mc-lists.el")))
 
 ;; magit
 (use-package magit
@@ -111,6 +124,9 @@ mouse-3: Toggle minor modes"
 
 ;; paredit
 (use-package paredit)
+
+;; visual-regexp
+(use-package visual-regexp)
 
 ;; google-translate
 (use-package google-translate
@@ -133,6 +149,12 @@ mouse-3: Toggle minor modes"
   (pdf-loader-install :no-query)
   (evil-set-initial-state 'pdf-view-mode 'emacs)
   (add-hook 'pdf-view-mode-hook #'setup-pdf-tools))
+
+;; avy
+(use-package avy
+  :bind (("M-g g" . avy-goto-line)
+         ("M-g c" . avy-goto-subword-1)
+         ("C-*" . isearch-forward-symbol-at-point)))
 
 ;; symbol-overlay
 (use-package symbol-overlay
@@ -292,7 +314,10 @@ mouse-3: Toggle minor modes"
         lsp-server-install-dir (expand-file-name "~/.emacs.d/others/lsp")
         lsp-session-file (expand-file-name "~/.emacs.d/others/.lsp-session-v1")
         lsp-treemacs-deps-position-params `((side . left) (slot . 1) (window-width . ,treemacs-width))
-        lsp-treemacs-symbols-position-params `((side . left) (slot . 2) (window-width . ,treemacs-width))))
+        lsp-treemacs-symbols-position-params `((side . left) (slot . 2) (window-width . ,treemacs-width)))
+    :bind (:map lsp-mode-map
+              ("C-." . xref-find-definitions)
+              ("C-," . xref-pop-marker-stack)))
 
 ;; lsp-ui
 (use-package lsp-ui)
@@ -399,25 +424,6 @@ mouse-3: Toggle minor modes"
   :config
   (setq ein:jupyter-default-notebook-directory (expand-file-name "~/Codes/python/daily/notebooks"))
   (add-hook 'ein:notebook-mode-hook #'setup-ein))
-
-;; evil
-(use-package evil
-  :config
-  (evil-mode 1)
-  (evil-ex-define-cmd "q" 'kill-this-buffer)
-  (evil-ex-define-cmd "quit" 'evil-quit))
-
-(use-package evil-magit)
-
-(use-package evil-org
-  :after org
-  :config
-  (add-hook 'org-mode-hook 'evil-org-mode)
-  (add-hook 'evil-org-mode-hook
-            (lambda ()
-              (evil-org-set-key-theme)))
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys))
 
 (provide 'setup-packages)
 

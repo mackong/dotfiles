@@ -62,12 +62,17 @@ This checks in turn:
     ("gt" (run-in-other-window 'google-translate-smooth-translate) "google translate")
     ("ms" magit-status "magit")
     ("mt" multi-term "terminal")
-    ("sn" evil-buffer-new "scratch")
+    ("sn" (multi-scratch-new t) "scratch")
     ("tm" treemacs "treemacs"))
    "Runners"
    (("rp" (run-in-other-window 'run-python) "python")
     ("rl" slime "common lisp")
-    ("rs" run-geiser "geiser"))))
+    ("rs" run-geiser "geiser"))
+   "Misc"
+   (("zz" text-scale-adjust "zoom")
+    ("ci" change-inner "change inner")
+    ("co" change-outer "change outer")
+    ("vr" vr/replace "visual regexp"))))
 
 (major-mode-hydra-define pdf-view-mode nil
   ("Move"
