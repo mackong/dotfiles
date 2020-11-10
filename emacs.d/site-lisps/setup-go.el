@@ -24,7 +24,9 @@
   (add-hook 'before-save-hook 'gofmt-before-save)
 
   (condition-case nil
-      (lsp)
+      (progn
+        (setq lsp-go-hover-kind "FullDocumentation")
+        (lsp))
     (error nil)))
 
 (add-hook 'go-mode-hook 'setup-go-mode)
