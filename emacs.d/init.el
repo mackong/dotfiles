@@ -39,15 +39,15 @@
 (setq user-full-name "mackong")
 (setq user-mail-address "mackonghp@gmail.com")
 
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 (setq recentf-save-file (expand-file-name "~/.emacs.d/others/recentf"))
 (setq create-lockfiles nil)
+(setq make-backup-files nil)
 
 (setq eshell-directory-name (expand-file-name "~/.emacs.d/others/eshell/"))
 (setq bookmark-save-flag nil)
+(setq bookmark-default-file (expand-file-name "~/.emacs.d/others/bookmarks"))
 (setq tramp-ssh-controlmaster-options "")
 
 (set-buffer-file-coding-system 'utf-8)
@@ -85,10 +85,6 @@
 (setq Man-notify-method 'pushy)
 
 (setq x-gtk-use-system-tooltips nil)
-
-(setq browse-url-handlers
-      '(("^file://.*" . eww)
-        ("^https?://.*" . browse-url-chrome)))
 
 (setq url-proxy-services '(("http" . "127.0.0.1:12345")
                            ("https" . "127.0.0.1:12345")
@@ -140,6 +136,9 @@
 
 ;; imenu
 (setq imenu-max-item-length 'Unlimited)
+
+(setq scroll-step 1
+      scroll-conservatively 10000)
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
 (require 'setup-packages)
