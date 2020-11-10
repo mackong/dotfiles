@@ -5,6 +5,8 @@
     helper = cache --timeout=3600
 [push]
     default = current
+[pull]
+    rebase = false
 [alias]
     co = checkout
     cp = cherry-pick
@@ -16,7 +18,7 @@
     ru = !git pull origin $(git current)
 [core]
     pager = "diff-so-fancy | less --tabs=4 -RFX"
-	quotepath = off
+    quotepath = off
 [color]
     ui = true
     [diff-highlight]
@@ -35,3 +37,5 @@
     path = ~/Gitlab/.gitconfig
 [http]
 	proxy = http://localhost:12345
+[url "https://github.com/"]
+    insteadOf = git://github.com/
