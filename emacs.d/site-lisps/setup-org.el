@@ -100,8 +100,7 @@
 
   (setup-org-babel)
 
-  (custom-set-variables
-   '(org-export-backends '(ascii beamer html latex man md)))
+  (setq org-export-backends '(ascii beamer html latex man md))
 
   (setq truncate-lines nil)
   (setq org-use-speed-commands t)
