@@ -52,61 +52,25 @@ This checks in turn:
 (global-set-key (kbd "C-SPC") 'major-mode-hydra)
 
 (major-mode-hydra-define fake-mode nil
-  ("Dash"
-   (("di" dash-docs-install-docset "install")
-    ("da" dash-docs-activate-docset "activate")
-    ("dh" helm-dash-at-point "dash at point")
-    ("dd" helm-dash "dash"))
+  ("EAF"
+   (("eh" eaf-open-browser-with-history "history")
+    ("eb" eaf-open-bookmark "bookmark")
+    ("et" eaf-open-terminal "terminal")
+    ("ej" eaf-open-jupyter "jupyter")
+    ("em" eaf-create-mindmap "mindmap")
+    ("eq" eaf-stop-process "quit"))
    "Tools"
    (("bg" bongo-playlist "bongo")
-    ("gt" (run-in-other-window 'google-translate-smooth-translate) "google translate")
+    ("gt" (run-in-other-window 'go-translate) "google translate")
     ("ms" magit-status "magit")
-    ("mt" multi-term "terminal")
     ("sn" (multi-scratch-new t) "scratch")
     ("tm" treemacs "treemacs"))
-   "Runners"
-   (("rp" (run-in-other-window 'run-python) "python")
-    ("rl" slime "common lisp")
-    ("rs" run-geiser "geiser"))
    "Misc"
    (("zz" text-scale-adjust "zoom")
     ("ci" change-inner "change inner")
     ("co" change-outer "change outer")
-    ("vr" vr/replace "visual regexp"))))
-
-(major-mode-hydra-define pdf-view-mode nil
-  ("Move"
-   (("n" pdf-view-next-page-command "next page")
-    ("p" pdf-view-previous-page-command "previous page")
-    ("g" pdf-view-first-page "first page")
-    ("G" pdf-view-last-page "last page")
-    ("e" pdf-view-goto-page "goto page")
-    ("B" pdf-history-backward "history backward")
-    ("N" pdf-history-forward "history forward"))
-   "Scale/Fit"
-   (("+" pdf-view-enlarge "enlarge")
-    ("-" pdf-view-shrink "shrink")
-    ("0" pdf-view-scale-reset "reset")
-    ("H" pdf-view-fit-height-to-window "fit height")
-    ("W" pdf-view-fit-width-to-window "fit width")
-    ("P" pdf-view-fit-page-to-window "fit page"))
-   "Annotations"
-   (("al" pdf-annot-list-annotations "list")
-    ("ad" pdf-annot-delete "delete")
-    ("aa" pdf-annot-attachment-dired "attachment dired")
-    ("am" pdf-annot-add-markup-annotation "add markup")
-    ("at" pdf-annot-add-text-annotation "add text"))
-   "Search/Link"
-   (("s" isearch-forward "search")
-    ("S" pdf-occur "occur")
-    ("o" pdf-outline "outline")
-    ("F" pdf-links-action-perfom "link")
-    ("f" pdf-links-isearch-link "search link"))
-   "Misc"
-   (("u" pdf-view-revert-buffer "revert buffer")
-    ("i" pdf-misc-display-metadata "info")
-    ("d" pdf-view-dark-minor-mode "dark mode")
-    ("m" pdf-view-midnight-minor-mode "midnight mode"))))
+    ("vr" vr/replace "visual regexp")
+    ("q" hydra-keyboard-quit "quit hydra"))))
 
 ;;; for lsp-mode
 (major-mode-hydra-define (java-mode scala-mode python-mode c-mode c++-mode go-mode) nil
@@ -144,17 +108,6 @@ This checks in turn:
     ("f" (run-in-other-window 'describe-function) "function")
     ("v" (run-in-other-window 'describe-variable) "variable")
     ("i" (run-in-other-window 'info-lookup-symbol) "info lookup"))))
-
-(major-mode-hydra-define+ org-mode nil
-  ("Table"
-   (("ic" org-table-insert-column "insert column")
-    ("ira" org-table-insert-row "insert row above")
-    ("irb" (org-table-insert-row t) "insert row below")
-    ("dc" org-table-delete-column "delete column")
-    ("ml" org-table-move-column-left "move column left")
-    ("mr" org-table-move-column-right "move column right")
-    ("mu" org-table-move-row-up "move row up")
-    ("md" org-table-move-row-down "move row down"))))
 
 (provide 'setup-hydras)
 

@@ -18,13 +18,13 @@
                    (abbreviate-file-name (buffer-file-name))
                  "%b")) " [%*]"))
 
+(custom-set-variables '(initial-frame-alist '((fullscreen . maximized))))
+
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (fringe-mode -1)
 (delete-selection-mode 1)
-
-(custom-set-variables '(initial-frame-alist '((fullscreen . maximized))))
 
 (setq-default cursor-type 'hbar)
 (setq default-text-properties '(line-spacing 0.25 line-height 1.25))
@@ -86,23 +86,12 @@
 
 (setq x-gtk-use-system-tooltips nil)
 
+(setq scroll-step 1
+      scroll-conservatively 10000)
+
 (setq url-proxy-services '(("http" . "127.0.0.1:12345")
                            ("https" . "127.0.0.1:12345")
-                           ("no_proxy" . "\\(.*\\.vpgame\\.cn\\|localhost\\|127\\.0\\.0\\.1\\|mirrors.tuna.tsinghua.edu.cn\\)")))
-
-;; linum-mode
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
-
-;; dired
-(require 'dired-x)
-(add-hook 'dired-mode-hook
-          (lambda ()
-            (dired-hide-details-mode 0)))
-(setq-default dired-omit-files-p t)
-(setq dired-recursive-copies 'always
-      dired-recursive-deletes 'top
-      dired-dwim-target t
-      dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+                           ("no_proxy" . "\\(.*\\.vpgame\\.cn\\|localhost\\|127\\.0\\.0\\.1\\|mirrors.tuna.tsinghua.edu.cn\\|translate.google.cn\\)")))
 
 ;; compilation
 (require 'ansi-color)
@@ -112,33 +101,8 @@
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 (setq compilation-scroll-output 'first-error)
 
-;; maxima
-(autoload 'maxima-mode "maxima" "Maxima mode" t)
-(autoload 'imaxima "imaxima" "Frontend for maxima with Image support" t)
-(autoload 'maxima "maxima" "Maxima interaction" t)
-(autoload 'imath-mode "imath" "Imath mode for math formula input" t)
-(setq imaxima-use-maxima-mode-flag t)
-(setq imaxima-fnt-size "Large")
-
-;; whitespace mode
-(add-hook 'prog-mode-hook 'whitespace-mode)
-(add-hook 'before-save-hook 'whitespace-cleanup)
-(setq whitespace-style '(face tabs empty trailing))
-
-;; nxml
-
-(add-hook 'nxml-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil)))
-
-;; cmake-mode
-(require 'cmake-mode nil 'noerror)
-
 ;; imenu
 (setq imenu-max-item-length 'Unlimited)
-
-(setq scroll-step 1
-      scroll-conservatively 10000)
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
 (require 'setup-packages)

@@ -36,6 +36,30 @@
   (setq exec-path-from-shell-variables '("PATH" "MANPATH" "WORKON_HOME" "JAVA_HOME" "GOPATH" "GOROOT"))
   (exec-path-from-shell-initialize))
 
+;; linum-mode
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+;; whitespace mode
+(add-hook 'prog-mode-hook 'whitespace-mode)
+(add-hook 'before-save-hook 'whitespace-cleanup)
+(setq whitespace-style '(face tabs empty trailing))
+
+;; nxml
+(add-hook 'nxml-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)))
+
+;; cmake-mode
+(require 'cmake-mode nil 'noerror)
+
+;; maxima
+(autoload 'maxima-mode "maxima" "Maxima mode" t)
+(autoload 'imaxima "imaxima" "Frontend for maxima with Image support" t)
+(autoload 'maxima "maxima" "Maxima interaction" t)
+(autoload 'imath-mode "imath" "Imath mode for math formula input" t)
+(setq imaxima-use-maxima-mode-flag t)
+(setq imaxima-fnt-size "Large")
+
 ;; theme
 (use-package all-the-icons)
 (use-package doom-themes
@@ -47,6 +71,21 @@
   (doom-themes-treemacs-config)
   (doom-themes-org-config))
 
+;; modeline
+(use-package doom-modeline
+  :hook (after-init . doom-modeline-mode))
+
+;; dired
+(require 'dired-x)
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (dired-hide-details-mode 0)))
+(setq-default dired-omit-files-p t)
+(setq dired-recursive-copies 'always
+      dired-recursive-deletes 'top
+      dired-dwim-target t
+      dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+
 ;; dired-plus
 (use-package dired+
   :config
@@ -57,54 +96,10 @@
   :config
   (global-undo-tree-mode))
 
-;; window-number
-(use-package window-number
-  :config
-  (window-number-mode 1)
-  (window-number-meta-mode 1)
-  (setq mode-line-modes
-        (let ((recursive-edit-help-echo "Recursive edit, type C-M-c to get out"))
-          (list (propertize "%[" 'help-echo recursive-edit-help-echo)
-                "("
-                `(:propertize ("" mode-name)
-                              help-echo "Major mode\n\
-mouse-1: Display major mode menu\n\
-mouse-2: Show help for major mode\n\
-mouse-3: Toggle minor modes"
-                              mouse-face mode-line-highlight
-                              local-map ,mode-line-major-mode-keymap)
-                '("" mode-line-process)
-                ")"
-                (propertize "%]" 'help-echo recursive-edit-help-echo)
-                " "
-                "["
-                `(:eval (number-to-string (window-number)))
-                "]"
-                ))))
-
 ;; multi-scratch
 (use-package multi-scratch
   :straight nil
   :load-path "~/.emacs.d/others/packages/multi-scratch")
-
-;; multi-term
-(defun term-toggle-mode ()
-  (interactive)
-  (if (term-in-char-mode)
-      (term-line-mode)
-    (term-char-mode)))
-
-(defun setup-term ()
-  (setq-local global-hl-line-mode nil)
-  (yas-minor-mode -1)
-  (compilation-shell-minor-mode t)
-
-  (define-key term-mode-map (kbd "C-c C-j") 'term-toggle-mode)
-  (define-key term-raw-map (kbd "C-c C-j") 'term-toggle-mode))
-
-(use-package multi-term
-  :config
-  (add-hook 'term-mode-hook #'setup-term))
 
 ;; change-inner
 (use-package change-inner
@@ -119,8 +114,7 @@ mouse-3: Toggle minor modes"
   (setq mc/list-file (expand-file-name "~/.emacs.d/others/.mc-lists.el")))
 
 ;; magit
-(use-package magit
-  :defer t)
+(use-package magit)
 
 ;; paredit
 (use-package paredit)
@@ -128,32 +122,22 @@ mouse-3: Toggle minor modes"
 ;; visual-regexp
 (use-package visual-regexp)
 
-;; google-translate
-(use-package google-translate
+;; go-translate
+(use-package go-translate
   :config
-  (setq google-translate-translation-directions-alist
-        '(("en" . "zh-CN")
-          ("zh-CN" . "en"))))
+  (setq go-translate-base-url "https://translate.google.cn"
+        go-translate-local-language "zh-CN"
+        go-translate-buffer-follow-p t
+        go-translate-inputs-function #'go-translate-inputs-current-or-prompt))
 
-;; pdf-tools
-(defun setup-pdf-tools ()
-  (pdf-view-midnight-minor-mode)
-  (setq pdf-view-display-size 'fit-page
-        pdf-view-resize-factor 1.1)
-  (set (make-local-variable 'evil-emacs-state-cursor) (list nil)))
-
-(use-package pdf-tools
-  :load-path "site-lisp/pdf-tools/lisp"
-  :magic ("%PDF" . pdf-view-mode)
-  :config
-  (pdf-loader-install :no-query)
-  (evil-set-initial-state 'pdf-view-mode 'emacs)
-  (add-hook 'pdf-view-mode-hook #'setup-pdf-tools))
+;; ace-window
+(use-package ace-window
+  :bind (("M-o" . ace-window)))
 
 ;; avy
 (use-package avy
-  :bind (("M-g g" . avy-goto-line)
-         ("M-g c" . avy-goto-subword-1)
+  :bind (("M-g l" . avy-goto-line)
+         ("M-g c" . avy-goto-char)
          ("C-*" . isearch-forward-symbol-at-point)))
 
 ;; symbol-overlay
@@ -173,7 +157,11 @@ mouse-3: Toggle minor modes"
         helm-move-to-line-cycle-in-source t
         helm-ff-search-library-in-sexp t
         helm-ff-file-name-history-use-recentf t
-        helm-buffer-max-length nil))
+        helm-buffer-max-length nil
+        helm-man-or-woman-function 'woman
+        woman-fill-frame t
+        woman-use-own-frame nil
+        woman-cache-level 3))
 
 ;; projectile
 (use-package projectile
@@ -189,9 +177,6 @@ mouse-3: Toggle minor modes"
                                                           "project" "target" ".settings"  ;; for maven project
                                                           ".metals" ".bloop"    ;; for sbt project
                                                           ) projectile-globally-ignored-directories)))
-
-;; helm-dash
-(use-package helm-dash)
 
 ;; helm-projectile
 (use-package helm-projectile
@@ -214,6 +199,9 @@ mouse-3: Toggle minor modes"
   (company-auctex-init)
   (local-set-key (kbd "TAB") 'TeX-complete-symbol))
 
+(defun TeX-eaf-sync-view ()
+  (eaf-open (concat file "." (TeX-output-extension))))
+
 (use-package auctex
   :defer t
   :init
@@ -221,7 +209,8 @@ mouse-3: Toggle minor modes"
         TeX-parse-self t
         TeX-auto-untabify t
         TeX-engine 'xetex
-        TeX-view-program-selection '((output-pdf "PDF Tools"))
+        TeX-view-program-list '(("EAF" TeX-eaf-sync-view))
+        TeX-view-program-selection '((output-pdf "EAF"))
         TeX-source-correlate-start-server t
         TeX-global-PDF-mode t
         TeX-save-query nil)
@@ -239,7 +228,8 @@ mouse-3: Toggle minor modes"
 (use-package graphviz-dot-mode)
 
 ;; markdown
-(use-package markdown-mode)
+(use-package markdown-mode
+  :mode "\\.mmd\\'")
 
 ;; json-mode
 (use-package json-mode)
@@ -251,24 +241,20 @@ mouse-3: Toggle minor modes"
 (use-package protobuf-mode)
 
 ;; org-bullets
-(use-package org-bullets
-  :defer t)
+(use-package org-bullets)
 
 ;; org-jira
 (use-package org-jira
   :defer t)
 
 ;; ob-go
-(use-package ob-go
-  :defer t)
+(use-package ob-go)
 
 ;; ob-restclient
-(use-package ob-restclient
-  :defer t)
+(use-package ob-restclient)
 
 ;; flycheck
-(use-package flycheck
-  :defer t)
+(use-package flycheck)
 
 ;; company
 (use-package company
@@ -283,6 +269,7 @@ mouse-3: Toggle minor modes"
         company-show-numbers t
         company-idle-delay .1
         company-echo-delay 0
+        company-selection-wrap-around t
         company-dabbrev-downcase nil
         company-backends '(company-nxml company-css company-semantic company-cmake company-capf company-files
                                         (company-dabbrev-code company-keywords) company-dabbrev)))
@@ -291,7 +278,9 @@ mouse-3: Toggle minor modes"
 (use-package treemacs
   :config
   (setq treemacs-position 'right
-        treemacs-persist-file (expand-file-name "~/.emacs.d/others/treemacs-persist")))
+        treemacs-persist-file (expand-file-name "~/.emacs.d/others/treemacs-persist"))
+  (if (featurep 'ace-window)
+      (setq aw-ignored-buffers (delete 'treemacs-mode aw-ignored-buffers))))
 
 ;; lsp-mode
 (use-package lsp-mode
@@ -315,7 +304,7 @@ mouse-3: Toggle minor modes"
         lsp-session-file (expand-file-name "~/.emacs.d/others/.lsp-session-v1")
         lsp-treemacs-deps-position-params `((side . left) (slot . 1) (window-width . ,treemacs-width))
         lsp-treemacs-symbols-position-params `((side . left) (slot . 2) (window-width . ,treemacs-width)))
-    :bind (:map lsp-mode-map
+  :bind (:map lsp-mode-map
               ("C-." . xref-find-definitions)
               ("C-," . xref-pop-marker-stack)))
 
@@ -352,18 +341,18 @@ mouse-3: Toggle minor modes"
 ;; company-lsp
 (use-package company-lsp)
 
-;; slime-company
-(use-package slime-company)
-
 ;; slime
 (use-package slime
-  :after (slime-company)
-  :config
-  (slime-setup '(slime-fancy slime-asdf slime-banner slime-company))
+  :init
   (setq slime-complete-symbol*-fancy t
-        slime-complete-symbol-function 'slime-fuzzy-complete-symbol
         inferior-lisp-program "/usr/bin/sbcl"
         slime-lisp-implementations '((sbcl ("sbcl")))))
+
+;; slime-company
+(use-package slime-company
+  :after (slime company)
+  :init
+  (slime-setup '(slime-fancy slime-asdf slime-banner slime-company)))
 
 ;; geiser
 (use-package geiser
@@ -414,16 +403,45 @@ mouse-3: Toggle minor modes"
 ;; major-mode-hydra
 (use-package major-mode-hydra)
 
-;; ein
-(defun setup-ein ()
-  (set-face-attribute 'ein:cell-input-area nil :background "#121212")
-  (set-face-attribute 'ein:cell-output-area nil :background "#121212")
-  (whitespace-mode -1))
+;; s
+(use-package s)
 
-(use-package ein
+;; eaf
+(defun adviser-find-file (orig-fn file &rest args)
+  (let ((fn (if (commandp 'eaf-open) #'(lambda (file)
+                                         (eaf-open file)
+                                         (setq default-directory (file-name-directory file)))
+              orig-fn))
+        (ext (file-name-extension file))
+        (supported-exts (append eaf-pdf-extension-list eaf-video-extension-list eaf-image-extension-list eaf-mindmap-extension-list)))
+    (if (member ext supported-exts)
+        (apply fn file nil)
+      (apply orig-fn file args))))
+
+(use-package eaf
+  :straight nil
+  :load-path "~/.emacs.d/others/packages/emacs-application-framework"
+  :custom
+  (eaf-find-alternate-file-in-dired t)
   :config
-  (setq ein:jupyter-default-notebook-directory (expand-file-name "~/Codes/python/daily/notebooks"))
-  (add-hook 'ein:notebook-mode-hook #'setup-ein))
+  (eaf-setq eaf-emacs-theme-mode "dark")
+  (eaf-setq eaf-browser-default-zoom "1.3")
+  (eaf-setq eaf-browser-font-family "Fira Code")
+  (eaf-setq eaf-browser-enable-autofill "true")
+  (eaf-setq eaf-terminal-font-size "14")
+  (eaf-setq eaf-terminal-font-family "Fira Code")
+  (eaf-setq eaf-mindmap-edit-mode "true")
+  (eaf-setq eaf-mindmap-save-path "~/Documents/Diagrams")
+  (eaf-setq eaf-jupyter-font-size "13")
+  (eaf-setq eaf-jupyter-font-family "Fira Code")
+  (setq eaf-config-location "~/.emacs.d/others/eaf/")
+  (setq eaf-proxy-type "http"
+        eaf-proxy-host "127.0.0.1"
+        eaf-proxy-port "8118")
+  (setq browse-url-browser-function 'eaf-open-browser)
+  (eaf-bind-key add_sub_node "<tab>" eaf-mindmap-keybinding)
+  (eaf-bind-key add_brother_node "<return>" eaf-mindmap-keybinding)
+  (advice-add #'find-file :around #'adviser-find-file))
 
 (provide 'setup-packages)
 
