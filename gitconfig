@@ -36,6 +36,8 @@
 [includeIf "gitdir:~/Gitlab/"]
     path = ~/Gitlab/.gitconfig
 [http]
-	proxy = http://localhost:12345
+    proxy = http://localhost:12345
 [url "https://github.com/"]
     insteadOf = git://github.com/
+[url "https://gitee.com/"]
+    insteadOf = git://gitee.com/
