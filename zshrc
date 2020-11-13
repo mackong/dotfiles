@@ -90,6 +90,8 @@ pathmunge () {
 
 export EDITOR=vim
 
+export COLORTERM=truecolor
+
 # Golang
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/.go
