@@ -152,12 +152,15 @@
   :preface (require 'helm-config)
   :config
   (helm-mode 1)
-  (helm-autoresize-mode 1)
   (setq helm-split-window-inside-p t
         helm-move-to-line-cycle-in-source t
         helm-ff-search-library-in-sexp t
         helm-ff-file-name-history-use-recentf t
         helm-buffer-max-length nil
+        helm-candidate-number-limit 50
+        helm-display-buffer-default-width nil
+        helm-display-buffer-default-height 0.25
+        helm-imenu-execute-action-at-once-if-one nil
         helm-man-or-woman-function 'woman
         woman-fill-frame t
         woman-use-own-frame nil
