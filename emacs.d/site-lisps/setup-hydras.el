@@ -51,7 +51,8 @@ This checks in turn:
 (global-set-key (kbd "C-M-,") 'fake-mode-hydra)
 (global-set-key (kbd "C-SPC") 'major-mode-hydra)
 
-(major-mode-hydra-define fake-mode nil
+(major-mode-hydra-define fake-mode
+  (:quit-key ("q" "<escape>"))
   ("EAF"
    (("eh" eaf-open-browser-with-history "history")
     ("eb" eaf-open-bookmark "bookmark")
@@ -69,11 +70,11 @@ This checks in turn:
    (("zz" text-scale-adjust "zoom")
     ("ci" change-inner "change inner")
     ("co" change-outer "change outer")
-    ("vr" vr/replace "visual regexp")
-    ("q" hydra-keyboard-quit "quit hydra"))))
+    ("vr" vr/replace "visual regexp"))))
 
 ;;; for lsp-mode
-(major-mode-hydra-define (java-mode scala-mode python-mode c-mode c++-mode go-mode) nil
+(major-mode-hydra-define (java-mode scala-mode python-mode c-mode c++-mode go-mode)
+  (:quit-key ("q" "<escape>"))
   ("Symbol"
    (("d" lsp-find-declaration "declaration")
     ("t" lsp-find-definition "definition")
@@ -84,7 +85,7 @@ This checks in turn:
    "Buffer"
    (("f" lsp-format-buffer "format")
     ("e" lsp-treemacs-errors-list "errors")
-    ("m" helm-imenu "imenu")
+    ("m" counsel-imenu "imenu")
     ("l" lsp-treemacs-symbols "symbols")
     ("x" lsp-execute-code-action "code action"))
    "Server"
@@ -92,7 +93,8 @@ This checks in turn:
     ("M-r" lsp-restart-workspace "restart")
     ("M-s" lsp-describe-session "describe session"))))
 
-(major-mode-hydra-define+ emacs-lisp-mode nil
+(major-mode-hydra-define+ emacs-lisp-mode
+  (:quit-key ("q" "<escape>"))
   ("Compile"
    (("c" (byte-compile-file (buffer-file-name)) "this file"))
    "Eval"

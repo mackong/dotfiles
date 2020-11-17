@@ -39,6 +39,11 @@
 ;; linum-mode
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
+;; woman
+(setq woman-fill-frame t
+      woman-use-own-frame nil
+      woman-cache-level 3)
+
 ;; whitespace mode
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'before-save-hook 'whitespace-cleanup)
@@ -137,41 +142,47 @@
 ;; avy
 (use-package avy
   :bind (("M-g l" . avy-goto-line)
-         ("M-g c" . avy-goto-char)
-         ("C-*" . isearch-forward-symbol-at-point)))
+         ("M-g c" . avy-goto-char)))
 
 ;; symbol-overlay
 (use-package symbol-overlay
   :bind (("M-*" . symbol-overlay-put)))
 
-;; helm
-(use-package helm
-  :bind (("M-x" . helm-M-x)
-         ("C-x C-f" . helm-find-files)
-         ("C-x b" . helm-mini))
-  :preface (require 'helm-config)
+;; ivy
+(use-package ivy
+  :hook (after-init . ivy-mode)
+  :bind (("C-*" . swiper-thing-at-point))
   :config
-  (helm-mode 1)
-  (setq helm-split-window-inside-p t
-        helm-move-to-line-cycle-in-source t
-        helm-ff-search-library-in-sexp t
-        helm-ff-file-name-history-use-recentf t
-        helm-buffer-max-length nil
-        helm-candidate-number-limit 50
-        helm-display-buffer-default-width nil
-        helm-display-buffer-default-height 0.25
-        helm-imenu-execute-action-at-once-if-one nil
-        helm-man-or-woman-function 'woman
-        woman-fill-frame t
-        woman-use-own-frame nil
-        woman-cache-level 3))
+  (setq ivy-use-virtual-buffers 'recentf
+        ivy-fixed-height-minibuffer nil
+        ivy-height 13))
+
+(use-package ivy-rich
+  :after ivy
+  :hook (ivy-mode . ivy-rich-mode)
+  :config
+  (setq ivy-rich-parse-remote-buffer nil))
+
+(use-package ivy-posframe
+  :after ivy
+  :hook (ivy-mode . ivy-posframe-mode)
+  :config
+  (setq ivy-posframe-border-width 1
+        ivy-posframe-parameters '((left-fringe . 4) (right-fringe . 4))
+        ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+  (set-face-attribute 'ivy-posframe-border nil :background "gray50"))
+
+(use-package counsel
+  :hook (ivy-mode . counsel-mode)
+  :config
+  (use-package amx))
 
 ;; projectile
 (use-package projectile
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
-  (setq projectile-completion-system 'helm
+  (setq projectile-completion-system 'ivy
         projectile-cache-file (expand-file-name "~/.emacs.d/others/projectile/projectile.cache")
         projectile-known-projects-file (expand-file-name "~/.emacs.d/el-get/projectile/projectile-bookmarks.eld"))
   :config
@@ -181,19 +192,10 @@
                                                           ".metals" ".bloop"    ;; for sbt project
                                                           ) projectile-globally-ignored-directories)))
 
-;; helm-projectile
-(use-package helm-projectile
+;; counsel-projectile
+(use-package counsel-projectile
   :config
-  (helm-projectile-on))
-
-;; helm-rg
-(use-package helm-rg)
-
-;; helm-xref
-(use-package helm-xref
-  :config
-  (setq helm-xref-candidata-formatting-function 'helm-xref-format-candidate-long)
-  (setq-default xref-prompt-for-identifier nil))
+  (counsel-projectile-mode t))
 
 ;; auctex
 (defun setup-tex-mode ()
@@ -392,16 +394,20 @@
         bongo-insert-whole-directory-trees t))
 
 ;; rfc-mode
-(use-package rfc-mode
-  :config
-  (setq rfc-mode-directory (expand-file-name "~/Documents/RFC/")))
 (use-package irfc
   :straight nil
   :load-path "~/.emacs.d/others/packages/irfc/"
-  :hook ((rfc-mode) . irfc-mode)
-  :config
+  :init
   (setq irfc-directory "~/Documents/RFC"
         irfc-assoc-mode t))
+
+;; hydra-posframe
+(use-package hydra-posframe
+  :straight nil
+  :load-path "~/.emacs.d/others/packages/hydra-posframe"
+  :hook (after-init . hydra-posframe-mode)
+  :custom
+  (hydra-posframe-parameters '((left-fringe . 4) (right-fringe . 4) (top-fringe . 4) (bottom-fringe . 4) (min-height . 13) (max-height . 30))))
 
 ;; major-mode-hydra
 (use-package major-mode-hydra)
@@ -444,6 +450,8 @@
   (setq browse-url-browser-function 'eaf-open-browser)
   (eaf-bind-key add_sub_node "<tab>" eaf-mindmap-keybinding)
   (eaf-bind-key add_brother_node "<return>" eaf-mindmap-keybinding)
+  (dolist (kb (list eaf-browser-keybinding eaf-mindmap-keybinding eaf-mermaid-keybinding))
+    (setq kb (assoc-delete-all "M-o" kb #'equal)))
   (advice-add #'find-file :around #'adviser-find-file))
 
 (provide 'setup-packages)

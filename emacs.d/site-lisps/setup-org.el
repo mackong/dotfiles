@@ -112,7 +112,7 @@
   (setq-local truncate-lines t)
   (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
 
-  (local-set-key (kbd "C-c C-j") 'helm-imenu))
+  (local-set-key (kbd "C-c C-j") 'counsel-imenu))
 
 (setup-org-jira)
 (setup-org-agenda)
