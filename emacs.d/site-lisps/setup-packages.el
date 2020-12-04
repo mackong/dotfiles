@@ -67,14 +67,7 @@
 
 ;; theme
 (use-package all-the-icons)
-(use-package doom-themes
-  :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
-  (load-theme 'doom-molokai t)
-  (setq doom-themes-treemacs-theme "doom-colors")
-  (doom-themes-treemacs-config)
-  (doom-themes-org-config))
+(load-theme 'modus-operandi t)
 
 ;; modeline
 (use-package doom-modeline
@@ -170,8 +163,7 @@
   :config
   (setq ivy-posframe-border-width 1
         ivy-posframe-parameters '((left-fringe . 4) (right-fringe . 4))
-        ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-  (set-face-attribute 'ivy-posframe-border nil :background "gray50"))
+        ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center))))
 
 (use-package counsel
   :hook (ivy-mode . counsel-mode)
@@ -434,7 +426,7 @@
   :custom
   (eaf-find-alternate-file-in-dired t)
   :config
-  (eaf-setq eaf-emacs-theme-mode "dark")
+  (eaf-setq eaf-emacs-theme-mode "light")
   (eaf-setq eaf-browser-default-zoom "1.3")
   (eaf-setq eaf-browser-font-family "Fira Code")
   (eaf-setq eaf-browser-enable-autofill "true")
