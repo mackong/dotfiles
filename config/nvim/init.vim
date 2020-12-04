@@ -8,10 +8,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 "}}}
 
-"{{{ vim-code-dark
-Plug 'tomasiser/vim-code-dark'
-"}}}
-
 "{{{ CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
 if executable('rg')
@@ -130,8 +126,6 @@ set completeopt=menu
 set cursorline
 
 set termguicolors
-
-colorscheme codedark
 
 au BufReadPost *
 \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
