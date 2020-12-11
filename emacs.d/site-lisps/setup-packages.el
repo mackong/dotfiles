@@ -316,7 +316,9 @@
   (setq lsp-java-workspace-dir (expand-file-name "~/.emacs.d/others/lsp/jdt/workspace")
         lsp-java-workspace-cache-dir (expand-file-name "~/.emacs.d/others/lsp/jdt/workspace/.cache")
         lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz"
+        lsp-java-java-path "/usr/lib/jvm/java-14-openjdk/bin/java"
         lsp-java-server-install-dir (expand-file-name "~/.emacs.d/others/lsp/jdt/server")
+        dap-java-test-runner (expand-file-name "~/.emacs.d/others/lsp/jdt/test-runner/junit-platform-console-standalone.jar")
         lsp-java-import-maven-enabled t
         lsp-java-import-gradle-enabled nil))
 
