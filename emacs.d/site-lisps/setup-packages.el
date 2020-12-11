@@ -446,7 +446,7 @@
   (eaf-bind-key add_sub_node "<tab>" eaf-mindmap-keybinding)
   (eaf-bind-key add_brother_node "<return>" eaf-mindmap-keybinding)
   (dolist (kb (list eaf-browser-keybinding eaf-mindmap-keybinding eaf-mermaid-keybinding))
-    (setq kb (assoc-delete-all "M-o" kb #'equal)))
+    (eaf-bind-key nil "M-o" kb))
   (advice-add #'find-file :around #'adviser-find-file))
 
 (provide 'setup-packages)
