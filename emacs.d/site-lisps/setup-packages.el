@@ -149,7 +149,8 @@
   :config
   (setq ivy-use-virtual-buffers 'recentf
         ivy-fixed-height-minibuffer nil
-        ivy-height 13)
+        ivy-height 13
+        ivy-wrap t)
   (define-key ivy-minibuffer-map (kbd "C-l") 'ivy-backward-delete-char))
 
 (use-package ivy-rich
