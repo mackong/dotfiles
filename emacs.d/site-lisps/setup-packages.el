@@ -247,6 +247,9 @@
 (use-package org-jira
   :defer t)
 
+;; org-mime
+(use-package org-mime)
+
 ;; ob-go
 (use-package ob-go)
 
