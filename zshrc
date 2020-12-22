@@ -97,7 +97,6 @@ export GOROOT=/usr/lib/go
 export GOPATH=$HOME/.go
 
 # Python virtualenv
-export VIRTUALENVWRAPPER_PYTHON=python3
 export WORKON_HOME=$HOME/.conda/envs
 
 # JAVA_HOME
