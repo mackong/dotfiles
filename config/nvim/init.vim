@@ -4,13 +4,6 @@
 call plug#begin('~/.config/nvim/plugged')
 "}}}
 
-"{{{ lightline
-Plug 'itchyny/lightline.vim'
-let g:lightline = {
-\ 'colorscheme': 'Tomorrow',
-\}
-"}}}
-
 "{{{ CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
 if executable('rg')
