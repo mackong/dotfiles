@@ -109,12 +109,6 @@ pathmunge /usr/share/bcc/tools after
 pathmunge /usr/share/bcc/introspection after
 export PATH
 
-if [ -n "$INSIDE_EMACS" ]; then
-    chpwd() {
-        print -P "\032/$(pwd)"
-    }
-fi
-
 # Keybindings
 bindkey '\e#' pound-insert
 
@@ -134,4 +128,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
