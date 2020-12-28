@@ -416,17 +416,6 @@
 (use-package s)
 
 ;; eaf
-(defun adviser-find-file (orig-fn file &rest args)
-  (let ((fn (if (commandp 'eaf-open) #'(lambda (file)
-                                         (eaf-open file)
-                                         (setq default-directory (file-name-directory file)))
-              orig-fn))
-        (ext (file-name-extension file))
-        (supported-exts (append eaf-pdf-extension-list eaf-video-extension-list eaf-image-extension-list eaf-mindmap-extension-list)))
-    (if (member ext supported-exts)
-        (apply fn file nil)
-      (apply orig-fn file args))))
-
 (use-package eaf
   :straight nil
   :load-path "~/.emacs.d/others/packages/emacs-application-framework"
@@ -452,8 +441,7 @@
   (eaf-bind-key add_sub_node "<tab>" eaf-mindmap-keybinding)
   (eaf-bind-key add_brother_node "<return>" eaf-mindmap-keybinding)
   (dolist (kb (list eaf-browser-keybinding eaf-mindmap-keybinding eaf-mermaid-keybinding))
-    (eaf-bind-key nil "M-o" kb))
-  (advice-add #'find-file :around #'adviser-find-file))
+    (eaf-bind-key nil "M-o" kb)))
 
 (provide 'setup-packages)
 
