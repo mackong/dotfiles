@@ -66,12 +66,11 @@
 (setq imaxima-fnt-size "Large")
 
 ;; theme
-(use-package all-the-icons)
-(load-theme 'modus-operandi t)
-
-;; modeline
-(use-package doom-modeline
-  :hook (after-init . doom-modeline-mode))
+(use-package lazycat-theme
+  :straight nil
+  :load-path "~/.emacs.d/others/packages/lazycat-theme"
+  :config
+  (lazycat-theme-load-dark))
 
 ;; dired
 (require 'dired-x)
@@ -422,7 +421,6 @@
   :custom
   (eaf-find-alternate-file-in-dired t)
   :config
-  (eaf-setq eaf-emacs-theme-mode "light")
   (eaf-setq eaf-browser-default-zoom "1.3")
   (eaf-setq eaf-browser-font-family "Fira Code")
   (eaf-setq eaf-browser-enable-autofill "true")
