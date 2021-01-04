@@ -189,7 +189,8 @@
 ;; counsel-projectile
 (use-package counsel-projectile
   :config
-  (counsel-projectile-mode t))
+  (counsel-projectile-mode t)
+  (setq counsel-projectile-rg-initial-input '(ivy-thing-at-point)))
 
 ;; auctex
 (defun setup-tex-mode ()
