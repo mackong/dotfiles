@@ -164,6 +164,7 @@
   :config
   (setq ivy-posframe-border-width 1
         ivy-posframe-parameters '((left-fringe . 4) (right-fringe . 4))
+        ivy-posframe-min-height 19
         ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center))))
 
 (use-package counsel
