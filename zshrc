@@ -111,6 +111,7 @@ export PATH
 
 # Keybindings
 bindkey '\e#' pound-insert
+bindkey '^[[Z' reverse-menu-complete
 
 zstyle ":conda_zsh_completion:*" show-unnamed true
 
