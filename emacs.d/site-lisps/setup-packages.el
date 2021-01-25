@@ -413,13 +413,15 @@
 ;; major-mode-hydra
 (use-package major-mode-hydra)
 
-;; s
-(use-package s)
-
 ;; eaf
 (use-package eaf
   :straight nil
   :load-path "~/.emacs.d/others/packages/emacs-application-framework"
+  :init
+  (use-package s)
+  (use-package epc :defer t)
+  (use-package ctable :defer t)
+  (use-package deferred :defer t)
   :custom
   (eaf-find-alternate-file-in-dired t)
   :config
