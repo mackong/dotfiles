@@ -72,6 +72,14 @@
   :config
   (lazycat-theme-load-dark))
 
+;; awesome-tray
+(use-package awesome-tray
+  :straight nil
+  :load-path "~/.emacs.d/others/packages/awesome-tray"
+  :config
+  (setq awesome-tray-active-modules '("location" "mode-name" "git"))
+  (awesome-tray-mode 1))
+
 ;; dired
 (require 'dired-x)
 (add-hook 'dired-mode-hook
