@@ -118,6 +118,13 @@
   :config
   (setq mc/list-file (expand-file-name "~/.emacs.d/others/.mc-lists.el")))
 
+;; transient
+(use-package transient
+  :config
+  (setq transient-levels-file "~/.emacs.d/others/transient/levels.el"
+        transient-values-file "~/.emacs.d/others/transient/values.el"
+        transient-history-file "~/.emacs.d/others/transient/history.el"))
+
 ;; magit
 (use-package magit)
 
@@ -178,7 +185,9 @@
 (use-package counsel
   :hook (ivy-mode . counsel-mode)
   :config
-  (use-package amx))
+  (use-package amx
+    :config
+    (setq amx-save-file "~/.emacs.d/others/amx-items")))
 
 ;; projectile
 (use-package projectile
