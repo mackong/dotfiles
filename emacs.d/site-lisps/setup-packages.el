@@ -462,6 +462,24 @@
   (dolist (kb (list eaf-browser-keybinding eaf-mindmap-keybinding eaf-mermaid-keybinding))
     (eaf-bind-key nil "M-o" kb)))
 
+;; awesome-tab
+(use-package awesome-tab
+  :straight nil
+  :load-path "~/.emacs.d/others/packages/awesome-tab"
+  :hook (after-init . awesome-tab-mode)
+  :bind (("M-1" . awesome-tab-select-visible-tab)
+         ("M-2" . awesome-tab-select-visible-tab)
+         ("M-3" . awesome-tab-select-visible-tab)
+         ("M-4" . awesome-tab-select-visible-tab)
+         ("M-5" . awesome-tab-select-visible-tab)
+         ("M-6" . awesome-tab-select-visible-tab)
+         ("M-7" . awesome-tab-select-visible-tab)
+         ("M-8" . awesome-tab-select-visible-tab)
+         ("M-9" . awesome-tab-select-visible-tab)
+         ("M-0" . awesome-tab-select-visible-tab))
+  :init
+  (setq awesome-tab-label-fixed-length 14))
+
 (provide 'setup-packages)
 
 ;; Local Variables:
