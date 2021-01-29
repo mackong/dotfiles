@@ -240,7 +240,8 @@
 ;; plantuml
 (use-package plantuml-mode
   :config
-  (setq plantuml-default-exec-mode 'jar))
+  (setq plantuml-jar-path "~/.emacs.d/others/plantuml.jar"
+        plantuml-default-exec-mode 'jar))
 
 ;; graphviz-dot-mode
 (use-package graphviz-dot-mode)
