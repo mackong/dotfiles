@@ -460,7 +460,7 @@
   (setq browse-url-browser-function 'eaf-open-browser)
   (eaf-bind-key add_sub_node "<tab>" eaf-mindmap-keybinding)
   (eaf-bind-key add_brother_node "<return>" eaf-mindmap-keybinding)
-  (dolist (kb (list eaf-browser-keybinding eaf-mindmap-keybinding eaf-mermaid-keybinding))
+  (dolist (kb (list eaf-browser-keybinding eaf-mindmap-keybinding))
     (eaf-bind-key nil "M-o" kb)))
 
 ;; awesome-tab
