@@ -319,7 +319,6 @@
         lsp-ui-sideline-show-hover nil
         lsp-enable-file-watchers nil
         lsp-enable-on-type-formatting nil
-        company-lsp-cache-candidates 'auto
         lsp-enable-links nil
         lsp-enable-folding nil
         lsp-server-install-dir (expand-file-name "~/.emacs.d/others/lsp")
@@ -329,9 +328,6 @@
   :bind (:map lsp-mode-map
               ("C-." . xref-find-definitions)
               ("C-," . xref-pop-marker-stack)))
-
-;; lsp-ui
-(use-package lsp-ui)
 
 ;; lsp-java
 (use-package lsp-java
@@ -361,9 +357,6 @@
   (setq dap-breakpoints-file (expand-file-name "~/.emacs.d/others/.dap-breakpoints"))
   (add-hook 'dap-stopped-hook
             (lambda (arg) (call-interactively #'dap-hydra))))
-
-;; company-lsp
-(use-package company-lsp)
 
 ;; slime
 (use-package slime
@@ -440,8 +433,6 @@
   (use-package epc :defer t)
   (use-package ctable :defer t)
   (use-package deferred :defer t)
-  :custom
-  (eaf-find-alternate-file-in-dired t)
   :config
   (eaf-setq eaf-browser-default-zoom "1.3")
   (eaf-setq eaf-browser-font-family "Fira Code")
