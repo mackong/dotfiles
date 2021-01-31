@@ -311,16 +311,11 @@
         lsp-eldoc-render-all nil
         lsp-signature-render-documentation nil
         lsp-prefer-flymake nil
-        lsp-ui-doc-enable nil
-        lsp-ui-peek-enable nil
-        lsp-ui-imenu-enable nil
-        lsp-ui-sideline-show-code-actions nil
-        lsp-ui-sideline-show-symbol nil
-        lsp-ui-sideline-show-hover nil
         lsp-enable-file-watchers nil
         lsp-enable-on-type-formatting nil
         lsp-enable-links nil
         lsp-enable-folding nil
+        lsp-headerline-breadcrumb-enable nil
         lsp-server-install-dir (expand-file-name "~/.emacs.d/others/lsp")
         lsp-session-file (expand-file-name "~/.emacs.d/others/.lsp-session-v1")
         lsp-treemacs-deps-position-params `((side . left) (slot . 1) (window-width . ,treemacs-width))
