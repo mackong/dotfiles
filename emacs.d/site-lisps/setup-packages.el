@@ -438,6 +438,7 @@
   (eaf-setq eaf-mindmap-save-path "~/Documents/Diagrams")
   (eaf-setq eaf-jupyter-font-size "13")
   (eaf-setq eaf-jupyter-font-family "Fira Code")
+  (eaf-setq eaf-pdf-dark-exclude-image "true")
   (setq eaf-python-command "~/.conda/envs/daily/bin/python")
   (setq eaf-config-location "~/.emacs.d/others/eaf/")
   (setq eaf-proxy-type "http"
