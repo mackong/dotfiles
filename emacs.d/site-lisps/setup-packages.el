@@ -66,19 +66,19 @@
 (setq imaxima-fnt-size "Large")
 
 ;; theme
-(use-package lazycat-theme
-  :straight nil
-  :load-path "~/.emacs.d/others/packages/lazycat-theme"
+(use-package all-the-icons)
+(use-package doom-themes
   :config
-  (lazycat-theme-load-dark))
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-dark+ t)
+  (setq doom-themes-treemacs-theme "doom-colors")
+  (doom-themes-treemacs-config)
+  (doom-themes-org-config))
 
-;; awesome-tray
-(use-package awesome-tray
-  :straight nil
-  :load-path "~/.emacs.d/others/packages/awesome-tray"
-  :config
-  (setq awesome-tray-active-modules '("location" "mode-name" "git"))
-  (awesome-tray-mode 1))
+;; modeline
+(use-package doom-modeline
+  :hook (after-init . doom-modeline-mode))
 
 ;; dired
 (require 'dired-x)
