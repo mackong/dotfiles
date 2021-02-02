@@ -451,6 +451,27 @@
     (eaf-bind-key nil "M-o" kb)))
 
 ;; awesome-tab
+(defun my-awesome-tab-hide-tab (x)
+  (let ((name (format "%s" x)))
+    (message "%s" name)
+    (or
+     ;; Hide tab if current window is not dedicated window.
+     (window-dedicated-p (selected-window))
+
+     (string-equal "*straight-process*" name)
+     (string-equal "*Async-native-compile-log*" name)
+     (string-prefix-p "*EPC" name t)
+     (string-prefix-p "*flycheck" name)
+     (string-prefix-p "*Compile-Log*" name)
+     (string-prefix-p "*lsp" name)
+     (string-prefix-p "*gopls" name)
+     (string-prefix-p "*clangd" name)
+     (string-prefix-p "*jdtls" name)
+     (string-prefix-p "*metals" name)
+     (string-prefix-p "*pyright" name)
+     (and (string-prefix-p "magit" name)
+          (not (file-name-extension name))))))
+
 (use-package awesome-tab
   :straight nil
   :load-path "~/.emacs.d/others/packages/awesome-tab"
@@ -466,7 +487,8 @@
          ("M-9" . awesome-tab-select-visible-tab)
          ("M-0" . awesome-tab-select-visible-tab))
   :init
-  (setq awesome-tab-label-fixed-length 14))
+  (setq awesome-tab-label-fixed-length 14
+        awesome-tab-hide-tab-function #'my-awesome-tab-hide-tab))
 
 (provide 'setup-packages)
 
