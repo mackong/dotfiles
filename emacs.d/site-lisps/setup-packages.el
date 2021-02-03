@@ -490,6 +490,13 @@
   (setq awesome-tab-label-fixed-length 14
         awesome-tab-hide-tab-function #'my-awesome-tab-hide-tab))
 
+;; helpful
+(use-package helpful
+  :bind (("C-h k" . helpful-key))
+  :config
+  (setq counsel-describe-function-function #'helpful-callable
+        counsel-describe-variable-function #'helpful-variable))
+
 (provide 'setup-packages)
 
 ;; Local Variables:
