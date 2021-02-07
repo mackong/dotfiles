@@ -310,7 +310,6 @@
   (setq lsp-keep-workspace-alive nil
         lsp-eldoc-render-all nil
         lsp-signature-render-documentation nil
-        lsp-prefer-flymake nil
         lsp-enable-file-watchers nil
         lsp-enable-on-type-formatting nil
         lsp-enable-links nil
