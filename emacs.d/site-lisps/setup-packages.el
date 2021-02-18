@@ -208,7 +208,8 @@
 (use-package counsel-projectile
   :config
   (counsel-projectile-mode t)
-  (setq counsel-projectile-rg-initial-input '(ivy-thing-at-point)))
+  (setq counsel-projectile-rg-initial-input '(ivy-thing-at-point)
+        counsel-projectile-find-file-matcher 'ivy--re-filter))
 
 ;; auctex
 (defun setup-tex-mode ()
