@@ -430,7 +430,7 @@
   (use-package ctable :defer t)
   (use-package deferred :defer t)
   :config
-  (eaf-setq eaf-browser-default-zoom "1.5")
+  (eaf-setq eaf-browser-default-zoom "1.3")
   (eaf-setq eaf-browser-font-family "Fira Code")
   (eaf-setq eaf-browser-enable-autofill "true")
   (eaf-setq eaf-terminal-font-size "12")
