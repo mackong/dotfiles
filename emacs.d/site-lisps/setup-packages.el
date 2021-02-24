@@ -276,9 +276,6 @@
 ;; ob-restclient
 (use-package ob-restclient)
 
-;; flycheck
-(use-package flycheck)
-
 ;; company
 (use-package company
   :bind (("C-c y" . company-yasnippet)
@@ -315,7 +312,11 @@
         lsp-enable-on-type-formatting nil
         lsp-enable-links nil
         lsp-enable-folding nil
+        lsp-enable-snippet nil
+        lsp-enable-indentation nil
         lsp-headerline-breadcrumb-enable nil
+        lsp-diagnostics-provider :none
+        lsp-modeline-code-actions-enable nil
         lsp-server-install-dir (expand-file-name "~/.emacs.d/others/lsp")
         lsp-session-file (expand-file-name "~/.emacs.d/others/.lsp-session-v1")
         lsp-treemacs-deps-position-params `((side . left) (slot . 1) (window-width . ,treemacs-width))
