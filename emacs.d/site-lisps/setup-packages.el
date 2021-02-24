@@ -143,9 +143,17 @@
         go-translate-buffer-follow-p t
         go-translate-inputs-function #'go-translate-inputs-current-or-prompt))
 
+;; treemacs
+(use-package treemacs
+  :config
+  (setq treemacs-position 'right
+        treemacs-persist-file (expand-file-name "~/.emacs.d/others/treemacs-persist")))
+
 ;; ace-window
 (use-package ace-window
-  :bind (("M-o" . ace-window)))
+  :bind (("M-o" . ace-window))
+  :config
+  (setq aw-ignored-buffers (delete 'treemacs-mode aw-ignored-buffers)))
 
 ;; avy
 (use-package avy
@@ -293,14 +301,6 @@
         company-dabbrev-downcase nil
         company-backends '(company-nxml company-css company-semantic company-cmake company-capf company-files
                                         (company-dabbrev-code company-keywords) company-dabbrev)))
-
-;; treemacs
-(use-package treemacs
-  :config
-  (setq treemacs-position 'right
-        treemacs-persist-file (expand-file-name "~/.emacs.d/others/treemacs-persist"))
-  (if (featurep 'ace-window)
-      (setq aw-ignored-buffers (delete 'treemacs-mode aw-ignored-buffers))))
 
 ;; lsp-mode
 (use-package lsp-mode
