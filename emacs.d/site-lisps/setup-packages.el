@@ -356,6 +356,7 @@
 
 ;; slime
 (use-package slime
+  :defer t
   :init
   (setq slime-complete-symbol*-fancy t
         inferior-lisp-program "/usr/bin/sbcl"
