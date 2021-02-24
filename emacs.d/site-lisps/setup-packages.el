@@ -14,6 +14,7 @@
 
 ;; straight
 (defvar bootstrap-version)
+(setq straight-process-buffer " *straight-process*")
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
       (bootstrap-version 5))
