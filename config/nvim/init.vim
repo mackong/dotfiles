@@ -49,6 +49,10 @@ Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
 "}}}
 
+"{{{ vsdark
+Plug 'tomasiser/vim-code-dark'
+"}}}
+
 call plug#end()
 "}}}
 
@@ -120,6 +124,8 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
+
+colorscheme codedark
 
 au BufReadPost *
 \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'

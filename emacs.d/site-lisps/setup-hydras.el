@@ -88,8 +88,9 @@ This checks in turn:
     ("m" counsel-imenu "imenu")
     ("l" lsp-treemacs-symbols "symbols")
     ("x" lsp-execute-code-action "code action"))
-   "Server"
-   (("S" lsp-shutdown-workspace "shutdown")
+   "Workspace"
+   (("S" lsp-ivy-workspace-symbol "workspace symbols")
+    ("M-S" lsp-shutdown-workspace "shutdown")
     ("M-r" lsp-restart-workspace "restart")
     ("M-s" lsp-describe-session "describe session"))))
 

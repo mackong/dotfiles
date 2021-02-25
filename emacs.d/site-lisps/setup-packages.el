@@ -326,6 +326,9 @@
               ("C-." . xref-find-definitions)
               ("C-," . xref-pop-marker-stack)))
 
+;; lsp-ivy
+(use-package lsp-ivy)
+
 ;; lsp-java
 (use-package lsp-java
   :init
