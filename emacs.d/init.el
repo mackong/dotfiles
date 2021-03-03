@@ -26,7 +26,7 @@
 (fringe-mode -1)
 (delete-selection-mode 1)
 
-(setq-default cursor-type 'hbar)
+(setq-default cursor-type 'box)
 (setq default-text-properties '(line-spacing 0.25 line-height 1.25))
 
 (setq visible-bell nil)
