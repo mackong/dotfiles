@@ -44,22 +44,6 @@
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
   (setq org-plantuml-jar-path plantuml-jar-path))
 
-(defun setup-org-jira ()
-  "Setup org jira."
-  (setq jiralib-url "http://jira.vpgame.cn")
-  (setq org-jira-working-dir "~/Documents/Orgs/agenda")
-  (setq org-jira-jira-status-to-org-keyword-alist
-        '(("To Do" . "TODO")
-          ("In Progress" . "NEXT")
-          ("Done" . "DONE")))
-  (setq org-jira-priority-to-org-priority-alist
-        '(("Highest" . ?A)
-          ("High" . ?A)
-          ("Medium" . ?B)
-          ("Low" . ?C)
-          ("Lowest" . ?C)))
-  (setq org-jira-default-jql "project = DATAPLAT AND assignee = \"kongyichao@vpgame.cn\" ORDER BY Rank ASC"))
-
 (defun setup-org-agenda ()
   "Setup org agenda."
   (setq org-todo-keywords
@@ -114,7 +98,6 @@
 
   (local-set-key (kbd "C-c C-j") 'counsel-imenu))
 
-(setup-org-jira)
 (setup-org-agenda)
 (setup-org-capture)
 (add-hook 'org-mode-hook 'setup-org-mode)

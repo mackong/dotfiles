@@ -272,10 +272,6 @@
 ;; org-bullets
 (use-package org-bullets)
 
-;; org-jira
-(use-package org-jira
-  :defer t)
-
 ;; org-mime
 (use-package org-mime)
 
