@@ -284,6 +284,7 @@
 ;; company
 (use-package company
   :bind (("C-c y" . company-yasnippet)
+         ("C-c i" . company-complete)
          :map company-active-map
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous))
@@ -292,12 +293,11 @@
   (setq company-minimum-prefix-length 1
         company-tooltip-align-annotations t
         company-show-numbers t
-        company-idle-delay .1
+        company-idle-delay 3
         company-echo-delay 0
         company-selection-wrap-around t
         company-dabbrev-downcase nil
-        company-backends '(company-nxml company-css company-semantic company-cmake company-capf company-files
-                                        (company-dabbrev-code company-keywords) company-dabbrev)))
+        company-backends '(company-cmake company-capf company-files (company-dabbrev-code company-keywords) company-dabbrev)))
 
 ;; lsp-mode
 (use-package lsp-mode
