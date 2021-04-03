@@ -19,6 +19,8 @@
 [core]
     pager = "diff-so-fancy | less --tabs=4 -RFX"
     quotepath = off
+[init]
+	defaultBranch = main
 [color]
     ui = true
     [diff-highlight]
