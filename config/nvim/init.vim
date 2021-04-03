@@ -53,6 +53,10 @@ let g:indentLine_char = '¦'
 Plug 'tomasiser/vim-code-dark'
 "}}}
 
+"{{{ bpftrace
+Plug 'mmarchini/bpftrace.vim'
+"}}}
+
 call plug#end()
 "}}}
 
