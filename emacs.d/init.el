@@ -27,7 +27,6 @@
 (delete-selection-mode 1)
 
 (setq-default cursor-type 'box)
-(setq default-text-properties '(line-spacing 0.25 line-height 1.25))
 
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
@@ -54,13 +53,8 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(setq face-font-rescale-alist '(("微软雅黑" . 1.2)))
-(set-face-attribute 'default nil :font "Fira Code:pixelsize=17")
-(set-face-attribute 'fixed-pitch-serif nil :font "Fira Code:pixelsize=17")
-(set-fontset-font t 'symbol (font-spec :family "Unifont") nil 'append)
-(set-fontset-font t nil (font-spec :family "DejaVu Sans"))
-(dolist (charset '(han cjk-misc))
-  (set-fontset-font t charset (font-spec :family "Microsoft Yahei")))
+(set-face-attribute 'default nil :font "Sarasa Mono Slab SC:pixelsize=18")
+(setq default-text-properties '(line-spacing 0.25 line-height 1.25))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
