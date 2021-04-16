@@ -1,0 +1,19 @@
+general {
+    output_format = "i3bar"
+    colors = false
+    markup = pango
+    interval = 5
+}
+
+order += "wireless wlp58s0"
+order += "tztime local"
+
+wireless wlp58s0 {
+    format_up = "<span background='#b48ead'>  %essid | %ip </span>"
+    format_down = "<span background='#b48ead'>  Disconnected </span>"
+}
+
+tztime local {
+    format = "<span background='#81a1c1'> %time </span>"
+    format_time = " %a %-d %b %H:%M"
+}
