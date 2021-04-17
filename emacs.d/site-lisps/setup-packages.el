@@ -182,15 +182,6 @@
   :config
   (setq ivy-rich-parse-remote-buffer nil))
 
-(use-package ivy-posframe
-  :after ivy
-  :hook (ivy-mode . ivy-posframe-mode)
-  :config
-  (setq ivy-posframe-border-width 1
-        ivy-posframe-parameters '((left-fringe . 4) (right-fringe . 4))
-        ivy-posframe-min-height 19
-        ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center))))
-
 (use-package counsel
   :hook (ivy-mode . counsel-mode)
   :config
@@ -409,14 +400,6 @@
   :init
   (setq irfc-directory "~/Documents/RFC"
         irfc-assoc-mode t))
-
-;; hydra-posframe
-(use-package hydra-posframe
-  :straight nil
-  :load-path "~/.emacs.d/others/packages/hydra-posframe"
-  :hook (after-init . hydra-posframe-mode)
-  :custom
-  (hydra-posframe-parameters '((left-fringe . 4) (right-fringe . 4) (top-fringe . 4) (bottom-fringe . 4) (min-height . 13) (max-height . 30))))
 
 ;; major-mode-hydra
 (use-package major-mode-hydra)
