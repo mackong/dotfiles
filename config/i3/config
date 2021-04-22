@@ -104,6 +104,11 @@ exec --no-startup-id fcitx5 -d
 exec --no-startup-id ss-qt5
 exec --no-startup-id feh --bg-scale ~/.local/share/backgrounds/background.jpg
 
+# Assign
+assign [class=Emacs] 2
+assign [class=Google-chrome] 3
+assign [class=VisualVM*|hotspot|jetbrains-idea-ce] 4
+
 # Shortcuts
 bindsym Print --release exec flameshot gui
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
