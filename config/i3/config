@@ -4,7 +4,7 @@ default_border pixel 1
 default_floating_border normal
 smart_borders on
 
-font pango:Sarasa Fixed Slab SC 10
+font pango:Cascadia Code PL 10
 
 floating_modifier $mod
 
