@@ -107,7 +107,7 @@ pathmunge $GOPATH/bin after
 pathmunge $HOME/.conda/envs/daily/bin after
 pathmunge /usr/share/bcc/tools after
 pathmunge /usr/share/bcc/introspection after
-export PATH
+export PATH=$PATH
 
 # Keybindings
 bindkey '\e#' pound-insert

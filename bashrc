@@ -36,7 +36,7 @@ export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 # Additional PATH
 pathmunge $GOPATH/bin after
 pathmunge $HOME/.virtualenvs/daily-*/bin after
-export PATH
+export PATH=$PATH
 
 # Auto change directory in emacs
 if [ -n "$INSIDE_EMACS" ]; then
