@@ -85,7 +85,7 @@
 
 (setq url-proxy-services '(("http" . "127.0.0.1:12345")
                            ("https" . "127.0.0.1:12345")
-                           ("no_proxy" . "\\(.*\\.vpgame\\.cn\\|localhost\\|127\\.0\\.0\\.1\\|mirrors.tuna.tsinghua.edu.cn\\|translate.google.cn\\)")))
+                           ("no_proxy" . "\\(localhost\\|127\\.0\\.0\\.1\\|mirrors.tuna.tsinghua.edu.cn\\|translate.google.cn\\)")))
 
 ;; compilation
 (require 'ansi-color)
