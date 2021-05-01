@@ -40,7 +40,8 @@ Plug 'henrik/vim-indexed-search'
 "{{{ vim-easy-align
 Plug 'junegunn/vim-easy-align'
 let g:easy_align_delimiters = {
-\ '|': { 'pattern': '||\||' }
+\ '|': { 'pattern': '||\||' },
+\ '\': { 'pattern': '\\' }
 \}
 "}}}
 
