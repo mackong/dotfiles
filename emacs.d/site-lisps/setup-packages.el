@@ -248,8 +248,7 @@
 (use-package graphviz-dot-mode)
 
 ;; markdown
-(use-package markdown-mode
-  :mode "\\.mmd\\'")
+(use-package markdown-mode)
 
 ;; json-mode
 (use-package json-mode)
@@ -262,9 +261,6 @@
 
 ;; org-bullets
 (use-package org-bullets)
-
-;; org-mime
-(use-package org-mime)
 
 ;; ob-go
 (use-package ob-go)
@@ -380,9 +376,6 @@
 
 ;; go-mode
 (use-package go-mode)
-
-;; go-dlv
-(use-package go-dlv)
 
 ;; scala-mode
 (use-package scala-mode)
