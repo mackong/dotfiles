@@ -355,10 +355,8 @@
   :init
   (slime-setup '(slime-fancy slime-asdf slime-banner slime-company)))
 
-;; geiser
-(use-package geiser
-  :init
-  (setq geiser-active-implementations '(chez)))
+;; geiser-chez
+(use-package geiser-chez)
 
 ;; yasnippet-snippets
 (use-package yasnippet-snippets
