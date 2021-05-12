@@ -128,8 +128,6 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 " Only menu for complete
 set completeopt=menu
 
-set termguicolors
-
 colorscheme codedark
 
 au BufReadPost *
