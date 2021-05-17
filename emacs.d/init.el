@@ -53,9 +53,9 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(set-face-attribute 'default nil :font "Cascadia Code PL:pixelsize=18")
+(set-face-attribute 'default nil :font "Cascadia Code PL:pixelsize=16")
 (dolist (charset '(han cjk-misc))
-  (set-fontset-font t charset (font-spec :family "Microsoft Yahei" :size 18)))
+  (set-fontset-font t charset (font-spec :family "Microsoft Yahei" :size 16)))
 (setq default-text-properties '(line-spacing 0.1 line-height 1.1))
 
 (fset 'yes-or-no-p 'y-or-n-p)
