@@ -50,8 +50,8 @@ Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
 "}}}
 
-"{{{ vsdark
-Plug 'tomasiser/vim-code-dark'
+"{{{ molokai
+Plug 'tomasr/molokai'
 "}}}
 
 "{{{ bpftrace
@@ -128,7 +128,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 " Only menu for complete
 set completeopt=menu
 
-colorscheme codedark
+colorscheme molokai
 
 au BufReadPost *
 \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
