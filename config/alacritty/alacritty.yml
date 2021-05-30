@@ -1,7 +1,7 @@
 colors:
 
   primary:
-    background: "#1e1e1e"
+    background: "#121212"
     foreground: "#D8DEE9"
 
   normal:
@@ -28,19 +28,19 @@ background_opacity: 1.0
 
 font:
   normal:
-    family: "Cascadia Code PL"
+    family: "Sarasa Term Slab SC"
     style: Regular
   bold:
-    family: "Cascadia Code PL"
+    family: "Sarasa Term Slab SC"
     style: Bold
   italic:
-    family: "Cascadia Code PL"
+    family: "Sarasa Term Slab SC"
     style: Italic
   bold_italic:
-    family: "Cascadia Code PL"
+    family: "Sarasa Term Slab SC"
     style: Bold Italic
 
-  size: 7.5
+  size: 12
 
   offset:
     x: 1
