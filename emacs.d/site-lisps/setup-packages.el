@@ -312,6 +312,12 @@
 ;; lsp-ivy
 (use-package lsp-ivy)
 
+;; lsp-origami
+(use-package lsp-origami
+  :bind (("C-c o t" . origami-toggle-node))
+  :init
+  (add-hook 'lsp-after-open-hook #'lsp-origami-try-enable))
+
 ;; lsp-java
 (use-package lsp-java
   :init
