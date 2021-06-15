@@ -133,7 +133,7 @@
 (use-package paredit)
 
 ;; visual-regexp
-(use-package visual-regexp)
+(use-package visual-regexp-steroids)
 
 ;; go-translate
 (use-package go-translate
