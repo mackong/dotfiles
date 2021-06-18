@@ -4,21 +4,14 @@
 call plug#begin('~/.config/nvim/plugged')
 "}}}
 
-"{{{ CtrlP
-Plug 'ctrlpvim/ctrlp.vim'
-if executable('rg')
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-  let g:ctrlp_use_cacheing = 0
-endif
+"{{{ telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 "}}}
 
 "{{{ Tagbar
 Plug 'majutsushi/tagbar'
-"}}}
-
-"{{{ rg
-Plug 'jremmen/vim-ripgrep'
-let g:rg_highlight=1
 "}}}
 
 "{{{ NERD tree
@@ -35,14 +28,6 @@ Plug 'tpope/vim-surround'
 
 "{{{ vim-indexed-search
 Plug 'henrik/vim-indexed-search'
-"}}}
-
-"{{{ vim-easy-align
-Plug 'junegunn/vim-easy-align'
-let g:easy_align_delimiters = {
-\ '|': { 'pattern': '||\||' },
-\ '\': { 'pattern': '\\' }
-\}
 "}}}
 
 "{{{ vim-indent-line
@@ -149,14 +134,14 @@ noremap tl :tabclose<cr>
 noremap <silent> <leader>ss :source ~/.config/nvim/init.vim<cr>
 noremap <silent> <leader>ee :vs ~/.config/nvim/init.vim<cr>
 
+" telescope
+nnoremap <leader>ff :lua require('telescope.builtin').find_files({previewer = false})<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+
 " Tagbar
-noremap <silent> <F4> :TagbarToggle<cr>
+noremap <silent> <leader>tb :TagbarToggle<cr>
 
 " NERDTree
-noremap <silent> <F5> :NERDTreeToggle<cr>
-
-" vim-easy-align
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
+noremap <silent> <leader>nt :NERDTreeToggle<cr>
 
 "}}}
