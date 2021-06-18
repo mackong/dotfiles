@@ -94,7 +94,7 @@ export COLORTERM=truecolor
 
 # Golang
 export GOROOT=/usr/lib/go
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/.go:$GOPATH
 
 # Python virtualenv
 export WORKON_HOME=$HOME/.conda/envs
@@ -103,11 +103,14 @@ export WORKON_HOME=$HOME/.conda/envs
 export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 
 # Additional PATH
-pathmunge $GOPATH/bin after
+pathmunge $HOME/.go/bin after
 pathmunge $HOME/.conda/envs/daily/bin after
 pathmunge /usr/share/bcc/tools after
 pathmunge /usr/share/bcc/introspection after
 export PATH=$PATH
+
+# riggrep
+export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
 
 # Keybindings
 bindkey '\e#' pound-insert
