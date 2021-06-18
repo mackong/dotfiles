@@ -34,7 +34,7 @@
 (use-package exec-path-from-shell
   :config
   (setq exec-path-from-shell-check-startup-files nil)
-  (setq exec-path-from-shell-variables '("PATH" "MANPATH" "WORKON_HOME" "JAVA_HOME" "GOPATH" "GOROOT"))
+  (setq exec-path-from-shell-variables '("PATH" "MANPATH" "WORKON_HOME" "JAVA_HOME" "GOPATH" "GOROOT" "RIPGREP_CONFIG_PATH"))
   (exec-path-from-shell-initialize))
 
 ;; linum-mode
@@ -198,11 +198,7 @@
         projectile-cache-file (expand-file-name "~/.emacs.d/others/projectile/projectile.cache")
         projectile-known-projects-file (expand-file-name "~/.emacs.d/el-get/projectile/projectile-bookmarks.eld"))
   :config
-  (projectile-global-mode)
-  (setq projectile-globally-ignored-directories (append '("bin" "pkg" "vendor"  ;; for golang workspaces
-                                                          "project" "target" ".settings"  ;; for maven project
-                                                          ".metals" ".bloop"    ;; for sbt project
-                                                          ) projectile-globally-ignored-directories)))
+  (projectile-global-mode))
 
 ;; counsel-projectile
 (use-package counsel-projectile
