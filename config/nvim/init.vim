@@ -124,12 +124,6 @@ au BufReadPost *
 
 "{{{ Key Mappings
 
-" Tab Label's Key Map Settings
-noremap tc :tabnew<cr>
-noremap tn :tabnext<cr>
-noremap tp :tabprevious<cr>
-noremap tl :tabclose<cr>
-
 " .vimrc edit key map settings
 noremap <silent> <leader>ss :source ~/.config/nvim/init.vim<cr>
 noremap <silent> <leader>ee :vs ~/.config/nvim/init.vim<cr>
