@@ -1,0 +1,11 @@
+--max-columns=150
+--max-columns-preview
+
+--glob=!.git/*
+--glob=!vendor/*
+--glob=!node_modules/*
+--glob=!target/*
+--glob=!project/*
+--glob=!.settings/*
+--glob=!.metals/*
+--glob=!.bloop/*
