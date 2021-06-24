@@ -435,6 +435,9 @@
   (setq counsel-describe-function-function #'helpful-callable
         counsel-describe-variable-function #'helpful-variable))
 
+;; rmsbolt
+(use-package rmsbolt)
+
 (provide 'setup-packages)
 
 ;; Local Variables:
