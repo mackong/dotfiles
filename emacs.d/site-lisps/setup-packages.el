@@ -207,6 +207,12 @@
   (setq counsel-projectile-rg-initial-input '(ivy-thing-at-point)
         counsel-projectile-find-file-matcher 'ivy--re-filter))
 
+(use-package counsel-dash
+  :config
+  (setq counsel-dash-enable-debugging nil
+        counsel-dash-docsets-path "~/.docset"
+        counsel-dash-browser-func 'browse-url))
+
 ;; auctex
 (defun setup-tex-mode ()
   "Setup for tex mode."
