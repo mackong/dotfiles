@@ -221,7 +221,7 @@
   (local-set-key (kbd "TAB") 'TeX-complete-symbol))
 
 (defun TeX-eaf-sync-view ()
-  (eaf-open (concat file "." (TeX-output-extension))))
+  (eaf-open (TeX-active-master (TeX-output-extension))))
 
 (use-package auctex
   :defer t
