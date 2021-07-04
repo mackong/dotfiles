@@ -1,7 +1,7 @@
 colors:
 
   primary:
-    background: "#121212"
+    background: "#1C1E1F"
     foreground: "#D8DEE9"
 
   normal:
@@ -28,13 +28,13 @@ background_opacity: 1.0
 
 font:
   normal:
-    family: "Sarasa Term Slab SC"
+    family: "Sarasa Fixed Slab SC"
     style: Regular
   bold:
-    family: "Sarasa Term Slab SC"
+    family: "Sarasa Fixed Slab SC"
     style: Bold
   italic:
-    family: "Sarasa Term Slab SC"
+    family: "Sarasa Fixed Slab SC"
     style: Italic
   bold_italic:
     family: "Sarasa Term Slab SC"
