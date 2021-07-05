@@ -133,6 +133,7 @@ noremap <silent> <leader>ee :vs ~/.config/nvim/init.vim<cr>
 " telescope
 nnoremap <leader>ff :lua require('telescope.builtin').find_files({previewer = false})<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fs <cmd>Telescope grep_string<cr>
 
 " Tagbar
 noremap <silent> <leader>tb :TagbarToggle<cr>
