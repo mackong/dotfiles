@@ -83,10 +83,6 @@
 (setq scroll-step 1
       scroll-conservatively 10000)
 
-(setq url-proxy-services '(("http" . "127.0.0.1:12345")
-                           ("https" . "127.0.0.1:12345")
-                           ("no_proxy" . "\\(localhost\\|127\\.0\\.0\\.1\\|mirrors.tuna.tsinghua.edu.cn\\|translate.google.cn\\)")))
-
 ;; compilation
 (require 'ansi-color)
 (defun colorize-compilation-buffer ()
@@ -106,6 +102,7 @@
 (require 'setup-org)
 (require 'setup-go)
 (require 'setup-hydras)
+(require 'setup-env nil t)
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

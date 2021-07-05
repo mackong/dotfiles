@@ -425,9 +425,6 @@
   (eaf-setq eaf-pdf-dark-exclude-image "true")
   (setq eaf-python-command "~/.conda/envs/daily/bin/python")
   (setq eaf-config-location "~/.emacs.d/others/eaf/")
-  (setq eaf-proxy-type "http"
-        eaf-proxy-host "127.0.0.1"
-        eaf-proxy-port "12345")
   (setq browse-url-browser-function 'eaf-open-browser)
   (eaf-bind-key add_sub_node "<tab>" eaf-mindmap-keybinding)
   (eaf-bind-key add_brother_node "<return>" eaf-mindmap-keybinding)
