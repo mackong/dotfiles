@@ -80,9 +80,6 @@
 
 (setq x-gtk-use-system-tooltips nil)
 
-(setq scroll-step 1
-      scroll-conservatively 10000)
-
 ;; compilation
 (require 'ansi-color)
 (defun colorize-compilation-buffer ()
