@@ -73,8 +73,6 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   (load-theme 'doom-molokai t)
-  (setq doom-themes-treemacs-theme "doom-colors")
-  (doom-themes-treemacs-config)
   (doom-themes-org-config))
 
 ;; modeline
@@ -144,22 +142,9 @@
         go-translate-buffer-follow-p t
         go-translate-inputs-function #'go-translate-inputs-current-or-prompt))
 
-;; treemacs
-(use-package treemacs
-  :config
-  (setq treemacs-position 'right
-        treemacs-persist-file (expand-file-name "~/.emacs.d/others/treemacs-persist")))
-
 ;; ace-window
 (use-package ace-window
-  :bind (("M-o" . ace-window))
-  :config
-  (setq aw-ignored-buffers (delete 'treemacs-mode aw-ignored-buffers)))
-
-;; avy
-(use-package avy
-  :bind (("M-g l" . avy-goto-line)
-         ("M-g c" . avy-goto-char)))
+  :bind (("M-o" . ace-window)))
 
 ;; symbol-overlay
 (use-package symbol-overlay
@@ -196,7 +181,7 @@
   :init
   (setq projectile-completion-system 'ivy
         projectile-cache-file (expand-file-name "~/.emacs.d/others/projectile/projectile.cache")
-        projectile-known-projects-file (expand-file-name "~/.emacs.d/el-get/projectile/projectile-bookmarks.eld"))
+        projectile-known-projects-file (expand-file-name "~/.emacs.d/others/projectile/projectile-bookmarks.eld"))
   :config
   (projectile-global-mode))
 
@@ -261,6 +246,9 @@
 ;; protobuf-mode
 (use-package protobuf-mode)
 
+;; rmsbolt
+(use-package rmsbolt)
+
 ;; org-bullets
 (use-package org-bullets)
 
@@ -304,9 +292,7 @@
         lsp-diagnostics-provider :none
         lsp-modeline-code-actions-enable nil
         lsp-server-install-dir (expand-file-name "~/.emacs.d/others/lsp")
-        lsp-session-file (expand-file-name "~/.emacs.d/others/.lsp-session-v1")
-        lsp-treemacs-deps-position-params `((side . left) (slot . 1) (window-width . ,treemacs-width))
-        lsp-treemacs-symbols-position-params `((side . left) (slot . 2) (window-width . ,treemacs-width)))
+        lsp-session-file (expand-file-name "~/.emacs.d/others/lsp/.lsp-session-v1"))
   :bind (:map lsp-mode-map
               ("C-." . xref-find-definitions)
               ("C-," . xref-pop-marker-stack)))
@@ -320,34 +306,10 @@
   :init
   (add-hook 'lsp-after-open-hook #'lsp-origami-try-enable))
 
-;; lsp-java
-(use-package lsp-java
-  :init
-  (setq lsp-java-workspace-dir (expand-file-name "~/.emacs.d/others/lsp/jdt/workspace")
-        lsp-java-workspace-cache-dir (expand-file-name "~/.emacs.d/others/lsp/jdt/workspace/.cache")
-        lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz"
-        lsp-java-java-path "/usr/lib/jvm/java-11-openjdk/bin/java"
-        lsp-java-server-install-dir (expand-file-name "~/.emacs.d/others/lsp/jdt/server")
-        dap-java-test-runner (expand-file-name "~/.emacs.d/others/lsp/jdt/test-runner/junit-platform-console-standalone.jar")
-        lsp-java-import-maven-enabled t
-        lsp-java-import-gradle-enabled nil))
-
-;; lsp-metals
-(use-package lsp-metals
-  :config
-  (add-hook 'scala-mode-hook #'lsp))
-
 ;; lsp-pyright
 (use-package lsp-pyright
   :config
   (setq lsp-pyright-log-level "error"))
-
-;; dap-mode
-(use-package dap-mode
-  :config
-  (setq dap-breakpoints-file (expand-file-name "~/.emacs.d/others/.dap-breakpoints"))
-  (add-hook 'dap-stopped-hook
-            (lambda (arg) (call-interactively #'dap-hydra))))
 
 ;; slime
 (use-package slime
@@ -437,9 +399,6 @@
   :config
   (setq counsel-describe-function-function #'helpful-callable
         counsel-describe-variable-function #'helpful-variable))
-
-;; rmsbolt
-(use-package rmsbolt)
 
 (provide 'setup-packages)
 

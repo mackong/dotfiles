@@ -65,7 +65,6 @@ This checks in turn:
     ("gt" (run-in-other-window 'go-translate) "google translate")
     ("ms" magit-status "magit")
     ("sn" (multi-scratch-new t) "scratch")
-    ("tm" treemacs "treemacs")
     ("cd" counsel-dash "dash"))
    "Misc"
    (("zz" text-scale-adjust "zoom")
