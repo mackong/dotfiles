@@ -73,7 +73,7 @@ This checks in turn:
     ("vr" vr/replace "visual regexp"))))
 
 ;;; for lsp-mode
-(major-mode-hydra-define (java-mode scala-mode python-mode c-mode c++-mode go-mode)
+(major-mode-hydra-define (python-mode c-mode c++-mode go-mode)
   (:quit-key ("q" "<escape>"))
   ("Symbol"
    (("d" lsp-find-declaration "declaration")
