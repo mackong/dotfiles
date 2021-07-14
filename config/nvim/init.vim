@@ -36,8 +36,8 @@ let g:indentLine_char = '¦'
 let g:indentLine_conceallevel = 0
 "}}}
 
-"{{{ molokai
-Plug 'tomasr/molokai'
+"{{{ lightline
+Plug 'itchyny/lightline.vim'
 "}}}
 
 "{{{ bpftrace
@@ -113,9 +113,6 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " Only menu for complete
 set completeopt=menu
-
-set termguicolors
-colorscheme molokai
 
 au BufReadPost *
 \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
