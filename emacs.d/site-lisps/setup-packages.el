@@ -68,12 +68,14 @@
 
 ;; theme
 (use-package all-the-icons)
-(use-package doom-themes
+(use-package modus-themes
+  :ensure
+  :init
+  (setq modus-themes-no-mixed-fonts t
+        modus-themes-org-agenda '((header-block . (no-scale))))
+  (modus-themes-load-themes)
   :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
-  (load-theme 'doom-molokai t)
-  (doom-themes-org-config))
+  (modus-themes-load-operandi))
 
 ;; modeline
 (use-package doom-modeline
@@ -399,6 +401,15 @@
   :config
   (setq counsel-describe-function-function #'helpful-callable
         counsel-describe-variable-function #'helpful-variable))
+
+;; tree-sitter
+(use-package tree-sitter-langs
+  :config
+  (dolist (hook '(python-mode-hook
+                  go-mode-hook
+                  c-mode-hook
+                  c++-mode-hook))
+    (add-hook hook #'tree-sitter-hl-mode)))
 
 (provide 'setup-packages)
 
