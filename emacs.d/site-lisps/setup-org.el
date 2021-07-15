@@ -42,7 +42,8 @@
 
   (setq org-confirm-babel-evaluate nil)
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
-  (setq org-plantuml-jar-path plantuml-jar-path))
+  (setq org-plantuml-jar-path plantuml-jar-path)
+  (electric-indent-local-mode -1))
 
 (defun setup-org-agenda ()
   "Setup org agenda."
