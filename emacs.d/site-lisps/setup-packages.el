@@ -68,14 +68,9 @@
 
 ;; theme
 (use-package all-the-icons)
-(use-package modus-themes
-  :ensure
-  :init
-  (setq modus-themes-no-mixed-fonts t
-        modus-themes-org-agenda '((header-block . (no-scale))))
-  (modus-themes-load-themes)
+(use-package gruvbox-theme
   :config
-  (modus-themes-load-operandi))
+  (load-theme 'gruvbox-dark-hard t))
 
 ;; modeline
 (use-package doom-modeline

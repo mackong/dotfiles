@@ -44,6 +44,11 @@ Plug 'itchyny/lightline.vim'
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
+"{{{
+Plug 'morhetz/gruvbox'
+let g:gruvbox_contrast_dark='hard'
+"}}}
+
 call plug#end()
 "}}}
 
@@ -113,6 +118,9 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " Only menu for complete
 set completeopt=menu
+
+set termguicolors
+colorscheme gruvbox
 
 au BufReadPost *
 \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
