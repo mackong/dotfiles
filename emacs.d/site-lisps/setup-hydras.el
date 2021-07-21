@@ -84,9 +84,7 @@ This checks in turn:
     ("r" lsp-rename "rename"))
    "Buffer"
    (("f" lsp-format-buffer "format")
-    ("e" lsp-treemacs-errors-list "errors")
     ("m" counsel-imenu "imenu")
-    ("l" lsp-treemacs-symbols "symbols")
     ("x" lsp-execute-code-action "code action"))
    "Workspace"
    (("S" lsp-ivy-workspace-symbol "workspace symbols")
