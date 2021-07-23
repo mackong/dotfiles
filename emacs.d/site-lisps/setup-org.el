@@ -42,8 +42,7 @@
 
   (setq org-confirm-babel-evaluate nil)
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
-  (setq org-plantuml-jar-path plantuml-jar-path)
-  (electric-indent-local-mode -1))
+  (setq org-plantuml-jar-path plantuml-jar-path))
 
 (defun setup-org-agenda ()
   "Setup org agenda."
@@ -87,17 +86,18 @@
 
   (setq org-export-backends '(ascii beamer html latex man md))
 
-  (setq truncate-lines nil)
-  (setq org-use-speed-commands t)
-  (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"))
-  (setq org-latex-listings t)
-  (setq org-src-preserve-indentation t)
-  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+  (setq truncate-lines nil
+        org-use-speed-commands t
+        org-latex-pdf-process '("xelatex -interaction nonstopmode %f")
+        org-latex-listings t
+        org-format-latex-options (plist-put org-format-latex-options :scale 2.0)
+        org-goto-interface 'outline-path-completionp
+        org-outline-path-complete-in-steps nil)
   (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)")
   (setq-local truncate-lines t)
   (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
 
-  (local-set-key (kbd "C-c C-j") 'counsel-imenu))
+  (local-set-key (kbd "C-c C-j") 'org-goto))
 
 (setup-org-agenda)
 (setup-org-capture)
