@@ -95,6 +95,7 @@
         org-outline-path-complete-in-steps nil)
   (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)")
   (setq-local truncate-lines t)
+  (setq-local indent-tabs-mode nil)
   (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
 
   (local-set-key (kbd "C-c C-j") 'org-goto))
