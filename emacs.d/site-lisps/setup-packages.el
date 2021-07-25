@@ -143,6 +143,11 @@
 (use-package ace-window
   :bind (("M-o" . ace-window)))
 
+;; posframe
+(use-package posframe
+  :config
+  (setq posframe-mouse-banish '(10 . 10)))
+
 ;; symbol-overlay
 (use-package symbol-overlay
   :bind (("M-*" . symbol-overlay-put)))
@@ -163,6 +168,14 @@
   :hook (ivy-mode . ivy-rich-mode)
   :config
   (setq ivy-rich-parse-remote-buffer nil))
+
+(use-package ivy-posframe
+  :after ivy
+  :hook (ivy-mode . ivy-posframe-mode)
+  :config
+  (setq ivy-posframe-border-width 3
+        ivy-posframe-parameters '((left-fringe . 4) (right-fringe . 4))
+        ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center))))
 
 (use-package counsel
   :hook (ivy-mode . counsel-mode)
@@ -361,6 +374,14 @@
 
 ;; major-mode-hydra
 (use-package major-mode-hydra)
+
+(use-package hydra-posframe
+  :straight nil
+  :load-path "~/.emacs.d/others/packages/hydra-posframe"
+  :hook (after-init . hydra-posframe-mode)
+  :config
+  (setq hydra-posframe-border-width 3
+        hydra-posframe-parameters '((left-fringe . 4) (right-fringe . 4))))
 
 ;; eaf
 (use-package eaf
