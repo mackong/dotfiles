@@ -1,30 +1,28 @@
 colors:
 
   primary:
-    background: "#1C1E1F"
-    foreground: "#D8DEE9"
+    background: "#1D2021"
+    foreground: "#EBDBD2"
 
   normal:
-    black: "#3B4252"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#88C0D0"
-    white: "#abb2bf"
+    black: "#1D2021"
+    red: "#CC241D"
+    green: "#98971A"
+    yellow: "#D79921"
+    blue: "#458588"
+    magenta: "#B16286"
+    cyan: "#689D6A"
+    white: "#A89984"
 
   bright:
-    black: "#5c6370"
-    red: "#e06c75"
-    green: "#98c379"
-    yellow: "#d19a66"
-    blue: "#61afef"
-    magenta: "#c678dd"
-    cyan: "#56b6c2"
-    white: "#ECEFF4"
-
-background_opacity: 1.0
+    black: "#928374"
+    red: "#FB4934"
+    green: "#B8BB26"
+    yellow: "#FABD2F"
+    blue: "#83a598"
+    magenta: "#D3869B"
+    cyan: "#8EC07C"
+    white: "#EBDBB2"
 
 font:
   normal:
@@ -37,19 +35,19 @@ font:
     family: "Sarasa Fixed Slab SC"
     style: Italic
   bold_italic:
-    family: "Sarasa Term Slab SC"
+    family: "Sarasa Fixed Slab SC"
     style: Bold Italic
 
-  size: 12
+  size: 13
 
   offset:
     x: 1
-    y: 3
+    y: 0
 
 window:
   padding:
-    x: 2
-    y: 2
+    x: 0
+    y: 0
 
 scrolling:
   history: 10000
@@ -62,7 +60,3 @@ selection:
   save_to_clipboard: true
 
 live_config_reload: true
-
-key_bindings:
-  - { key: V, mods: command, action: Paste }
-  - { key: C, mods: command, action: Copy }
