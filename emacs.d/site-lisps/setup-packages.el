@@ -141,7 +141,9 @@
 
 ;; ace-window
 (use-package ace-window
-  :bind (("M-o" . ace-window)))
+  :bind (("M-o" . ace-window))
+  :config
+  (setq aw-background nil))
 
 ;; posframe
 (use-package posframe
