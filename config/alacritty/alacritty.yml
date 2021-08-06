@@ -38,17 +38,16 @@ font:
     family: "Sarasa Fixed Slab SC"
     style: Bold Italic
 
-  size: 13
+  size: 7
 
   offset:
     x: 1
-    y: 0
+    y: 1
 
 window:
   padding:
     x: 0
     y: 0
-  startup_mode: Fullscreen
 
 scrolling:
   history: 10000
