@@ -49,6 +49,11 @@ Plug 'morhetz/gruvbox'
 let g:gruvbox_contrast_dark='hard'
 "}}}
 
+"{{{
+Plug 'christoomey/vim-tmux-navigator'
+let g:tmux_navigator_no_mappings = 1
+"}}}
+
 call plug#end()
 "}}}
 
@@ -145,5 +150,11 @@ noremap <silent> <leader>tb :TagbarToggle<cr>
 
 " NERDTree
 noremap <silent> <leader>nt :NERDTreeToggle<cr>
+
+" vim-tmux-navigator
+nnoremap <silent> <C-q>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-q>j :TmuxNavigateDown<cr>
+nnoremap <silent> <C-q>k :TmuxNavigateUp<cr>
+nnoremap <silent> <C-q>l :TmuxNavigateRight<cr>
 
 "}}}
