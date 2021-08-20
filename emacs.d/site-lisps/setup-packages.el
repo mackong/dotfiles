@@ -139,6 +139,12 @@
         go-translate-buffer-follow-p t
         go-translate-inputs-function #'go-translate-inputs-current-or-prompt))
 
+;; avy
+(use-package avy
+  :bind
+  (("M-g g" . avy-goto-line)
+   ("M-g c" . avy-goto-word-1)))
+
 ;; ace-window
 (use-package ace-window
   :bind (("M-o" . ace-window))
