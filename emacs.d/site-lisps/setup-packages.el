@@ -74,7 +74,7 @@
 
 ;; modeline
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-mode))
+  :hook ((after-init eaf-mode) . doom-modeline-mode))
 
 ;; dired
 (require 'dired-x)
@@ -404,6 +404,7 @@
   (dolist (app '("browser" "image-viewer" "jupyter" "markdown-previewer" "mindmap" "pdf-viewer" "terminal"))
     (add-to-list 'load-path (format "~/.emacs.d/others/packages/emacs-application-framework/app/%s" app))
     (require (intern (format "eaf-%s" app))))
+  (require 'eaf-all-the-icons)
   (setq eaf-browser-default-zoom 1.2)
   (setq eaf-browser-font-family "Noto Sans Mono")
   (setq eaf-browser-enable-autofill t)
