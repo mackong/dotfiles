@@ -44,14 +44,22 @@ Plug 'itchyny/lightline.vim'
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{
+"{{{ gruvbox
 Plug 'morhetz/gruvbox'
 let g:gruvbox_contrast_dark='hard'
 "}}}
 
-"{{{
+"{{{ vim-tmux-navigator
 Plug 'christoomey/vim-tmux-navigator'
 let g:tmux_navigator_no_mappings = 1
+"}}}
+
+"{{{ vim-interestingwords
+Plug 'lfv89/vim-interestingwords'
+"}}}
+
+"{{{ tree-sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "}}}
 
 call plug#end()
@@ -132,6 +140,15 @@ au BufReadPost *
 \ | exe "normal! g`\""
 \ | endif
 
+" tree-sitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true
+  },
+}
+EOF
 "}}}
 
 "{{{ Key Mappings
