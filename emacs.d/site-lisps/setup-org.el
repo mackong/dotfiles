@@ -78,6 +78,16 @@
           ))
   (global-set-key (kbd "C-c o c") 'org-capture))
 
+(defun archive-done-tasks ()
+  "Archive done tasks."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward
+            (concat "\\* " (regexp-opt org-done-keywords) " ") nil t)
+      (goto-char (line-beginning-position))
+      (org-archive-subtree))))
+
 (defun setup-org-mode ()
   "Setup org mode."
   (org-bullets-mode)
@@ -92,7 +102,8 @@
         org-latex-listings t
         org-format-latex-options (plist-put org-format-latex-options :scale 2.0)
         org-goto-interface 'outline-path-completionp
-        org-outline-path-complete-in-steps nil)
+        org-outline-path-complete-in-steps nil
+        org-archive-location "~/Documents/Orgs/agenda/archive.org::")
   (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)")
   (setq-local truncate-lines t)
   (setq-local indent-tabs-mode nil)
