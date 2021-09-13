@@ -7,28 +7,28 @@ shell:
 
 colors:
   primary:
-    background: "#1D2021"
-    foreground: "#EBDBD2"
+    background: "#1d2021"
+    foreground: "#93a1a1"
 
   normal:
-    black: "#1D2021"
-    red: "#CC241D"
-    green: "#98971A"
-    yellow: "#D79921"
-    blue: "#458588"
-    magenta: "#B16286"
-    cyan: "#689D6A"
-    white: "#A89984"
+    black: "#002b36"
+    red: "#dc322f"
+    green: "#00ff00"
+    yellow: "#b58900"
+    blue: "#268bd2"
+    magenta: "#6c71c4"
+    cyan: "#2aa198"
+    white: "#93a1a1"
 
   bright:
-    black: "#928374"
-    red: "#FB4934"
-    green: "#B8BB26"
-    yellow: "#FABD2F"
-    blue: "#83a598"
-    magenta: "#D3869B"
-    cyan: "#8EC07C"
-    white: "#EBDBB2"
+    black: "#657b83"
+    red: "#dc322f"
+    green: "#00ff00"
+    yellow: "#b58900"
+    blue: "#268bd2"
+    magenta: "#6c71c4"
+    cyan: "#2aa198"
+    white: "#fdf6e3"
 
 font:
   normal:
