@@ -9,5 +9,6 @@
 --glob=!.settings/*
 --glob=!.metals/*
 --glob=!.bloop/*
+--glob=!.cache/*
 --glob=!*.lock
 --glob=!package-lock.json
