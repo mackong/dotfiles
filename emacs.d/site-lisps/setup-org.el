@@ -40,42 +40,37 @@
   (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
   (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 
-  (setq org-confirm-babel-evaluate nil)
-  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
-  (setq org-plantuml-jar-path plantuml-jar-path))
+  (setq org-confirm-babel-evaluate nil
+        org-plantuml-jar-path plantuml-jar-path)
+  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append))
 
 (defun setup-org-agenda ()
   "Setup org agenda."
-  (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-          (sequence "HOLD(h@/!)" "|" "CANCELLED(c@/!)")))
-  (setq org-todo-keyword-faces
-        '(("TODO" :foreground "red")
-          ("NEXT" :foreground "deep sky blue")
-          ("DONE" :foreground "dark red")
-          ("HOLD" :foreground "yellow")
-          ("CANCELLED" :foreground "forest green")))
-  (setq org-agenda-custom-commands
-        '(("c" "Simple agenda view"
-           ((tags "PRIORITY=\"A\""
-                  ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-                   (org-agenda-overriding-header "High-priority TODOS:")))
-            (agenda "")
-            (alltodo "")))))
-  (setq org-agenda-files '("~/Documents/Orgs/agenda"))
+  (setq org-agenda-files '("~/Documents/Orgs/agenda")
+        org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+                            (sequence "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))
+        org-todo-keyword-faces '(("TODO" :foreground "red")
+                                 ("NEXT" :foreground "deep sky blue")
+                                 ("DONE" :foreground "dark red")
+                                 ("HOLD" :foreground "yellow")
+                                 ("CANCELLED" :foreground "forest green"))
+        org-agenda-custom-commands '(("c" "Simple agenda view"
+                                      ((tags "PRIORITY=\"A\""
+                                             ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                                              (org-agenda-overriding-header "High-priority TODOS:")))
+                                       (agenda "")
+                                       (alltodo "")))))
   (global-set-key (kbd "C-c o a") 'org-agenda))
 
 (defun setup-org-capture ()
   "Setup org capture."
-  (setq org-default-notes-file "~/Documents/Orgs/agenda/journal.org")
-  (setq org-capture-templates
-        '(("t" "task" entry (file "~/Documents/Orgs/agenda/task.org")
-           "* TODO %?\n" :jump-to-captured t)
-          ("n" "note" entry (file "~/Documents/Orgs/agenda/journal.org")
-           "* %?\n" :jump-to-captured t)
-          ("r" "reminder" entry (file "~/Documents/Orgs/agenda/someday.org")
-           "* %?\n" :jump-to-captured t)
-          ))
+  (setq org-default-notes-file "~/Documents/Orgs/agenda/journal.org"
+        org-capture-templates '(("t" "task" entry (file "~/Documents/Orgs/agenda/task.org")
+                                 "* TODO %?\n" :jump-to-captured t)
+                                ("n" "note" entry (file "~/Documents/Orgs/agenda/journal.org")
+                                 "* %?\n" :jump-to-captured t)
+                                ("r" "reminder" entry (file "~/Documents/Orgs/agenda/someday.org")
+                                 "* %?\n" :jump-to-captured t)))
   (global-set-key (kbd "C-c o c") 'org-capture))
 
 (defun archive-done-tasks ()
@@ -94,19 +89,19 @@
 
   (setup-org-babel)
 
-  (setq org-export-backends '(ascii beamer html latex man md))
-
-  (setq truncate-lines nil
+  (setq org-export-backends '(ascii beamer html latex man md)
         org-use-speed-commands t
         org-latex-pdf-process '("xelatex -interaction nonstopmode %f")
         org-latex-listings t
         org-format-latex-options (plist-put org-format-latex-options :scale 2.0)
         org-goto-interface 'outline-path-completionp
         org-outline-path-complete-in-steps nil
-        org-archive-location "~/Documents/Orgs/agenda/archive.org::")
-  (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)")
-  (setq-local truncate-lines t)
-  (setq-local indent-tabs-mode nil)
+        org-archive-location "~/Documents/Orgs/agenda/archive.org::"
+        org-adapt-indentation t)
+  (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)"
+              truncate-lines nil
+              indent-tabs-mode nil)
+  (electric-indent-local-mode 1)
   (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
 
   (local-set-key (kbd "C-c C-j") 'org-goto))
