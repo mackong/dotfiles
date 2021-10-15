@@ -8,7 +8,7 @@ shell:
 colors:
   primary:
     background: "#1d2021"
-    foreground: "#93a1a1"
+    foreground: "#ebdbb2"
 
   normal:
     black: "#002b36"
