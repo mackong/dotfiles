@@ -304,7 +304,6 @@
         lsp-enable-on-type-formatting nil
         lsp-enable-links nil
         lsp-enable-folding nil
-        lsp-enable-snippet nil
         lsp-enable-indentation nil
         lsp-headerline-breadcrumb-enable nil
         lsp-diagnostics-provider :none
