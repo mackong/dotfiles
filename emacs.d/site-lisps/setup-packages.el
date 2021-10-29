@@ -68,9 +68,9 @@
 
 ;; theme
 (use-package all-the-icons)
-(use-package gruvbox-theme
-  :config
-  (load-theme 'gruvbox-dark-hard t))
+(setq modus-themes-no-mixed-fonts t
+      modus-themes-org-agenda '((header-block . (no-scale))))
+(load-theme 'modus-vivendi)
 
 ;; modeline
 (use-package doom-modeline
@@ -361,9 +361,6 @@
 
 ;; go-mode
 (use-package go-mode)
-
-;; scala-mode
-(use-package scala-mode)
 
 ;; bongo
 (use-package bongo

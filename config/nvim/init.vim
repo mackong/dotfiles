@@ -44,9 +44,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{ gruvbox
-Plug 'morhetz/gruvbox'
-let g:gruvbox_contrast_dark='hard'
+"{{{ modus
+Plug 'ishan9299/modus-theme-vim'
 "}}}
 
 "{{{ vim-tmux-navigator
@@ -133,7 +132,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-colorscheme gruvbox
+colorscheme modus-vivendi
 
 au BufReadPost *
 \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
