@@ -133,6 +133,7 @@ set completeopt=menu
 
 set termguicolors
 colorscheme modus-vivendi
+hi NormalNC guibg=#000000 guifg=#ffffff
 
 au BufReadPost *
 \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
