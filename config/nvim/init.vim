@@ -60,6 +60,10 @@ Plug 'lfv89/vim-interestingwords'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "}}}
 
+"{{{vim-yaml-folds
+Plug 'pedrohdz/vim-yaml-folds'
+"}}}
+
 call plug#end()
 "}}}
 
