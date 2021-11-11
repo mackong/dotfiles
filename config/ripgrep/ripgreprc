@@ -12,3 +12,4 @@
 --glob=!.cache/*
 --glob=!*.lock
 --glob=!package-lock.json
+--glob=!vmlinux.S
