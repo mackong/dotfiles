@@ -86,6 +86,7 @@
 (defun setup-org-mode ()
   "Setup org mode."
   (org-bullets-mode)
+  (valign-mode)
 
   (setup-org-babel)
 
@@ -94,10 +95,10 @@
         org-latex-pdf-process '("xelatex -interaction nonstopmode %f")
         org-latex-listings t
         org-format-latex-options (plist-put org-format-latex-options :scale 2.0)
-        org-goto-interface 'outline-path-completionp
-        org-outline-path-complete-in-steps nil
         org-archive-location "~/Documents/Orgs/agenda/archive.org::"
-        org-adapt-indentation t)
+        org-adapt-indentation t
+        org-src-preserve-indentation t
+        org-edit-src-content-indentation 0)
   (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)"
               truncate-lines nil
               indent-tabs-mode nil)
