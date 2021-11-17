@@ -83,11 +83,22 @@
       (goto-char (line-beginning-position))
       (org-archive-subtree))))
 
-(defun setup-org-mode ()
-  "Setup org mode."
+(defun setup-org-mode-hook ()
+  "Hook function for org-mode-hook"
   (org-bullets-mode)
   (valign-mode)
+  (electric-indent-local-mode 1)
 
+  (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)"
+              truncate-lines nil
+              indent-tabs-mode nil)
+
+  (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
+
+  (local-set-key (kbd "C-c C-j") 'org-goto))
+
+(defun setup-org-mode ()
+  "Setup org mode."
   (setup-org-babel)
 
   (setq org-export-backends '(ascii beamer html latex man md)
@@ -96,20 +107,13 @@
         org-latex-listings t
         org-format-latex-options (plist-put org-format-latex-options :scale 2.0)
         org-archive-location "~/Documents/Orgs/agenda/archive.org::"
-        org-adapt-indentation t
-        org-src-preserve-indentation t
-        org-edit-src-content-indentation 0)
-  (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)"
-              truncate-lines nil
-              indent-tabs-mode nil)
-  (electric-indent-local-mode 1)
-  (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
+        org-adapt-indentation t)
 
-  (local-set-key (kbd "C-c C-j") 'org-goto))
+  (add-hook 'org-mode-hook 'setup-org-mode-hook))
 
 (setup-org-agenda)
 (setup-org-capture)
-(add-hook 'org-mode-hook 'setup-org-mode)
+(setup-org-mode)
 
 (provide 'setup-org)
 
