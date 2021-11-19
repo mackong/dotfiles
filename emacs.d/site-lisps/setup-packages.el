@@ -270,11 +270,10 @@
 ;; org-bullets
 (use-package org-bullets)
 
-;; ob-go
+;; org-babels
 (use-package ob-go)
-
-;; ob-restclient
 (use-package ob-restclient)
+(use-package ob-ipython)
 
 ;; company
 (use-package company
