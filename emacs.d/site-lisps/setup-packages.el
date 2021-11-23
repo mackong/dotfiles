@@ -133,11 +133,11 @@
 ;; go-translate
 (use-package go-translate
   :config
-  (setq go-translate-base-url "https://translate.google.cn"
-        go-translate-token-current (cons 430675 2721866130)
-        go-translate-local-language "zh-CN"
-        go-translate-buffer-follow-p t
-        go-translate-inputs-function #'go-translate-inputs-current-or-prompt))
+  (setq gts-translate-list '(("en" "zh"))
+        gts-default-translator (gts-translator
+                                :picker (gts-prompt-picker)
+                                :engines (list (gts-google-engine))
+                                :render (gts-buffer-render))))
 
 ;; avy
 (use-package avy
