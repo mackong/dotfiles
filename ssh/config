@@ -3,6 +3,8 @@ ControlPath /tmp/%r@%h:%p
 ControlPersist yes
 Host *
     ServerAliveInterval 240
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
 Host github.com
     IdentityFile ~/.ssh/id_github.com
 Host git.coding.net
