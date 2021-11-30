@@ -12,7 +12,7 @@ colors:
 
   cursor:
     text: '#000000'
-    background: '#777777'
+    background: '#ffff00'
 
   normal:
     black: "#000000"
