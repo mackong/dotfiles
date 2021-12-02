@@ -7,7 +7,7 @@ Host *
     PubkeyAcceptedKeyTypes +ssh-rsa
 Host github.com
     IdentityFile ~/.ssh/id_github.com
-Host git.coding.net
+Host *.coding.net
     IdentityFile ~/.ssh/id_coding.net
 Host linux-kernel-dev
     IdentityFile ~/.ssh/id_linux_kernel_dev
