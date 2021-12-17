@@ -106,7 +106,9 @@
         org-latex-listings t
         org-format-latex-options (plist-put org-format-latex-options :scale 2.0)
         org-archive-location "~/Documents/Orgs/agenda/archive.org::"
-        org-adapt-indentation t)
+        org-adapt-indentation t
+        org-goto-interface 'outline-path-completionp
+        org-outline-path-complete-in-steps nil)
 
   (add-hook 'org-mode-hook 'setup-org-mode-hook))
 
