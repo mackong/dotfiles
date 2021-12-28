@@ -48,11 +48,9 @@
   (setq org-agenda-files '("~/Documents/Orgs/agenda")
         org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
                             (sequence "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))
-        org-todo-keyword-faces '(("TODO" :foreground "red")
-                                 ("NEXT" :foreground "deep sky blue")
-                                 ("DONE" :foreground "dark red")
-                                 ("HOLD" :foreground "yellow")
-                                 ("CANCELLED" :foreground "forest green"))
+        org-todo-keyword-faces '(("NEXT" . '(bold shadow))
+                                 ("HOLD" . '(bold org-todo))
+                                 ("CANCELLED" . '(bold org-done)))
         org-agenda-custom-commands '(("c" "Simple agenda view"
                                       ((tags "PRIORITY=\"A\""
                                              ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))

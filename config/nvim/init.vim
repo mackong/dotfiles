@@ -35,10 +35,6 @@ Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
 "}}}
 
-"{{{ lightline
-Plug 'itchyny/lightline.vim'
-"}}}
-
 "{{{ bpftrace
 Plug 'mmarchini/bpftrace.vim'
 "}}}
@@ -135,8 +131,10 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-colorscheme modus-vivendi
-hi NormalNC guibg=#000000 guifg=#ffffff
+colorscheme modus-operandi
+hi NormalNC guibg=#ffffff guifg=#000000
+
+set cursorline
 
 au BufReadPost *
 \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'

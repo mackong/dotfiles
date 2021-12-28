@@ -69,8 +69,9 @@
 ;; theme
 (use-package all-the-icons)
 (setq modus-themes-no-mixed-fonts t
+      modus-themes-italic-constructs t
       modus-themes-org-agenda '((header-block . (no-scale))))
-(load-theme 'modus-vivendi)
+(load-theme 'modus-operandi)
 
 ;; modeline
 (use-package doom-modeline
