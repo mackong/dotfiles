@@ -39,8 +39,8 @@ let g:indentLine_char = '¦'
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{ modus
-Plug 'ishan9299/modus-theme-vim'
+"{{{ dracula
+Plug 'dracula/vim', { 'name': 'dracula' }
 "}}}
 
 "{{{ vim-tmux-navigator
@@ -131,8 +131,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-colorscheme modus-operandi
-hi NormalNC guibg=#ffffff guifg=#000000
+colorscheme dracula
 
 set cursorline
 

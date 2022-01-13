@@ -5,31 +5,9 @@ shell:
     - -c
     - "tmux"
 
-colors:
-  primary:
-    background: '#ffffff'
-    foreground: '#373b41'
-  selection:
-    text: '#000000'
-    background: '#d5baff'
-  normal:
-    black: '#ffffff'
-    red: '#cc342b'
-    green: '#198844'
-    yellow: '#fba922'
-    blue: '#3971ed'
-    magenta: '#a36ac7'
-    cyan: '#3971ed'
-    white: '#c5c8c6'
-  bright:
-    black: '#969896'
-    red: '#cc342b'
-    green: '#198844'
-    yellow: '#fba922'
-    blue: '#3971ed'
-    magenta: '#a36ac7'
-    cyan: '#3971ed'
-    white: '#7276F8'
+
+import:
+  - /home/mackong/.config/alacritty/colors.yml
 
 font:
   normal:

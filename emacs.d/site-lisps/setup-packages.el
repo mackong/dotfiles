@@ -68,10 +68,10 @@
 
 ;; theme
 (use-package all-the-icons)
-(setq modus-themes-no-mixed-fonts t
-      modus-themes-italic-constructs t
-      modus-themes-org-agenda '((header-block . (no-scale))))
-(load-theme 'modus-operandi)
+(use-package dracula-theme
+  :config
+  (setq dracula-enlarge-headings nil)
+  (load-theme 'dracula t))
 
 ;; modeline
 (use-package doom-modeline
