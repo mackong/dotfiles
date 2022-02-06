@@ -54,7 +54,7 @@
 (prefer-coding-system 'utf-8)
 
 (dolist (font '(default fixed-pitch fixed-pitch-serif))
-  (set-face-attribute font nil :font "Noto Sans Mono 12"))
+  (set-face-attribute font nil :font "Noto Sans Mono 14"))
 (dolist (charset '(han cjk-misc))
   (set-fontset-font t charset (font-spec :family "Noto Sans CJK SC")))
 

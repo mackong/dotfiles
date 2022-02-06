@@ -411,12 +411,9 @@
   (setq eaf-jupyter-font-size 14)
   (setq eaf-jupyter-font-family "Noto Sans Mono")
   (setq eaf-pdf-dark-exclude-image t)
-  (setq eaf-pdf-dark-mode "ignore")
   (setq eaf-python-command "~/.conda/envs/daily/bin/python")
   (setq eaf-config-location "~/.emacs.d/others/eaf/")
   (setq browse-url-browser-function 'eaf-open-browser)
-  (eaf-bind-key add_sub_node "<tab>" eaf-mindmap-keybinding)
-  (eaf-bind-key add_brother_node "<return>" eaf-mindmap-keybinding)
   (dolist (kb (list eaf-browser-keybinding eaf-mindmap-keybinding eaf-markdown-previewer-keybinding))
     (eaf-bind-key nil "M-o" kb)))
 
