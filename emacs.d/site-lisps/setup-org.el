@@ -4,7 +4,7 @@
 
 ;; Author: MacKong <mackonghp@gmail.com>
 ;; Version: 1.0.0
-;; URL: https://github.com/mackong/.emacs.d
+;; URL: https://github.com/mackong/dotfiles/emacs.d
 
 ;;; Commentary:
 

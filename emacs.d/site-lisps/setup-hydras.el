@@ -4,7 +4,7 @@
 
 ;; Author: MacKong <mackonghp@gmail.com>
 ;; Version: 1.0.0
-;; URL: https://github.com/mackong/.dotfiles
+;; URL: https://github.com/mackong/dotfiles/emacs.d
 
 ;;; Commentary:
 
@@ -73,7 +73,7 @@ This checks in turn:
     ("vr" vr/replace "visual regexp"))))
 
 ;;; for lsp-mode
-(major-mode-hydra-define (python-mode c-mode c++-mode go-mode)
+(major-mode-hydra-define (python-mode c-mode c++-mode go-mode csharp-mode)
   (:quit-key ("q" "<escape>"))
   ("Symbol"
    (("d" lsp-find-declaration "declaration")

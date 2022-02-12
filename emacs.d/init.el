@@ -4,7 +4,7 @@
 
 ;; Author: MacKong <mackonghp@gmail.com>
 ;; Version: 1.0.0
-;; URL: https://github.com/mackong/.emacs.d
+;; URL: https://github.com/mackong/dotfiles/emacs.d
 
 ;;; Commentary:
 
@@ -97,11 +97,8 @@
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
 (require 'setup-packages)
-(require 'setup-cc)
-(require 'setup-lisp)
-(require 'setup-python)
+(require 'setup-prog)
 (require 'setup-org)
-(require 'setup-go)
 (require 'setup-hydras)
 (require 'setup-env nil t)
 

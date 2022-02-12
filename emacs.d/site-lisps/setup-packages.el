@@ -4,7 +4,7 @@
 
 ;; Author: MacKong <mackonghp@gmail.com>
 ;; Version: 1.0.0
-;; URL: https://github.com/mackong/.emacs.d
+;; URL: https://github.com/mackong/dotfiles/emacs.d
 
 ;;; Commentary:
 
@@ -301,7 +301,6 @@
   (setq lsp-keep-workspace-alive nil
         lsp-eldoc-render-all nil
         lsp-signature-render-documentation nil
-        lsp-enable-file-watchers nil
         lsp-enable-on-type-formatting nil
         lsp-enable-links nil
         lsp-enable-folding nil
@@ -362,6 +361,9 @@
 
 ;; go-mode
 (use-package go-mode)
+
+;; csharp-mode
+(use-package csharp-mode)
 
 ;; bongo
 (use-package bongo
@@ -430,7 +432,8 @@
   (dolist (hook '(python-mode-hook
                   go-mode-hook
                   c-mode-hook
-                  c++-mode-hook))
+                  c++-mode-hook
+                  csharp-mode-hook))
     (add-hook hook #'tree-sitter-hl-mode)))
 
 ;; valign
