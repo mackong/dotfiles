@@ -215,7 +215,7 @@
 (use-package counsel-dash
   :config
   (setq counsel-dash-enable-debugging nil
-        counsel-dash-docsets-path "~/.docset"
+        counsel-dash-docsets-path "~/.emacs.d/others/docset"
         counsel-dash-browser-func 'browse-url))
 
 ;; auctex
