@@ -83,7 +83,6 @@
 (defun setup-org-mode-hook ()
   "Hook function for org-mode-hook"
   (org-bullets-mode)
-  (valign-mode)
   (electric-indent-local-mode 1)
 
   (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)"

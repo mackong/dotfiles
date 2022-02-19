@@ -436,9 +436,6 @@
                   csharp-mode-hook))
     (add-hook hook #'tree-sitter-hl-mode)))
 
-;; valign
-(use-package valign)
-
 (provide 'setup-packages)
 
 ;; Local Variables:
