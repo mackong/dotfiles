@@ -413,7 +413,7 @@
   (setq eaf-jupyter-font-size 14)
   (setq eaf-jupyter-font-family "Noto Sans Mono")
   (setq eaf-pdf-dark-exclude-image t)
-  (setq eaf-python-command "~/.conda/envs/daily/bin/python")
+  (setq eaf-python-command "/usr/bin/python")
   (setq eaf-config-location "~/.emacs.d/others/eaf/")
   (setq browse-url-browser-function 'eaf-open-browser)
   (dolist (kb (list eaf-browser-keybinding eaf-mindmap-keybinding eaf-markdown-previewer-keybinding))
