@@ -11,23 +11,23 @@ import:
 
 font:
   normal:
-    family: "Noto Sans Mono"
+    family: "Sarasa Fixed Slab SC"
     style: Regular
   bold:
-    family: "Noto Sans Mono"
+    family: "Sarasa Fixed Slab SC"
     style: Bold
   italic:
-    family: "Noto Sans Mono"
+    family: "Sarasa Fixed Slab SC"
     style: Italic
   bold_italic:
-    family: "Noto Sans Mono"
+    family: "Sarasa Fixed Slab SC"
     style: Bold Italic
 
   size: 8
 
   offset:
     x: 0
-    y: 1
+    y: 2
 
 window:
   padding:

@@ -53,10 +53,8 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(dolist (font '(default fixed-pitch fixed-pitch-serif))
-  (set-face-attribute font nil :font "Noto Sans Mono 14"))
-(dolist (charset '(han cjk-misc))
-  (set-fontset-font t charset (font-spec :family "Noto Sans CJK SC")))
+(setq default-font "Sarasa Fixed Slab SC")
+(set-face-attribute 'default nil :font (concat default-font ":pixelsize=18"))
 
 (setq default-text-properties '(line-spacing 0.1 line-height 1.1))
 
