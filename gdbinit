@@ -18,3 +18,7 @@ define te
     layout split
     focus cmd
 end
+
+define pwn
+    source /usr/share/pwndbg/gdbinit.py
+end
