@@ -54,7 +54,8 @@
 (prefer-coding-system 'utf-8)
 
 (setq default-font "Sarasa Fixed Slab SC")
-(set-face-attribute 'default nil :font (concat default-font ":pixelsize=18"))
+(dolist (font '(default fixed-pitch fixed-pitch-serif))
+  (set-face-attribute font nil :font (concat default-font ":pixelsize=18")))
 
 (setq default-text-properties '(line-spacing 0.1 line-height 1.1))
 
