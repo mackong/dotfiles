@@ -39,8 +39,8 @@ let g:indentLine_char = '¦'
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{ dracula
-Plug 'dracula/vim', { 'name': 'dracula' }
+"{{{ vscode-dark
+Plug 'tomasiser/vim-code-dark'
 "}}}
 
 "{{{ vim-tmux-navigator
@@ -131,7 +131,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-colorscheme dracula
+colorscheme codedark
 
 set cursorline
 

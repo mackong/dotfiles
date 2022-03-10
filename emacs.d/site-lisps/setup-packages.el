@@ -68,10 +68,12 @@
 
 ;; theme
 (use-package all-the-icons)
-(use-package dracula-theme
+(use-package vscode-dark-plus-theme
   :config
-  (setq dracula-enlarge-headings nil)
-  (load-theme 'dracula t))
+  (setq vscode-dark-plus-box-org-todo nil
+        vscode-dark-plus-scale-org-faces nil
+        vscode-dark-plus-invert-hl-todo nil)
+  (load-theme 'vscode-dark-plus t))
 
 ;; modeline
 (use-package doom-modeline
