@@ -39,8 +39,8 @@ let g:indentLine_char = '¦'
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{ vscode-dark
-Plug 'tomasiser/vim-code-dark'
+"{{{ gruvbox
+Plug 'lifepillar/vim-gruvbox8'
 "}}}
 
 "{{{ vim-tmux-navigator
@@ -131,7 +131,8 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-colorscheme codedark
+set background=light
+colorscheme gruvbox8
 
 set cursorline
 

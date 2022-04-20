@@ -68,12 +68,9 @@
 
 ;; theme
 (use-package all-the-icons)
-(use-package vscode-dark-plus-theme
+(use-package gruvbox-theme
   :config
-  (setq vscode-dark-plus-box-org-todo nil
-        vscode-dark-plus-scale-org-faces nil
-        vscode-dark-plus-invert-hl-todo nil)
-  (load-theme 'vscode-dark-plus t))
+  (load-theme 'gruvbox-light-medium t))
 
 ;; modeline
 (use-package doom-modeline
