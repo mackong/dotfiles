@@ -70,7 +70,7 @@
 (use-package all-the-icons)
 (use-package gruvbox-theme
   :config
-  (load-theme 'gruvbox-light-medium t))
+  (load-theme 'gruvbox-dark-hard t))
 
 ;; modeline
 (use-package doom-modeline

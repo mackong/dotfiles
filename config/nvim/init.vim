@@ -131,8 +131,8 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-set background=light
-colorscheme gruvbox8
+set background=dark
+colorscheme gruvbox8_hard
 
 set cursorline
 
@@ -144,7 +144,7 @@ au BufReadPost *
 " tree-sitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  ensure_installed = {"c", "cpp", "go", "python", "c_sharp"},
   highlight = {
     enable = true
   },
