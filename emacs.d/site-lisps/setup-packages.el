@@ -411,6 +411,7 @@
   (setq eaf-mindmap-save-path "~/Documents/Diagrams")
   (setq eaf-jupyter-font-size 14)
   (setq eaf-jupyter-font-family default-font)
+  (setq eaf-jupyter-dark_mode "follow")
   (setq eaf-pdf-dark-exclude-image t)
   (setq eaf-python-command "/usr/bin/python")
   (setq eaf-config-location "~/.emacs.d/others/eaf/")
