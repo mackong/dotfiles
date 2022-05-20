@@ -130,6 +130,11 @@
 ;; visual-regexp
 (use-package visual-regexp-steroids)
 
+;; posframe
+(use-package posframe
+  :config
+  (setq posframe-mouse-banish '(10 . 10)))
+
 ;; go-translate
 (use-package go-translate
   :config
@@ -150,11 +155,6 @@
   :bind (("M-o" . ace-window))
   :config
   (setq aw-background nil))
-
-;; posframe
-(use-package posframe
-  :config
-  (setq posframe-mouse-banish '(10 . 10)))
 
 ;; symbol-overlay
 (use-package symbol-overlay
