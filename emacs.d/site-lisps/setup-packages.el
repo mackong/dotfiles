@@ -137,7 +137,7 @@
         gts-default-translator (gts-translator
                                 :picker (gts-prompt-picker)
                                 :engines (list (gts-google-engine))
-                                :render (gts-buffer-render))))
+                                :render (gts-posframe-pop-render))))
 
 ;; avy
 (use-package avy

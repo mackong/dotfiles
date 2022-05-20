@@ -62,7 +62,7 @@ This checks in turn:
     ("eq" eaf-stop-process "quit"))
    "Tools"
    (("bg" bongo-playlist "bongo")
-    ("gt" (run-in-other-window 'gts-do-translate) "google translate")
+    ("gt" gts-do-translate "google translate")
     ("ms" magit-status "magit")
     ("sn" (multi-scratch-new t) "scratch")
     ("cd" counsel-dash "dash"))
