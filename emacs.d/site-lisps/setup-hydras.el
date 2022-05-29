@@ -57,7 +57,6 @@ This checks in turn:
    (("eh" eaf-open-browser-with-history "history")
     ("eb" eaf-open-bookmark "bookmark")
     ("et" eaf-open-terminal "terminal")
-    ("ej" eaf-open-jupyter "jupyter")
     ("em" eaf-create-mindmap "mindmap")
     ("eq" eaf-stop-process "quit"))
    "Tools"
