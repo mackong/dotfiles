@@ -279,7 +279,7 @@
 ;; company
 (use-package company
   :bind (("C-c y" . company-yasnippet)
-         ("C-c i" . company-complete)
+         ("C-c i" . company-manual-begin)
          :map company-active-map
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous))
@@ -425,16 +425,6 @@
   :config
   (setq counsel-describe-function-function #'helpful-callable
         counsel-describe-variable-function #'helpful-variable))
-
-;; tree-sitter
-(use-package tree-sitter-langs
-  :config
-  (dolist (hook '(python-mode-hook
-                  go-mode-hook
-                  c-mode-hook
-                  c++-mode-hook
-                  csharp-mode-hook))
-    (add-hook hook #'tree-sitter-hl-mode)))
 
 (provide 'setup-packages)
 

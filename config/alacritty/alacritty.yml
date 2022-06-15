@@ -11,16 +11,16 @@ import:
 
 font:
   normal:
-    family: "Sarasa Fixed Slab SC"
+    family: "Noto Sans Mono"
     style: Regular
   bold:
-    family: "Sarasa Fixed Slab SC"
+    family: "Noto Sans Mono"
     style: Bold
   italic:
-    family: "Sarasa Fixed Slab SC"
+    family: "Noto Sans Mono"
     style: Italic
   bold_italic:
-    family: "Sarasa Fixed Slab SC"
+    family: "Mono Sans Mono"
     style: Bold Italic
 
   size: 8
