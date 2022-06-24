@@ -68,9 +68,9 @@
 
 ;; theme
 (use-package all-the-icons)
-(use-package gruvbox-theme
+(use-package base16-theme
   :config
-  (load-theme 'gruvbox-dark-hard t))
+  (load-theme 'base16-irblack t))
 
 ;; modeline
 (use-package doom-modeline

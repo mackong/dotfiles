@@ -40,8 +40,8 @@ let g:indentLine_setConceal = 0
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{ gruvbox
-Plug 'lifepillar/vim-gruvbox8'
+"{{{ base16
+Plug 'chriskempson/base16-vim'
 "}}}
 
 "{{{ vim-tmux-navigator
@@ -128,8 +128,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-set background=dark
-colorscheme gruvbox8_hard
+colorscheme base16-irblack
 
 set cursorline
 
