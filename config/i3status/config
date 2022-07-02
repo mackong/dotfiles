@@ -1,0 +1,44 @@
+general {
+    output_format = "i3bar"
+    colors = true
+    interval = 5
+}
+
+order += "wireless wlp0s20f3"
+order += "path_exists VPN"
+order += "battery 0"
+order += "volume master"
+order += "tztime local"
+
+wireless wlp0s20f3 {
+    format_up = "%essid ⁞ %ip"
+    format_down = "Disconnected"
+}
+
+path_exists VPN {
+        path = "/proc/sys/net/ipv4/conf/ppp0"
+}
+
+battery 0 {
+    last_full_capacity = true
+    format = "%status %percentage"
+    format_down = "No Battery"
+    status_chr = "Charging"
+    status_bat = "Battery"
+    status_unk = "Unknown"
+    status_full = "Charged"
+    path = "/sys/class/power_supply/BAT%d/uevent"
+    low_threshold = 10
+}
+
+volume master {
+    format = "Volume %volume"
+    format_muted = "Volume Muted"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+tztime local {
+    format = " %a %d %b %H:%M"
+}
