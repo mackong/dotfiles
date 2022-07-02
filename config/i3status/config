@@ -4,13 +4,13 @@ general {
     interval = 5
 }
 
-order += "wireless wlp0s20f3"
+order += "wireless _first_"
 order += "path_exists VPN"
 order += "battery 0"
 order += "volume master"
 order += "tztime local"
 
-wireless wlp0s20f3 {
+wireless _first_ {
     format_up = "%essid ⁞ %ip"
     format_down = "Disconnected"
 }
