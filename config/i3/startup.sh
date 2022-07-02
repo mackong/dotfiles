@@ -6,12 +6,12 @@ function touchpad_config() {
     xinput --set-prop $x $p2 1
 }
 
-feh --bg-scale /home/mackong/.local/share/wallpapers/wallpaper.png
-
 touchpad_config
 
 autorandr -l hdmi
 i3-msg 'workspace 1'
+
+feh --bg-scale /home/mackong/.local/share/wallpapers/wallpaper.png
 
 fcitx5 -d
 
