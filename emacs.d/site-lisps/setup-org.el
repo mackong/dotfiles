@@ -99,8 +99,8 @@
 
   (setq org-export-backends '(ascii beamer html latex man md)
         org-use-speed-commands t
-        org-latex-pdf-process '("xelatex -interaction nonstopmode %f")
-        org-latex-listings t
+        org-latex-pdf-process '("xelatex -shell-escape -interaction nonstopmode %f")
+        org-latex-listings 'minted
         org-format-latex-options (plist-put org-format-latex-options :scale 2.0)
         org-archive-location "~/Documents/Orgs/agenda/archive.org::"
         org-adapt-indentation t

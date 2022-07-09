@@ -238,7 +238,8 @@
         TeX-view-program-selection '((output-pdf "EAF"))
         TeX-source-correlate-start-server t
         TeX-global-PDF-mode t
-        TeX-save-query nil)
+        TeX-save-query nil
+        LaTeX-command-style '(("" "%(PDF)%(latex) -shell-escape %S%(PDFout)")))
   (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook 'setup-tex-mode))
 
