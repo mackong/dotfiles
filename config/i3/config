@@ -99,6 +99,11 @@ gaps inner 6
 gaps outer -2
 smart_gaps on
 
+# Assign
+assign [class="^Alacritty$"] 1
+assign [class="^emacs$"] 2
+assign [class="^google-chrome$"] 3
+
 # Startup apps
 exec --no-startup-id bash /home/mackong/.config/i3/startup.sh
 
