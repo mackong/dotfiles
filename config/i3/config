@@ -100,10 +100,10 @@ gaps outer -2
 smart_gaps on
 
 # Assign
-assign [class="^Alacritty$"] $ws1
-assign [class="^Emacs$"] $ws2
-assign [class="^Google-chrome$"] $ws3
-assign [class="^MeshLab_64bit_fp$"] $ws4
+assign [class="Alacritty"] $ws1
+assign [class="Emacs"] $ws2
+assign [class="Google-chrome"] $ws3
+assign [class="MeshLab_64bit_fp|colmap"] $ws4
 
 # Startup apps
 exec --no-startup-id bash /home/mackong/.config/i3/startup.sh
