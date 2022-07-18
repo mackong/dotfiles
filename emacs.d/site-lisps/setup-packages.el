@@ -306,6 +306,7 @@
         lsp-enable-links nil
         lsp-enable-folding nil
         lsp-enable-indentation nil
+        lsp-lens-enable nil
         lsp-headerline-breadcrumb-enable nil
         lsp-diagnostics-provider :none
         lsp-modeline-code-actions-enable nil
@@ -328,6 +329,9 @@
 (use-package lsp-pyright
   :config
   (setq lsp-pyright-log-level "error"))
+
+;; lsp-ccls
+(use-package ccls)
 
 ;; slime
 (use-package slime
