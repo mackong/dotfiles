@@ -8,6 +8,9 @@ function touchpad_config() {
 
 touchpad_config
 
+xset s off
+xset -dpms
+
 autorandr -l hdmi
 i3-msg 'workspace 1'
 
