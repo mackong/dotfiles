@@ -314,7 +314,7 @@
         lsp-session-file (expand-file-name "~/.emacs.d/others/lsp/.lsp-session-v1"))
   :bind (:map lsp-mode-map
               ("C-." . xref-find-definitions)
-              ("C-," . xref-pop-marker-stack)))
+              ("C-," . xref-go-back)))
 
 ;; lsp-ivy
 (use-package lsp-ivy)
@@ -329,9 +329,6 @@
 (use-package lsp-pyright
   :config
   (setq lsp-pyright-log-level "error"))
-
-;; lsp-ccls
-(use-package ccls)
 
 ;; slime
 (use-package slime
