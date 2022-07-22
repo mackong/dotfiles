@@ -33,7 +33,7 @@ Plug 'henrik/vim-indexed-search'
 "{{{ vim-indent-line
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
-let g:indentLine_setConceal = 0
+let g:vim_json_conceal=0
 "}}}
 
 "{{{ bpftrace
