@@ -8,6 +8,9 @@ set print pretty
 # Allow setting pending breakpoints
 set breakpoint pending on
 
+# Print C++ names in their source form rather than their mangled form
+set print asm-demangle on
+
 define td
     tui disable
 end
