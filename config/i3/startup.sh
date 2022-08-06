@@ -1,5 +1,5 @@
 function touchpad_config() {
-    x=`xinput list | grep Touchpad | cut -d'=' -f 2 | awk '{print $1}'`
+    x=`xinput list | grep -i Touchpad | cut -d'=' -f 2 | awk '{print $1}'`
     p1=`xinput list-props $x | grep 'Natural Scrolling Enabled (' | cut -d'(' -f 2 | cut -d')' -f 1`
     p2=`xinput list-props $x | grep 'Tapping Enabled (' | cut -d'(' -f 2 | cut -d')' -f 1`
     xinput --set-prop $x $p1 1
