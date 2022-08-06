@@ -28,3 +28,5 @@
     insteadOf = git://gitee.com/
 [diff]
 	tool = vimdiff
+[oh-my-zsh]
+	hide-dirty = 1
