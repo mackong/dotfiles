@@ -70,7 +70,7 @@
 (use-package all-the-icons)
 (use-package base16-theme
   :config
-  (load-theme 'base16-irblack t))
+  (load-theme 'base16-tomorrow t))
 
 ;; modeline
 (use-package doom-modeline
@@ -183,8 +183,8 @@
   :after ivy
   :hook (ivy-mode . ivy-posframe-mode)
   :config
-  (setq ivy-posframe-border-width 3
-        ivy-posframe-parameters '((left-fringe . 4) (right-fringe . 4))
+  (setq ivy-posframe-border-width 1
+        ivy-posframe-parameters '((left-fringe . 1) (right-fringe . 1))
         ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center))))
 
 (use-package counsel
@@ -389,8 +389,8 @@
   :load-path "~/.emacs.d/others/packages/hydra-posframe"
   :hook (after-init . hydra-posframe-mode)
   :config
-  (setq hydra-posframe-border-width 3
-        hydra-posframe-parameters '((left-fringe . 4) (right-fringe . 4))))
+  (setq hydra-posframe-border-width 1
+        hydra-posframe-parameters '((left-fringe . 0) (right-fringe . 0))))
 
 ;; eaf
 (use-package eaf
