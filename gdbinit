@@ -11,6 +11,9 @@ set breakpoint pending on
 # Print C++ names in their source form rather than their mangled form
 set print asm-demangle on
 
+# Enable debuginfod
+set debuginfod enabled on
+
 define td
     tui disable
 end
