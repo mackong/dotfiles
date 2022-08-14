@@ -115,5 +115,4 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+d exec "rofi -modi drun -show drun -font 'Noto Sans Mono 14'"
-bindsym $mod+Shift+d exec "rofi -show run -font 'Noto Sans Mono 14'"
+bindsym $mod+d exec ulauncher
