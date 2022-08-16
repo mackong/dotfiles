@@ -1,0 +1,12 @@
+{
+    "7ed69adf-d1d2-461c-b44c-8509724af1d9": {
+        "id": "7ed69adf-d1d2-461c-b44c-8509724af1d9",
+        "name": "run",
+        "keyword": "r",
+        "cmd": "#!/bin/bash\n\n$@",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1660634223.2836258
+    }
+}
