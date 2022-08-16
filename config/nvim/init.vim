@@ -53,6 +53,11 @@ let g:tmux_navigator_no_mappings = 1
 Plug 'lfv89/vim-interestingwords'
 "}}}
 
+"{{{ tree-sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"}}}
+
+
 "{{{vim-yaml-folds
 Plug 'pedrohdz/vim-yaml-folds'
 "}}}
@@ -136,6 +141,17 @@ au BufReadPost *
 \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
 \ | exe "normal! g`\""
 \ | endif
+
+" tree-sitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {"c", "cpp", "go", "python", "c_sharp"},
+  highlight = {
+    enable = true
+  },
+}
+EOF
+
 
 "}}}
 

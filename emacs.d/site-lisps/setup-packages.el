@@ -431,6 +431,16 @@
   (setq counsel-describe-function-function #'helpful-callable
         counsel-describe-variable-function #'helpful-variable))
 
+;; tree-sitter
+(use-package tree-sitter-langs
+  :config
+  (dolist (hook '(python-mode-hook
+                  go-mode-hook
+                  c-mode-hook
+                  c++-mode-hook
+                  csharp-mode-hook))
+    (add-hook hook #'tree-sitter-hl-mode)))
+
 (provide 'setup-packages)
 
 ;; Local Variables:
