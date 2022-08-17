@@ -313,10 +313,7 @@
         lsp-diagnostics-provider :none
         lsp-modeline-code-actions-enable nil
         lsp-server-install-dir (expand-file-name "~/.emacs.d/others/lsp")
-        lsp-session-file (expand-file-name "~/.emacs.d/others/lsp/.lsp-session-v1"))
-  :bind (:map lsp-mode-map
-              ("C-." . xref-find-definitions)
-              ("C-," . xref-go-back)))
+        lsp-session-file (expand-file-name "~/.emacs.d/others/lsp/.lsp-session-v1")))
 
 ;; lsp-ivy
 (use-package lsp-ivy)

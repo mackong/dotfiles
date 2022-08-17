@@ -112,9 +112,7 @@
               (eldoc-mode)
               (show-paren-mode)
 
-              (setq-local indent-tabs-mode nil)
-              (local-set-key (kbd "C-.") 'xref-find-definitions)
-              (local-set-key (kbd "C-,") 'xref-pop-marker-stack))))
+              (setq-local indent-tabs-mode nil))))
 
 (provide 'setup-prog)
 
