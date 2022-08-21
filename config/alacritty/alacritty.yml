@@ -5,40 +5,41 @@ shell:
     - -c
     - "tmux"
 
-# Base16 One Light 256 - alacritty color config
-# Daniel Pfeifer (http://github.com/purpleKarrot)
+
+# Base16 Spacemacs 256 - alacritty color config
+# Nasser Alshammari (https://github.com/nashamri/spacemacs-theme)
 colors:
   # Default colors
   primary:
-    background: '0xfafafa'
-    foreground: '0x383a42'
+    background: '0x1f2022'
+    foreground: '0xa3a3a3'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0xfafafa'
-    cursor: '0x383a42'
+    text: '0x1f2022'
+    cursor: '0xa3a3a3'
 
   # Normal colors
   normal:
-    black:   '0xfafafa'
-    red:     '0xca1243'
-    green:   '0x50a14f'
-    yellow:  '0xc18401'
-    blue:    '0x4078f2'
-    magenta: '0xa626a4'
-    cyan:    '0x0184bc'
-    white:   '0x383a42'
+    black:   '0x1f2022'
+    red:     '0xf2241f'
+    green:   '0x67b11d'
+    yellow:  '0xb1951d'
+    blue:    '0x4f97d7'
+    magenta: '0xa31db1'
+    cyan:    '0x2d9574'
+    white:   '0xa3a3a3'
 
   # Bright colors
   bright:
-    black:   '0xa0a1a7'
-    red:     '0xca1243'
-    green:   '0x50a14f'
-    yellow:  '0xc18401'
-    blue:    '0x4078f2'
-    magenta: '0xa626a4'
-    cyan:    '0x0184bc'
-    white:   '0x090a0b'
+    black:   '0x585858'
+    red:     '0xf2241f'
+    green:   '0x67b11d'
+    yellow:  '0xb1951d'
+    blue:    '0x4f97d7'
+    magenta: '0xa31db1'
+    cyan:    '0x2d9574'
+    white:   '0xf8f8f8'
 
 font:
   normal:

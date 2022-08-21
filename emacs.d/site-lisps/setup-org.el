@@ -67,7 +67,14 @@
                                 ("n" "note" entry (file "~/Documents/Orgs/agenda/journal.org")
                                  "* %?\n" :jump-to-captured t)
                                 ("r" "reminder" entry (file "~/Documents/Orgs/agenda/someday.org")
-                                 "* %?\n" :jump-to-captured t)))
+                                 "* %?\n" :jump-to-captured t)
+                                ("d" "New note (with denote.el)" plain
+                                 (file denote-last-path)
+                                 #'denote-org-capture
+                                 :no-save t
+                                 :immediate-finish nil
+                                 :kill-buffer t
+                                 :jump-to-captured t)))
   (global-set-key (kbd "C-c o c") 'org-capture))
 
 (defun archive-done-tasks ()

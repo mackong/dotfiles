@@ -70,7 +70,7 @@
 (use-package all-the-icons)
 (use-package base16-theme
   :config
-  (load-theme 'base16-one-light t))
+  (load-theme 'base16-spacemacs t))
 
 ;; modeline
 (use-package doom-modeline
@@ -143,9 +143,7 @@
         gts-default-translator (gts-translator
                                 :picker (gts-prompt-picker)
                                 :engines (list (gts-google-engine))
-                                :render (gts-posframe-pop-render
-                                         :forecolor "black"
-                                         :backcolor "#e0e0e0"))))
+                                :render (gts-posframe-pop-render))))
 
 ;; avy
 (use-package avy
@@ -180,14 +178,6 @@
   :hook (ivy-mode . ivy-rich-mode)
   :config
   (setq ivy-rich-parse-remote-buffer nil))
-
-(use-package ivy-posframe
-  :after ivy
-  :hook (ivy-mode . ivy-posframe-mode)
-  :config
-  (setq ivy-posframe-border-width 1
-        ivy-posframe-parameters '((left-fringe . 1) (right-fringe . 1))
-        ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center))))
 
 (use-package counsel
   :hook (ivy-mode . counsel-mode)
@@ -280,6 +270,12 @@
 (use-package ob-restclient)
 (use-package ob-ipython)
 
+;; denote
+(use-package denote
+  :config
+  (setq denote-directory (expand-file-name "~/Documents/Notes/")
+        denote-known-keywords '()))
+
 ;; company
 (use-package company
   :bind (("C-c y" . company-yasnippet)
@@ -317,12 +313,6 @@
 
 ;; lsp-ivy
 (use-package lsp-ivy)
-
-;; lsp-origami
-(use-package lsp-origami
-  :bind (("C-c o t" . origami-toggle-node))
-  :init
-  (add-hook 'lsp-after-open-hook #'lsp-origami-try-enable))
 
 ;; lsp-pyright
 (use-package lsp-pyright
@@ -382,14 +372,6 @@
 
 ;; major-mode-hydra
 (use-package major-mode-hydra)
-
-(use-package hydra-posframe
-  :straight nil
-  :load-path "~/.emacs.d/others/packages/hydra-posframe"
-  :hook (after-init . hydra-posframe-mode)
-  :config
-  (setq hydra-posframe-border-width 1
-        hydra-posframe-parameters '((left-fringe . 0) (right-fringe . 0))))
 
 ;; eaf
 (use-package eaf

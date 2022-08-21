@@ -3,9 +3,10 @@ general {
     colors = true
     interval = 5
 
-    color_good = "#718c00"
-    color_bad = "#c82829"
-    color_degraded = "#eab700"
+
+    color_good = "#67b11d"
+    color_bad = "#f2241f"
+    color_degraded = "#b1951d"
 }
 
 order += "wireless _first_"

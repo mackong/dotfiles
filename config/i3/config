@@ -77,20 +77,38 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
+set $base00 #1f2022
+set $base01 #282828
+set $base02 #444155
+set $base03 #585858
+set $base04 #b8b8b8
+set $base05 #a3a3a3
+set $base06 #e8e8e8
+set $base07 #f8f8f8
+set $base08 #f2241f
+set $base09 #ffa500
+set $base0A #b1951d
+set $base0B #67b11d
+set $base0C #2d9574
+set $base0D #4f97d7
+set $base0E #a31db1
+set $base0F #b03060
+
 bar {
     status_command i3status
     font pango:Noto Sans Mono 10
     separator_symbol "|"
     colors {
-        background #ffffff
-        separator  #e0e0e0
-        statusline #969896
+        background $base00
+        separator  $base01
+        statusline $base04
 
-        focused_workspace   #4d4d4c #4271ae #ffffff
-        active_workspace    #4d4d4c #8e908c #ffffff
-        inactive_workspace  #8e908c #e0e0e0 #4d4d4c
-        urgent_workspace    #c82829 #c82829 #ffffff
-        binding_mode        #ffffff #eab700 #ffffff
+        # State             Border  BG      Text
+        focused_workspace   $base05 $base0D $base00
+        active_workspace    $base05 $base03 $base00
+        inactive_workspace  $base03 $base01 $base05
+        urgent_workspace    $base08 $base08 $base00
+        binding_mode        $base00 $base0A $base00
     }
 }
 
