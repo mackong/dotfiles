@@ -32,12 +32,12 @@
   (setq gdb-many-windows t)
   (setq gdb-use-separate-io-buffer t)
 
-  (if (not (string-equal major-mode "glsl-mode"))
+  (if (and (projectile-project-p) (not (string-equal major-mode "glsl-mode")))
       (condition-case nil
-          (progn
-            (setq lsp-clients-clangd-args '("--header-insertion=never"))
-            (lsp))
-        (error nil))))
+               (progn
+                 (setq lsp-clients-clangd-args '("--header-insertion=never"))
+                 (lsp))
+             (error nil))))
 
 (add-hook 'c-mode-hook 'setup-c/c++-mode)
 (add-hook 'c++-mode-hook 'setup-c/c++-mode)
@@ -49,9 +49,10 @@
   "Setup for csharp-mode."
   (setup-c-mode-common 4)
 
-  (condition-case nil
-      (lsp)
-    (error nil)))
+  (if (projectile-project-p)
+      (condition-case nil
+          (lsp)
+        (error nil))))
 
 (add-hook 'csharp-mode-hook #'setup-csharp-mode)
 
@@ -69,11 +70,12 @@
   ;; Call gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)
 
-  (condition-case nil
-      (progn
-        (setq lsp-go-hover-kind "FullDocumentation")
-        (lsp))
-    (error nil)))
+  (if (projectile-project-p)
+      (condition-case nil
+          (progn
+            (setq lsp-go-hover-kind "FullDocumentation")
+            (lsp))
+        (error nil))))
 
 (add-hook 'go-mode-hook 'setup-go-mode)
 
@@ -86,10 +88,12 @@
   (define-key python-mode-map (kbd "C-c C-c")
     (lambda () (interactive) (python-shell-send-buffer t)))
 
-  (require 'lsp-pyright)
-  (condition-case nil
-      (lsp)
-    (error nil)))
+  (if (projectile-project-p)
+      (progn
+        (require 'lsp-pyright)
+        (condition-case nil
+            (lsp)
+          (error nil)))))
 
 (add-hook 'python-mode-hook 'setup-python-mode)
 
