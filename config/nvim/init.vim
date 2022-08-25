@@ -145,7 +145,7 @@ au BufReadPost *
 " tree-sitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"c", "cpp", "go", "python", "c_sharp"},
+  ensure_installed = "all",
   highlight = {
     enable = true
   },
