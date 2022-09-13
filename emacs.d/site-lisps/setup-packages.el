@@ -304,6 +304,7 @@
         lsp-enable-links nil
         lsp-enable-folding nil
         lsp-enable-indentation nil
+        lsp-enable-file-watchers nil
         lsp-lens-enable nil
         lsp-headerline-breadcrumb-enable nil
         lsp-diagnostics-provider :none
