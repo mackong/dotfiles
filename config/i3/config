@@ -23,6 +23,12 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+# resizing window
+bindsym $mod+Ctrl+h resize shrink width 10 px
+bindsym $mod+Ctrl+l resize grow width 10 px
+bindsym $mod+Ctrl+j resize shrink height 10 px
+bindsym $mod+Ctrl+k resize grow height 10 px
+
 bindsym $mod+comma split h
 bindsym $mod+semicolon split v
 
