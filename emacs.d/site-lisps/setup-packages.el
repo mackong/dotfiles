@@ -68,9 +68,9 @@
 
 ;; theme
 (use-package all-the-icons)
-(use-package base16-theme
+(use-package srcery-theme
   :config
-  (load-theme 'base16-spacemacs t))
+  (load-theme 'srcery t))
 
 ;; modeline
 (use-package doom-modeline

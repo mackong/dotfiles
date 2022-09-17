@@ -40,8 +40,8 @@ let g:vim_json_conceal=0
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{ base16
-Plug 'chriskempson/base16-vim'
+"{{{ srcery
+Plug 'srcery-colors/srcery-vim'
 "}}}
 
 "{{{ vim-tmux-navigator
@@ -133,7 +133,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-colorscheme base16-spacemacs
+colorscheme srcery
 
 set cursorline
 
