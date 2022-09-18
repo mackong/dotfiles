@@ -70,6 +70,7 @@
 (use-package all-the-icons)
 (use-package srcery-theme
   :config
+  (setq srcery-org-height nil)
   (load-theme 'srcery t))
 
 ;; modeline
