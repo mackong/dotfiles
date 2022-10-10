@@ -30,10 +30,8 @@ Plug 'tpope/vim-surround'
 Plug 'henrik/vim-indexed-search'
 "}}}
 
-"{{{ vim-indent-line
-Plug 'Yggdroot/indentLine'
-let g:indentLine_char = '¦'
-let g:vim_json_conceal=0
+"{{{ indent-blankline
+Plug 'lukas-reineke/indent-blankline.nvim'
 "}}}
 
 "{{{ bpftrace
