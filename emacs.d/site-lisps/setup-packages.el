@@ -404,6 +404,8 @@
     (add-hook hook #'tree-sitter-hl-mode)))
 
 ;; evil
+(setq evil-want-keybinding nil)
+
 (use-package evil
   :config
   (evil-mode 1)
@@ -411,18 +413,11 @@
   (evil-ex-define-cmd "quit" 'evil-quit)
   (evil-set-initial-state 'eaf-mode 'emacs))
 
-(use-package evil-magit)
-
-(use-package evil-org
-  :after org
+(use-package evil-collection
+  :after evil
+  :ensure t
   :config
-  (add-hook 'org-mode-hook 'evil-org-mode)
-  (add-hook 'evil-org-mode-hook
-            (lambda ()
-              (evil-org-set-key-theme)))
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys))
-
+  (evil-collection-init))
 
 (provide 'setup-packages)
 
