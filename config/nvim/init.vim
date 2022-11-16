@@ -38,8 +38,9 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{ srcery
-Plug 'srcery-colors/srcery-vim'
+"{{{ modus
+Plug 'ishan9299/modus-theme-vim'
+let g:modus_dim_inactive_window=0
 "}}}
 
 "{{{ vim-tmux-navigator
@@ -131,7 +132,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-colorscheme srcery
+colorscheme modus-operandi
 
 set cursorline
 

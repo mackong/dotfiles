@@ -8,4 +8,4 @@ configuration {
     sidebar-mode: true;
 }
 
-@theme "/home/mackong/.config/rofi/srcery_rofi.rasi"
+@theme "/home/mackong/.config/rofi/themes/modus-themes-active.rasi"

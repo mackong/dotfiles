@@ -68,10 +68,9 @@
 
 ;; theme
 (use-package all-the-icons)
-(use-package srcery-theme
+(use-package emacs
   :config
-  (setq srcery-org-height nil)
-  (load-theme 'srcery t))
+  (load-theme 'modus-operandi t))
 
 ;; modeline
 (use-package doom-modeline

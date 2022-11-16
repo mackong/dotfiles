@@ -5,39 +5,28 @@ shell:
     - -c
     - "tmux"
 
-# Colors (Srcery)
 colors:
-  # Default colors
   primary:
-    background: '#1c1b19'
-    foreground: '#fce8c3'
-
-  # Cursor colors
-  cursor:
-    text: CellBackground
-    cursor: '#fbb829'
-
-  # Normal colors
+    background: '#ffffff'
+    foreground: '#000000'
   normal:
-    black:   '#1c1b19'
-    red:     '#ef2f27'
-    green:   '#519f50'
+    black:   '#000000'
+    red:     '#a60000'
+    green:   '#005e00'
     yellow:  '#fbb829'
-    blue:    '#2c78bf'
-    magenta: '#e02c6d'
-    cyan:    '#0aaeb3'
-    white:   '#baa67f'
-
-  # Bright colors
+    blue:    '#0031a9'
+    magenta: '#721045'
+    cyan:    '#00538b'
+    white:   '#bfbfbf'
   bright:
-    black:   '#918175'
-    red:     '#f75341'
-    green:   '#98bc37'
+    black:   '#595959'
+    red:     '#972500'
+    green:   '#315b00'
     yellow:  '#fed06e'
-    blue:    '#68a8e4'
-    magenta: '#ff5c8f'
-    cyan:    '#2be4d0'
-    white:   '#fce8c3'
+    blue:    '#2544bb'
+    magenta: '#5317ac'
+    cyan:    '#005a5f'
+    white:   '#ffffff'
 
 font:
   normal:
@@ -45,15 +34,15 @@ font:
     style: Regular
   bold:
     family: "Noto Sans Mono"
-    style: Bold
+    style: Regular
   italic:
     family: "Noto Sans Mono"
     style: Italic
   bold_italic:
     family: "Noto Sans Mono"
-    style: Bold Italic
+    style: Italic
 
-  size: 7
+  size: 12
 
   offset:
     x: 0
