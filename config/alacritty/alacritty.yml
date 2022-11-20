@@ -9,6 +9,9 @@ colors:
   primary:
     background: '#ffffff'
     foreground: '#000000'
+  selection:
+    text: CellForeground
+    background: '#a5a5a5'
   normal:
     black:   '#000000'
     red:     '#a60000'
