@@ -6,6 +6,8 @@ configuration {
     font: "Noto Sans Mono 14";
 
     sidebar-mode: true;
+
+    dpi: 1;
 }
 
 @theme "/home/mackong/.config/rofi/themes/modus-themes-active.rasi"

@@ -70,7 +70,7 @@
 (use-package all-the-icons)
 (use-package emacs
   :config
-  (load-theme 'modus-operandi t))
+  (load-theme 'modus-vivendi t))
 
 ;; modeline
 (use-package doom-modeline

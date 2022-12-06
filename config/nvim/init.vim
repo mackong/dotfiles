@@ -132,7 +132,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-colorscheme modus-operandi
+colorscheme modus-vivendi
 
 set cursorline
 
