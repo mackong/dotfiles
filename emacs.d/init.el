@@ -55,7 +55,7 @@
 
 (setq default-font "Noto Sans Mono")
 (dolist (font '(default fixed-pitch fixed-pitch-serif))
-  (set-face-attribute font nil :font (concat default-font ":pixelsize=18")))
+  (set-face-attribute font nil :font (concat default-font "-12")))
 (dolist (charset '(han cjk-misc))
   (set-fontset-font t charset (font-spec :family "Noto Sans CJK SC")))
 
