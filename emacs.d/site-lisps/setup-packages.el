@@ -335,9 +335,6 @@
 ;; go-mode
 (use-package go-mode)
 
-;; csharp-mode
-(use-package csharp-mode)
-
 ;; bongo
 (use-package bongo
   :config
@@ -398,8 +395,7 @@
   (dolist (hook '(python-mode-hook
                   go-mode-hook
                   c-mode-hook
-                  c++-mode-hook
-                  csharp-mode-hook))
+                  c++-mode-hook))
     (add-hook hook #'tree-sitter-hl-mode)))
 
 ;; evil

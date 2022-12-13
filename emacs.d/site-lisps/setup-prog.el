@@ -43,20 +43,6 @@
 (add-hook 'c++-mode-hook 'setup-c/c++-mode)
 
 ;;;;;;;;;;;;;;;;;;
-;; csharp
-;;;;;;;;;;;;;;;;;;
-(defun setup-csharp-mode ()
-  "Setup for csharp-mode."
-  (setup-c-mode-common 4)
-
-  (if (projectile-project-p)
-      (condition-case nil
-          (lsp)
-        (error nil))))
-
-(add-hook 'csharp-mode-hook #'setup-csharp-mode)
-
-;;;;;;;;;;;;;;;;;;
 ;; golang
 ;;;;;;;;;;;;;;;;;;
 (defun setup-go-mode ()
