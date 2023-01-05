@@ -22,26 +22,40 @@ pathmunge () {
 
 export EDITOR=vim
 
+export COLORTERM=truecolor
+
 # Golang
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/.go
 
 # Python virtualenv
-export VIRTUALENVWRAPPER_PYTHON=python3
-export WORKON_HOME=$HOME/.virtualenvs
+export WORKON_HOME=$HOME/.conda/envs
 
 # JAVA_HOME
 export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 
 # Additional PATH
-pathmunge $GOPATH/bin after
-pathmunge $HOME/.virtualenvs/daily-*/bin after
+pathmunge $HOME/.go/bin after
+pathmunge $HOME/.conda/envs/daily/bin after
+pathmunge /usr/share/bcc/tools after
+pathmunge /usr/share/bcc/introspection after
 export PATH=$PATH
 
-# Auto change directory in emacs
-if [ -n "$INSIDE_EMACS" ]; then
-    chpwd() {
-        print -P "\032/$(pwd)"
-    }
+# riggrep
+export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniconda3/bin:$PATH"
+    fi
 fi
+unset __conda_setup
+# <<< conda initialize <<<
 
