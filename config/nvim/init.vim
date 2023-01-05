@@ -10,16 +10,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 "}}}
 
-"{{{ Tagbar
-Plug 'majutsushi/tagbar'
-"}}}
-
 "{{{ NERD tree
 Plug 'scrooloose/nerdtree'
-"}}}
-
-"{{{ commentary
-Plug 'tpope/vim-commentary'
 "}}}
 
 "{{{ surround
@@ -28,10 +20,6 @@ Plug 'tpope/vim-surround'
 
 "{{{ vim-indexed-search
 Plug 'henrik/vim-indexed-search'
-"}}}
-
-"{{{ indent-blankline
-Plug 'lukas-reineke/indent-blankline.nvim'
 "}}}
 
 "{{{ bpftrace
@@ -54,11 +42,6 @@ Plug 'lfv89/vim-interestingwords'
 
 "{{{ tree-sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-"}}}
-
-
-"{{{vim-yaml-folds
-Plug 'pedrohdz/vim-yaml-folds'
 "}}}
 
 call plug#end()
