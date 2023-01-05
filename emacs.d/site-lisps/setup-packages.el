@@ -70,6 +70,10 @@
 (use-package all-the-icons)
 (use-package emacs
   :config
+  (setq modus-themes-no-mixed-fonts t
+        modus-themes-bold-constructs nil
+        modus-themes-org-blocks 'gray-background
+        modus-themes-org-agenda '((header-block . (no-scale))))
   (load-theme 'modus-vivendi t))
 
 ;; modeline
@@ -371,7 +375,7 @@
   (setq eaf-webengine-fixed-font-size 18)
   (setq eaf-webengine-fixed-font-family default-font)
   (setq eaf-browser-enable-autofill t)
-  (setq eaf-terminal-font-size 14)
+  (setq eaf-terminal-font-size 18)
   (setq eaf-terminal-font-family default-font)
   (setq eaf-mindmap-edit-mode t)
   (setq eaf-mindmap-save-path "~/Documents/Diagrams")
