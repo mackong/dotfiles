@@ -102,6 +102,23 @@
   (setq undo-tree-auto-save-history nil)
   (global-undo-tree-mode))
 
+;; multi-scratch
+(use-package multi-scratch
+  :straight nil
+  :load-path "~/.emacs.d/others/packages/multi-scratch")
+
+;; change-inner
+(use-package change-inner
+  :bind (("C-=" . er/expand-region)))
+
+;; multiple-cursors
+(use-package multiple-cursors
+  :bind (("C-c m e" . mc/edit-lines)
+         ("C-c m a" . mc/mark-all-like-this)
+         ("C-c m n" . mc/insert-numbers))
+  :config
+  (setq mc/list-file (expand-file-name "~/.emacs.d/others/.mc-lists.el")))
+
 ;; transient
 (use-package transient
   :config
@@ -114,6 +131,9 @@
 
 ;; paredit
 (use-package paredit)
+
+;; visual-regexp
+(use-package visual-regexp-steroids)
 
 ;; posframe
 (use-package posframe
@@ -401,32 +421,6 @@
                   c-mode-hook
                   c++-mode-hook))
     (add-hook hook #'tree-sitter-hl-mode)))
-
-;; evil
-(use-package evil
-  :init
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1)
-  (evil-ex-define-cmd "q" 'kill-this-buffer)
-  (evil-ex-define-cmd "quit" 'evil-quit)
-  (evil-set-initial-state 'eaf-mode 'emacs))
-
-(use-package evil-collection
-  :after evil
-  :ensure t
-  :config
-  (evil-collection-init))
-
-(use-package evil-org
-  :after org
-  :config
-  (add-hook 'org-mode-hook 'evil-org-mode)
-  (add-hook 'evil-org-mode-hook
-            (lambda ()
-              (evil-org-set-key-theme)))
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys))
 
 (provide 'setup-packages)
 

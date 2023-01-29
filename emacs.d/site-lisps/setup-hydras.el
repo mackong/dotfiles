@@ -63,8 +63,13 @@ This checks in turn:
    (("bg" bongo-playlist "bongo")
     ("gt" gts-do-translate "google translate")
     ("ms" magit-status "magit")
-    ("sn" evil-buffer-new "scratch")
-    ("cd" counsel-dash "dash"))))
+    ("sn" (multi-scratch-new t) "scratch")
+    ("cd" counsel-dash "dash"))
+   "Misc"
+   (("zz" text-scale-adjust "zoom")
+    ("ci" change-inner "change inner")
+    ("co" change-outer "change outer")
+    ("vr" vr/replace "visual regexp"))))
 
 ;;; for lsp-mode
 (major-mode-hydra-define (python-mode c-mode c++-mode go-mode csharp-mode)
