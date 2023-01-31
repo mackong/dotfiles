@@ -259,7 +259,11 @@
 (use-package json-mode)
 
 ;; glsl-mode
-(use-package glsl-mode)
+(use-package glsl-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.vs\\'" . glsl-mode))
+  (add-to-list 'auto-mode-alist '("\\.fs\\'" . glsl-mode))
+  (add-to-list 'auto-mode-alist '("\\.gs\\'" . glsl-mode)))
 
 ;; protobuf-mode
 (use-package protobuf-mode)
