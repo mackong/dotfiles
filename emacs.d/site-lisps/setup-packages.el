@@ -403,6 +403,9 @@
   (setq eaf-python-command "/usr/bin/python")
   (setq eaf-config-location "~/.emacs.d/others/eaf/")
   (setq browse-url-browser-function 'eaf-open-browser)
+  (with-eval-after-load 'browse-url
+      (add-to-list 'browse-url-handlers
+                   (cons "\\`file://.*\\.xhtml" 'eaf-open-browser)))
   (dolist (kb (list eaf-browser-keybinding eaf-mindmap-keybinding eaf-markdown-previewer-keybinding))
     (eaf-bind-key nil "M-o" kb)))
 
