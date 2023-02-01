@@ -74,7 +74,7 @@
         modus-themes-bold-constructs nil
         modus-themes-org-blocks 'gray-background
         modus-themes-org-agenda '((header-block . (no-scale))))
-  (load-theme 'modus-vivendi t))
+  (load-theme 'modus-operandi t))
 
 ;; modeline
 (use-package doom-modeline
@@ -147,7 +147,7 @@
         gts-default-translator (gts-translator
                                 :picker (gts-prompt-picker)
                                 :engines (list (gts-google-engine))
-                                :render (gts-posframe-pop-render))))
+                                :render (gts-posframe-pop-render :forecolor "black" :backcolor "#f2eff3"))))
 
 ;; avy
 (use-package avy

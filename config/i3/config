@@ -112,14 +112,14 @@ bar {
     font pango:Noto Sans Mono 10
     separator_symbol "|"
     colors {
-        background $black
-        statusline $white
-        separator  $white
+        background $white
+        statusline $black
+        separator  $black
 
         # Colors           border        background    text
-        focused_workspace  $bright_white $bright_black $white
-        active_workspace   $bright_white $bright_black $white
-        inactive_workspace $bright_black $bright_black $white
+        focused_workspace  $red          $bright_white $black
+        active_workspace   $red          $bright_white $black
+        inactive_workspace $bright_white $bright_white $black
         urgent_workspace   $blue         $blue         $white
         binding_mode       $blue         $blue         $white
     }

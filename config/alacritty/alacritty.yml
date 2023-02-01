@@ -7,25 +7,25 @@ shell:
 
 colors:
   primary:
-    background: '#000000'
-    foreground: '#ffffff'
+    background: '#ffffff'
+    foreground: '#000000'
   normal:
     black:   '#000000'
-    red:     '#ff8059'
-    green:   '#44bc44'
-    yellow:  '#d0bc00'
-    blue:    '#2fafff'
-    magenta: '#feacd0'
-    cyan:    '#00d3d0'
+    red:     '#a60000'
+    green:   '#005e00'
+    yellow:  '#813e00'
+    blue:    '#0031a9'
+    magenta: '#721045'
+    cyan:    '#00538b'
     white:   '#bfbfbf'
   bright:
     black:   '#595959'
-    red:     '#ef8b50'
-    green:   '#70b900'
-    yellow:  '#c0c530'
-    blue:    '#79a8ff'
-    magenta: '#b6a0ff'
-    cyan:    '#6ae4b9'
+    red:     '#972500'
+    green:   '#315b00'
+    yellow:  '#70480f'
+    blue:    '#2544bb'
+    magenta: '#5317ac'
+    cyan:    '#005a5f'
     white:   '#ffffff'
 
 font:
