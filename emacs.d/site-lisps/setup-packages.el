@@ -68,13 +68,13 @@
 
 ;; theme
 (use-package all-the-icons)
-(use-package emacs
+(use-package vscode-dark-plus-theme
   :config
-  (setq modus-themes-no-mixed-fonts t
-        modus-themes-bold-constructs nil
-        modus-themes-org-blocks 'gray-background
-        modus-themes-org-agenda '((header-block . (no-scale))))
-  (load-theme 'modus-operandi t))
+  (setq vscode-dark-plus-box-org-todo nil
+        vscode-dark-plus-scale-org-faces nil
+        vscode-dark-plus-invert-hl-todo nil
+        vscode-dark-plus-render-line-highlight 'line)
+  (load-theme 'vscode-dark-plus t))
 
 ;; modeline
 (use-package doom-modeline
