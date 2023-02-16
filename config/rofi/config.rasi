@@ -10,4 +10,4 @@ configuration {
     dpi: 1;
 }
 
-@theme "/home/mackong/.config/rofi/themes/modus-themes-active.rasi"
+@theme "/home/mackong/.config/rofi/themes/spotlight.rasi"
