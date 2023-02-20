@@ -40,7 +40,7 @@ inputbar {
 
 icon-search {
     expand:     false;
-    filename:   "search";
+    filename:   "system-search-symbolic";
     size: 28px;
 }
 
