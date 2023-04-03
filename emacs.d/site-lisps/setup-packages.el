@@ -429,6 +429,17 @@
                   c++-mode-hook))
     (add-hook hook #'tree-sitter-hl-mode)))
 
+;; org-ai
+(straight-use-package
+ '(org-ai :type git :host github :repo "rksm/org-ai"
+          :local-repo "org-ai"
+          :files ("*.el" "README.md" "snippets")))
+(use-package org-ai
+  :config
+  (setq org-ai-openai-api-token "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")
+  :init
+  (add-hook 'org-mode-hook #'org-ai-mode))
+
 (provide 'setup-packages)
 
 ;; Local Variables:
