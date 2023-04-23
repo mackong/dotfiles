@@ -436,7 +436,7 @@
           :files ("*.el" "README.md" "snippets")))
 (use-package org-ai
   :config
-  (setq org-ai-openai-api-token "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")
+  (setq org-ai-openai-api-token "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")
   :init
   (add-hook 'org-mode-hook #'org-ai-mode))
 
