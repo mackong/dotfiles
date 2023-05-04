@@ -67,7 +67,8 @@
 (setq imaxima-fnt-size "Large")
 
 ;; theme
-(use-package all-the-icons)
+(use-package all-the-icons
+  :if (display-graphic-p))
 (use-package vscode-dark-plus-theme
   :config
   (setq vscode-dark-plus-box-org-todo nil
@@ -382,6 +383,7 @@
 
 ;; eaf
 (use-package eaf
+  :if (display-graphic-p)
   :straight nil
   :load-path "~/.emacs.d/others/packages/emacs-application-framework"
   :init
@@ -399,7 +401,6 @@
   (setq eaf-webengine-fixed-font-size 18)
   (setq eaf-webengine-fixed-font-family default-font)
   (setq eaf-browser-enable-autofill t)
-  (setq eaf-terminal-font-size 18)
   (setq eaf-terminal-font-family default-font)
   (setq eaf-mindmap-edit-mode t)
   (setq eaf-mindmap-save-path "~/Documents/Diagrams")
