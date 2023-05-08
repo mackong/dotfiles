@@ -26,8 +26,9 @@ Plug 'henrik/vim-indexed-search'
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{ vscode-nvim
-Plug 'Mofiqul/vscode.nvim', {'branch': 'main'}
+"{{{ modus
+Plug 'ishan9299/modus-theme-vim'
+let g:modus_dim_inactive_window=0
 "}}}
 
 "{{{ vim-tmux-navigator
@@ -114,8 +115,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-set background=dark
-colorscheme vscode
+colorscheme modus-operandi
 
 set cursorline
 

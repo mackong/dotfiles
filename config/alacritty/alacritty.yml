@@ -7,32 +7,27 @@ shell:
 
 colors:
   primary:
-      background: '#1e1e1e'
-      foreground: '#d4d4d4'
-
-  cursor:
-   text: '#1e1e1e'
-   cursor: '#d4d4d4'
+    background: '#ffffff'
+    foreground: '#000000'
 
   normal:
-    black:   '#002b36'
-    red:     '#dc322f'
-    green:   '#00ff00'
-    yellow:  '#b58900'
-    blue:    '#268bd2'
-    magenta: '#6c71c4'
-    cyan:    '#2aa198'
-    white:   '#93a1a1'
-
+    black:   '#ffffff'
+    red:     '#cc342b'
+    green:   '#198844'
+    yellow:  '#fba922'
+    blue:    '#3971ed'
+    magenta: '#a36ac7'
+    cyan:    '#3971ed'
+    white:   '#c5c8c6'
   bright:
-    black:   '#657b83'
-    red:     '#dc322f'
-    green:   '#00ff00'
-    yellow:  '#b58900'
-    blue:    '#268bd2'
-    magenta: '#6c71c4'
-    cyan:    '#2aa198'
-    white:   '#f6f6e3'
+    black:   '#969896'
+    red:     '#cc342b'
+    green:   '#198844'
+    yellow:  '#fba922'
+    blue:    '#3971ed'
+    magenta: '#a36ac7'
+    cyan:    '#3971ed'
+    white:   '#7276F8'
 
 font:
   normal:
@@ -40,13 +35,13 @@ font:
     style: Regular
   bold:
     family: "Noto Sans Mono"
-    style: Bold
+    style: Regular
   italic:
     family: "Noto Sans Mono"
     style: Italic
   bold_italic:
     family: "Noto Sans Mono"
-    style: Bold Italic
+    style: Italic
 
   size: 12
 
