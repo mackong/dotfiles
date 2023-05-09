@@ -75,7 +75,7 @@
         modus-themes-variable-pitch-ui nil
         modus-themes-italic-constructs t
         modus-themes-bold-constructs nil
-        modus-themes-completions '((t . (extrabold)))
+        modus-themes-completions '((t . (bold)))
         modus-themes-org-blocks 'gray-background
         modus-themes-org-agenda '((header-block . (no-scale))))
   (load-theme 'modus-operandi t))
