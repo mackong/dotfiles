@@ -19,6 +19,7 @@ colors:
     magenta: '#a36ac7'
     cyan:    '#3971ed'
     white:   '#c5c8c6'
+
   bright:
     black:   '#969896'
     red:     '#cc342b'
@@ -28,6 +29,10 @@ colors:
     magenta: '#a36ac7'
     cyan:    '#3971ed'
     white:   '#7276F8'
+
+  selection:
+    background: '#d5baff'
+    foreground: CellForeground
 
 font:
   normal:
