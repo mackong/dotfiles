@@ -34,6 +34,10 @@ colors:
     cyan:    '#2aa198'
     white:   '#f6f6e3'
 
+  selection:
+    background: '#264f78'
+    foreground: CellForeground
+
 font:
   normal:
     family: "Noto Sans Mono"
