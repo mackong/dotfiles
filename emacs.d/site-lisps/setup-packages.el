@@ -280,6 +280,9 @@
 (use-package ob-restclient)
 (use-package ob-ipython)
 
+;; org-exports
+(use-package ox-gfm)
+
 ;; denote
 (use-package denote
   :config
