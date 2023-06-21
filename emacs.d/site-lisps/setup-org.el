@@ -92,6 +92,8 @@
   (org-bullets-mode)
   (electric-indent-local-mode 1)
 
+  (require 'ox-gfm nil t)
+
   (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)"
               truncate-lines nil
               indent-tabs-mode nil)
