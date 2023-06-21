@@ -102,6 +102,9 @@ export WORKON_HOME=$HOME/.conda/envs
 # JAVA_HOME
 export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 
+# debuginfod urls
+export DEBUGINFOD_URLS="https://repo.archlinuxcn.org"
+
 # Additional PATH
 pathmunge $HOME/.go/bin after
 pathmunge $HOME/.conda/envs/daily/bin after
