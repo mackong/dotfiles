@@ -69,13 +69,21 @@
 ;; theme
 (use-package all-the-icons
   :if (display-graphic-p))
-(use-package vscode-dark-plus-theme
+(use-package modus-themes
   :config
-  (setq vscode-dark-plus-box-org-todo nil
-        vscode-dark-plus-scale-org-faces nil
-        vscode-dark-plus-invert-hl-todo nil
-        vscode-dark-plus-render-line-highlight 'line)
-  (load-theme 'vscode-dark-plus t))
+  (setq modus-themes-mixed-fonts t
+        modus-themes-variable-pitch-ui nil
+        modus-themes-italic-constructs t
+        modus-themes-bold-constructs nil
+        modus-themes-completions '((t . (bold)))
+        modus-themes-org-blocks 'gray-background
+        modus-themes-org-agenda '((header-block . (no-scale))))
+  (setq modus-themes-common-palette-overrides
+        `((fringe unspecified)
+          (bg-line-number-active bg-hl-line)
+          (bg-line-number-inactive unspecified)
+          (fg-line-number-active fg-main)))
+  (load-theme 'modus-vivendi t))
 
 ;; modeline
 (use-package doom-modeline
