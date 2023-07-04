@@ -14,6 +14,10 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'scrooloose/nerdtree'
 "}}}
 
+"{{{
+Plug 'preservim/tagbar'
+"}}}
+
 "{{{ surround
 Plug 'tpope/vim-surround'
 "}}}
@@ -26,9 +30,8 @@ Plug 'henrik/vim-indexed-search'
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{ modus
-Plug 'ishan9299/modus-theme-vim'
-let g:modus_dim_inactive_window=0
+"{{{ tokyonight
+Plug 'folke/tokyonight.nvim', {'branch': 'main'}
 "}}}
 
 "{{{ vim-tmux-navigator
@@ -115,7 +118,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-colorscheme modus-vivendi
+colorscheme tokyonight-night
 set cursorline
 
 au BufReadPost *

@@ -69,21 +69,12 @@
 ;; theme
 (use-package all-the-icons
   :if (display-graphic-p))
-(use-package modus-themes
+(use-package doom-themes
   :config
-  (setq modus-themes-mixed-fonts t
-        modus-themes-variable-pitch-ui nil
-        modus-themes-italic-constructs t
-        modus-themes-bold-constructs nil
-        modus-themes-completions '((t . (bold)))
-        modus-themes-org-blocks 'gray-background
-        modus-themes-org-agenda '((header-block . (no-scale))))
-  (setq modus-themes-common-palette-overrides
-        `((fringe unspecified)
-          (bg-line-number-active bg-hl-line)
-          (bg-line-number-inactive unspecified)
-          (fg-line-number-active fg-main)))
-  (load-theme 'modus-vivendi t))
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-tokyo-night t)
+  (doom-themes-org-config))
 
 ;; modeline
 (use-package doom-modeline
@@ -156,7 +147,7 @@
         gts-default-translator (gts-translator
                                 :picker (gts-prompt-picker)
                                 :engines (list (gts-google-engine))
-                                :render (gts-posframe-pop-render :forecolor "white" :backcolor "#222222"))))
+                                :render (gts-posframe-pop-render :forecolor "white" :backcolor "#24283b"))))
 
 ;; avy
 (use-package avy
