@@ -25,6 +25,6 @@ define te
     focus cmd
 end
 
-define pwn
+define epwn
     source /usr/share/pwndbg/gdbinit.py
 end
