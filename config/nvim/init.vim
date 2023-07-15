@@ -14,6 +14,10 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'scrooloose/nerdtree'
 "}}}
 
+"{{{
+Plug 'preservim/tagbar'
+"}}}
+
 "{{{ surround
 Plug 'tpope/vim-surround'
 "}}}
