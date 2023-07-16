@@ -34,7 +34,7 @@
 (use-package exec-path-from-shell
   :config
   (setq exec-path-from-shell-check-startup-files nil)
-  (setq exec-path-from-shell-variables '("PATH" "MANPATH" "WORKON_HOME" "JAVA_HOME" "GOPATH" "GOROOT" "RIPGREP_CONFIG_PATH"))
+  (setq exec-path-from-shell-variables '("PATH" "MANPATH" "WORKON_HOME" "PYDEVD_DISABLE_FILE_VALIDATION" "JAVA_HOME" "GOPATH" "GOROOT" "RIPGREP_CONFIG_PATH" "DEBUGINFOD_URLS"))
   (exec-path-from-shell-initialize))
 
 ;; linum-mode
