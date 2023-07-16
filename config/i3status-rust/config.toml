@@ -1,0 +1,29 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "native"
+
+[icons]
+icons = "awesome6"
+
+[[block]]
+block = "net"
+format = "$icon $ssid $ip"
+
+[[block]]
+block = "net"
+device = "^ppp0$"
+format = " $icon $device"
+missing_format = ""
+
+[[block]]
+block = "battery"
+format = " $icon $percentage"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "time"
+interval = 1
+format = "$icon $timestamp.datetime(f:'%a %m/%d %H:%M:%S')"
