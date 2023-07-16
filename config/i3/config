@@ -114,8 +114,8 @@ client.placeholder       $color6 $color0 $color6 $color6 $color8
 client.background $color6
 
 bar {
-    status_command i3status
-    font pango:Noto Sans Mono 10
+    status_command i3status-rs
+    font pango:Noto Sans Mono 11
     separator_symbol "|"
     colors {
         background         $background
