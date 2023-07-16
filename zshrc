@@ -99,6 +99,9 @@ export GOPATH=$HOME/.go:$GOPATH
 # Python virtualenv
 export WORKON_HOME=$HOME/.conda/envs
 
+# Disable pydevd file validation
+export PYDEVD_DISABLE_FILE_VALIDATION=1
+
 # JAVA_HOME
 export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 
