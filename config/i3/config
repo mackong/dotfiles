@@ -4,7 +4,7 @@ default_border pixel 1
 default_floating_border normal
 smart_borders on
 
-font pango:Noto Sans Mono 10
+font pango:LXGW WenKai Mono 11
 
 floating_modifier $mod
 
@@ -109,7 +109,7 @@ set $bright_white #F0F0F0
 
 bar {
     status_command i3status-rs
-    font pango:Noto Sans Mono 11
+    font pango:LXGW WenKai Mono 11
     separator_symbol "|"
     colors {
         background $bright_white

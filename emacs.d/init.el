@@ -53,11 +53,11 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(setq default-font "Noto Sans Mono")
+(setq default-font "LXGW WenKai Mono")
 (dolist (font '(default fixed-pitch fixed-pitch-serif))
-  (set-face-attribute font nil :font (concat default-font "-12")))
+  (set-face-attribute font nil :font (concat default-font "-14")))
 (dolist (charset '(han cjk-misc))
-  (set-fontset-font t charset (font-spec :family "Noto Sans CJK SC")))
+  (set-fontset-font t charset (font-spec :family default-font)))
 
 (setq default-text-properties '(line-spacing 0.1 line-height 1.1))
 
