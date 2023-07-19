@@ -1,6 +1,6 @@
 set $mod Mod4
 
-default_border pixel 1
+default_border pixel 2
 default_floating_border normal
 smart_borders on
 
@@ -106,6 +106,8 @@ set $bright_cyan #30517F
 
 set $white #FFFFFF
 set $bright_white #F0F0F0
+
+client.unfocused #red #red #black #red
 
 bar {
     status_command i3status-rs
