@@ -36,16 +36,16 @@ colors:
 
 font:
   normal:
-    family: "LXGW WenKai Mono"
+    family: "Sarasa Mono SC"
     style: Regular
   bold:
-    family: "LXGW WenKai Mono"
+    family: "Sarasa Mono SC"
     style: Bold
   italic:
-    family: "LXGW WenKai Mono"
+    family: "Sarasa Mono SC"
     style: Italic
   bold_italic:
-    family: "LXGW WenKai Mono"
+    family: "Sarasa Mono SC"
     style: Bold Italic
 
   size: 14
