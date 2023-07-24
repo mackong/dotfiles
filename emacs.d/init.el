@@ -53,7 +53,7 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(setq default-font "LXGW WenKai Mono")
+(setq default-font "Sarasa Mono SC")
 (dolist (font '(default fixed-pitch fixed-pitch-serif))
   (set-face-attribute font nil :font (concat default-font "-14")))
 (dolist (charset '(han cjk-misc))

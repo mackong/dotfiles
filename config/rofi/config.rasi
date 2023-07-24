@@ -3,7 +3,7 @@ configuration {
 
     yoffset: 34;
 
-    font: "LXGW WenKai Mono 12";
+    font: "Sarasa Mono SC 12";
 
     sidebar-mode: true;
 
