@@ -48,6 +48,10 @@ Plug 'lfv89/vim-interestingwords'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "}}}
 
+"{{{
+Plug 'ntpeters/vim-better-whitespace'
+"}}}
+
 call plug#end()
 "}}}
 
