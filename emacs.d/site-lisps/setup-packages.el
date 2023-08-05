@@ -69,12 +69,16 @@
 ;; theme
 (use-package all-the-icons
   :if (display-graphic-p))
-(use-package doom-themes
+(use-package modus-themes
   :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
-  (load-theme 'doom-tokyo-night t)
-  (doom-themes-org-config))
+  (setq modus-themes-mixed-fonts nil
+        modus-themes-variable-pitch-ui nil
+        modus-themes-italic-constructs t
+        modus-themes-bold-constructs nil
+        modus-themes-completions '((t . (bold)))
+        modus-themes-org-blocks 'gray-background
+        modus-themes-org-agenda '((header-block . (no-scale))))
+  (load-theme 'modus-vivendi t))
 
 ;; modeline
 (use-package doom-modeline

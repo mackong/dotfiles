@@ -30,8 +30,9 @@ Plug 'henrik/vim-indexed-search'
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{ tokyonight
-Plug 'folke/tokyonight.nvim', {'branch': 'main'}
+"{{{ modus
+Plug 'ishan9299/modus-theme-vim'
+let g:modus_dim_inactive_window=0
 "}}}
 
 "{{{ vim-tmux-navigator
@@ -122,7 +123,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-colorscheme tokyonight-night
+colorscheme modus-vivendi
 set cursorline
 
 au BufReadPost *
