@@ -327,11 +327,6 @@
 ;; lsp-ivy
 (use-package lsp-ivy)
 
-;; lsp-pyright
-(use-package lsp-pyright
-  :config
-  (setq lsp-pyright-log-level "error"))
-
 ;; slime
 (use-package slime
   :defer t
