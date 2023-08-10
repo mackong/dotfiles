@@ -1,0 +1,12 @@
+{
+    "editor.fontFamily": "Sarasa Mono SC",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 2,
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "none",
+    "security.workspace.trust.enabled": false,
+    "explorer.autoReveal": true,
+    "window.zoomLevel": 1,
+    "omnisharp.useModernNet": false,
+    "omnisharp.monoPath": "/usr/bin/mono",
+}
