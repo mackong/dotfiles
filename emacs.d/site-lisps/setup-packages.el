@@ -151,7 +151,7 @@
         gts-default-translator (gts-translator
                                 :picker (gts-prompt-picker)
                                 :engines (list (gts-google-engine))
-                                :render (gts-posframe-pop-render :forecolor "white" :backcolor "#24283b"))))
+                                :render (gts-posframe-pop-render :forecolor "white" :backcolor "#222222"))))
 
 ;; avy
 (use-package avy
