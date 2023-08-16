@@ -32,6 +32,7 @@ colors:
 
   selection:
     background: '0x264f78'
+    foreground: CellForeground
 
 font:
   normal:
