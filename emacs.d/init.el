@@ -96,6 +96,17 @@
 ;; imenu
 (setq imenu-max-item-length 'Unlimited)
 
+;; eldoc
+(setq eldoc-echo-area-use-multiline-p nil
+      eldoc-echo-area-display-truncation-message t
+      eldoc-echo-area-prefer-doc-buffer t)
+
+;; eglot
+(setq eglot-autoshutdown t)
+
+;; treesit
+(setq treesit-font-lock-level 4)
+
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
 (require 'setup-packages)
 (require 'setup-prog)

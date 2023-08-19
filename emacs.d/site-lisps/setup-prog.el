@@ -15,32 +15,27 @@
 ;;;;;;;;;;;;;;;;;;
 ;; c/c++
 ;;;;;;;;;;;;;;;;;;
-(defun setup-c-mode-common (c-basic-offset)
-  "Setup for cc-mode-common-hook."
-  (c-toggle-hungry-state 1)
-  (setq-local indent-tabs-mode nil)
-  (setq-local c-basic-offset c-basic-offset)
-  (c-set-offset 'arglist-close 0)
-  (c-set-offset 'innamespace 0))
+(defun c++-ts-mode--indent-styles ()
+  "Override the built-in linux indentation style with some additional rules"
+  `(;; Indent the body of namespace definitions.
+    ((parent-is "declaration_list") parent-bol 0)
+
+    ,@(alist-get 'linux (c-ts-mode--indent-styles 'cpp))))
 
 (defun setup-c/c++-mode ()
   "Setup for c/c++ mode"
-  (c-set-style "linux")
-
-  (setup-c-mode-common 8)
-
-  (setq gdb-many-windows t)
-  (setq gdb-use-separate-io-buffer t)
+  (customize-set-variable 'c-ts-mode-indent-offset 8)
+  (customize-set-variable 'c-ts-mode-indent-style
+        (if (derived-mode-p 'c-ts-mode) 'linux #'c++-ts-mode--indent-styles))
 
   (if (and (projectile-project-p) (not (string-equal major-mode "glsl-mode")))
-      (condition-case nil
-               (progn
-                 (setq lsp-clients-clangd-args '("--header-insertion=never"))
-                 (lsp))
-             (error nil))))
+      (eglot-ensure)))
 
-(add-hook 'c-mode-hook 'setup-c/c++-mode)
-(add-hook 'c++-mode-hook 'setup-c/c++-mode)
+(add-hook 'c-ts-mode-hook 'setup-c/c++-mode)
+(add-hook 'c++-ts-mode-hook 'setup-c/c++-mode)
+(add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
+(add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))
+(add-to-list 'major-mode-remap-alist '(c-or-c++-mode . c-or-c++-ts-mode))
 
 ;;;;;;;;;;;;;;;;;;
 ;; golang
@@ -57,13 +52,10 @@
   (add-hook 'before-save-hook 'gofmt-before-save)
 
   (if (projectile-project-p)
-      (condition-case nil
-          (progn
-            (setq lsp-go-hover-kind "FullDocumentation")
-            (lsp))
-        (error nil))))
+      (eglot-ensure)))
 
-(add-hook 'go-mode-hook 'setup-go-mode)
+(add-hook 'go-ts-mode-hook 'setup-go-mode)
+(add-to-list 'major-mode-remap-alist '(go-mode . go-ts-mode))
 
 ;;;;;;;;;;;;;;;;;;
 ;; python
@@ -72,16 +64,13 @@
   "Setup for python mode."
   (sphinx-doc-mode t)
   (define-key python-mode-map (kbd "C-c C-c")
-    (lambda () (interactive) (python-shell-send-buffer t)))
+              (lambda () (interactive) (python-shell-send-buffer t)))
 
   (if (projectile-project-p)
-      (progn
-        (require 'lsp-pyright)
-        (condition-case nil
-            (lsp)
-          (error nil)))))
+      (eglot-ensure)))
 
-(add-hook 'python-mode-hook 'setup-python-mode)
+(add-hook 'python-ts-mode-hook 'setup-python-mode)
+(add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
 
 (pyvenv-workon (car (seq-filter '(lambda (x) (equal "daily" (car (split-string x "-")))) (pyvenv-virtualenv-list))))
 

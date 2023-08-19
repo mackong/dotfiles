@@ -71,25 +71,24 @@ This checks in turn:
     ("co" change-outer "change outer")
     ("vr" vr/replace "visual regexp"))))
 
-;;; for lsp-mode
-(major-mode-hydra-define (python-mode c-mode c++-mode go-mode csharp-mode)
+;;; for eglot-mode
+(major-mode-hydra-define (python-ts-mode c-ts-mode c++-ts-mode go-ts-mode)
   (:quit-key ("q" "<escape>"))
   ("Symbol"
-   (("d" lsp-find-declaration "declaration")
-    ("t" lsp-find-definition "definition")
-    ("R" lsp-find-references "references")
-    ("i" lsp-find-implementation "implementation")
-    ("o" (run-in-other-window 'lsp-describe-thing-at-point) "documentation")
-    ("r" lsp-rename "rename"))
+   (("d" eglot-find-declaration "declaration")
+    ("t" eglot-find-typeDefinition "definition")
+    ("R" xref-find-references "references")
+    ("i" eglot-find-implementation "implementation")
+    ("o" (run-in-other-window 'eldoc-doc-buffer) "documentation")
+    ("r" eglot-rename "rename"))
    "Buffer"
-   (("f" lsp-format-buffer "format")
+   (("f" eglot-format-buffer "format")
     ("m" counsel-imenu "imenu")
-    ("x" lsp-execute-code-action "code action"))
-   "Workspace"
-   (("S" lsp-ivy-workspace-symbol "workspace symbols")
-    ("M-S" lsp-shutdown-workspace "shutdown")
-    ("M-r" lsp-restart-workspace "restart")
-    ("M-s" lsp-describe-session "describe session"))))
+    ("g" flymake-show-buffer-diagnostics "diagnostics")
+    ("x" eglot-code-actions "code action"))
+   "Server"
+   (("M-S" eglot-shutdown "shutdown")
+    ("M-r" eglot-reconnect "restart"))))
 
 (major-mode-hydra-define+ emacs-lisp-mode
   (:quit-key ("q" "<escape>"))
