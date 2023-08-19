@@ -310,27 +310,6 @@
         company-dabbrev-downcase nil
         company-backends '(company-cmake company-capf company-files (company-dabbrev-code company-keywords) company-dabbrev)))
 
-;; lsp-mode
-(use-package lsp-mode
-  :init
-  (setq lsp-keep-workspace-alive nil
-        lsp-eldoc-render-all nil
-        lsp-signature-render-documentation nil
-        lsp-enable-on-type-formatting nil
-        lsp-enable-links nil
-        lsp-enable-folding nil
-        lsp-enable-indentation nil
-        lsp-enable-file-watchers nil
-        lsp-lens-enable nil
-        lsp-headerline-breadcrumb-enable nil
-        lsp-diagnostics-provider :none
-        lsp-modeline-code-actions-enable nil
-        lsp-server-install-dir (expand-file-name "~/.emacs.d/others/lsp")
-        lsp-session-file (expand-file-name "~/.emacs.d/others/lsp/.lsp-session-v1")))
-
-;; lsp-ivy
-(use-package lsp-ivy)
-
 ;; slime
 (use-package slime
   :defer t
@@ -421,15 +400,6 @@
   :config
   (setq counsel-describe-function-function #'helpful-callable
         counsel-describe-variable-function #'helpful-variable))
-
-;; tree-sitter
-(use-package tree-sitter-langs
-  :config
-  (dolist (hook '(python-mode-hook
-                  go-mode-hook
-                  c-mode-hook
-                  c++-mode-hook))
-    (add-hook hook #'tree-sitter-hl-mode)))
 
 (provide 'setup-packages)
 
