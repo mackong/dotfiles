@@ -103,6 +103,8 @@
 
 ;; eglot
 (setq eglot-autoshutdown t)
+(custom-set-faces
+ '(eglot-highlight-symbol-face ((t (:inherit highlight)))))
 
 ;; treesit
 (setq treesit-font-lock-level 4)
