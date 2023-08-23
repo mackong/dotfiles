@@ -8,7 +8,7 @@ icons = "awesome6"
 
 [[block]]
 block = "net"
-format = "$icon $ssid $ip"
+format = "$icon {$ssid | Wired} $ip"
 
 [[block]]
 block = "net"
