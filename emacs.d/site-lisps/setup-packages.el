@@ -55,6 +55,30 @@
           (lambda ()
             (setq indent-tabs-mode nil)))
 
+;; compilation
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  "Colorize the compilation buffer."
+  (ansi-color-apply-on-region compilation-filter-start (point)))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+(setq compilation-scroll-output 'first-error)
+
+;; imenu
+(setq imenu-max-item-length 'Unlimited)
+
+;; eldoc
+(setq eldoc-echo-area-use-multiline-p nil
+      eldoc-echo-area-display-truncation-message t
+      eldoc-echo-area-prefer-doc-buffer t)
+
+;; eglot
+(setq eglot-autoshutdown t)
+(custom-set-faces
+ '(eglot-highlight-symbol-face ((t (:inherit highlight)))))
+
+;; treesit
+(setq treesit-font-lock-level 4)
+
 ;; cmake-mode
 (require 'cmake-mode nil 'noerror)
 
@@ -77,7 +101,9 @@
         modus-themes-bold-constructs nil
         modus-themes-completions '((t . (bold)))
         modus-themes-org-blocks 'gray-background
-        modus-themes-org-agenda '((header-block . (no-scale))))
+        modus-themes-org-agenda '((header-block . (no-scale)))
+        modus-vivendi-palette-overrides
+        '((bg-space red)))
   (load-theme 'modus-vivendi t))
 
 ;; modeline
