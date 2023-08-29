@@ -10,4 +10,4 @@ configuration {
     dpi: 1;
 }
 
-@theme "/usr/share/rofi/themes/paper-float.rasi"
+@theme "/home/mackong/.config/rofi/themes/spotlight-light.rasi"
