@@ -8,6 +8,7 @@
     "security.workspace.trust.enabled": false,
     "explorer.autoReveal": true,
     "window.zoomLevel": 1,
+    "extensions.ignoreRecommendations": true,
     "omnisharp.useModernNet": false,
     "omnisharp.monoPath": "/usr/bin/mono"
 }
