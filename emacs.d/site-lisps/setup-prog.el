@@ -19,6 +19,8 @@
   "Override the built-in linux indentation style with some additional rules"
   `(;; Indent the body of namespace definitions.
     ((parent-is "declaration_list") parent-bol 0)
+    ((parent-is "argument_list") prev-line 8)
+    ((parent-is "parameter_list") prev-line 8)
 
     ,@(alist-get 'linux (c-ts-mode--indent-styles 'cpp))))
 
