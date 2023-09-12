@@ -90,26 +90,6 @@
 (setq imaxima-use-maxima-mode-flag t)
 (setq imaxima-fnt-size "Large")
 
-;; theme
-(use-package all-the-icons
-  :if (display-graphic-p))
-(use-package modus-themes
-  :config
-  (setq modus-themes-mixed-fonts nil
-        modus-themes-variable-pitch-ui nil
-        modus-themes-italic-constructs t
-        modus-themes-bold-constructs nil
-        modus-themes-completions '((t . (bold)))
-        modus-themes-org-blocks 'gray-background
-        modus-themes-org-agenda '((header-block . (no-scale)))
-        modus-operandi-palette-overrides
-        '((bg-space red)))
-  (load-theme 'modus-operandi t))
-
-;; modeline
-(use-package doom-modeline
-  :hook ((after-init eaf-mode) . doom-modeline-mode))
-
 ;; dired
 (require 'dired-x)
 (add-hook 'dired-mode-hook
