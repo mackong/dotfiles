@@ -30,11 +30,6 @@ Plug 'henrik/vim-indexed-search'
 Plug 'mmarchini/bpftrace.vim'
 "}}}
 
-"{{{ modus
-Plug 'ishan9299/modus-theme-vim'
-let g:modus_dim_inactive_window=0
-"}}}
-
 "{{{ vim-tmux-navigator
 Plug 'christoomey/vim-tmux-navigator'
 let g:tmux_navigator_no_mappings = 1
@@ -123,7 +118,6 @@ set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set completeopt=menu
 
 set termguicolors
-colorscheme modus-vivendi
 set cursorline
 
 au BufReadPost *
