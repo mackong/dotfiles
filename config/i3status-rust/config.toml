@@ -4,7 +4,7 @@ icons_format = "{icon}"
 theme = "native"
 
 [icons]
-icons = "emoji"
+icons = "awesome6"
 
 [[block]]
 block = "net"
