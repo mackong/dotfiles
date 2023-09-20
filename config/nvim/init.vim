@@ -119,6 +119,7 @@ set completeopt=menu
 
 set termguicolors
 set cursorline
+set background=light
 
 au BufReadPost *
 \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
