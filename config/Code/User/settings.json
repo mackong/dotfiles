@@ -10,4 +10,8 @@
     "extensions.ignoreRecommendations": true,
     "omnisharp.useModernNet": false,
     "omnisharp.monoPath": "/usr/bin/mono",
+    "vim.handleKeys": {
+        "<C-p>": false,
+        "<C-n>": false
+    }
 }
