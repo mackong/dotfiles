@@ -10,6 +10,10 @@
     "window.zoomLevel": 1,
     "extensions.ignoreRecommendations": true,
     "omnisharp.useModernNet": false,
-    "omnisharp.monoPath": "/usr/bin/mono"
+    "omnisharp.monoPath": "/usr/bin/mono",
+    "vim.handleKeys": {
+        "<C-p>": false,
+        "<C-n>": false
+    }
 }
 
