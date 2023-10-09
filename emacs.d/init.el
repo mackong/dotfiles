@@ -87,6 +87,8 @@
 
 (setq x-gtk-use-system-tooltips nil)
 
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
 (require 'setup-packages)
 (require 'setup-prog)
