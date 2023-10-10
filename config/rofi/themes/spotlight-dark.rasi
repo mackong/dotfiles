@@ -5,7 +5,7 @@
  *******************************************************************************/
 
 * {
-    font:   "Noto Sans Mono 12";
+    font:   "Sarasa Mono SC 12";
 
     bg0:    #242424E6;
     bg1:    #7E7E7E80;
@@ -32,7 +32,7 @@ window {
 }
 
 inputbar {
-    font:       "Noto Sans Mono 12";
+    font:       "Sarasa Mono SC 12";
     padding:    12px;
     spacing:    12px;
     children:   [ icon-search, entry ];
