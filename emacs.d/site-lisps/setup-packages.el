@@ -350,6 +350,9 @@
 ;; go-mode
 (use-package go-mode)
 
+;; rust-mode
+(use-package rust-mode)
+
 ;; bongo
 (use-package bongo
   :config

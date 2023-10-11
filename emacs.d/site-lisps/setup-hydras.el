@@ -72,7 +72,7 @@ This checks in turn:
     ("vr" vr/replace "visual regexp"))))
 
 ;;; for eglot-mode
-(major-mode-hydra-define (python-ts-mode c-ts-mode c++-ts-mode go-ts-mode)
+(major-mode-hydra-define (python-ts-mode c-ts-mode c++-ts-mode go-ts-mode rust-ts-mode)
   (:quit-key ("q" "<escape>"))
   ("Symbol"
    (("d" eglot-find-declaration "declaration")

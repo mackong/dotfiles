@@ -62,7 +62,7 @@ CASE_SENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  z mvn golang docker conda-zsh-completion
+  z mvn golang rust docker conda-zsh-completion
 )
 
 DISABLE_MAGIC_FUNCTIONS=true
@@ -111,6 +111,7 @@ export DEBUGINFOD_URLS="https://repo.archlinuxcn.org"
 # Additional PATH
 pathmunge $HOME/.go/bin after
 pathmunge $HOME/.conda/envs/daily/bin after
+pathmunge $HOME/.cargo/env after
 pathmunge /usr/share/bcc/tools after
 pathmunge /usr/share/bcc/introspection after
 export PATH=$PATH

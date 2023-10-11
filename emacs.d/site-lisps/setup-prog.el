@@ -78,6 +78,19 @@
 (pyvenv-workon (car (seq-filter '(lambda (x) (equal "daily" (car (split-string x "-")))) (pyvenv-virtualenv-list))))
 
 ;;;;;;;;;;;;;;;;;;
+;; rust
+;;;;;;;;;;;;;;;;;;
+(defun setup-rust-mode ()
+  "Setup for rust mode."
+  (setq rust-format-on-save t)
+
+  (if (projectile-project-p)
+      (eglot-ensure)))
+
+(add-hook 'rust-ts-mode-hook 'setup-rust-mode)
+(add-to-list 'major-mode-remap-alist '(rust-mode . rust-ts-mode))
+
+;;;;;;;;;;;;;;;;;;
 ;; lisp dialects
 ;;;;;;;;;;;;;;;;;;
 (setq auto-mode-alist (cons '("\\.ss" . scheme-mode) auto-mode-alist))
