@@ -52,7 +52,7 @@
   (setq gofmt-command "goimports")
 
   ;; Call gofmt before saving
-  (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'before-save-hook #'gofmt nil t)
 
   (if (projectile-project-p)
       (eglot-ensure)))
@@ -83,6 +83,11 @@
 (defun setup-rust-mode ()
   "Setup for rust mode."
   (setq rust-format-on-save t)
+  (setq prettify-symbols-alist rust-prettify-symbols-alist)
+  (setq prettify-symbols-compose-predicate #'rust--prettify-symbols-compose-p)
+
+  (add-hook 'before-save-hook #'rust-before-save-method nil t)
+  (add-hook 'after-save-hook #'rust-after-save-method nil t)
 
   (if (projectile-project-p)
       (eglot-ensure)))
