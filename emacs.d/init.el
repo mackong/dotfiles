@@ -19,8 +19,6 @@
                  "%b")) " [%*]"))
 
 (custom-set-variables '(initial-frame-alist '((fullscreen . maximized))))
-(set-background-color "black")
-(set-foreground-color "white")
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
