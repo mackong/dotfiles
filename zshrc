@@ -111,7 +111,7 @@ export DEBUGINFOD_URLS="https://repo.archlinuxcn.org"
 # Additional PATH
 pathmunge $HOME/.go/bin after
 pathmunge $HOME/.conda/envs/daily/bin after
-pathmunge $HOME/.cargo/env after
+pathmunge $HOME/.cargo/bin after
 pathmunge /usr/share/bcc/tools after
 pathmunge /usr/share/bcc/introspection after
 export PATH=$PATH
