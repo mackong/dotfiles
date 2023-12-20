@@ -1,7 +1,5 @@
 configuration {
-	modi: "drun,run";
-
-    yoffset: 34;
+    modi: "drun,run";
 
     font: "Sarasa Mono SC 12";
 
