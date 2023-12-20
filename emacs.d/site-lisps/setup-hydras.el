@@ -56,7 +56,7 @@ This checks in turn:
   ("EAF"
    (("eh" eaf-open-browser-with-history "history")
     ("eb" eaf-open-bookmark "bookmark")
-    ("et" eaf-open-terminal "terminal")
+    ("et" eaf-open-pyqterminal "terminal")
     ("em" eaf-create-mindmap "mindmap")
     ("eq" eaf-stop-process "quit"))
    "Tools"

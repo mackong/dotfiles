@@ -395,7 +395,7 @@
   (use-package ctable :defer t)
   (use-package deferred :defer t)
   :config
-  (dolist (app '("browser" "image-viewer" "markdown-previewer" "mindmap" "pdf-viewer" "terminal"))
+  (dolist (app '("browser" "image-viewer" "markdown-previewer" "mindmap" "pdf-viewer" "pyqterminal"))
     (add-to-list 'load-path (format "~/.emacs.d/others/packages/emacs-application-framework/app/%s" app))
     (require (intern (format "eaf-%s" app))))
   (setq eaf-webengine-default-zoom 1.25)
@@ -404,7 +404,8 @@
   (setq eaf-webengine-fixed-font-size 18)
   (setq eaf-webengine-fixed-font-family default-font)
   (setq eaf-browser-enable-autofill t)
-  (setq eaf-terminal-font-family default-font)
+  (setq eaf-pyqterminal-font-family default-font)
+  (setq eaf-pyqterminal-font-size 18)
   (setq eaf-mindmap-edit-mode t)
   (setq eaf-mindmap-save-path "~/Documents/Diagrams")
   (setq eaf-pdf-dark-exclude-image t)
