@@ -67,7 +67,12 @@ require('lazy').setup({
         dependencies = {
             'nvim-lua/plenary.nvim',
         },
-    }
+    },
+
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+    },
 }, {})
 
 -- no backup file
@@ -124,7 +129,7 @@ vim.o.hlsearch = true
 vim.o.completeopt = 'menuone,noselect'
 
 vim.o.termguicolors = true
-vim.o.background = 'light'
+vim.o.background = 'dark'
 vim.o.cursorline = true
 
 vim.keymap.set('n', '<leader>ee', '<cmd>vsplit ~/.config/nvim/init.lua<cr>', { silent = true })
@@ -139,6 +144,13 @@ require('telescope').setup {
         },
     },
 }
+
+vim.defer_fn(function()
+  require('nvim-treesitter.configs').setup {
+    ensure_installed = 'all',
+    highlight = { enable = true },
+  }
+end, 0)
 
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>fs', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
