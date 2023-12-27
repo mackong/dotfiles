@@ -4,7 +4,7 @@ default_border pixel 2
 default_floating_border normal
 smart_borders on
 
-font pango:Sarasa Mono SC 11
+font pango:monospace 11
 
 floating_modifier $mod
 
@@ -111,7 +111,7 @@ client.unfocused #red #red #black #red
 
 bar {
     status_command i3status-rs
-    font pango:Sarasa Mono SC 11
+    font pango:monospace 11
     separator_symbol "|"
     colors {
         background $bright_white
