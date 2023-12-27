@@ -1,15 +1,13 @@
 {
-    "editor.fontFamily": "Sarasa Mono SC",
+    "editor.fontFamily": "monospace",
     "editor.fontSize": 14,
-    "editor.lineHeight": 2,
+    "editor.lineHeight": 1.4,
     "editor.minimap.enabled": false,
     "workbench.startupEditor": "none",
     "security.workspace.trust.enabled": false,
     "explorer.autoReveal": true,
     "window.zoomLevel": 1,
     "extensions.ignoreRecommendations": true,
-    "omnisharp.useModernNet": false,
-    "omnisharp.monoPath": "/usr/bin/mono",
     "vim.handleKeys": {
         "<C-p>": false,
         "<C-n>": false

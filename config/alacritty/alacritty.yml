@@ -35,19 +35,6 @@ colors:
     foreground: CellForeground
 
 font:
-  normal:
-    family: "Sarasa Mono SC"
-    style: Regular
-  bold:
-    family: "Sarasa Mono SC"
-    style: Bold
-  italic:
-    family: "Sarasa Mono SC"
-    style: Italic
-  bold_italic:
-    family: "Sarasa Mono SC"
-    style: Bold Italic
-
   size: 14
 
   offset:

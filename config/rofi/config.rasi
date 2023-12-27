@@ -1,7 +1,7 @@
 configuration {
     modi: "drun,run";
 
-    font: "Sarasa Mono SC 12";
+    font: "monospace 12";
 
     sidebar-mode: true;
 
