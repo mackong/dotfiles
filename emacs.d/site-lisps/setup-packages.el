@@ -94,7 +94,7 @@
 (use-package emacs
   :config
   (setq modus-themes-mixed-fonts nil
-        modus-themes-mode-line '(accented borderless)
+        modus-themes-mode-line '(borderless)
         modus-themes-variable-pitch-ui nil
         modus-themes-italic-constructs t
         modus-themes-bold-constructs nil
