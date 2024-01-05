@@ -193,7 +193,8 @@
 ;; ivy
 (use-package ivy
   :hook (after-init . ivy-mode)
-  :bind (("C-*" . swiper-thing-at-point))
+  :bind (("C-s" . swiper)
+         ("C-*" . swiper-thing-at-point))
   :config
   (setq ivy-use-virtual-buffers 'recentf
         ivy-fixed-height-minibuffer nil
