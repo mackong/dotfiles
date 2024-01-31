@@ -114,7 +114,8 @@
         org-archive-location "~/Documents/Orgs/agenda/archive.org::"
         org-adapt-indentation t
         org-goto-interface 'outline-path-completionp
-        org-outline-path-complete-in-steps nil)
+        org-outline-path-complete-in-steps nil
+        org-highlight-latex-and-related '(latex))
 
   (add-hook 'org-mode-hook 'setup-org-mode-hook))
 
