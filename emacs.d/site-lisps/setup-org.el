@@ -57,7 +57,9 @@
                                               (org-agenda-overriding-header "High-priority TODOS:")))
                                        (agenda "")
                                        (alltodo "")))))
-  (global-set-key (kbd "C-c o a") 'org-agenda))
+  (global-set-key (kbd "C-c o a") 'org-agenda)
+
+  (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
 
 (defun setup-org-capture ()
   "Setup org capture."
@@ -89,7 +91,7 @@
 
 (defun setup-org-mode-hook ()
   "Hook function for org-mode-hook"
-  (org-bullets-mode)
+  (org-modern-mode)
   (electric-indent-local-mode 1)
 
   (require 'ox-gfm nil t)
