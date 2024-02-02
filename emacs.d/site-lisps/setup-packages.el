@@ -297,8 +297,8 @@
 ;; rmsbolt
 (use-package rmsbolt)
 
-;; org-bullets
-(use-package org-bullets)
+;; org-modern
+(use-package org-modern)
 
 ;; org-babels
 (use-package ob-go)
