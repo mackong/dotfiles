@@ -8,4 +8,4 @@ configuration {
     dpi: 1;
 }
 
-@theme "/home/mackong/.config/rofi/themes/spotlight-dark.rasi"
+@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
