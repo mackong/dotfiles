@@ -148,8 +148,16 @@
         org-use-speed-commands t
         org-latex-pdf-process '("xelatex -shell-escape -interaction nonstopmode %f")
         org-latex-listings 'minted
-        org-format-latex-options (plist-put org-format-latex-options :scale 1.5)
-        org-format-latex-options (plist-put org-format-latex-options :justify 'center)
+        org-latex-packages-alist '(("mathrm=sym" "unicode-math" t)
+                                   ("" "notomath" t))
+        org-format-latex-options (cdr '(_ :foreground default
+                                          :background default
+                                          :scale 2.0  ; 1.0
+                                          :html-foreground "Black"
+                                          :html-background "Transparent"
+                                          :html-scale 1.0
+                                          :justify center
+                                          :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
         org-archive-location "~/Documents/Orgs/agenda/archive.org::"
         org-adapt-indentation t
         org-goto-interface 'outline-path-completionp
