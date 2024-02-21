@@ -94,9 +94,9 @@
 (use-package ef-themes
   :config
   (setq ef-bio-palette-overrides
-      '((bg-main "#000000")
-        (fg-main "#ffffff")
-        (bg-mode-line "#323232")))
+        '((bg-main "#000000")
+          (fg-main "#ffffff")
+          (bg-mode-line "#323232")))
   (load-theme 'ef-bio t))
 
 ;; dired
