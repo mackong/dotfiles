@@ -91,9 +91,9 @@
 (setq imaxima-fnt-size "Large")
 
 ;; theme
-(custom-set-faces
- '(hl-line ((t (:background "#e0e0e0"))))
- '(secondary-selection ((t (:background "#e0e0e0")))))
+(use-package ef-themes
+  :config
+  (load-theme 'ef-light t))
 
 ;; dired
 (require 'dired-x)
@@ -382,6 +382,7 @@
   :straight nil
   :load-path "~/.emacs.d/others/packages/emacs-application-framework"
   :init
+  (use-package term)
   (use-package s)
   (use-package epc :defer t)
   (use-package ctable :defer t)
@@ -398,6 +399,7 @@
   (setq eaf-browser-enable-autofill t)
   (setq eaf-pyqterminal-font-family default-font)
   (setq eaf-pyqterminal-font-size 18)
+  (setq eaf-pyqterminal-color-schema-from-emacs t)
   (setq eaf-mindmap-edit-mode t)
   (setq eaf-mindmap-save-path "~/Documents/Diagrams")
   (setq eaf-pdf-dark-exclude-image t)
