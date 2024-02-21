@@ -71,9 +71,13 @@ require('lazy').setup({
     },
 
     {
+        'nvim-telescope/telescope-file-browser.nvim'
+    },
+
+    {
          'nvim-treesitter/nvim-treesitter',
          build = ':TSUpdate',
-     },
+    },
 }, {})
 
 -- no backup file
@@ -145,6 +149,7 @@ require('telescope').setup {
         },
     },
 }
+require("telescope").load_extension 'file_browser'
 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
@@ -156,6 +161,7 @@ end, 0)
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>fs', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>fb', require('telescope').extensions.file_browser.file_browser, { desc = '[F]file [B]rowser' })
 
 require('nvim-tmux-navigation').setup {
     keybindings = {
