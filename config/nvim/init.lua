@@ -16,11 +16,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     {
-        'ishan9299/modus-theme-vim',
+        'dracula/vim',
         priority = 1000,
         config = function()
-            vim.g.modus_dim_inactive_window = 0
-            vim.cmd.colorscheme 'modus-vivendi'
+            vim.cmd.colorscheme 'dracula'
         end,
     },
 
