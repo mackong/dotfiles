@@ -16,11 +16,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     {
-        'dracula/vim',
+        'ellisonleao/gruvbox.nvim',
         priority = 1000,
-        config = function()
-            vim.cmd.colorscheme 'dracula'
-        end,
+        opts = {
+            terminal_colors = true,
+            dim_inactive = false,
+            contrast = "hard",
+            bold = false,
+        },
     },
 
     {
@@ -135,6 +138,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 vim.o.background = 'dark'
 vim.o.cursorline = true
+vim.cmd.colorscheme 'gruvbox'
 
 vim.keymap.set('n', '<leader>ee', '<cmd>vsplit ~/.config/nvim/init.lua<cr>', { silent = true })
 

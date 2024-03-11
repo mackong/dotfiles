@@ -73,8 +73,6 @@
 
 ;; eglot
 (setq eglot-autoshutdown t)
-(custom-set-faces
- '(eglot-highlight-symbol-face ((t (:inherit highlight)))))
 
 ;; treesit
 (setq treesit-font-lock-level 4)
@@ -91,10 +89,10 @@
 (setq imaxima-fnt-size "Large")
 
 ;; theme
-(use-package dracula-theme
+(use-package gruvbox-theme
   :config
-  (setq dracula-enlarge-headings nil)
-  (load-theme 'dracula t))
+  (load-theme 'gruvbox-dark-hard t))
+(set-face-attribute 'line-number nil :background (face-attribute 'default :background))
 
 ;; dired
 (require 'dired-x)
