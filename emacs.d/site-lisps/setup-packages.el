@@ -72,7 +72,8 @@
       eldoc-echo-area-prefer-doc-buffer t)
 
 ;; eglot
-(setq eglot-autoshutdown t)
+(setq eglot-autoshutdown t
+      eglot-extend-to-xref t)
 
 ;; treesit
 (setq treesit-font-lock-level 4)
