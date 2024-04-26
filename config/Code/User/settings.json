@@ -9,10 +9,6 @@
     "explorer.autoReveal": true,
     "window.zoomLevel": 1,
     "extensions.ignoreRecommendations": true,
-    "vim.handleKeys": {
-        "<C-p>": false,
-        "<C-n>": false
-    },
     "editor.renderWhitespace": "trailing",
     "files.trimTrailingWhitespace": true
 }
