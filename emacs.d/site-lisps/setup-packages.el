@@ -400,13 +400,14 @@
   (setq eaf-pyqterminal-font-size 18)
   (setq eaf-mindmap-edit-mode t)
   (setq eaf-mindmap-save-path "~/Documents/Diagrams")
+  (setq eaf-pdf-dark-mode nil)
   (setq eaf-pdf-dark-exclude-image t)
-  (setq eaf-python-command "/usr/bin/python")
+  (setq eaf-python-command "/home/mackong/.conda/envs/daily/bin/python")
   (setq eaf-config-location "~/.emacs.d/others/eaf/")
   (setq browse-url-browser-function 'eaf-open-browser)
   (with-eval-after-load 'browse-url
-      (add-to-list 'browse-url-handlers
-                   (cons "\\`file://.*\\.xhtml" 'eaf-open-browser)))
+    (add-to-list 'browse-url-handlers
+                 (cons "\\`file://.*\\.xhtml" 'eaf-open-browser)))
   (dolist (kb (list eaf-browser-keybinding eaf-mindmap-keybinding eaf-markdown-previewer-keybinding))
     (eaf-bind-key nil "M-o" kb)))
 
