@@ -1,31 +1,32 @@
 live_config_reload = true
 
-# Default colors
-[colors.primary]
-background = '#f9f5d7'
-foreground = '#3c3836'
-
-# Normal colors
-[colors.normal]
-black   = '#fbf1c7'
-red     = '#cc241d'
-green   = '#98971a'
-yellow  = '#d79921'
-blue    = '#458588'
-magenta = '#b16286'
-cyan    = '#689d6a'
-white   = '#7c6f64'
-
-# Bright colors
 [colors.bright]
-black   = '#928374'
-red     = '#9d0006'
-green   = '#79740e'
-yellow  = '#b57614'
-blue    = '#076678'
-magenta = '#8f3f71'
-cyan    = '#427b58'
-white   = '#3c3836'
+black = "#969896"
+blue = "#3971ed"
+cyan = "#3971ed"
+green = "#198844"
+magenta = "#a36ac7"
+red = "#cc342b"
+white = "#7276F8"
+yellow = "#fba922"
+
+[colors.normal]
+black = "#ffffff"
+blue = "#3971ed"
+cyan = "#3971ed"
+green = "#198844"
+magenta = "#a36ac7"
+red = "#cc342b"
+white = "#c5c8c6"
+yellow = "#fba922"
+
+[colors.primary]
+background = "#ffffff"
+foreground = "#000000"
+
+[colors.selection]
+background = "#d5baff"
+foreground = "CellForeground"
 
 [font]
 size = 14

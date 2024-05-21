@@ -83,34 +83,47 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
-set $bg #f9f5d7
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #1d2021
-set $darkgray #1d2021
+set $black #000000
+set $bright_black #505050
 
-# class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
+set $red #A60000
+set $bright_red #972500
+
+set $green #005E00
+set $bright_green #315B00
+
+set $yellow #FBB829
+set $bright_yellow #FED06E
+
+set $blue #0031A9
+set $bright_blue #2544BB
+
+set $magenta #721045
+set $bright_magenta #8F0075
+
+set $cyan #00538B
+set $bright_cyan #30517F
+
+set $white #FFFFFF
+set $bright_white #F0F0F0
+
+client.unfocused #red #red #black #red
 
 bar {
     status_command i3status-rs
     font pango:monospace 11
     separator_symbol "|"
     colors {
-        background $bg
-        statusline $gray
-        #                    border  backgr. text
-        focused_workspace    $aqua $aqua $darkgray
-        inactive_workspace   $darkgray $bg $gray
-        active_workspace     $darkgray $bg $gray
-        urgent_workspace     $red $red $bg
+        background $bright_white
+        statusline $black
+        separator  $black
+
+        # Colors           border        background    text
+        focused_workspace  $red          $bright_white $black
+        active_workspace   $red          $bright_white $black
+        inactive_workspace $bright_white $bright_white $black
+        urgent_workspace   $blue         $blue         $white
+        binding_mode       $blue         $blue         $white
     }
 }
 

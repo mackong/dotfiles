@@ -90,10 +90,19 @@
 (setq imaxima-fnt-size "Large")
 
 ;; theme
-(use-package gruvbox-theme
+(use-package emacs
   :config
-  (load-theme 'gruvbox-light-hard t))
-(set-face-attribute 'line-number nil :background (face-attribute 'default :background))
+  (setq modus-themes-mixed-fonts nil
+        modus-themes-mode-line '(borderless)
+        modus-themes-variable-pitch-ui nil
+        modus-themes-italic-constructs t
+        modus-themes-bold-constructs nil
+        modus-themes-completions '((t . (bold)))
+        modus-themes-org-blocks 'gray-background
+        modus-themes-org-agenda '((header-block . (no-scale)))
+        modus-vivendi-palette-overrides
+        '((bg-space red)))
+  (load-theme 'modus-operandi t))
 
 ;; dired
 (require 'dired-x)
