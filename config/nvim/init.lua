@@ -16,14 +16,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     {
-        'ellisonleao/gruvbox.nvim',
+        'ishan9299/modus-theme-vim',
         priority = 1000,
-        opts = {
-            terminal_colors = true,
-            dim_inactive = false,
-            contrast = "hard",
-            bold = false,
-        },
+        config = function()
+            vim.g.modus_dim_inactive_window = 0
+            vim.cmd.colorscheme 'modus-vivendi'
+        end,
     },
 
     {
@@ -138,7 +136,6 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 vim.o.background = 'dark'
 vim.o.cursorline = true
-vim.cmd.colorscheme 'gruvbox'
 
 vim.keymap.set('n', '<leader>ee', '<cmd>vsplit ~/.config/nvim/init.lua<cr>', { silent = true })
 

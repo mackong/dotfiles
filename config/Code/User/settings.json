@@ -4,7 +4,6 @@
     "editor.lineHeight": 1.4,
     "editor.minimap.enabled": false,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Gruvbox Dark Hard",
     "security.workspace.trust.enabled": false,
     "explorer.autoReveal": true,
     "window.zoomLevel": 1,
