@@ -1,6 +1,7 @@
 [user]
     name = mackong
     email = mackonghp@gmail.com
+    signingkey = /home/mackong/.ssh/id_github.com.pub
 [credential]
     helper = cache --timeout=3600
 [push]
@@ -27,6 +28,8 @@
 [url "https://gitee.com/"]
     insteadOf = git://gitee.com/
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [oh-my-zsh]
-	hide-dirty = 1
+    hide-dirty = 1
+[gpg]
+    format = ssh
