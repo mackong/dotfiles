@@ -37,3 +37,5 @@
 	allowedSignersFile = /home/mackong/.config/git/allowed_signers
 [oh-my-zsh]
     hide-dirty = 1
+[log]
+	showSignature = true
