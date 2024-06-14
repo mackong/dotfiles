@@ -29,9 +29,11 @@
     insteadOf = git://gitee.com/
 [diff]
     tool = vimdiff
-[oh-my-zsh]
-    hide-dirty = 1
-[gpg]
-    format = ssh
 [commit]
 	gpgsign = true
+[gpg]
+    format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /home/mackong/.config/git/allowed_signers
+[oh-my-zsh]
+    hide-dirty = 1
