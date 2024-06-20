@@ -84,7 +84,8 @@ This checks in turn:
    "Buffer"
    (("f" eglot-format-buffer "format")
     ("m" counsel-imenu "imenu")
-    ("g" flymake-show-buffer-diagnostics "diagnostics")
+    ("g" flymake-show-buffer-diagnostics "buffer diagnostics")
+    ("G" flymake-show-project-diagnostics "project diagnostics")
     ("x" eglot-code-actions "code action"))
    "Server"
    (("M-S" eglot-shutdown "shutdown")
