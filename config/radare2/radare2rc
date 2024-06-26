@@ -1,0 +1,4 @@
+e scr.color=1
+e scr.utf8=true
+e scr.utf8.curvy=true
+e asm.syntax=intel
