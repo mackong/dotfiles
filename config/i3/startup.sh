@@ -11,16 +11,11 @@ touchpad_config
 xset s off
 xset -dpms
 
+xsetroot -solid "#cccccc"
+
 autorandr -l hdmi
 i3-msg 'workspace 1'
-
-feh --bg-scale /home/mackong/.local/share/wallpapers/wallpaper.png
 
 fcitx5 -d
 
 /usr/lib/polkit-kde-authentication-agent-1 &
-
-if [ -e "/home/mackong/.local/bin/i3unityfix.py" ]
-then
-    /home/mackong/.local/bin/i3unityfix.py &
-fi
