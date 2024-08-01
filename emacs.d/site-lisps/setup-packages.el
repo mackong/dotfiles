@@ -296,9 +296,6 @@
 ;; rmsbolt
 (use-package rmsbolt)
 
-;; org-modern
-(use-package org-modern)
-
 ;; org-babels
 (use-package ob-go)
 (use-package ob-restclient)
