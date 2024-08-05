@@ -154,7 +154,12 @@ require("telescope").load_extension 'file_browser'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     ensure_installed = 'all',
-    highlight = { enable = true },
+    highlight = {
+      enable = true,
+      disable = function(lang, bufnr)
+        return vim.api.nvim_buf_line_count(bufnr) > 5000
+      end,
+    },
   }
 end, 0)
 
