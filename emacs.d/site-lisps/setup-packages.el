@@ -159,19 +159,15 @@
 ;; visual-regexp
 (use-package visual-regexp-steroids)
 
-;; posframe
-(use-package posframe
-  :config
-  (setq posframe-mouse-banish '(10 . 10)))
-
 ;; go-translate
 (use-package go-translate
   :config
-  (setq gts-translate-list '(("en" "zh"))
-        gts-default-translator (gts-translator
-                                :picker (gts-prompt-picker)
-                                :engines (list (gts-google-engine))
-                                :render (gts-posframe-pop-render :forecolor "black" :backcolor "#f2eff3"))))
+  (setq gt-langs '(en zh)
+        gt-buffer-render-follow-p t
+        gt-default-translator (gt-translator
+                               :taker (list (gt-taker :prompt t))
+                               :engines (list (gt-google-engine))
+                               :render (gt-buffer-render))))
 
 ;; avy
 (use-package avy
@@ -234,40 +230,6 @@
   (setq counsel-projectile-rg-initial-input '(ivy-thing-at-point)
         counsel-projectile-find-file-matcher 'ivy--re-filter))
 
-(use-package counsel-dash
-  :config
-  (setq counsel-dash-enable-debugging nil
-        counsel-dash-docsets-path "~/.emacs.d/others/docset"
-        counsel-dash-browser-func 'browse-url))
-
-;; auctex
-(defun setup-tex-mode ()
-  "Setup for tex mode."
-  (turn-on-reftex)
-  (company-auctex-init)
-  (local-set-key (kbd "TAB") 'TeX-complete-symbol))
-
-(defun TeX-eaf-sync-view ()
-  (eaf-open (TeX-active-master (TeX-output-extension))))
-
-(use-package auctex
-  :defer t
-  :init
-  (setq TeX-auto-save t
-        TeX-parse-self t
-        TeX-auto-untabify t
-        TeX-engine 'xetex
-        TeX-view-program-list '(("EAF" TeX-eaf-sync-view))
-        TeX-view-program-selection '((output-pdf "EAF"))
-        TeX-source-correlate-start-server t
-        TeX-global-PDF-mode t
-        TeX-save-query nil
-        LaTeX-command-style '(("" "%(PDF)%(latex) -shell-escape %S%(PDFout)")))
-  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
-  (add-hook 'LaTeX-mode-hook 'setup-tex-mode))
-
-(use-package company-auctex)
-
 ;; plantuml
 (use-package plantuml-mode
   :config
@@ -303,6 +265,8 @@
 
 ;; org-exports
 (use-package ox-gfm)
+(use-package ox-typst
+  :straight (:host github :repo "jmpunkt/ox-typst" :branch "main"))
 
 ;; denote
 (use-package denote
@@ -365,6 +329,17 @@
 ;; rust-mode
 (use-package rust-mode)
 
+;; typst-ts-mode
+(use-package typst-ts-mode
+  :straight '(:type git :host codeberg :repo "meow_king/typst-ts-mode" :files (:defaults "*.el"))
+  :custom
+  (typst-ts-watch-options "--open")
+  (typst-ts-mode-enable-raw-blocks-highlight t))
+
+;; org-typst-preview
+(use-package org-typst-preview
+  :straight '(:type git :host github :repo "remimimimimi/org-typst-preview.el" :files (:defaults "*.el")))
+
 ;; bongo
 (use-package bongo
   :config
@@ -381,43 +356,6 @@
 
 ;; major-mode-hydra
 (use-package major-mode-hydra)
-
-;; eaf
-(use-package eaf
-  :if (display-graphic-p)
-  :straight nil
-  :load-path "~/.emacs.d/others/packages/emacs-application-framework"
-  :init
-  (use-package term)
-  (use-package s)
-  (use-package epc :defer t)
-  (use-package ctable :defer t)
-  (use-package deferred :defer t)
-  :config
-  (dolist (app '("browser" "image-viewer" "markdown-previewer" "mindmap" "pdf-viewer" "pyqterminal"))
-    (add-to-list 'load-path (format "~/.emacs.d/others/packages/emacs-application-framework/app/%s" app))
-    (require (intern (format "eaf-%s" app))))
-  (setq eaf-webengine-default-zoom 1.25)
-  (setq eaf-webengine-font-size 18)
-  (setq eaf-webengine-font-family default-font)
-  (setq eaf-webengine-fixed-font-size 18)
-  (setq eaf-webengine-fixed-font-family default-font)
-  (setq eaf-browser-enable-autofill t)
-  (setq eaf-pyqterminal-font-family default-font)
-  (setq eaf-pyqterminal-font-size 18)
-  (setq eaf-pyqterminal-color-schema-from-emacs t)
-  (setq eaf-mindmap-edit-mode t)
-  (setq eaf-mindmap-save-path "~/Documents/Diagrams")
-  (setq eaf-pdf-dark-mode nil)
-  (setq eaf-pdf-dark-exclude-image t)
-  (setq eaf-python-command "/home/mackong/.conda/envs/daily/bin/python")
-  (setq eaf-config-location "~/.emacs.d/others/eaf/")
-  (setq browse-url-browser-function 'eaf-open-browser)
-  (with-eval-after-load 'browse-url
-    (add-to-list 'browse-url-handlers
-                 (cons "\\`file://.*\\.xhtml" 'eaf-open-browser)))
-  (dolist (kb (list eaf-browser-keybinding eaf-mindmap-keybinding eaf-markdown-previewer-keybinding))
-    (eaf-bind-key nil "M-o" kb)))
 
 ;; helpful
 (use-package helpful
