@@ -53,18 +53,11 @@ This checks in turn:
 
 (major-mode-hydra-define fake-mode
   (:quit-key ("q" "<escape>"))
-  ("EAF"
-   (("eh" eaf-open-browser-with-history "history")
-    ("eb" eaf-open-bookmark "bookmark")
-    ("et" eaf-open-pyqterminal "terminal")
-    ("em" eaf-create-mindmap "mindmap")
-    ("eq" eaf-stop-process "quit"))
-   "Tools"
+  ("Tools"
    (("bg" bongo-playlist "bongo")
-    ("gt" gts-do-translate "google translate")
+    ("gt" gt-do-translate "google translate")
     ("ms" magit-status "magit")
-    ("sn" (multi-scratch-new t) "scratch")
-    ("cd" counsel-dash "dash"))
+    ("sn" (multi-scratch-new t) "scratch"))
    "Misc"
    (("zz" text-scale-adjust "zoom")
     ("ci" change-inner "change inner")
