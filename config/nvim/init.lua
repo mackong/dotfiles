@@ -135,7 +135,6 @@ vim.o.completeopt = 'menuone,noselect'
 
 vim.o.termguicolors = true
 vim.o.background = 'dark'
-vim.o.cursorline = true
 
 vim.keymap.set('n', '<leader>ee', '<cmd>vsplit ~/.config/nvim/init.lua<cr>', { silent = true })
 

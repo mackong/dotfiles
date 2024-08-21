@@ -67,7 +67,6 @@
 (setq font-lock-global-mode t)
 (setq font-lock-verbose t)
 
-(global-hl-line-mode t)
 (setq line-number-mode t)
 (setq column-number-mode t)
 
