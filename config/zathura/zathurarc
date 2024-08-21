@@ -12,6 +12,4 @@ set incremental-search true
 map <C-=> zoom in
 map <C--> zoom out
 
-set recolor-darkcolor "#999"
-set recolor-lightcolor "#333"
-set recolor true
+set default-bg "#cccccc"
