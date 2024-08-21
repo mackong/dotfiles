@@ -45,9 +45,10 @@
 ;;;;;;;;;;;;;;;;;;
 (defun setup-go-mode ()
   "Setup for go mode."
-  (setq-local tab-width 4)
   (whitespace-mode -1)
 
+  (setq tab-width 4)
+  (setq go-ts-mode-indent-offset 4)
   ;; use goimports for go-fmt
   (setq gofmt-command "goimports")
 
