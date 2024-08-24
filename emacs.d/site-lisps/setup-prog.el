@@ -31,7 +31,10 @@
   (customize-set-variable 'c-ts-mode-indent-style
         (if (derived-mode-p 'c-ts-mode) 'linux #'c++-ts-mode--indent-styles))
 
-  (if (and (projectile-project-p) (not (string-equal major-mode "glsl-mode")))
+  (if (and
+       (not (file-remote-p default-directory))
+       (not (string-equal major-mode "glsl-mode"))
+       (projectile-project-p))
       (eglot-ensure)))
 
 (add-hook 'c-ts-mode-hook 'setup-c/c++-mode)
@@ -55,7 +58,9 @@
   ;; Call gofmt before saving
   (add-hook 'before-save-hook #'gofmt nil t)
 
-  (if (projectile-project-p)
+  (if (and
+       (not (file-remote-p default-directory))
+       (projectile-project-p))
       (eglot-ensure)))
 
 (add-hook 'go-ts-mode-hook 'setup-go-mode)
@@ -70,7 +75,9 @@
   (define-key python-mode-map (kbd "C-c C-c")
               (lambda () (interactive) (python-shell-send-buffer t)))
 
-  (if (projectile-project-p)
+  (if (and
+       (not (file-remote-p default-directory))
+       (projectile-project-p))
       (eglot-ensure)))
 
 (add-hook 'python-ts-mode-hook 'setup-python-mode)
@@ -90,7 +97,9 @@
   (add-hook 'before-save-hook #'rust-before-save-method nil t)
   (add-hook 'after-save-hook #'rust-after-save-method nil t)
 
-  (if (projectile-project-p)
+  (if (and
+       (not (file-remote-p default-directory))
+       (projectile-project-p))
       (eglot-ensure)))
 
 (add-hook 'rust-ts-mode-hook 'setup-rust-mode)
