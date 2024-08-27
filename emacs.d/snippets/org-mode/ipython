@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: ipython
+# key: ipy_
+# --
+#+begin_src ipython :session ${1:session01} :ipyfile ${2:$$(concat (make-temp-name "/tmp/ipython/ipython-") ".png")} :exports ${3:both} :results raw drawer
+%matplotlib inline
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+$0
+#+end_src
