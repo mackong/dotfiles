@@ -14,4 +14,4 @@ map <C--> zoom out
 
 set recolor-darkcolor "#999"
 set recolor-lightcolor "#333"
-set recolor true
+set recolor false
