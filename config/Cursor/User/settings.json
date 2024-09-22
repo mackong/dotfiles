@@ -1,0 +1,69 @@
+{
+    "editor.fontFamily": "monospace",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.4,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "trailing",
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+    "explorer.autoReveal": true,
+    "extensions.ignoreRecommendations": true,
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "files.trimTrailingWhitespace": true,
+    "security.workspace.trust.enabled": false,
+    "workbench.colorTheme": "Default Light Modern",
+    "window.zoomLevel": 1,
+    "vim.leader": ",",
+    "vim.incsearch": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "r",
+                "n"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.showDefinitionPreviewHover"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "D"
+            ],
+            "commands": [
+                "editor.action.goToTypeDefinition"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.referenceSearch.trigger"
+            ]
+        }
+    ],
+    "vim.smartRelativeLine": true,
+    "vim.useSystemClipboard": true,
+    "go.gopath": "/home/mackong/.go"
+}
+
