@@ -265,8 +265,6 @@
 
 ;; org-exports
 (use-package ox-gfm)
-(use-package ox-typst
-  :straight (:host github :repo "jmpunkt/ox-typst" :branch "main"))
 
 ;; denote
 (use-package denote
@@ -329,17 +327,6 @@
 
 ;; rust-mode
 (use-package rust-mode)
-
-;; typst-ts-mode
-(use-package typst-ts-mode
-  :straight '(:type git :host codeberg :repo "meow_king/typst-ts-mode" :files (:defaults "*.el"))
-  :custom
-  (typst-ts-watch-options "--open")
-  (typst-ts-mode-enable-raw-blocks-highlight t))
-
-;; org-typst-preview
-(use-package org-typst-preview
-  :straight '(:type git :host github :repo "remimimimimi/org-typst-preview.el" :files (:defaults "*.el")))
 
 ;; bongo
 (use-package bongo
