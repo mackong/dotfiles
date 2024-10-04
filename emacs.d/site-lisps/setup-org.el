@@ -10,6 +10,36 @@
 
 ;;; Code:
 
+;; see https://emacs-china.org/t/org-mode-latex-mode/22490
+
+;; Vertically align LaTeX preview in org mode
+(defun org-latex-preview-advice (beg end &rest _args)
+  (let* ((ov (car (overlays-at (/ (+ beg end) 2) t)))
+         (img (cdr (overlay-get ov 'display)))
+         (new-img (plist-put img :ascent 95)))
+    (overlay-put ov 'display (cons 'image new-img))))
+
+(defun org-justify-fragment-overlay (beg end image imagetype)
+  (let* ((position (plist-get org-format-latex-options :justify))
+         (img (create-image image 'svg t))
+         (ov (car (overlays-at (/ (+ beg end) 2) t)))
+         (width (car (image-display-size (overlay-get ov 'display))))
+         offset)
+    (cond
+     ((and (eq 'center position)
+           (= beg (line-beginning-position)))
+      (setq offset (floor (- (/ fill-column 2)
+                             (/ width 2))))
+      (if (< offset 0)
+          (setq offset 0))
+      (overlay-put ov 'before-string (make-string offset ? )))
+     ((and (eq 'right position)
+           (= beg (line-beginning-position)))
+      (setq offset (floor (- fill-column width)))
+      (if (< offset 0)
+          (setq offset 0))
+      (overlay-put ov 'before-string (make-string offset ? ))))))
+
 (defun setup-org-babel ()
   "Setup org babel."
   (org-babel-do-load-languages
@@ -22,6 +52,7 @@
      (ipython . t)
      (java . t)
      (js . t)
+     (latex . t)
      (lisp . t)
      (makefile . t)
      (maxima . t)
@@ -95,18 +126,29 @@
 
   (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
 
+  (advice-add 'org--make-preview-overlay
+              :after 'org-latex-preview-advice)
+  (advice-add 'org--make-preview-overlay
+              :after 'org-justify-fragment-overlay)
+
   (local-set-key (kbd "C-c C-j") 'org-goto))
 
 (defun setup-org-mode ()
   "Setup org mode."
   (setup-org-babel)
 
-  (setq org-export-backends '(ascii html man md typst)
+  (setq org-export-backends '(ascii beamer html latex man md)
         org-use-speed-commands t
+        org-latex-listings t
+        org-latex-pdf-process '("xelatex -shell-escape -interaction nonstopmode %f"
+                                "xelatex -shell-escape -interaction nonstopmode %f")
+        org-format-latex-options (plist-put org-format-latex-options :scale 1.5)
+        org-format-latex-options (plist-put org-format-latex-options :justify 'center)
         org-archive-location "~/Documents/Orgs/agenda/archive.org::"
         org-adapt-indentation t
         org-goto-interface 'outline-path-completionp
-        org-outline-path-complete-in-steps nil)
+        org-outline-path-complete-in-steps nil
+        org-highlight-latex-and-related '(latex))
 
   (add-hook 'org-mode-hook 'setup-org-mode-hook))
 
