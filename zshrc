@@ -102,6 +102,9 @@ export WORKON_HOME=$HOME/.conda/envs
 # Disable pydevd file validation
 export PYDEVD_DISABLE_FILE_VALIDATION=1
 
+# Disable support legacy algorithms for cryptography
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+
 # JAVA_HOME
 export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 
