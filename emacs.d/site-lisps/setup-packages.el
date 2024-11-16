@@ -73,7 +73,8 @@
 
 ;; eglot
 (setq eglot-autoshutdown t
-      eglot-extend-to-xref t)
+      eglot-extend-to-xref t
+      eglot-inlay-hints-mode nil)
 
 ;; treesit
 (setq treesit-font-lock-level 4)
