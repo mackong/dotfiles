@@ -63,6 +63,7 @@
     ],
     "vim.smartRelativeLine": true,
     "vim.useSystemClipboard": true,
-    "go.gopath": "/home/mackong/.go"
+    "go.gopath": "/home/mackong/.go",
+    "workbench.colorTheme": "Default Dark Modern"
 }
 
