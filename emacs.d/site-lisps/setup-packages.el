@@ -353,12 +353,6 @@
   (setq counsel-describe-function-function #'helpful-callable
         counsel-describe-variable-function #'helpful-variable))
 
-;; aider
-(use-package aider
-  :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
-  :config
-  (setq aider-args '("--model" "deepseek/deepseek-coder")))
-
 (provide 'setup-packages)
 
 ;; Local Variables:
