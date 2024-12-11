@@ -84,8 +84,6 @@
 (add-hook 'python-ts-mode-hook 'setup-python-mode)
 (add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
 
-(pyvenv-workon (car (seq-filter '(lambda (x) (equal "daily" (car (split-string x "-")))) (pyvenv-virtualenv-list))))
-
 ;;;;;;;;;;;;;;;;;;
 ;; rust
 ;;;;;;;;;;;;;;;;;;

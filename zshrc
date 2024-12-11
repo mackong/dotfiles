@@ -62,7 +62,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  z mvn golang rust docker conda-zsh-completion
+  z mvn golang rust docker
 )
 
 DISABLE_MAGIC_FUNCTIONS=true
@@ -96,15 +96,6 @@ export COLORTERM=truecolor
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/.go:$GOPATH
 
-# Python virtualenv
-export WORKON_HOME=$HOME/.conda/envs
-
-# Disable pydevd file validation
-export PYDEVD_DISABLE_FILE_VALIDATION=1
-
-# Disable support legacy algorithms for cryptography
-export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
-
 # JAVA_HOME
 export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 
@@ -113,7 +104,6 @@ export DEBUGINFOD_URLS="https://repo.archlinuxcn.org"
 
 # Additional PATH
 pathmunge $HOME/.go/bin after
-pathmunge $HOME/.conda/envs/daily/bin after
 pathmunge $HOME/.cargo/bin after
 pathmunge /usr/share/bcc/tools after
 pathmunge /usr/share/bcc/introspection after
@@ -125,20 +115,3 @@ export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
 # Keybindings
 bindkey '\e#' pound-insert
 bindkey '^[[Z' reverse-menu-complete
-
-zstyle ":conda_zsh_completion:*" show-unnamed true
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
