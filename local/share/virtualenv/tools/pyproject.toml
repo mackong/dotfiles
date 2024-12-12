@@ -1,0 +1,17 @@
+[project]
+name = "tools"
+version = "0.1.0"
+description = "daily tools"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aider-chat>=0.68.0",
+    "compiledb>=0.10.1",
+    "frida-tools>=13.6.0",
+    "httpie>=3.2.4",
+    "ipython>=8.30.0",
+    "jupyterlab>=4.3.3",
+    "matplotlib>=3.9.3",
+    "mycli>=1.28.0",
+    "scapy>=2.6.1",
+]
