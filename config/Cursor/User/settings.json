@@ -62,7 +62,6 @@
             ]
         }
     ],
-    "vim.smartRelativeLine": true,
     "vim.useSystemClipboard": true,
     "go.gopath": "/home/mackong/.go"
 }
