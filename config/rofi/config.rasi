@@ -8,4 +8,4 @@ configuration {
     dpi: 1;
 }
 
-@theme "gruvbox-light-hard"
+@theme "Paper"
