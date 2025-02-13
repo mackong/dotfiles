@@ -1,7 +1,9 @@
 # Main model:
 
+model: r1
+
 ## Use deepseek/deepseek-coder model for the main chat
-deepseek: true
+# deepseek: true
 
 # Output settings:
 
