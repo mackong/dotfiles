@@ -107,7 +107,7 @@ export DEBUGINFOD_URLS="https://repo.archlinuxcn.org"
 
 # Additional PATH
 pathmunge $HOME/.go/bin after
-pathmunge $HOME/.local/share/virtualenv/tools/.venv/bin after
+pathmunge $HOME/.local/share/virtualenv/daily/.venv/bin after
 pathmunge $HOME/.cargo/bin after
 pathmunge /usr/share/bcc/tools after
 pathmunge /usr/share/bcc/introspection after
