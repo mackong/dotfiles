@@ -5,7 +5,7 @@ description = "daily tools"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "aider-chat==0.74.1",
+    "aider-chat==0.74.2",
     "compiledb>=0.10.1",
     "frida-tools>=13.6.0",
     "httpie>=3.2.4",
