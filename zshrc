@@ -97,7 +97,7 @@ export GOROOT=/usr/lib/go
 export GOPATH=$HOME/.go:$GOPATH
 
 # Python virtualenv
-export WORKON_HOME=$HOME/.local/share/virtualenv/
+export WORKON_HOME=$HOME/.local/share/virtualenv
 
 # JAVA_HOME
 export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
@@ -116,6 +116,19 @@ export PATH=$PATH
 # riggrep
 export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
 
+# manpage
+export MANPAGER="sh -c 'col -bx | bat -l man -p --theme ansi'"
+export MANROFFOPT="-c"
+
+# Aider
+export OPENAI_API_BASE=https://dashscope.aliyuncs.com/compatible-mode/v1
+export AIDER_MODEL=openai/deepseek-v3
+
 # Keybindings
 bindkey '\e#' pound-insert
 bindkey '^[[Z' reverse-menu-complete
+
+# Aliases
+alias xclip='xclip -sel clip'
+alias cat='bat -pp --theme ansi'
+

@@ -34,6 +34,9 @@ export WORKON_HOME=$HOME/.local/share/virtualenv
 # JAVA_HOME
 export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 
+# debuginfod urls
+export DEBUGINFOD_URLS="https://repo.archlinuxcn.org"
+
 # Additional PATH
 pathmunge $HOME/.go/bin after
 pathmunge $HOME/.local/share/virtualenv/daily/.venv/bin after
@@ -45,18 +48,15 @@ export PATH=$PATH
 # riggrep
 export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# manpage
+export MANPAGER="sh -c 'col -bx | bat -l man -p --theme ansi'"
+export MANROFFOPT="-c"
+
+# Aider
+export OPENAI_API_BASE=https://dashscope.aliyuncs.com/compatible-mode/v1
+export AIDER_MODEL=openai/deepseek-v3
+
+# Aliases
+alias xclip='xclip -sel clip'
+alias cat='bat -pp --theme ansi'
 
