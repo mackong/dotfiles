@@ -1,7 +1,11 @@
+#############
 # Main model:
 
-## Use deepseek/deepseek-coder model for the main chat
-deepseek: true
+model: r1
+
+#################
+# Model settings:
+show-model-warnings: false
 
 # Output settings:
 
