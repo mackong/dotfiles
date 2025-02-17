@@ -34,7 +34,7 @@
 (use-package exec-path-from-shell
   :config
   (setq exec-path-from-shell-check-startup-files nil)
-  (setq exec-path-from-shell-variables '("PATH" "MANPATH" "WORKON_HOME" "JAVA_HOME" "GOPATH" "GOROOT" "RIPGREP_CONFIG_PATH" "DEBUGINFOD_URLS" "DEEPSEEK_API_KEY"))
+  (setq exec-path-from-shell-variables '("PATH" "MANPATH" "WORKON_HOME" "JAVA_HOME" "GOPATH" "GOROOT" "RIPGREP_CONFIG_PATH" "DEBUGINFOD_URLS" "AIDER_MODEL" "DEEPSEEK_API_KEY" "OPENAI_API_BASE" "OPENAI_API_KEY"))
   (exec-path-from-shell-initialize))
 
 ;; linum-mode
@@ -350,7 +350,7 @@
 (use-package aider
   :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
   :config
-  (setq aider-args '("--model" "deepseek/deepseek-coder")))
+  (setq aider-args `("--model" ,(or (getenv "AIDER_MODEL") "deepseek/deepseek-chat"))))
 
 ;; helpful
 (use-package helpful
