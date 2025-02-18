@@ -19,6 +19,7 @@
     ru = !git pull origin $(git current)
 [core]
     quotepath = off
+    excludesfile = /home/mackong/.config/git/.gitignore
 [init]
     defaultBranch = main
 [includeIf "gitdir:~/Gitlab/"]
