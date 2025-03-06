@@ -92,16 +92,6 @@
 ;; theme
 (use-package emacs
   :config
-  (setq modus-themes-mixed-fonts nil
-        modus-themes-mode-line '(borderless)
-        modus-themes-variable-pitch-ui nil
-        modus-themes-italic-constructs t
-        modus-themes-bold-constructs nil
-        modus-themes-completions '((t . (bold)))
-        modus-themes-org-blocks 'gray-background
-        modus-themes-org-agenda '((header-block . (no-scale)))
-        modus-vivendi-palette-overrides
-        '((bg-space red)))
   (load-theme 'modus-vivendi t))
 
 ;; dired
