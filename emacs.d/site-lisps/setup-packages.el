@@ -202,7 +202,9 @@
     :config
     (setq amx-save-file "~/.emacs.d/others/amx-items")))
 
+
 ;; projectile
+(straight-use-package 'project)
 (use-package projectile
   :bind-keymap
   ("C-c p" . projectile-command-map)
