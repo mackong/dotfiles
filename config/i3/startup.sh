@@ -11,7 +11,7 @@ touchpad_config
 xset s off
 xset -dpms
 
-xsetroot -solid "#333333"
+feh --bg-scale /home/mackong/.local/share/wallpapers/wallpaper.png
 
 autorandr -l hdmi
 i3-msg 'workspace 1'
