@@ -58,6 +58,10 @@ require('lazy').setup({
     },
 
     {
+        'will133/vim-dirdiff'
+    },
+
+    {
         'alexghergh/nvim-tmux-navigation'
     },
 
