@@ -16,11 +16,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     {
-        'ishan9299/modus-theme-vim',
+        'miikanissi/modus-themes.nvim',
         priority = 1000,
         config = function()
-            vim.g.modus_dim_inactive_window = 0
-            vim.cmd.colorscheme 'modus-operandi'
+            vim.cmd.colorscheme 'modus_operandi'
         end,
     },
 
