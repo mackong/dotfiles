@@ -102,13 +102,13 @@ vim.o.showmatch = true
 vim.o.cmdheight = 1
 
 -- number of spaces for each step of (auto)indent
-vim.o.shiftwidth = 4
+vim.o.shiftwidth = 8
 
 -- number of spaces that a <Tab> in the file counts for
-vim.o.tabstop = 4
+vim.o.tabstop = 8
 
 -- number of spaces that a <Tab> counts for while performing editing operations
-vim.o.softtabstop = 4
+vim.o.softtabstop = 8
 
 -- use appropriate number of spaces to insert a <Tab>
 vim.o.expandtab = true
