@@ -27,7 +27,6 @@
 
 (defun setup-c/c++-mode ()
   "Setup for c/c++ mode"
-  (setq-local indent-tabs-mode nil)
   (customize-set-variable 'c-ts-mode-indent-offset 8)
   (customize-set-variable 'c-ts-mode-indent-style
         (if (derived-mode-p 'c-ts-mode) 'linux #'c++-ts-mode--indent-styles))
