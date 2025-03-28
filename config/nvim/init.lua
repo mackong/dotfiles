@@ -76,6 +76,11 @@ require('lazy').setup({
     {
         'nvim-telescope/telescope-file-browser.nvim'
     },
+
+    {
+         'nvim-treesitter/nvim-treesitter',
+         build = ':TSUpdate',
+    },
 }, {})
 
 -- no backup file
@@ -147,6 +152,18 @@ require('telescope').setup {
     },
 }
 require("telescope").load_extension 'file_browser'
+
+vim.defer_fn(function()
+  require('nvim-treesitter.configs').setup {
+    ensure_installed = { "c", "cpp", "c_sharp", "gomod", "go", "javascript", "lua", "markdown", "python", "rust", "typescript" },
+    highlight = {
+      enable = true,
+      disable = function(lang, bufnr)
+        return vim.api.nvim_buf_line_count(bufnr) > 5000
+      end,
+    },
+  }
+end, 0)
 
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>fs', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
