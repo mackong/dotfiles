@@ -165,10 +165,6 @@ require('nvim-tmux-navigation').setup {
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 
-vim.cmd('autocmd FileType cpp set shiftwidth=8')
-vim.cmd('autocmd FileType cpp set tabstop=8')
-vim.cmd('autocmd FileType cpp set softtabstop=8')
-
 -- [[ Configure lsp ]]
 local on_attach = function(_, bufnr)
     local nmap = function(keys, func, desc)
