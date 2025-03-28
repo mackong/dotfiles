@@ -122,7 +122,7 @@ export MANROFFOPT="-c"
 
 # Aider
 export OPENAI_API_BASE=https://ark.cn-beijing.volces.com/api/v3
-export AIDER_MODEL=openai/deepseek-v3-241226
+export AIDER_MODEL=openai/deepseek-v3-250324
 
 # Keybindings
 bindkey '\e#' pound-insert
