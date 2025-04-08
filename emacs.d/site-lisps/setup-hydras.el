@@ -56,6 +56,7 @@ This checks in turn:
   ("Tools"
    (("ai" aider-transient-menu "aider")
     ("bg" bongo-playlist "bongo")
+    ("ge" gptel "gptel")
     ("gt" gt-do-translate "google translate")
     ("ms" magit-status "magit")
     ("sn" (multi-scratch-new t) "scratch"))
@@ -87,10 +88,9 @@ This checks in turn:
 
 (major-mode-hydra-define+ emacs-lisp-mode
   (:quit-key ("q" "<escape>"))
-  ("Compile"
-   (("c" (byte-compile-file (buffer-file-name)) "this file"))
-   "Eval"
-   (("b" eval-buffer "buffer"))
+  ("Buffer"
+   (("c" (byte-compile-file (buffer-file-name)) "compile")
+    ("b" eval-buffer "eval"))
    "REPL"
    (("I" ielm "ielm"))
    "Test"

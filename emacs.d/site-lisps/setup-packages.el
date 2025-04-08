@@ -344,6 +344,23 @@
   :config
   (setq aider-args `("--model" ,(or (getenv "AIDER_MODEL") "deepseek/deepseek-chat"))))
 
+;; gptel
+(use-package gptel
+  :config
+  (setq gptel-default-mode 'org-mode
+        gptel-model 'deepseek-v3-250324
+        gptel-backend (gptel-make-openai "DeepSeek"
+                        :stream t
+                        :models '((deepseek-v3-250324
+                                   :description "DeepSeek from VolcEngine"
+                                   :capabilities (media tool-use json url)
+                                   :context-window 64))
+                        :host "ark.cn-beijing.volces.com"
+                        :endpoint "/api/v3/chat/completions"
+                        :key (getenv "OPENAI_API_KEY")))
+  (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
+  (add-hook 'gptel-post-response-functions 'gptel-end-of-response))
+
 ;; helpful
 (use-package helpful
   :bind (("C-h k" . helpful-key))
