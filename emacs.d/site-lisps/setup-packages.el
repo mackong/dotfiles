@@ -354,7 +354,9 @@
                         :models '((deepseek-v3-250324
                                    :description "DeepSeek from VolcEngine"
                                    :capabilities (media tool-use json url)
-                                   :context-window 64))
+                                   :context-window 128
+                                   :input-cost 0.002
+                                   :output-cost 0.008))
                         :host "ark.cn-beijing.volces.com"
                         :endpoint "/api/v3/chat/completions"
                         :key (getenv "OPENAI_API_KEY")))
