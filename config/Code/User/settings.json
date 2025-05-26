@@ -15,6 +15,7 @@
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Default Light Modern",
     "window.zoomLevel": 1,
+    "chat.agent.enabled": false,
     "vim.leader": ",",
     "vim.incsearch": true,
     "vim.normalModeKeyBindings": [
