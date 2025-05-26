@@ -94,7 +94,7 @@ export COLORTERM=truecolor
 
 # Golang
 export GOROOT=/usr/lib/go
-export GOPATH=$HOME/.go:$GOPATH
+export GOPATH=$HOME/.go
 
 # Python virtualenv
 export WORKON_HOME=$HOME/.local/share/virtualenv
