@@ -78,4 +78,4 @@ bindkey '^[[Z' reverse-menu-complete
 # Aliases
 alias xclip='xclip -sel clip'
 alias cat='bat -pp --theme ansi'
-
+alias rsync='rsync -r --info=progress2 --info=name0 -avz -e ssh'
