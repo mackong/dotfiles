@@ -31,11 +31,11 @@
 (setq straight-check-for-modification '(check-on-save))
 
 ;; exec-path-from-shell
-(use-package exec-path-from-shell
-  :config
-  (setq exec-path-from-shell-check-startup-files nil)
-  (setq exec-path-from-shell-variables '("PATH" "MANPATH" "WORKON_HOME" "JAVA_HOME" "GOPATH" "GOROOT" "RIPGREP_CONFIG_PATH" "DEBUGINFOD_URLS" "AIDER_MODEL" "DEEPSEEK_API_KEY" "OPENAI_API_BASE" "OPENAI_API_KEY"))
-  (exec-path-from-shell-initialize))
+;; (use-package exec-path-from-shell
+;;   :config
+;;   (setq exec-path-from-shell-check-startup-files nil)
+;;   (setq exec-path-from-shell-variables '("PATH" "MANPATH" "WORKON_HOME" "JAVA_HOME" "GOPATH" "GOROOT" "RIPGREP_CONFIG_PATH" "DEBUGINFOD_URLS" "AIDER_MODEL" "DEEPSEEK_API_KEY" "OPENAI_API_BASE" "OPENAI_API_KEY"))
+;;   (exec-path-from-shell-initialize))
 
 ;; linum-mode
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
