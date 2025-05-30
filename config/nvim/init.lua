@@ -198,6 +198,7 @@ local on_attach = function(_, bufnr)
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
     nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+    nmap('<leader>gs', vim.diagnostic.open_float, 'Show diagnostics in float')
 end
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
