@@ -62,7 +62,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  z mvn golang rust docker
+  z mvn golang rust docker rsync
 )
 
 DISABLE_MAGIC_FUNCTIONS=true
@@ -78,4 +78,3 @@ bindkey '^[[Z' reverse-menu-complete
 # Aliases
 alias xclip='xclip -sel clip'
 alias cat='bat -pp --theme ansi'
-alias rsync='rsync -r --info=progress2 --info=name0 -avz -e ssh'

@@ -59,4 +59,3 @@ export AIDER_MODEL=openai/deepseek-v3-250324
 # Aliases
 alias xclip='xclip -sel clip'
 alias cat='bat -pp --theme ansi'
-alias rsync='rsync -r --info=progress2 --info=name0 -avz -e ssh'
