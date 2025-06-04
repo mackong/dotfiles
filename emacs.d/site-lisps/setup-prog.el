@@ -31,6 +31,8 @@
   (customize-set-variable 'c-ts-mode-indent-style
         (if (derived-mode-p 'c-ts-mode) 'linux #'c++-ts-mode--indent-styles))
 
+  (indent-bars-mode t)
+
   (if (and
        (not (file-remote-p default-directory))
        (not (string-equal major-mode "glsl-mode"))
@@ -58,6 +60,8 @@
   ;; Call gofmt before saving
   (add-hook 'before-save-hook #'gofmt nil t)
 
+  (indent-bars-mode t)
+
   (if (and
        (not (file-remote-p default-directory))
        (projectile-project-p))
@@ -72,6 +76,7 @@
 (defun setup-python-mode ()
   "Setup for python mode."
   (sphinx-doc-mode t)
+  (indent-bars-mode t)
   (define-key python-mode-map (kbd "C-c C-c")
               (lambda () (interactive) (python-shell-send-buffer t)))
 
@@ -91,6 +96,8 @@
   (setq rust-format-on-save t)
   (setq prettify-symbols-alist rust-prettify-symbols-alist)
   (setq prettify-symbols-compose-predicate #'rust--prettify-symbols-compose-p)
+
+  (indent-bars-mode t)
 
   (add-hook 'before-save-hook #'rust-before-save-method nil t)
   (add-hook 'after-save-hook #'rust-after-save-method nil t)
@@ -119,6 +126,7 @@
               (paredit-mode)
               (eldoc-mode)
               (show-paren-mode)
+              (indent-bars-mode)
 
               (setq-local indent-tabs-mode nil))))
 
