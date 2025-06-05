@@ -85,7 +85,10 @@
 ;; theme
 (use-package emacs
   :config
-  (load-theme 'modus-vivendi t))
+  (load-theme 'modus-vivendi-deuteranopia t))
+
+;; nerd-icons
+(use-package nerd-icons)
 
 ;; dired
 (require 'dired-x)
@@ -362,7 +365,7 @@
   (setq counsel-describe-function-function #'helpful-callable
         counsel-describe-variable-function #'helpful-variable))
 
-;; indent bars
+;; indent-bars
 (use-package indent-bars
   :straight (:host github :repo "jdtsmith/indent-bars" :files ("*.el"))
   :custom
@@ -372,6 +375,24 @@
   (indent-bars-width-frac 0.15)
   (indent-bars-no-descend-lists t)
   (indent-bars-treesit-support t))
+
+;; centaur-tabs
+(use-package centaur-tabs
+  :init
+  (setq centaur-tabs-set-icons t
+        centaur-tabs-height 32
+        centaur-tabs-gray-out-icons 'buffer
+        centaur-tabs-set-bar 'over
+        centaur-tabs-set-modified-marker t
+        centaur-tabs-modified-marker "●"
+        centaur-tabs-show-navigation-buttons nil
+        centaur-tabs-show-new-tab-button nil
+        centaur-tabs-set-close-button nil
+        centaur-tabs-icon-type 'nerd-icons
+        centaur-tabs-cycle-scope 'tabs)
+  :config
+  (centaur-tabs-mode t)
+  (dotimes (n 10) (global-set-key (kbd (format "M-%d" n)) 'centaur-tabs-select-visible-tab)))
 
 (provide 'setup-packages)
 
