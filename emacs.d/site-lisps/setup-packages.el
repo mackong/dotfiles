@@ -69,6 +69,14 @@
       eglot-extend-to-xref t
       eglot-inlay-hints-mode nil)
 
+;; dape
+(use-package dape
+  :defer t
+  :config
+  (setq dape-buffer-window-arrangement 'right)
+  (setq dape-inlay-hints t)
+  (setq dape-cwd-function 'projectile-project-root))
+
 ;; treesit
 (setq treesit-font-lock-level 4)
 
@@ -198,7 +206,6 @@
   (use-package amx
     :config
     (setq amx-save-file "~/.emacs.d/others/amx-items")))
-
 
 ;; projectile
 (straight-use-package 'project)
