@@ -355,11 +355,17 @@
         gptel-backend (gptel-make-openai "DeepSeek"
                         :stream t
                         :models '((deepseek-v3-250324
-                                   :description "DeepSeek from VolcEngine"
+                                   :description "DeepSeek V3 from VolcEngine"
                                    :capabilities (media tool-use json url)
                                    :context-window 128
                                    :input-cost 0.002
-                                   :output-cost 0.008))
+                                   :output-cost 0.008)
+                                  (deepseek-r1-250528
+                                   :description "DeepSeek R1 from VolcEngine"
+                                   :capabilities (media tool-use json url)
+                                   :context-window 64
+                                   :input-cost 0.004
+                                   :output-cost 0.016))
                         :host "ark.cn-beijing.volces.com"
                         :endpoint "/api/v3/chat/completions"
                         :key (getenv "OPENAI_API_KEY")))
