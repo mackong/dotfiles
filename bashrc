@@ -28,9 +28,6 @@ export COLORTERM=truecolor
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/.go
 
-# Python virtualenv
-export WORKON_HOME=$HOME/.local/share/virtualenv
-
 # JAVA_HOME
 export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 
@@ -39,7 +36,6 @@ export DEBUGINFOD_URLS="https://repo.archlinuxcn.org"
 
 # Additional PATH
 pathmunge $HOME/.go/bin after
-pathmunge $HOME/.local/share/virtualenv/daily/.venv/bin after
 pathmunge $HOME/.cargo/bin after
 pathmunge /usr/share/bcc/tools after
 pathmunge /usr/share/bcc/introspection after
