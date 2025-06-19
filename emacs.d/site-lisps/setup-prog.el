@@ -77,13 +77,19 @@
   "Setup for python mode."
   (sphinx-doc-mode t)
   (indent-bars-mode t)
+
+  (setq-local python-shell-interpreter (pet-executable-find "python")
+              python-shell-virtualenv-root (pet-virtualenv-root))
+
   (define-key python-mode-map (kbd "C-c C-c")
               (lambda () (interactive) (python-shell-send-buffer t)))
 
   (if (and
        (not (file-remote-p default-directory))
        (projectile-project-p))
-      (eglot-ensure)))
+      (progn
+        (pet-eglot-setup)
+        (eglot-ensure))))
 
 (add-hook 'python-ts-mode-hook 'setup-python-mode)
 (add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
