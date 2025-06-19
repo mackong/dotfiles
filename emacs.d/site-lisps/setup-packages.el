@@ -315,8 +315,8 @@
 ;; sphinx-doc
 (use-package sphinx-doc)
 
-;; pyvenv
-(use-package pyvenv)
+;; pet
+(use-package pet)
 
 ;; go-mode
 (use-package go-mode)
@@ -350,6 +350,7 @@
 ;; gptel
 (use-package gptel
   :config
+  (require 'gptel-integrations)
   (setq gptel-default-mode 'org-mode
         gptel-model 'deepseek-v3-250324
         gptel-backend (gptel-make-openai "DeepSeek"
@@ -371,6 +372,12 @@
                         :key (getenv "OPENAI_API_KEY")))
   (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
   (add-hook 'gptel-post-response-functions 'gptel-end-of-response))
+
+;; mcp
+(use-package mcp
+  :straight (:host github :repo "lizqwerscott/mcp.el" :files ("*.el"))
+  :after gptel
+  :config (require 'mcp-hub))
 
 ;; helpful
 (use-package helpful
