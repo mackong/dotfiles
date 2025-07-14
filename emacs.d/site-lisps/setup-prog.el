@@ -91,6 +91,7 @@
         (eglot-ensure))))
 
 (add-hook 'python-ts-mode-hook 'setup-python-mode)
+(setq python-shell-interpreter "~/.local/share/uv/tools/jupyterlab/bin/python3")
 (add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
 
 ;;;;;;;;;;;;;;;;;;
