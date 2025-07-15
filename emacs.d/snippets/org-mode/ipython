@@ -2,7 +2,7 @@
 # name: ipython
 # key: ipy_
 # --
-#+begin_src ipython :session ${1:session01} :ipyfile ${2:$$(concat (make-temp-name "/tmp/ipython/ipython-") ".png")} :exports ${3:both} :results raw drawer
+#+begin_src ipython :session ${1:session01} :ipyfile ${2:$$(concat (make-temp-name "/tmp/ipython/ipython-") ".png")} :exports both :results file link :file ${2} :wrap "org \n#+ATTR_ORG: :width 1200"
 %matplotlib inline
 import matplotlib.pyplot as plt
 import numpy as np
