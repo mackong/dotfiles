@@ -105,7 +105,11 @@
   (global-set-key (kbd "C-c o c") 'org-capture))
 
 (defun archive-done-tasks ()
-  "Archive done tasks."
+  "Archive done tasks.
+
+Add this to begin of org file.
+# -*- mode: org; after-save-hook: (archive-done-tasks) -*-
+"
   (interactive)
   (save-excursion
     (goto-char (point-min))
