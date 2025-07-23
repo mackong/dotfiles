@@ -126,7 +126,8 @@ Add this to begin of org file.
 
   (setq-local company-dabbrev-char-regexp "\\(\\sw\\|\\s_\\|-\\)"
               truncate-lines nil
-              indent-tabs-mode nil)
+              indent-tabs-mode nil
+              org-image-actual-width nil)
 
   (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
 
