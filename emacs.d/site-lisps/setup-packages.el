@@ -369,7 +369,7 @@
                                    :output-cost 0.016))
                         :host "ark.cn-beijing.volces.com"
                         :endpoint "/api/v3/chat/completions"
-                        :key (getenv "OPENAI_API_KEY")))
+                        :key (getenv "ARK_API_KEY")))
   (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
   (add-hook 'gptel-post-response-functions 'gptel-end-of-response))
 
