@@ -38,15 +38,17 @@
 (setq user-full-name "mackong")
 (setq user-mail-address "mackonghp@gmail.com")
 
+(setq package-user-dir "~/.emacs.d/cache/elpa")
+(setq auto-save-list-file-prefix "~/.emacs.d/cache/auto-save-list/.saves-")
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
-(setq recentf-save-file (expand-file-name "~/.emacs.d/others/recentf"))
+(setq recentf-save-file (expand-file-name "~/.emacs.d/cache/recentf"))
 (setq create-lockfiles nil)
 (setq make-backup-files nil)
 
-(setq eshell-directory-name (expand-file-name "~/.emacs.d/others/eshell/"))
+(setq eshell-directory-name (expand-file-name "~/.emacs.d/cache/eshell/"))
 (setq bookmark-save-flag nil)
-(setq bookmark-default-file (expand-file-name "~/.emacs.d/others/bookmarks"))
+(setq bookmark-default-file (expand-file-name "~/.emacs.d/cache/bookmarks"))
 (setq tramp-ssh-controlmaster-options "")
 
 (set-buffer-file-coding-system 'utf-8)

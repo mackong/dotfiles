@@ -46,6 +46,18 @@
 (add-to-list 'major-mode-remap-alist '(c-or-c++-mode . c-or-c++-ts-mode))
 
 ;;;;;;;;;;;;;;;;;;
+;; java
+;;;;;;;;;;;;;;;;;;
+(defun setup-java-mode ()
+  "Setup for java mode"
+  (customize-set-variable 'c-ts-mode-indent-offset 4)
+
+  (eglot-java-mode t))
+
+(add-hook 'java-ts-mode-hook 'setup-java-mode)
+(add-to-list 'major-mode-remap-alist '(java-mode . java-ts-mode))
+
+;;;;;;;;;;;;;;;;;;
 ;; golang
 ;;;;;;;;;;;;;;;;;;
 (defun setup-go-mode ()
