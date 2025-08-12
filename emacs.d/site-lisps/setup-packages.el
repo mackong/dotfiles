@@ -71,10 +71,18 @@
 (push 'eglot straight-built-in-pseudo-packages)
 
 ;; eglot-java
+(defun custom-eglot-java-init-opts (server eglot-java-eclipse-jdt)
+  "Custom options that will be merged with any default settings."
+  `(:bundles ["~/.emacs.d/share/lsp/java/com.microsoft.java.debug.plugin.jar"]
+    :settings (:java (:format (:settings (:url ,(concat "file://" (expand-file-name "~/.emacs.d/share/lsp/java/codestyle.xml"))) :enabled t)))))
+
 (use-package eglot-java
   :defer t
   :config
-  (setq eglot-java-eclipse-jdt-cache-directory (concat user-emacs-directory "cache/eglot-java-eclipse-jdt-cache")))
+  (setq eglot-java-eclipse-jdt-cache-directory (concat user-emacs-directory "cache/eglot-java-eclipse-jdt-cache"))
+  (setq eglot-java-server-install-dir (concat user-emacs-directory "share/lsp/java/eclipse.jdt.ls"))
+  (setq eglot-java-junit-platform-console-standalone-jar (concat user-emacs-directory "share/lsp/java/junit-platform-console-standalone.jar"))
+  (setq eglot-java-user-init-opts-fn 'custom-eglot-java-init-opts))
 
 ;; dape
 (use-package dape
