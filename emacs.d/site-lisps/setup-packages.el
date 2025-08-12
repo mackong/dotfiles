@@ -63,11 +63,18 @@
 (setq eldoc-echo-area-use-multiline-p nil
       eldoc-echo-area-display-truncation-message t
       eldoc-echo-area-prefer-doc-buffer t)
+(push 'eldoc straight-built-in-pseudo-packages)
 
 ;; eglot
 (setq eglot-autoshutdown t
-      eglot-extend-to-xref t
-      eglot-inlay-hints-mode nil)
+      eglot-extend-to-xref t)
+(push 'eglot straight-built-in-pseudo-packages)
+
+;; eglot-java
+(use-package eglot-java
+  :defer t
+  :config
+  (setq eglot-java-eclipse-jdt-cache-directory (concat user-emacs-directory "cache/eglot-java-eclipse-jdt-cache")))
 
 ;; dape
 (use-package dape
@@ -124,7 +131,7 @@
 ;; multi-scratch
 (use-package multi-scratch
   :straight nil
-  :load-path "~/.emacs.d/others/packages/multi-scratch")
+  :load-path "~/.emacs.d/share/packages/multi-scratch")
 
 ;; change-inner
 (use-package change-inner
@@ -136,14 +143,14 @@
          ("C-c m a" . mc/mark-all-like-this)
          ("C-c m n" . mc/insert-numbers))
   :config
-  (setq mc/list-file (expand-file-name "~/.emacs.d/others/.mc-lists.el")))
+  (setq mc/list-file (expand-file-name "~/.emacs.d/cache/.mc-lists.el")))
 
 ;; transient
 (use-package transient
   :config
-  (setq transient-levels-file "~/.emacs.d/others/transient/levels.el"
-        transient-values-file "~/.emacs.d/others/transient/values.el"
-        transient-history-file "~/.emacs.d/others/transient/history.el"))
+  (setq transient-levels-file "~/.emacs.d/cache/transient/levels.el"
+        transient-values-file "~/.emacs.d/cache/transient/values.el"
+        transient-history-file "~/.emacs.d/cache/transient/history.el"))
 
 ;; magit
 (use-package magit)
@@ -205,7 +212,7 @@
   :config
   (use-package amx
     :config
-    (setq amx-save-file "~/.emacs.d/others/amx-items")))
+    (setq amx-save-file "~/.emacs.d/cache/amx-items")))
 
 ;; projectile
 (straight-use-package 'project)
@@ -214,8 +221,8 @@
   ("C-c p" . projectile-command-map)
   :init
   (setq projectile-completion-system 'ivy
-        projectile-cache-file (expand-file-name "~/.emacs.d/others/projectile/projectile.cache")
-        projectile-known-projects-file (expand-file-name "~/.emacs.d/others/projectile/projectile-bookmarks.eld"))
+        projectile-cache-file (expand-file-name "~/.emacs.d/cache/projectile/projectile.cache")
+        projectile-known-projects-file (expand-file-name "~/.emacs.d/cache/projectile/projectile-bookmarks.eld"))
   :config
   (projectile-global-mode))
 
@@ -229,7 +236,7 @@
 ;; plantuml
 (use-package plantuml-mode
   :config
-  (setq plantuml-jar-path "~/.emacs.d/others/plantuml.jar"
+  (setq plantuml-jar-path "~/.emacs.d/share/plantuml/plantuml.jar"
         plantuml-default-exec-mode 'jar))
 
 ;; graphviz-dot-mode
@@ -333,7 +340,7 @@
 ;; rfc-mode
 (use-package irfc
   :straight nil
-  :load-path "~/.emacs.d/others/packages/irfc/"
+  :load-path "~/.emacs.d/share/packages/irfc/"
   :init
   (setq irfc-directory "~/Documents/RFC"
         irfc-assoc-mode t))
