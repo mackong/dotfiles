@@ -26,6 +26,8 @@
 
 (defun setup-c/c++-mode ()
   "Setup for c/c++ mode"
+  (indent-tabs-mode -1)
+  (setq tab-width 8)
   (customize-set-variable 'c-ts-mode-indent-offset 8)
   (customize-set-variable 'c-ts-mode-indent-style
         (if (derived-mode-p 'c-ts-mode) 'linux #'c++-ts-mode--indent-styles))
@@ -49,7 +51,12 @@
 ;;;;;;;;;;;;;;;;;;
 (defun setup-java-mode ()
   "Setup for java mode"
+  (indent-tabs-mode -1)
+
+  (setq tab-width 4)
   (customize-set-variable 'c-ts-mode-indent-offset 4)
+
+  (indent-bars-mode t)
 
   (eglot-java-mode t))
 
