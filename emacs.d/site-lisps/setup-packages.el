@@ -73,7 +73,7 @@
 ;; eglot-java
 (defun custom-eglot-java-init-opts (server eglot-java-eclipse-jdt)
   "Custom options that will be merged with any default settings."
-  `(:bundles ["~/.emacs.d/share/lsp/java/com.microsoft.java.debug.plugin.jar"]
+  `(:bundles [,(expand-file-name "~/.emacs.d/share/lsp/java/com.microsoft.java.debug.plugin.jar")]
     :settings (:java (:format (:settings (:url ,(concat "file://" (expand-file-name "~/.emacs.d/share/lsp/java/codestyle.xml"))) :enabled t)))))
 
 (use-package eglot-java
@@ -156,9 +156,9 @@
 ;; transient
 (use-package transient
   :config
-  (setq transient-levels-file "~/.emacs.d/cache/transient/levels.el"
-        transient-values-file "~/.emacs.d/cache/transient/values.el"
-        transient-history-file "~/.emacs.d/cache/transient/history.el"))
+  (setq transient-levels-file (expand-file-name "~/.emacs.d/cache/transient/levels.el")
+        transient-values-file (expand-file-name "~/.emacs.d/cache/transient/values.el")
+        transient-history-file (expand-file-name "~/.emacs.d/cache/transient/history.el")))
 
 ;; magit
 (use-package magit)
@@ -220,7 +220,7 @@
   :config
   (use-package amx
     :config
-    (setq amx-save-file "~/.emacs.d/cache/amx-items")))
+    (setq amx-save-file (expand-file-name "~/.emacs.d/cache/amx-items"))))
 
 ;; projectile
 (straight-use-package 'project)

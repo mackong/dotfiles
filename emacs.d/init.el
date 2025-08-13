@@ -38,8 +38,8 @@
 (setq user-full-name "mackong")
 (setq user-mail-address "mackonghp@gmail.com")
 
-(setq package-user-dir "~/.emacs.d/cache/elpa")
-(setq auto-save-list-file-prefix "~/.emacs.d/cache/auto-save-list/.saves-")
+(setq package-user-dir (expand-file-name "~/.emacs.d/cache/elpa"))
+(setq auto-save-list-file-prefix (expand-file-name "~/.emacs.d/cache/auto-save-list/.saves-"))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 (setq recentf-save-file (expand-file-name "~/.emacs.d/cache/recentf"))
