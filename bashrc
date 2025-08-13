@@ -34,9 +34,13 @@ export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
 # debuginfod urls
 export DEBUGINFOD_URLS="https://repo.archlinuxcn.org"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+
 # Additional PATH
 pathmunge $HOME/.go/bin after
 pathmunge $HOME/.cargo/bin after
+pathmunge $BUN_INSTALL/bin after
 pathmunge /usr/share/bcc/tools after
 pathmunge /usr/share/bcc/introspection after
 export PATH=$PATH
@@ -48,9 +52,14 @@ export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
 export MANPAGER="sh -c 'col -bx | bat -l man -p --theme ansi'"
 export MANROFFOPT="-c"
 
-# Aider
-export OPENAI_API_BASE=https://ark.cn-beijing.volces.com/api/v3
-export AIDER_MODEL=openai/deepseek-v3-250324
+# export OPENAI_API_BASE=https://ark.cn-beijing.volces.com/api/v3
+# export AIDER_MODEL=openai/deepseek-v3-250324
+export OPENAI_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
+export OPENAI_MODEL="qwen3-coder-plus"
+export AIDER_MODEL=openai/qwen3-coder-plus
+
+# bun completions
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
 # Aliases
 alias xclip='xclip -sel clip'

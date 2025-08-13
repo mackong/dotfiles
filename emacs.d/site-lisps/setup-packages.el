@@ -94,6 +94,20 @@
 
 ;; treesit
 (setq treesit-font-lock-level 4)
+(setq treesit-language-source-alist
+   '((cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+     (c-sharp "https://github.com/tree-sitter/tree-sitter-c-sharp")
+     (c "https://github.com/tree-sitter/tree-sitter-c")
+     (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+     (gomod "https://github.com/camdencheek/tree-sitter-go-mod")
+     (go "https://github.com/tree-sitter/tree-sitter-go")
+     (javascript "https://github.com/tree-sitter/tree-sitter-javascript")
+     (java "https://github.com/tree-sitter/tree-sitter-java")
+     (python "https://github.com/tree-sitter/tree-sitter-python")
+     (rust "https://github.com/tree-sitter/tree-sitter-rust")
+     (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+     (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+     (templ "https://github.com/vrischmann/tree-sitter-templ")))
 
 ;; cmake-mode
 (require 'cmake-mode nil 'noerror)
@@ -337,6 +351,9 @@
 
 ;; go-mode
 (use-package go-mode)
+
+;; templ
+(use-package templ-ts-mode)
 
 ;; rust-mode
 (use-package rust-mode)

@@ -137,6 +137,23 @@
 (add-to-list 'major-mode-remap-alist '(rust-mode . rust-ts-mode))
 
 ;;;;;;;;;;;;;;;;;;
+;; typescript
+;;;;;;;;;;;;;;;;;;
+(defun setup-typescript-mode ()
+  (setq typescript-indent-level 2)
+
+  (indent-bars-mode t)
+
+  (if (and
+       (not (file-remote-p default-directory))
+       (projectile-project-p))
+      (eglot-ensure)))
+
+(add-hook 'typescript-ts-mode-hook 'setup-typescript-mode)
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+
+;;;;;;;;;;;;;;;;;;
 ;; lisp dialects
 ;;;;;;;;;;;;;;;;;;
 (setq auto-mode-alist (cons '("\\.ss" . scheme-mode) auto-mode-alist))

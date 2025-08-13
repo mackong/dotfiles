@@ -218,6 +218,7 @@ local servers = {
     gopls = {},
     pylsp = {},
     rust_analyzer = {},
+    ts_ls = {},
 }
 for server_name, server_settings in pairs(servers) do
     lsp_setup(server_name, server_settings)
