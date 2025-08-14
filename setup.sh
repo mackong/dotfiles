@@ -39,6 +39,5 @@ curl -fsSL https://bun.com/install | bash -s "bun-v1.2.20"
 bun install -g @gltf-transform/cli
 bun install -g @qwen-code/qwen-code
 bun install -g markmap-cli
-bun install -g terser
 bun install -g typescript
 bun install -g typescript-language-server

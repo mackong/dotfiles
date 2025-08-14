@@ -139,8 +139,10 @@
 ;; typescript
 ;;;;;;;;;;;;;;;;;;
 (defun setup-typescript-mode ()
+  (setq tab-width 2)
   (setq typescript-indent-level 2)
 
+  (indent-tabs-mode -1)
   (indent-bars-mode t)
 
   (if (and
