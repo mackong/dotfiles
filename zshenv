@@ -18,7 +18,6 @@ export COLORTERM=truecolor
 export IZK_INPUT_MODE="emacs"
 
 # Golang
-export GOROOT=/usr/lib/go
 export GOPATH=$HOME/.go
 
 # JAVA_HOME
