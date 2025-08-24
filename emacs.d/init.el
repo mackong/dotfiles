@@ -55,11 +55,13 @@
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(setq default-font "monospace")
+(setq default-font (if (eq system-type 'darwin)
+                       "Menlo"
+                     "monospace"))
 (dolist (font '(default fixed-pitch fixed-pitch-serif))
   (set-face-attribute font nil :font (concat default-font "-14")))
 (dolist (charset '(han cjk-misc))
-  (set-fontset-font t charset (font-spec :family "LXGW WenKai Screen" :size 16.5)))
+  (set-fontset-font t charset (font-spec :family "LXGW WenKai" :size 16.5)))
 
 (setq default-text-properties '(line-spacing 0.1 line-height 1.1))
 

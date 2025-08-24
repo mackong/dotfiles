@@ -21,7 +21,11 @@ export IZK_INPUT_MODE="emacs"
 export GOPATH=$HOME/.go
 
 # JAVA_HOME
-export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
+if [[ $(uname) == "Darwin" ]]; then
+    export JAVA_HOME=`/usr/libexec/java_home`
+elif [[ "${$(uname -s)[1,5]}" == "Linux" ]]; then
+    export JAVA_HOME=${JAVA_HOME:=/usr/lib64/jvm/default}
+fi
 
 # debuginfod urls
 export DEBUGINFOD_URLS="https://repo.archlinuxcn.org"
@@ -30,6 +34,7 @@ export DEBUGINFOD_URLS="https://repo.archlinuxcn.org"
 export BUN_INSTALL="$HOME/.bun"
 
 # Additional PATH
+pathmunge $HOME/.local/bin after
 pathmunge $HOME/.go/bin after
 pathmunge $HOME/.cargo/bin after
 pathmunge $BUN_INSTALL/bin after

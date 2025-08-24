@@ -78,3 +78,11 @@ bindkey '^[[Z' reverse-menu-complete
 # Aliases
 alias xclip='xclip -sel clip'
 alias cat='bat -pp --theme ansi'
+alias vim=nvim
+if [[ $(uname) == "Darwin" ]]; then
+    for cmd in `ls -1 /opt/homebrew/opt/coreutils/libexec/gnubin | tail -n +2`;
+    do
+        alias $cmd=g$cmd
+    done
+    unalias man
+fi

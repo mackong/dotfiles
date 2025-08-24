@@ -1,7 +1,7 @@
 [user]
     name = mackong
     email = mackonghp@gmail.com
-    signingkey = /home/mackong/.ssh/id_github.com.pub
+    signingkey = ~/.ssh/id_github.com.pub
 [credential]
     helper = cache --timeout=3600
 [push]
@@ -19,7 +19,7 @@
     ru = !git pull origin $(git current)
 [core]
     quotepath = off
-    excludesfile = /home/mackong/.config/git/.gitignore
+    excludesfile = ~/.config/git/.gitignore
 [init]
     defaultBranch = main
 [includeIf "gitdir:~/Gitlab/"]
@@ -35,7 +35,7 @@
 [gpg]
     format = ssh
 [gpg "ssh"]
-	allowedSignersFile = /home/mackong/.config/git/allowed_signers
+	allowedSignersFile = ~/.config/git/allowed_signers
 [oh-my-zsh]
     hide-dirty = 1
 [log]
