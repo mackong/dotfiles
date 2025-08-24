@@ -113,6 +113,8 @@
 (require 'cmake-mode nil 'noerror)
 
 ;; maxima
+(if (eq system-type 'darwin)
+    (add-to-list 'load-path "/opt/homebrew/share/emacs/site-lisp/maxima"))
 (autoload 'maxima-mode "maxima" "Maxima mode" t)
 (autoload 'imaxima "imaxima" "Frontend for maxima with Image support" t)
 (autoload 'maxima "maxima" "Maxima interaction" t)
@@ -183,8 +185,8 @@
 ;; visual-regexp
 (use-package visual-regexp-steroids)
 
-;; go-translate
-(use-package go-translate
+;; gt
+(use-package gt
   :config
   (setq gt-langs '(en zh)
         gt-buffer-render-follow-p t
@@ -377,7 +379,6 @@
 
 ;; aider
 (use-package aider
-  :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
   :config
   (setq aider-args `("--model" ,(or (getenv "AIDER_MODEL") "deepseek/deepseek-chat"))))
 

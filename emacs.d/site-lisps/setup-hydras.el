@@ -57,7 +57,7 @@ This checks in turn:
    (("ai" aider-transient-menu "aider")
     ("bg" bongo-playlist "bongo")
     ("ge" gptel "gptel")
-    ("gt" gt-do-translate "google translate")
+    ("gt" gt-translate "google translate")
     ("ms" magit-status "magit")
     ("sn" (multi-scratch-new t) "scratch"))
    "Misc"
