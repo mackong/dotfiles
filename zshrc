@@ -84,5 +84,6 @@ if [[ $(uname) == "Darwin" ]]; then
     do
         alias $cmd=g$cmd
     done
+    alias ls="ls --color"
     unalias man
 fi
