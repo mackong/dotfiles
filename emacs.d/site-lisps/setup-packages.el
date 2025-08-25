@@ -110,6 +110,8 @@
      (templ "https://github.com/vrischmann/tree-sitter-templ")))
 
 ;; cmake-mode
+(if (eq system-type 'darwin)
+    (add-to-list 'load-path "/opt/homebrew/share/emacs/site-lisp/cmake"))
 (require 'cmake-mode nil 'noerror)
 
 ;; maxima
