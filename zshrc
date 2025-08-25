@@ -75,6 +75,11 @@ source $ZSH/oh-my-zsh.sh
 bindkey '\e#' pound-insert
 bindkey '^[[Z' reverse-menu-complete
 
+# Exports
+if [[ $(uname) == "Darwin" ]]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
+
 # Aliases
 alias xclip='xclip -sel clip'
 alias cat='bat -pp --theme ansi'
