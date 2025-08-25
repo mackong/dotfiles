@@ -34,6 +34,9 @@ export DEBUGINFOD_URLS="https://repo.archlinuxcn.org"
 export BUN_INSTALL="$HOME/.bun"
 
 # Additional PATH
+if [[ $(uname) == "Darwin" ]]; then
+    pathmunge /opt/homebrew/bin before
+fi
 pathmunge $HOME/.local/bin after
 pathmunge $HOME/.go/bin after
 pathmunge $HOME/.cargo/bin after
@@ -54,6 +57,11 @@ export MANROFFOPT="-c"
 export OPENAI_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
 export OPENAI_MODEL="qwen3-coder-plus"
 export AIDER_MODEL=openai/qwen3-coder-plus
+
+# homebrew
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+
 
 # bun completions
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
