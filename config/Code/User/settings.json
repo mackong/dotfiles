@@ -30,7 +30,7 @@
         },
         {
             "before": [
-                "K",
+                "K"
             ],
             "commands": [
                 "editor.action.showDefinitionPreviewHover"
@@ -62,10 +62,9 @@
             "commands": [
                 "editor.action.referenceSearch.trigger"
             ]
-        },
+        }
     ],
     "vim.smartRelativeLine": true,
-    "vim.useSystemClipboard": true,
-    "go.gopath": "/home/mackong/.go",
+    "vim.useSystemClipboard": true
 }
 

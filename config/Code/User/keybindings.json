@@ -73,5 +73,5 @@
         "key": "ctrl+p",
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inQuickOpen"
-    },
+    }
 ]
