@@ -290,7 +290,7 @@
 ;; org-babels
 (use-package ob-go)
 (use-package ob-restclient)
-(use-package ob-ipython)
+(use-package ob-ipython)  ;; TODO: fix daemon=True
 
 ;; org-exports
 (use-package ox-gfm)
