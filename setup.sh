@@ -24,7 +24,6 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/zeromicro/goctl-swagger@latest
-go install github.com/xo/usql@master
 
 # Tools based on python
 uv_index=https://pypi.tuna.tsinghua.edu.cn/simple
@@ -34,6 +33,7 @@ uv tool install frida-tools --default-index=$uv_index
 uv tool install httpie --default-index=$uv_index
 uv tool install iredis --default-index=$uv_index
 uv tool install --with diagrams,matplotlib,numpy,jupyter-console,pandas jupyterlab --default-index=$uv_index
+uv tool install litecli --default-index=$uv_index
 uv tool install mitmproxy --default-index=$uv_index
 uv tool install mycli --default-index=$uv_index
 uv tool install scapy --default-index=$uv_index
