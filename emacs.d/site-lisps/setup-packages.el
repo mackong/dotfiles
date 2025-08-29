@@ -79,6 +79,18 @@
 (use-package eglot-java
   :defer t
   :config
+  (setq eglot-java-eclipse-jdt-args
+        `(
+          "-noverify"
+          "-Xmx1G"
+          "-XX:+UseG1GC"
+          "-XX:+UseStringDeduplication"
+          "--add-modules=ALL-SYSTEM"
+          "--add-opens" "java.base/java.util=ALL-UNNAMED"
+          "--add-opens" "java.base/java.lang=ALL-UNNAMED"
+          ,(concat "-javaagent:" (expand-file-name (concat user-emacs-directory "share/lsp/java/lombok.jar")))
+          ,(concat "-Xbootclasspath/a:" (expand-file-name (concat user-emacs-directory "share/lsp/java/lombok.jar")))
+          ))
   (setq eglot-java-eclipse-jdt-cache-directory (concat user-emacs-directory "cache/eglot-java-eclipse-jdt-cache"))
   (setq eglot-java-server-install-dir (concat user-emacs-directory "share/lsp/java/eclipse.jdt.ls"))
   (setq eglot-java-junit-platform-console-standalone-jar (concat user-emacs-directory "share/lsp/java/junit-platform-console-standalone.jar"))
