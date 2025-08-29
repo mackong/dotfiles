@@ -444,7 +444,8 @@
   (indent-bars-highlight-current-depth nil)
   (indent-bars-width-frac 0.15)
   (indent-bars-no-descend-lists t)
-  (indent-bars-treesit-support t))
+  (indent-bars-treesit-support t)
+  (indent-bars-prefer-character (eq system-type 'darwin)))
 
 ;; centaur-tabs
 (use-package centaur-tabs
