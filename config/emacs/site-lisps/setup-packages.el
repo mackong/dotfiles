@@ -73,8 +73,8 @@
 ;; eglot-java
 (defun custom-eglot-java-init-opts (server eglot-java-eclipse-jdt)
   "Custom options that will be merged with any default settings."
-  `(:bundles [,(expand-file-name "~/.emacs.d/share/lsp/java/com.microsoft.java.debug.plugin.jar")]
-    :settings (:java (:format (:settings (:url ,(concat "file://" (expand-file-name "~/.emacs.d/share/lsp/java/codestyle.xml"))) :enabled t)))))
+  `(:bundles [,(full-emacs-dir "share/lsp/java/com.microsoft.java.debug.plugin.jar")]
+    :settings (:java (:format (:settings (:url ,(concat "file://" (full-emacs-dir "share/lsp/java/codestyle.xml"))) :enabled t)))))
 
 (use-package eglot-java
   :defer t
@@ -87,10 +87,10 @@
           "--add-modules=ALL-SYSTEM"
           "--add-opens" "java.base/java.util=ALL-UNNAMED"
           "--add-opens" "java.base/java.lang=ALL-UNNAMED"
-          ,(concat "-javaagent:" (expand-file-name (concat user-emacs-directory "share/lsp/java/lombok.jar")))))
-  (setq eglot-java-eclipse-jdt-cache-directory (concat user-emacs-directory "cache/eglot-java-eclipse-jdt-cache"))
-  (setq eglot-java-server-install-dir (concat user-emacs-directory "share/lsp/java/eclipse.jdt.ls"))
-  (setq eglot-java-junit-platform-console-standalone-jar (concat user-emacs-directory "share/lsp/java/junit-platform-console-standalone.jar"))
+          ,(concat "-javaagent:" (full-emacs-dir "share/lsp/java/lombok.jar"))))
+  (setq eglot-java-eclipse-jdt-cache-directory (full-emacs-dir "cache/eglot-java-eclipse-jdt-cache"))
+  (setq eglot-java-server-install-dir (full-emacs-dir "share/lsp/java/eclipse.jdt.ls"))
+  (setq eglot-java-junit-platform-console-standalone-jar (full-emacs-dir "share/lsp/java/junit-platform-console-standalone.jar"))
   (setq eglot-java-user-init-opts-fn 'custom-eglot-java-init-opts))
 
 ;; dape
@@ -166,7 +166,7 @@
 ;; multi-scratch
 (use-package multi-scratch
   :straight nil
-  :load-path "~/.emacs.d/share/packages/multi-scratch")
+  :load-path (lambda () (full-emacs-dir "share/packages/multi-scratch")))
 
 ;; change-inner
 (use-package change-inner
@@ -178,14 +178,14 @@
          ("C-c m a" . mc/mark-all-like-this)
          ("C-c m n" . mc/insert-numbers))
   :config
-  (setq mc/list-file (expand-file-name "~/.emacs.d/cache/.mc-lists.el")))
+  (setq mc/list-file (full-emacs-dir "cache/.mc-lists.el")))
 
 ;; transient
 (use-package transient
   :config
-  (setq transient-levels-file (expand-file-name "~/.emacs.d/cache/transient/levels.el")
-        transient-values-file (expand-file-name "~/.emacs.d/cache/transient/values.el")
-        transient-history-file (expand-file-name "~/.emacs.d/cache/transient/history.el")))
+  (setq transient-levels-file (full-emacs-dir "cache/transient/levels.el")
+        transient-values-file (full-emacs-dir "cache/transient/values.el")
+        transient-history-file (full-emacs-dir "cache/transient/history.el")))
 
 ;; magit
 (use-package magit)
@@ -247,7 +247,7 @@
   :config
   (use-package amx
     :config
-    (setq amx-save-file (expand-file-name "~/.emacs.d/cache/amx-items"))))
+    (setq amx-save-file (full-emacs-dir "cache/amx-items"))))
 
 ;; projectile
 (straight-use-package 'project)
@@ -256,8 +256,8 @@
   ("C-c p" . projectile-command-map)
   :init
   (setq projectile-completion-system 'ivy
-        projectile-cache-file (expand-file-name "~/.emacs.d/cache/projectile/projectile.cache")
-        projectile-known-projects-file (expand-file-name "~/.emacs.d/cache/projectile/projectile-bookmarks.eld"))
+        projectile-cache-file (full-emacs-dir "cache/projectile/projectile.cache")
+        projectile-known-projects-file (full-emacs-dir "cache/projectile/projectile-bookmarks.eld"))
   :config
   (projectile-global-mode))
 
@@ -271,7 +271,7 @@
 ;; plantuml
 (use-package plantuml-mode
   :config
-  (setq plantuml-jar-path "~/.emacs.d/share/plantuml/plantuml.jar"
+  (setq plantuml-jar-path (full-emacs-dir "share/plantuml/plantuml.jar")
         plantuml-default-exec-mode 'jar))
 
 ;; graphviz-dot-mode
@@ -374,13 +374,13 @@
 ;; bongo
 (use-package bongo
   :config
-  (setq bongo-default-directory (expand-file-name "~/Music")
+  (setq bongo-default-directory "~/Music"
         bongo-insert-whole-directory-trees t))
 
 ;; rfc-mode
 (use-package irfc
   :straight nil
-  :load-path "~/.emacs.d/share/packages/irfc/"
+  :load-path (lambda () (full-emacs-dir "share/packages/irfc"))
   :init
   (setq irfc-directory "~/Documents/RFC"
         irfc-assoc-mode t))
@@ -441,8 +441,7 @@
   (indent-bars-highlight-current-depth nil)
   (indent-bars-width-frac 0.15)
   (indent-bars-no-descend-lists t)
-  (indent-bars-treesit-support t)
-  (indent-bars-prefer-character (eq system-type 'darwin)))
+  (indent-bars-treesit-support t))
 
 ;; centaur-tabs
 (use-package centaur-tabs

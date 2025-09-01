@@ -12,6 +12,9 @@
 
 ;;; Code:
 
+(defun full-emacs-dir (name)
+  (expand-file-name (concat user-emacs-directory name)))
+
 (setq frame-title-format
       '("emacs@" (:eval (system-name)) ": "
         (:eval (if (buffer-file-name)
@@ -38,17 +41,17 @@
 (setq user-full-name "mackong")
 (setq user-mail-address "mackonghp@gmail.com")
 
-(setq package-user-dir (expand-file-name "~/.emacs.d/cache/elpa"))
-(setq auto-save-list-file-prefix (expand-file-name "~/.emacs.d/cache/auto-save-list/.saves-"))
+(setq package-user-dir (full-emacs-dir "cache/elpa"))
+(setq auto-save-list-file-prefix (full-emacs-dir "cache/auto-save-list/.saves-"))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
-(setq recentf-save-file (expand-file-name "~/.emacs.d/cache/recentf"))
+(setq recentf-save-file (full-emacs-dir "cache/recentf"))
 (setq create-lockfiles nil)
 (setq make-backup-files nil)
 
-(setq eshell-directory-name (expand-file-name "~/.emacs.d/cache/eshell/"))
+(setq eshell-directory-name (full-emacs-dir "cache/eshell/"))
 (setq bookmark-save-flag nil)
-(setq bookmark-default-file (expand-file-name "~/.emacs.d/cache/bookmarks"))
+(setq bookmark-default-file (full-emacs-dir "cache/bookmarks"))
 (setq tramp-ssh-controlmaster-options "")
 
 (set-buffer-file-coding-system 'utf-8)
@@ -90,7 +93,7 @@
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisps"))
+(add-to-list 'load-path (full-emacs-dir "site-lisps"))
 (require 'setup-packages)
 (require 'setup-prog)
 (require 'setup-org)

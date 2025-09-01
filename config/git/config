@@ -1,0 +1,47 @@
+[user]
+        name = mackong
+        email = mackonghp@gmail.com
+        signingkey = ~/.ssh/id_github.com.pub
+[credential]
+        helper = cache --timeout=3600
+[push]
+        default = current
+[pull]
+        rebase = false
+[alias]
+        co = checkout
+        cp = cherry-pick
+        st = status
+        sts = status --short
+        br = branch
+        show-patch = format-patch -1 --stdout
+        current = rev-parse --abbrev-ref HEAD
+        ru = !git pull origin $(git current)
+[core]
+        quotepath = off
+        excludesfile = ~/.config/git/.gitignore
+[init]
+        defaultBranch = main
+[includeIf "gitdir:~/Gitlab/"]
+        path = ~/Gitlab/.gitconfig
+[url "https://github.com/"]
+        insteadOf = git://github.com/
+[url "https://gitee.com/"]
+        insteadOf = git://gitee.com/
+[diff]
+        tool = vimdiff
+[commit]
+        gpgsign = true
+[gpg]
+        format = ssh
+[gpg "ssh"]
+        allowedSignersFile = ~/.config/git/allowed_signers
+[oh-my-zsh]
+        hide-dirty = 1
+[log]
+        showSignature = true
+[filter "lfs"]
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
+        clean = git-lfs clean -- %f
