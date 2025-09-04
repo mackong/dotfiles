@@ -52,16 +52,14 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/ripgreprc
 export MANPAGER="sh -c 'col -bx | bat -l man -p --theme ansi'"
 export MANROFFOPT="-c"
 
-# export OPENAI_API_BASE=https://ark.cn-beijing.volces.com/api/v3
-# export AIDER_MODEL=openai/deepseek-v3-250324
+# llm
 export OPENAI_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
 export OPENAI_MODEL="qwen3-coder-plus"
-export AIDER_MODEL=openai/qwen3-coder-plus
+export GT_CHATGPT_MODEL="deepseek-v3.1"
 
 # homebrew
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-
 
 # bun completions
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
