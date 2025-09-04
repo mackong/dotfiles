@@ -342,10 +342,12 @@
   :init
   (slime-setup '(slime-fancy slime-asdf slime-banner slime-company)))
 
-;; geiser-chez
-(use-package geiser-chez
-  :config
-  (setq geiser-chez-binary "chez"))
+;; geiser-guile
+(use-package geiser-guile
+  :defer t
+  :init
+  (add-hook 'geiser-repl-mode-hook
+          #'(lambda () (define-key paredit-mode-map (kbd "C-j") 'geiser-repl-maybe-send))))
 
 ;; yasnippet-snippets
 (use-package yasnippet-snippets
