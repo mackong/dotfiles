@@ -201,9 +201,13 @@
   :config
   (setq gt-langs '(en zh)
         gt-buffer-render-follow-p t
+        gt-chatgpt-host (concat "https://" (get-openai-host))
+        gt-chatgpt-path (get-openai-endpoint)
+        gt-chatgpt-model (or (getenv "GT_CHATGPT_MODEL") (getenv "OPENAI_MODEL"))
         gt-default-translator (gt-translator
                                :taker (list (gt-taker :prompt t))
-                               :engines (list (gt-google-engine))
+                               :engines (list (gt-chatgpt-engine :stream t)
+                                              (gt-google-engine))
                                :render (gt-buffer-render))))
 
 ;; avy
@@ -393,31 +397,25 @@
 ;; aider
 (use-package aider
   :config
-  (setq aider-args `("--model" ,(or (getenv "AIDER_MODEL") "deepseek/deepseek-chat"))))
+  (setq aider-args `("--model" ,(get-aider-model))))
 
 ;; gptel
 (use-package gptel
   :config
   (require 'gptel-integrations)
   (setq gptel-default-mode 'org-mode
-        gptel-model 'deepseek-v3-250324
+        gptel-model 'deepseek-v3.1
         gptel-backend (gptel-make-openai "DeepSeek"
                         :stream t
-                        :models '((deepseek-v3-250324
-                                   :description "DeepSeek V3 from VolcEngine"
+                        :models '((deepseek-v3.1
+                                   :description "DeepSeek V3.1"
                                    :capabilities (media tool-use json url)
                                    :context-window 128
-                                   :input-cost 0.002
-                                   :output-cost 0.008)
-                                  (deepseek-r1-250528
-                                   :description "DeepSeek R1 from VolcEngine"
-                                   :capabilities (media tool-use json url)
-                                   :context-window 64
                                    :input-cost 0.004
-                                   :output-cost 0.016))
-                        :host "ark.cn-beijing.volces.com"
-                        :endpoint "/api/v3/chat/completions"
-                        :key (getenv "ARK_API_KEY")))
+                                   :output-cost 0.012))
+                        :host (get-openai-host)
+                        :endpoint (get-openai-endpoint)
+                        :key (get-openai-apikey)))
   (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
   (add-hook 'gptel-post-response-functions 'gptel-end-of-response))
 

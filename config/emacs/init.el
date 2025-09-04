@@ -15,6 +15,22 @@
 (defun full-emacs-dir (name)
   (expand-file-name (concat user-emacs-directory name)))
 
+(defun get-openai-host ()
+  (url-host (url-generic-parse-url (getenv "OPENAI_BASE_URL"))))
+
+(defun get-openai-endpoint ()
+  (concat (url-filename (url-generic-parse-url (getenv "OPENAI_BASE_URL"))) "/chat/completions"))
+
+(defun get-openai-apikey ()
+  (getenv "OPENAI_API_KEY"))
+
+(defun get-aider-model ()
+  (let ((model (or (getenv "AIDER_MODEL") (getenv "OPENAI_MODEL")))
+	(prefix "openai/"))
+    (if (string-prefix-p prefix model)
+        model
+      (concat prefix model))))
+
 (setq frame-title-format
       '("emacs@" (:eval (system-name)) ": "
         (:eval (if (buffer-file-name)
