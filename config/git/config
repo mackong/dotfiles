@@ -22,8 +22,6 @@
         excludesfile = ~/.config/git/.gitignore
 [init]
         defaultBranch = main
-[includeIf "gitdir:~/Gitlab/"]
-        path = ~/Gitlab/.gitconfig
 [url "https://github.com/"]
         insteadOf = git://github.com/
 [url "https://gitee.com/"]
@@ -45,3 +43,5 @@
         process = git-lfs filter-process
         required = true
         clean = git-lfs clean -- %f
+[includeIf "gitdir:~/Gitlab/"]
+        path = ~/Gitlab/.gitconfig
