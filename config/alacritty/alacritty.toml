@@ -36,22 +36,22 @@ y = 2
 [[keyboard.bindings]]
 chars = "\u001Bf"
 key = "F"
-mods = "Alt"
+mods = "Command"
 
 [[keyboard.bindings]]
 chars = "\u001Bb"
 key = "B"
-mods = "Alt"
+mods = "Command"
 
 [[keyboard.bindings]]
 chars = "\u001Bd"
 key = "D"
-mods = "Alt"
+mods = "Command"
 
 [[keyboard.bindings]]
 chars = "\u001Bw"
 key = "W"
-mods = "Alt"
+mods = "Command"
 
 [scrolling]
 history = 10000
