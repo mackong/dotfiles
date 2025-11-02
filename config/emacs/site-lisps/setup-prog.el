@@ -139,11 +139,13 @@
 ;; typescript
 ;;;;;;;;;;;;;;;;;;
 (defun setup-typescript-mode ()
-  (setq tab-width 2)
-  (setq typescript-indent-level 2)
-
   (indent-tabs-mode -1)
   (indent-bars-mode t)
+
+  (if (locate-dominating-file default-directory ".prettierrc")
+      (prettier-js-mode +1)
+    (setq tab-width 2)
+    (setq typescript-indent-level 2))
 
   (if (and
        (not (file-remote-p default-directory))
