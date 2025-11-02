@@ -52,11 +52,6 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/ripgreprc
 export MANPAGER="sh -c 'col -bx | bat -l man -p --theme ansi'"
 export MANROFFOPT="-c"
 
-# llm
-export OPENAI_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
-export OPENAI_MODEL="qwen3-coder-plus"
-export GT_CHATGPT_MODEL="deepseek-v3.1"
-
 # homebrew
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
