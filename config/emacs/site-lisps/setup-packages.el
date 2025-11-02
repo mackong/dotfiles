@@ -461,6 +461,11 @@
   (centaur-tabs-mode t)
   (dotimes (n 10) (global-set-key (kbd (format "M-%d" n)) 'centaur-tabs-select-visible-tab)))
 
+;; prettier-js
+(use-package prettier-js
+  :config
+  (setq prettier-js-use-modules-bin t))
+
 (provide 'setup-packages)
 
 ;; Local Variables:
