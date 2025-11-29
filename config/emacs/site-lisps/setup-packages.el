@@ -163,23 +163,6 @@
   (setq undo-tree-auto-save-history nil)
   (global-undo-tree-mode))
 
-;; multi-scratch
-(use-package multi-scratch
-  :straight nil
-  :load-path (lambda () (full-emacs-dir "share/packages/multi-scratch")))
-
-;; change-inner
-(use-package change-inner
-  :bind (("C-=" . er/expand-region)))
-
-;; multiple-cursors
-(use-package multiple-cursors
-  :bind (("C-c m e" . mc/edit-lines)
-         ("C-c m a" . mc/mark-all-like-this)
-         ("C-c m n" . mc/insert-numbers))
-  :config
-  (setq mc/list-file (full-emacs-dir "cache/.mc-lists.el")))
-
 ;; transient
 (use-package transient
   :config
@@ -192,9 +175,6 @@
 
 ;; paredit
 (use-package paredit)
-
-;; visual-regexp
-(use-package visual-regexp-steroids)
 
 ;; gt
 (use-package gt
@@ -209,12 +189,6 @@
                                :engines (list (gt-chatgpt-engine :stream t)
                                               (gt-google-engine))
                                :render (gt-buffer-render))))
-
-;; avy
-(use-package avy
-  :bind
-  (("M-g g" . avy-goto-line)
-   ("M-g c" . avy-goto-word-1)))
 
 ;; ace-window
 (use-package ace-window
@@ -465,6 +439,31 @@
 (use-package prettier-js
   :config
   (setq prettier-js-use-modules-bin t))
+
+;; evil
+(use-package evil
+  :init
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1)
+  (evil-ex-define-cmd "q" 'kill-current-buffer)
+  (evil-ex-define-cmd "quit" 'evil-quit))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+
+(use-package evil-org
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 (provide 'setup-packages)
 
