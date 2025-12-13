@@ -1,6 +1,6 @@
 {
     "editor.fontFamily": "monospace",
-    "editor.fontSize": 14,
+    "editor.fontSize": 12,
     "editor.lineHeight": 1.4,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "trailing",
@@ -64,6 +64,6 @@
         }
     ],
     "vim.smartRelativeLine": true,
-    "vim.useSystemClipboard": true
+    "vim.useSystemClipboard": true,
+    "editor.formatOnSave": true
 }
-
