@@ -443,7 +443,8 @@
 ;; evil
 (use-package evil
   :init
-  (setq evil-want-keybinding nil)
+  (setq evil-want-keybinding nil
+        evil-undo-system 'undo-tree)
   :config
   (evil-mode 1)
   (evil-ex-define-cmd "q" 'kill-current-buffer)
