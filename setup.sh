@@ -27,7 +27,6 @@ go install github.com/zeromicro/goctl-swagger@latest
 
 # Tools based on python
 uv_index=https://pypi.tuna.tsinghua.edu.cn/simple
-uv tool install aider-chat --with audioop-lts --default-index=$uv_index
 uv tool install compiledb --default-index=$uv_index
 uv tool install frida-tools --default-index=$uv_index
 uv tool install httpie --default-index=$uv_index
@@ -45,7 +44,7 @@ ln -sf $HOME/.local/share/uv/tools/jupyterlab/bin/pygmentize $HOME/.local/bin/
 # Tools based on bun
 curl -fsSL https://bun.com/install | bash -s "bun-v1.2.20"
 bun install -g @gltf-transform/cli
-bun install -g @qwen-code/qwen-code
+bun install -g @anthropic-ai/claude-code
 bun install -g markmap-cli
 bun install -g typescript
 bun install -g typescript-language-server
