@@ -368,21 +368,16 @@
 ;; major-mode-hydra
 (use-package major-mode-hydra)
 
-;; aider
-(use-package aider
-  :config
-  (setq aider-args `("--model" ,(get-aider-model))))
-
 ;; gptel
 (use-package gptel
   :config
   (require 'gptel-integrations)
   (setq gptel-default-mode 'org-mode
-        gptel-model 'deepseek-v3.1
-        gptel-backend (gptel-make-openai "DeepSeek"
+        gptel-model 'openai/gpt-5.2
+        gptel-backend (gptel-make-openai "OpenAI"
                         :stream t
-                        :models '((deepseek-v3.1
-                                   :description "DeepSeek V3.1"
+                        :models '((openai/gpt-5.2
+                                   :description "GPT 5.2"
                                    :capabilities (media tool-use json url)
                                    :context-window 128
                                    :input-cost 0.004
