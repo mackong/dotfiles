@@ -9,7 +9,5 @@ Host github.com
     Hostname ssh.github.com
     Port 443
     IdentityFile ~/.ssh/id_github.com
-Host *.coding.net
-    IdentityFile ~/.ssh/id_coding.net
 Host linux-kernel-dev
     IdentityFile ~/.ssh/id_linux_kernel_dev
