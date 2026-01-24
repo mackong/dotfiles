@@ -35,7 +35,7 @@ uv tool install --with diagrams,matplotlib,numpy,jupyter-console,pandas jupyterl
 uv tool install litecli --default-index=$uv_index
 uv tool install mitmproxy --default-index=$uv_index
 uv tool install mycli --default-index=$uv_index
-uv tool install scapy --default-index=$uv_index
+uv tool install --with ipython scapy --default-index=$uv_index
 
 ln -sf $HOME/.local/share/uv/tools/jupyterlab/bin/ipython $HOME/.local/bin/
 ln -sf $HOME/.local/share/uv/tools/jupyterlab/bin/jupyter $HOME/.local/bin/
