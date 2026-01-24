@@ -6,6 +6,7 @@
     "editor.renderWhitespace": "trailing",
     "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
     "explorer.autoReveal": true,
+    "editor.formatOnSave": true,
     "extensions.ignoreRecommendations": true,
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
@@ -17,6 +18,8 @@
     "chat.agent.enabled": false,
     "vim.leader": ",",
     "vim.incsearch": true,
+    "vim.smartRelativeLine": true,
+    "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindings": [
         {
             "before": [
@@ -63,7 +66,8 @@
             ]
         }
     ],
-    "vim.smartRelativeLine": true,
-    "vim.useSystemClipboard": true,
-    "editor.formatOnSave": true
+    "go.diagnostic.vulncheck": "Off",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
