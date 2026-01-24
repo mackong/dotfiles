@@ -190,12 +190,6 @@
                                               (gt-google-engine))
                                :render (gt-buffer-render))))
 
-;; ace-window
-(use-package ace-window
-  :bind (("M-o" . ace-window))
-  :config
-  (setq aw-background nil))
-
 ;; symbol-overlay
 (use-package symbol-overlay
   :bind (("M-*" . symbol-overlay-put)))
