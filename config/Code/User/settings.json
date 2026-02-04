@@ -65,9 +65,5 @@
                 "editor.action.referenceSearch.trigger"
             ]
         }
-    ],
-    "go.diagnostic.vulncheck": "Off",
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    ]
 }
