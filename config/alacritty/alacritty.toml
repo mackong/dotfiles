@@ -127,3 +127,8 @@ chars = "\u001b8"
 key = "9"
 mods = "Command"
 chars = "\u001b9"
+
+[[keyboard.bindings]]
+key = "Enter"
+mods = "Shift"
+chars = "\u001b\r"
