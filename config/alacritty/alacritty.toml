@@ -27,7 +27,19 @@ background = "#d5baff"
 foreground = "CellForeground"
 
 [font]
-size = 14
+size = 16
+
+[font.normal]
+family = "LXGWWenKaiMono Nerd Font"
+
+[font.bold]
+family = "LXGWWenKaiMono Nerd Font"
+
+[font.italic]
+family = "LXGWWenKaiMono Nerd Font"
+
+[font.bold_italic]
+family = "LXGWWenKaiMono Nerd Font"
 
 [font.offset]
 x = 0

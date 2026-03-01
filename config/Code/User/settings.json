@@ -1,6 +1,6 @@
 {
-    "editor.fontFamily": "monospace",
-    "editor.fontSize": 12,
+    "editor.fontFamily": "LXGWWenKaiMono Nerd Font",
+    "editor.fontSize": 14,
     "editor.lineHeight": 1.4,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "trailing",
@@ -66,5 +66,6 @@
                 "editor.action.referenceSearch.trigger"
             ]
         }
-    ]
+    ],
+    "excalidraw.theme": "auto"
 }
