@@ -244,7 +244,9 @@
 (use-package plantuml-mode
   :config
   (setq plantuml-jar-path (full-emacs-dir "share/plantuml/plantuml.jar")
-        plantuml-default-exec-mode 'jar))
+        plantuml-default-exec-mode 'jar
+        plantuml-output-type "png")
+  (add-to-list 'auto-mode-alist '("\\.\\(puml\\)\\'" . plantuml-mode)))
 
 ;; graphviz-dot-mode
 (use-package graphviz-dot-mode)

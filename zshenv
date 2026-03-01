@@ -48,6 +48,9 @@ export PATH=$PATH
 # riggrep
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/ripgreprc
 
+# plantuml
+export PLANTUML_JAR=$HOME/.config/emacs/share/plantuml/plantuml.jar
+
 # manpage
 export MANPAGER="sh -c 'col -bx | bat -l man -p --theme ansi'"
 export MANROFFOPT="-c"
