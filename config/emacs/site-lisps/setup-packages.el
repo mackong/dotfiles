@@ -508,6 +508,10 @@
 
 (treemacs-start-on-boot)
 
+;; vterm
+(use-package vterm
+  :ensure t)
+
 (provide 'setup-packages)
 
 ;; Local Variables:
