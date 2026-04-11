@@ -460,6 +460,7 @@
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 
+;; treemacs
 (use-package treemacs
   :ensure t
   :defer t
@@ -512,7 +513,14 @@
 (use-package vterm
   :ensure t)
 
-(provide 'setup-packages)
+;; editor code assistant
+(use-package eca
+  :straight (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el"))
+  :config
+  (setq eca-server-install-path (full-emacs-dir "cache/eca/eca")
+        eca-chat-use-side-window nil))
+
+  (provide 'setup-packages)
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

@@ -38,6 +38,8 @@
 (fringe-mode '(nil . 0))
 (delete-selection-mode 1)
 
+(setq mac-command-modifier 'meta)
+
 (setq-default cursor-type 'box)
 
 (setq visible-bell nil)
