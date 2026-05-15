@@ -90,16 +90,6 @@ mods = "Command"
 chars = "\u001b1"
 
 [[keyboard.bindings]]
-key = "1"
-mods = "Command"
-chars = "\u001b1"
-
-[[keyboard.bindings]]
-key = "1"
-mods = "Command"
-chars = "\u001b1"
-
-[[keyboard.bindings]]
 key = "2"
 mods = "Command"
 chars = "\u001b2"
