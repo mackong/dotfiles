@@ -2,7 +2,7 @@
 if [ "$(uname)" == "Darwin" ]; then
     export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-    brew install antlr ascii autoconf automake bat bison cmake csvlens coreutils dos2unix extra-cmake-modules ffmpeg flex fx git-lfs go graphviz guile jq maven maxima meson moreutils neovim node openjdk pre-commit python-lsp-server radare2 rcm ripgrep texlive tmux tree tree-sitter uv wader/tap/fq websocat xz
+    brew install antlr ascii autoconf automake bat bison cmake csvlens codex-acp coreutils dos2unix extra-cmake-modules ffmpeg flex fx git-lfs go graphviz guile jq maven maxima meson moreutils neovim node openjdk pngpaste pre-commit python-lsp-server radare2 rcm ripgrep texlive tmux tree tree-sitter uv wader/tap/fq websocat xz
     brew install --cask alacritty podman-desktop google-chrome wireshark-app
     sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
@@ -26,16 +26,15 @@ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/zeromicro/goctl-swagger@latest
 
 # Tools based on python
-uv_index=https://pypi.tuna.tsinghua.edu.cn/simple
-uv tool install compiledb --default-index=$uv_index
-uv tool install frida-tools --default-index=$uv_index
-uv tool install httpie --default-index=$uv_index
-uv tool install iredis --default-index=$uv_index
-uv tool install --with diagrams,matplotlib,numpy,jupyter-console,pandas jupyterlab --default-index=$uv_index
-uv tool install litecli --default-index=$uv_index
-uv tool install mitmproxy --default-index=$uv_index
-uv tool install mycli --default-index=$uv_index
-uv tool install --with ipython scapy --default-index=$uv_index
+uv tool install compiledb
+uv tool install frida-tools
+uv tool install httpie
+uv tool install iredis
+uv tool install --with diagrams,matplotlib,numpy,jupyter-console,pandas jupyterlab
+uv tool install litecli
+uv tool install mitmproxy
+uv tool install mycli
+uv tool install --with ipython scapy
 
 ln -sf $HOME/.local/share/uv/tools/jupyterlab/bin/ipython $HOME/.local/bin/
 ln -sf $HOME/.local/share/uv/tools/jupyterlab/bin/jupyter $HOME/.local/bin/
@@ -45,6 +44,9 @@ ln -sf $HOME/.local/share/uv/tools/jupyterlab/bin/pygmentize $HOME/.local/bin/
 curl -fsSL https://bun.com/install | bash -s "bun-v1.2.20"
 bun install -g @gltf-transform/cli
 bun install -g @anthropic-ai/claude-code
+bun install -g @agentclientprotocol/claude-agent-acp
+bun install -g @google/gemini-cli
+bun install -g @openai/codex
 bun install -g markmap-cli
 bun install -g typescript
 bun install -g typescript-language-server
