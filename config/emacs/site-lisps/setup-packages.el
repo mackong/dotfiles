@@ -96,14 +96,6 @@
   (setq eglot-java-junit-platform-console-standalone-jar (full-emacs-dir "share/lsp/java/junit-platform-console-standalone.jar"))
   (setq eglot-java-user-init-opts-fn 'custom-eglot-java-init-opts))
 
-;; dape
-(use-package dape
-  :defer t
-  :config
-  (setq dape-buffer-window-arrangement 'right)
-  (setq dape-inlay-hints t)
-  (setq dape-cwd-function 'projectile-project-root))
-
 ;; treesit
 (setq treesit-font-lock-level 4)
 (setq treesit-language-source-alist
@@ -166,6 +158,23 @@
   (setq undo-tree-auto-save-history nil)
   (global-undo-tree-mode))
 
+;; multi-scratch
+(use-package multi-scratch
+  :straight nil
+  :load-path (lambda () (full-emacs-dir "share/packages/multi-scratch")))
+
+;; change-inner
+(use-package change-inner
+  :bind (("C-=" . er/expand-region)))
+
+;; multiple-cursors
+(use-package multiple-cursors
+  :bind (("C-c m e" . mc/edit-lines)
+         ("C-c m a" . mc/mark-all-like-this)
+         ("C-c m n" . mc/insert-numbers))
+  :config
+  (setq mc/list-file (full-emacs-dir "cache/.mc-lists.el")))
+
 ;; transient
 (use-package transient
   :config
@@ -178,6 +187,9 @@
 
 ;; paredit
 (use-package paredit)
+
+;; visual-regexp
+(use-package visual-regexp-steroids)
 
 ;; gt
 (use-package gt
@@ -192,6 +204,18 @@
                                :engines (list (gt-chatgpt-engine :stream t)
                                               (gt-google-engine))
                                :render (gt-buffer-render))))
+
+;; avy
+(use-package avy
+  :bind
+  (("M-g g" . avy-goto-line)
+   ("M-g c" . avy-goto-word-1)))
+
+;; ace-window
+(use-package ace-window
+  :bind (("M-o" . ace-window))
+  :config
+  (setq aw-background nil))
 
 ;; symbol-overlay
 (use-package symbol-overlay
@@ -246,8 +270,7 @@
 ;; plantuml
 (use-package plantuml-mode
   :config
-  (setq plantuml-jar-path (full-emacs-dir "share/plantuml/plantuml.jar")
-        plantuml-default-exec-mode 'jar
+  (setq plantuml-default-exec-mode 'executable
         plantuml-output-type "png")
   (add-to-list 'auto-mode-alist '("\\.\\(puml\\)\\'" . plantuml-mode)))
 
@@ -350,48 +373,13 @@
 ;; rust-mode
 (use-package rust-mode)
 
-;; bongo
-(use-package bongo
+;; prettier-js
+(use-package prettier-js
   :config
-  (setq bongo-default-directory "~/Music"
-        bongo-insert-whole-directory-trees t))
-
-;; rfc-mode
-(use-package irfc
-  :straight nil
-  :load-path (lambda () (full-emacs-dir "share/packages/irfc"))
-  :init
-  (setq irfc-directory "~/Documents/RFC"
-        irfc-assoc-mode t))
+  (setq prettier-js-use-modules-bin t))
 
 ;; major-mode-hydra
 (use-package major-mode-hydra)
-
-;; gptel
-(use-package gptel
-  :config
-  (require 'gptel-integrations)
-  (setq gptel-default-mode 'org-mode
-        gptel-model 'openai/gpt-5.2
-        gptel-backend (gptel-make-openai "OpenAI"
-                        :stream t
-                        :models '((openai/gpt-5.2
-                                   :description "GPT 5.2"
-                                   :capabilities (media tool-use json url)
-                                   :context-window 128
-                                   :input-cost 0.004
-                                   :output-cost 0.012))
-                        :host (get-openai-host)
-                        :endpoint (get-openai-endpoint)
-                        :key (get-openai-apikey)))
-  (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
-  (add-hook 'gptel-post-response-functions 'gptel-end-of-response))
-
-;; mcp
-(use-package mcp
-  :straight (:host github :repo "lizqwerscott/mcp.el" :files ("*.el"))
-  :after gptel
-  :config (require 'mcp-hub))
 
 ;; helpful
 (use-package helpful
@@ -409,7 +397,9 @@
   (indent-bars-highlight-current-depth nil)
   (indent-bars-width-frac 0.15)
   (indent-bars-no-descend-lists t)
-  (indent-bars-treesit-support t))
+  (indent-bars-treesit-support t)
+  :config
+  (setq indent-bars-prefer-character t))
 
 ;; centaur-tabs
 (use-package centaur-tabs
@@ -428,37 +418,6 @@
   :config
   (centaur-tabs-mode t)
   (dotimes (n 10) (global-set-key (kbd (format "M-%d" n)) 'centaur-tabs-select-visible-tab)))
-
-;; prettier-js
-(use-package prettier-js
-  :config
-  (setq prettier-js-use-modules-bin t))
-
-;; evil
-(use-package evil
-  :init
-  (setq evil-want-keybinding nil
-        evil-undo-system 'undo-tree)
-  :config
-  (evil-mode 1)
-  (evil-ex-define-cmd "q" 'kill-current-buffer)
-  (evil-ex-define-cmd "quit" 'evil-quit))
-
-(use-package evil-collection
-  :after evil
-  :ensure t
-  :config
-  (evil-collection-init))
-
-(use-package evil-org
-  :after org
-  :config
-  (add-hook 'org-mode-hook 'evil-org-mode)
-  (add-hook 'evil-org-mode-hook
-            (lambda ()
-              (evil-org-set-key-theme)))
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys))
 
 ;; treemacs
 (use-package treemacs
@@ -485,11 +444,9 @@
       (`(t . _)
        (treemacs-git-mode 'simple)))
 
-    (treemacs-hide-gitignored-files-mode nil)))
-
-(use-package treemacs-evil
-  :after (treemacs evil)
-  :ensure t)
+    (treemacs-hide-gitignored-files-mode nil))
+  :bind
+  (("C-c t m" . treemacs-select-window)))
 
 (use-package treemacs-projectile
   :after (treemacs projectile)
@@ -513,14 +470,34 @@
 (use-package vterm
   :ensure t)
 
-;; editor code assistant
-(use-package eca
-  :straight (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el"))
-  :config
-  (setq eca-server-install-path (full-emacs-dir "cache/eca/eca")
-        eca-chat-use-side-window nil))
+;; agent-shell
+(defun my/agent-shell-dot-subdir (subdir)
+  (let* ((cwd (string-remove-suffix "/" (agent-shell-cwd)))
+         (sanitized (replace-regexp-in-string "/" "-" (string-remove-prefix "/" cwd))))
+    (full-emacs-dir (concat "cache/agent-shell/" sanitized))))
 
-  (provide 'setup-packages)
+(use-package agent-shell
+  :ensure t
+
+  :config
+  (setq agent-shell-openai-authentication
+      (agent-shell-openai-make-authentication :api-key (getenv "OPENAI_API_KEY")))
+  (setq agent-shell-google-authentication
+      (agent-shell-google-make-authentication :api-key (getenv "GEMINI_API_KEY")))
+
+  (setopt agent-shell-dot-subdir-function #'my/agent-shell-dot-subdir))
+
+(use-package agent-shell-sidebar
+  :after agent-shell
+  :straight (:host github :repo "cmacrae/agent-shell-sidebar" :files ("*.el"))
+  :custom
+  (agent-shell-sidebar-width "50%")
+  (agent-shell-sidebar-position 'right)
+  :bind
+  (("C-c a s" . agent-shell-sidebar-toggle)
+   ("C-c a f" . agent-shell-sidebar-toggle-focus)))
+
+(provide 'setup-packages)
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

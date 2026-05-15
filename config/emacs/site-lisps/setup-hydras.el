@@ -57,9 +57,13 @@ This checks in turn:
    (("bg" bongo-playlist "bongo")
     ("ge" gptel "gptel")
     ("gt" gt-translate "google translate")
-    ("ms" magit-status "magit"))
+    ("ms" magit-status "magit")
+    ("sn" (multi-scratch-new t) "scratch"))
    "Misc"
-   (("zz" text-scale-adjust "zoom"))))
+   (("zz" text-scale-adjust "zoom")
+    ("ci" change-inner "change inner")
+    ("co" change-outer "change outer")
+    ("vr" vr/replace "visual regexp"))))
 
 ;;; for eglot-mode
 (major-mode-hydra-define (c-ts-mode c++-ts-mode go-ts-mode java-ts-mode python-ts-mode rust-ts-mode typescript-ts-mode)
