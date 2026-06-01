@@ -497,6 +497,15 @@
   (("C-c a s" . agent-shell-sidebar-toggle)
    ("C-c a f" . agent-shell-sidebar-toggle-focus)))
 
+(use-package agent-shell-macext
+  :after agent-shell
+  :straight (:host github :repo "cxa/agent-shell-macext" :files ("*.el"))
+  :hook (agent-shell-mode . agent-shell-macext-setup)
+  :custom
+  (agent-shell-macext-file-copy-policy 'auto)
+  (agent-shell-macext-notifications t)
+  (agent-shell-macext-notify-current-buffer t))
+
 (provide 'setup-packages)
 
 ;; Local Variables:
