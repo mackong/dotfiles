@@ -45,6 +45,9 @@ family = "LXGWWenKaiMono Nerd Font"
 x = 0
 y = 2
 
+[cursor.style]
+blinking="Always"
+
 [[keyboard.bindings]]
 chars = "\u001Bf"
 key = "F"
