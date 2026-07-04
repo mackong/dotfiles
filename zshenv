@@ -59,9 +59,6 @@ export MANROFFOPT="-c"
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
-# bun completions
-[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
-
 # vterm
 vterm_printf() {
     if [ -n "$TMUX" ] \
