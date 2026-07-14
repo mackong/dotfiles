@@ -1,0 +1,14 @@
+{
+  "lastChangelogVersion": "0.80.6",
+  "theme": "dark",
+  "defaultProvider": "zenmux",
+  "defaultModel": "claude-opus-4-8",
+  "enabledModels": [
+    "claude-opus-4-8",
+    "deepseek/deepseek-v4-pro"
+  ],
+  "packages": [
+    "npm:pi-mcp-adapter"
+  ],
+  "defaultThinkingLevel": "high"
+}

@@ -1,0 +1,29 @@
+{
+  "providers": {
+    "zenmux": {
+      "baseUrl": "https://zenmux.ai/api/anthropic",
+      "api": "anthropic-messages",
+      "apiKey": "$ZENMUX_API_KEY",
+      "models": [
+        {
+          "id": "claude-opus-4-8",
+          "name": "Claude Opus 4.8",
+          "compat": {
+            "forceAdaptiveThinking": true,
+            "supportsTemperature": false
+          },
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "xhigh": "xhigh"
+          },
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 128000
+        }
+      ]
+    }
+  }
+}
