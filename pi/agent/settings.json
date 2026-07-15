@@ -4,11 +4,13 @@
   "defaultProvider": "zenmux",
   "defaultModel": "claude-opus-4-8",
   "enabledModels": [
-    "claude-opus-4-8",
-    "deepseek/deepseek-v4-pro"
+    "claude-opus-4-8"
   ],
   "packages": [
-    "npm:pi-mcp-adapter"
+    "npm:pi-mcp-adapter",
+    "npm:@hypabolic/pi-hypa",
+    "npm:pi-image-paste"
   ],
-  "defaultThinkingLevel": "high"
+  "defaultThinkingLevel": "high",
+  "editorPaddingX": 1
 }
