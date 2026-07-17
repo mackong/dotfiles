@@ -2,7 +2,7 @@
 if [ "$(uname)" == "Darwin" ]; then
     export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-    brew install antlr ascii autoconf automake bat bison cmake csvlens codex-acp coreutils dos2unix extra-cmake-modules ffmpeg flex fx git-lfs go graphviz guile jq maven maxima meson moreutils neovim node openjdk pngpaste pre-commit python-lsp-server radare2 rcm ripgrep texlive tmux tree tree-sitter uv wader/tap/fq websocat xz
+    brew install antlr ascii autoconf automake bat bison cmake csvlens codex-acp coreutils dos2unix extra-cmake-modules fd ffmpeg flex fx git-lfs go graphviz guile jq maven maxima meson moreutils neovim node openjdk pngpaste pre-commit python-lsp-server radare2 rcm ripgrep texlive tmux tree tree-sitter uv wader/tap/fq websocat xz
     brew install --cask alacritty podman-desktop google-chrome wireshark-app
     sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
@@ -47,6 +47,8 @@ bun install -g @anthropic-ai/claude-code
 bun install -g @agentclientprotocol/claude-agent-acp
 bun install -g @google/gemini-cli
 bun install -g @openai/codex
+bun install -g --ignore-scripts @earendil-works/pi-coding-agent
+bun install -g pi-acp
 bun install -g markmap-cli
 bun install -g typescript
 bun install -g typescript-language-server
