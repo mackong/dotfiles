@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.80.6",
+  "lastChangelogVersion": "0.80.10",
   "theme": "dark",
   "defaultProvider": "zenmux",
   "defaultModel": "claude-opus-4-8",
@@ -9,7 +9,10 @@
   "packages": [
     "npm:pi-mcp-adapter",
     "npm:@hypabolic/pi-hypa",
-    "npm:pi-image-paste"
+    "npm:pi-image-paste",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@juicesharp/rpiv-btw",
+    "npm:@juicesharp/rpiv-ask-user-question"
   ],
   "defaultThinkingLevel": "high",
   "editorPaddingX": 1
