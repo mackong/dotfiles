@@ -1,7 +1,7 @@
 {
   "providers": {
     "zenmux": {
-      "baseUrl": "https://zenmux.ai/api/anthropic",
+      "baseUrl": "https://zenmux.dev/api/anthropic",
       "api": "anthropic-messages",
       "apiKey": "$ZENMUX_API_KEY",
       "models": [

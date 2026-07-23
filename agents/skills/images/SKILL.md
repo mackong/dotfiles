@@ -23,7 +23,7 @@ Generate an image from the most recent interaction context using OpenAI's `POST 
 
 ```sh
 : "${OPENAI_API_KEY:?set OPENAI_API_KEY before running /images}"
-BASE_URL="${OPENAI_BASE_URL:-https://zenmux.ai/api/v1}"
+BASE_URL="${OPENAI_BASE_URL:-https://zenmux.dev/api/v1}"
 
 TS=$(date +%s)
 REQ=$(mktemp)
@@ -84,7 +84,7 @@ The response always has `data[].b64_json` for `gpt-image-2`.
 ## Environment
 
 - **`OPENAI_API_KEY`** — required. Never hard-code keys in the script.
-- **`OPENAI_BASE_URL`** — optional override (e.g. for an OpenAI-compatible proxy). Defaults to `https://zenmux.ai/api/v1`. The path appended is always `/images/generations`.
+- **`OPENAI_BASE_URL`** — optional override (e.g. for an OpenAI-compatible proxy). Defaults to `https://zenmux.dev/api/v1`. The path appended is always `/images/generations`.
 
 ## Rules
 

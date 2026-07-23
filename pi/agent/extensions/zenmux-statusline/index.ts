@@ -33,7 +33,7 @@ interface ZenmuxAccount {
 	paygBalance: number | null;
 }
 
-const MGMT_BASE = "https://zenmux.ai/api/v1/management";
+const MGMT_BASE = "https://zenmux.dev/api/v1/management";
 const CACHE_TTL_MS = 120_000;
 
 let cachedAccount: ZenmuxAccount | null = null;
