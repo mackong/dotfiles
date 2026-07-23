@@ -258,7 +258,7 @@
         projectile-cache-file (full-emacs-dir "cache/projectile/projectile.cache")
         projectile-known-projects-file (full-emacs-dir "cache/projectile/projectile-bookmarks.eld"))
   :config
-  (projectile-global-mode))
+  (projectile-mode +1))
 
 ;; counsel-projectile
 (use-package counsel-projectile
