@@ -6,7 +6,7 @@
       "apiKey": "$ZENMUX_API_KEY",
       "models": [
         {
-          "id": "claude-opus-4-8",
+          "id": "anthropic/claude-opus-4.8",
           "name": "Claude Opus 4.8",
           "compat": {
             "forceAdaptiveThinking": true,

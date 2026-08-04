@@ -1,10 +1,10 @@
 {
-  "lastChangelogVersion": "0.80.10",
+  "lastChangelogVersion": "0.83.0",
   "theme": "dark",
   "defaultProvider": "zenmux",
-  "defaultModel": "claude-opus-4-8",
+  "defaultModel": "anthropic/claude-opus-4.8",
   "enabledModels": [
-    "claude-opus-4-8"
+    "anthropic/claude-opus-4.8"
   ],
   "packages": [
     "npm:pi-mcp-adapter",
