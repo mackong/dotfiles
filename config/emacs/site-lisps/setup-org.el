@@ -62,7 +62,8 @@
      (ruby . t)
      (scheme . t)
      (shell . t)
-     (sql . t)))
+     (sql . t)
+     (typescript . t)))
   (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
   (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 
