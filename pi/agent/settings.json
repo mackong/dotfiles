@@ -13,7 +13,8 @@
     "npm:@juicesharp/rpiv-todo",
     "npm:@juicesharp/rpiv-btw",
     "npm:@juicesharp/rpiv-ask-user-question",
-    "npm:pi-subagents"
+    "npm:pi-subagents",
+    "npm:@narumitw/pi-lsp"
   ],
   "defaultThinkingLevel": "high",
   "editorPaddingX": 1

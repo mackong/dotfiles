@@ -299,7 +299,14 @@
 ;; org-babels
 (use-package ob-go)
 (use-package ob-restclient)
-(use-package ob-ipython)  ;; TODO: fix daemon=True
+(use-package ob-ipython)
+(use-package ob-typescript
+  :straight nil
+  :load-path (lambda () (full-emacs-dir "share/packages/ob-typescript"))
+  :config
+  (define-derived-mode typescript-mode typescript-ts-mode "ts"
+    "Major mode for editing typescipt src blocks in org mode."))
+
 
 ;; org-exports
 (use-package ox-gfm)
