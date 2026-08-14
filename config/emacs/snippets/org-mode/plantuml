@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: plantuml
+# key: pla_
+# --
+#+begin_src plantuml :exports results :file ${1:$$(concat (make-temp-name "/tmp/plantuml-") ".png")} :cmdline -charset UTF-8 :cache yes
+$0
+#+end_src
