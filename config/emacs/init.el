@@ -67,6 +67,13 @@
 (setq bookmark-default-file (full-emacs-dir "cache/bookmarks"))
 (setq tramp-ssh-controlmaster-options "")
 (setq tramp-persistency-file-name (full-emacs-dir "cache/tramp"))
+(setq native-comp-eln-load-path (append (list (full-emacs-dir "cache/eln-cache" )) native-comp-eln-load-path))
+(setq treesit-extra-load-path (list (full-emacs-dir "cache/tree-sitter")))
+
+(with-eval-after-load 'url
+  (setq url-cache-directory (full-emacs-dir "cache/url/cache")
+        url-cookie-file (full-emacs-dir "cache/url/cookies")
+        url-history-file (full-emacs-dir "cache/url/history")))
 
 (set-buffer-file-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
