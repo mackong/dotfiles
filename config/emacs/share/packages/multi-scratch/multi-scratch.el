@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;;; multi-scratch.el --- Multiple scratches manager
 
 ;; Filename: multi-scratch.el

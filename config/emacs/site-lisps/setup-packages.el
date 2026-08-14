@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;;; init.el --- setup for packages
 
 ;; Copyright (C) 2016 MacKong <mackonghp@gmail.com>
@@ -110,8 +112,7 @@
      (python "https://github.com/tree-sitter/tree-sitter-python")
      (rust "https://github.com/tree-sitter/tree-sitter-rust")
      (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
-     (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-     (templ "https://github.com/vrischmann/tree-sitter-templ")))
+     (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")))
 
 ;; cmake-mode
 (if (eq system-type 'darwin)
@@ -256,7 +257,8 @@
   :init
   (setq projectile-completion-system 'ivy
         projectile-cache-file (full-emacs-dir "cache/projectile/projectile.cache")
-        projectile-known-projects-file (full-emacs-dir "cache/projectile/projectile-bookmarks.eld"))
+        projectile-known-projects-file (full-emacs-dir "cache/projectile/projectile-bookmarks.eld")
+        projectile-frecency-file (full-emacs-dir "cache/projectile/projectile-frecency.eld"))
   :config
   (projectile-mode +1))
 
@@ -373,9 +375,6 @@
 
 ;; go-mode
 (use-package go-mode)
-
-;; templ
-(use-package templ-ts-mode)
 
 ;; rust-mode
 (use-package rust-mode)

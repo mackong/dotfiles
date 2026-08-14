@@ -31,16 +31,16 @@ foreground = "CellForeground"
 size = 16
 
 [font.normal]
-family = "LXGWWenKaiMono Nerd Font"
+family = "Aporetic Serif Mono"
 
 [font.bold]
-family = "LXGWWenKaiMono Nerd Font"
+family = "Aporetic Serif Mono"
 
 [font.italic]
-family = "LXGWWenKaiMono Nerd Font"
+family = "Aporetic Serif Mono"
 
 [font.bold_italic]
-family = "LXGWWenKaiMono Nerd Font"
+family = "Aporetic Serif Mono"
 
 [font.offset]
 x = 0
