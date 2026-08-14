@@ -1,0 +1,3 @@
+[submodule "config/emacs/share/packages/ob-typescript"]
+	path = config/emacs/share/packages/ob-typescript
+	url = https://github.com/lurdan/ob-typescript
