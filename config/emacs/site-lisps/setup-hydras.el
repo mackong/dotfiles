@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;;; setup-hydra.el --- setup for various hydras.
 
 ;; Copyright (C) 2020 MacKong <mackonghp@gmail.com>

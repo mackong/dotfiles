@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;;; setup-org.el --- setup for org-mode
 
 ;; Copyright (C) 2016 MacKong <mackonghp@gmail.com>
@@ -68,7 +70,7 @@
   (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 
   (setq org-confirm-babel-evaluate nil
-        org-plantuml-jar-path plantuml-jar-path)
+        org-plantuml-exec-mode 'plantuml)
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append))
 
 (defun setup-org-agenda ()

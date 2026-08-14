@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;;; init.el --- startup file for emacs
 
 ;; Copyright (C) 2016 MacKong <mackonghp@gmail.com>
@@ -64,18 +66,19 @@
 (setq bookmark-save-flag nil)
 (setq bookmark-default-file (full-emacs-dir "cache/bookmarks"))
 (setq tramp-ssh-controlmaster-options "")
+(setq tramp-persistency-file-name (full-emacs-dir "cache/tramp"))
 
 (set-buffer-file-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
 (setq default-font (if (eq system-type 'darwin)
-                       "LXGWWenKaiMono Nerd Font"
+                       "Aporetic Serif Mono"
                      "monospace"))
 (dolist (font '(default fixed-pitch fixed-pitch-serif))
   (set-face-attribute font nil :font (concat default-font "-16")))
 (dolist (charset '(han cjk-misc))
-  (set-fontset-font t charset (font-spec :family "LXGWWenKaiMono Nerd Font" :size 16.5)))
+  (set-fontset-font t charset (font-spec :family "LXGW WenKai" :size 16.5)))
 
 (setq default-text-properties '(line-spacing 0.1 line-height 1.1))
 

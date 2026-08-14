@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;;; setup-cc.el --- setup for development
 
 ;; Copyright (C) 2016 MacKong <mackonghp@gmail.com>
