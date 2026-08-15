@@ -56,9 +56,7 @@ This checks in turn:
 (major-mode-hydra-define fake-mode
   (:quit-key ("q" "<escape>"))
   ("Tools"
-   (("bg" bongo-playlist "bongo")
-    ("ge" gptel "gptel")
-    ("gt" gt-translate "google translate")
+   (("gt" gt-translate "google translate")
     ("ms" magit-status "magit")
     ("sn" (multi-scratch-new t) "scratch"))
    "Misc"
