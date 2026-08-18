@@ -14,7 +14,9 @@
     "npm:@juicesharp/rpiv-btw",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:pi-subagents",
-    "npm:@narumitw/pi-lsp"
+    "npm:@narumitw/pi-lsp",
+    "npm:@dietrichgebert/ponytail",
+    "npm:@plannotator/pi-extension"
   ],
   "defaultThinkingLevel": "high",
   "editorPaddingX": 1

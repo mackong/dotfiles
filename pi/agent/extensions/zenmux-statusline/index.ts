@@ -12,7 +12,6 @@
  * (120s TTL) with a background refresh so rendering stays instant.
  */
 
-import type { AssistantMessage } from "@earendil-works/pi-ai";
 import type { ExtensionAPI, Theme } from "@earendil-works/pi-coding-agent";
 import { truncateToWidth } from "@earendil-works/pi-tui";
 
@@ -98,10 +97,6 @@ async function refreshAccount(): Promise<void> {
 
 // ── Formatting helpers ───────────────────────────────────────────────
 
-function fmtTokens(n: number): string {
-	return n < 1000 ? `${n}` : `${(n / 1000).toFixed(1)}k`;
-}
-
 // Format ISO 8601 timestamp → "Xh Ym" / "Xm" / "soon" from now
 function fmtTimeUntil(iso: string | null): string | null {
 	if (!iso) return null;
@@ -185,18 +180,6 @@ export default function (pi: ExtensionAPI) {
 					const modelId = ctx.model?.id ?? "no-model";
 					const dirName = ctx.cwd.split("/").pop() || ctx.cwd;
 
-					let input = 0;
-					let output = 0;
-					let cost = 0;
-					for (const e of ctx.sessionManager.getBranch()) {
-						if (e.type === "message" && e.message.role === "assistant") {
-							const m = e.message as AssistantMessage;
-							input += m.usage.input;
-							output += m.usage.output;
-							cost += m.usage.cost.total;
-						}
-					}
-
 					const usage = ctx.getContextUsage();
 					const ctxPct = usage?.percent != null ? Math.round(usage.percent) : 0;
 					const ctxBar = makeBar(theme, ctxPct, 10);
@@ -204,14 +187,18 @@ export default function (pi: ExtensionAPI) {
 					const branch = footerData.getGitBranch();
 					const gitPart = branch ? `${sep}${theme.fg("success", `🌿 ${branch}`)}` : "";
 
+					// Extension statuses (e.g. plan-mode's "⏸ plan" / "📋 2/5"),
+					// shown before the context segment.
+					const statuses = [...footerData.getExtensionStatuses().values()];
+					const statusPart = statuses.length ? `${statuses.join(" ")}${sep}` : "";
+
 					const line1 =
 						theme.fg("accent", `[${modelId}]`) +
 						` 📁 ${dirName}` +
 						gitPart +
 						sep +
-						`${ctxBar} ${ctxPct}% ctx` +
-						sep +
-						dim(`↑${fmtTokens(input)} ↓${fmtTokens(output)} $${cost.toFixed(3)}`);
+						statusPart +
+						`${ctxBar} ${ctxPct}% ctx`;
 
 					const lines = [truncateToWidth(line1, width)];
 
