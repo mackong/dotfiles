@@ -483,22 +483,20 @@
     (full-emacs-dir (concat "cache/agent-shell/" sanitized))))
 
 (use-package agent-shell
-  :ensure t
-
   :config
   (setq agent-shell-openai-authentication
       (agent-shell-openai-make-authentication :api-key (getenv "OPENAI_API_KEY")))
   (setq agent-shell-google-authentication
       (agent-shell-google-make-authentication :api-key (getenv "GEMINI_API_KEY")))
-
   (setopt agent-shell-dot-subdir-function #'my/agent-shell-dot-subdir))
 
 (use-package agent-shell-sidebar
   :after agent-shell
   :straight (:host github :repo "cmacrae/agent-shell-sidebar" :files ("*.el"))
-  :custom
-  (agent-shell-sidebar-width "50%")
-  (agent-shell-sidebar-position 'right)
+  :config
+  (setq agent-shell-sidebar-width "50%"
+        agent-shell-sidebar-position 'right
+        agent-shell-sidebar-locked nil)
   :bind
   (("C-c a s" . agent-shell-sidebar-toggle)
    ("C-c a f" . agent-shell-sidebar-toggle-focus)))
@@ -507,10 +505,10 @@
   :after agent-shell
   :straight (:host github :repo "cxa/agent-shell-macext" :files ("*.el"))
   :hook (agent-shell-mode . agent-shell-macext-setup)
-  :custom
-  (agent-shell-macext-file-copy-policy 'auto)
-  (agent-shell-macext-notifications t)
-  (agent-shell-macext-notify-current-buffer t))
+  :config
+  (setq agent-shell-macext-file-copy-policy 'auto
+        agent-shell-macext-notifications t
+        agent-shell-macext-notify-current-buffer t))
 
 (provide 'setup-packages)
 
