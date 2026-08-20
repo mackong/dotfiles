@@ -364,6 +364,7 @@
   :init
   (add-hook 'prog-mode-hook #'yas-minor-mode)
   (add-hook 'org-mode-hook #'yas-minor-mode)
+  (setq yas-snippet-dirs (list (full-emacs-dir "cache/snippets")))
   :config
   (setq yas-prompt-functions '(yas-dropdown-prompt)))
 
@@ -484,8 +485,9 @@
 
 (use-package agent-shell
   :config
+  (setq shell-maker-root-path (full-emacs-dir "cache"))
   (setq agent-shell-openai-authentication
-      (agent-shell-openai-make-authentication :api-key (getenv "OPENAI_API_KEY")))
+        (agent-shell-openai-make-authentication :api-key (getenv "OPENAI_API_KEY")))
   (setq agent-shell-google-authentication
       (agent-shell-google-make-authentication :api-key (getenv "GEMINI_API_KEY")))
   (setopt agent-shell-dot-subdir-function #'my/agent-shell-dot-subdir))
