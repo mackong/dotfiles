@@ -490,18 +490,9 @@
         (agent-shell-openai-make-authentication :api-key (getenv "OPENAI_API_KEY")))
   (setq agent-shell-google-authentication
       (agent-shell-google-make-authentication :api-key (getenv "GEMINI_API_KEY")))
-  (setopt agent-shell-dot-subdir-function #'my/agent-shell-dot-subdir))
-
-(use-package agent-shell-sidebar
-  :after agent-shell
-  :straight (:host github :repo "cmacrae/agent-shell-sidebar" :files ("*.el"))
-  :config
-  (setq agent-shell-sidebar-width "50%"
-        agent-shell-sidebar-position 'right
-        agent-shell-sidebar-locked nil)
+  (setopt agent-shell-dot-subdir-function #'my/agent-shell-dot-subdir)
   :bind
-  (("C-c a s" . agent-shell-sidebar-toggle)
-   ("C-c a f" . agent-shell-sidebar-toggle-focus)))
+  (("C-c a s" . agent-shell-new-shell)))
 
 (use-package agent-shell-macext
   :after agent-shell
