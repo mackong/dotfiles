@@ -364,7 +364,7 @@
   :init
   (add-hook 'prog-mode-hook #'yas-minor-mode)
   (add-hook 'org-mode-hook #'yas-minor-mode)
-  (setq yas-snippet-dirs (list (full-emacs-dir "cache/snippets")))
+  (setq yas-snippet-dirs (list (full-emacs-dir "share/snippets")))
   :config
   (setq yas-prompt-functions '(yas-dropdown-prompt)))
 
@@ -404,27 +404,7 @@
   (indent-bars-highlight-current-depth nil)
   (indent-bars-width-frac 0.15)
   (indent-bars-no-descend-lists t)
-  (indent-bars-treesit-support t)
-  :config
-  (setq indent-bars-prefer-character t))
-
-;; centaur-tabs
-(use-package centaur-tabs
-  :init
-  (setq centaur-tabs-set-icons t
-        centaur-tabs-height 32
-        centaur-tabs-gray-out-icons 'buffer
-        centaur-tabs-set-bar 'over
-        centaur-tabs-set-modified-marker t
-        centaur-tabs-modified-marker "●"
-        centaur-tabs-show-navigation-buttons nil
-        centaur-tabs-show-new-tab-button nil
-        centaur-tabs-set-close-button nil
-        centaur-tabs-icon-type 'nerd-icons
-        centaur-tabs-cycle-scope 'tabs)
-  :config
-  (centaur-tabs-mode t)
-  (dotimes (n 10) (global-set-key (kbd (format "M-%d" n)) 'centaur-tabs-select-visible-tab)))
+  (indent-bars-treesit-support t))
 
 ;; treemacs
 (use-package treemacs
@@ -493,6 +473,11 @@
   (setopt agent-shell-dot-subdir-function #'my/agent-shell-dot-subdir)
   :bind
   (("C-c a s" . agent-shell-new-shell)))
+
+(use-package agent-shell-treemacs
+  :straight (:host github :repo "mackong/agent-shell-treemacs" :files ("*.el"))
+  :config
+  (agent-shell-treemacs-enable))
 
 (use-package agent-shell-macext
   :after agent-shell
