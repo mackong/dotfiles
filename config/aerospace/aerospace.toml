@@ -1,0 +1,87 @@
+# AeroSpace Configuration
+# https://github.com/nikitabobko/AeroSpace
+
+config-version = 2
+
+# In i3, all workspaces are phantom
+persistent-workspaces = []
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+# Disabled to prevent floating windows from snapping back to tiled
+enable-normalization-flatten-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = false
+
+# Possible values: tiles|accordion
+default-root-container-layout = 'tiles'
+
+# Possible values: horizontal|vertical|auto
+# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
+#               tall monitor (anything higher than wide) gets vertical orientation
+default-root-container-orientation = 'auto'
+
+# Mouse follows focus when focus changes
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Don't change floating windows when focus changes
+automatically-unhide-macos-hidden-apps = false
+
+# Gaps between windows (in pixels)
+[gaps]
+inner.horizontal = 5
+inner.vertical =   5
+outer.left =       5
+outer.bottom =     5
+outer.top =        5
+outer.right =      5
+
+# 'main' binding mode declaration
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+# 'main' binding mode must be always declared
+[mode.main.binding]
+alt-enter = 'exec-and-forget alacritty msg create-window'
+
+# Alt + h/j/k/l to focus windows
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Alt + Shift + h/j/k/l to move windows
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Alt + 1-9 to focus workspace
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+
+# Alt + Shift + 1-9 to move window to workspace (--focus-follows-window keeps bar updated)
+alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+
+# Alt + f to toggle fullscreen
+alt-f = 'fullscreen'
+
+alt-shift-f = 'layout floating'
+alt-shift-t = 'layout tiling'
+
+alt-minus = 'resize smart -100'
+alt-equal = 'resize smart +100'
