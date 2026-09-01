@@ -22,5 +22,9 @@
     "npm:@mcowger/pi-strip-volatile"
   ],
   "defaultThinkingLevel": "high",
-  "editorPaddingX": 1
+  "editorPaddingX": 1,
+  "terminal": {
+    "images": "kitty",
+    "showImages": true
+  }
 }

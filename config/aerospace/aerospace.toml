@@ -30,18 +30,18 @@ automatically-unhide-macos-hidden-apps = false
 
 # Gaps between windows (in pixels)
 [gaps]
-inner.horizontal = 5
-inner.vertical =   5
-outer.left =       5
-outer.bottom =     5
-outer.top =        5
-outer.right =      5
+inner.horizontal = 10
+inner.vertical =   10
+outer.left =       10
+outer.bottom =     10
+outer.top =        10
+outer.right =      10
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always declared
 [mode.main.binding]
-alt-enter = 'exec-and-forget alacritty msg create-window'
+alt-enter = 'exec-and-forget kitty --single-instance --directory ~'
 
 # Alt + h/j/k/l to focus windows
 alt-h = 'focus left'
