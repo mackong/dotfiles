@@ -61,7 +61,14 @@ require('lazy').setup({
     },
 
     {
-        'alexghergh/nvim-tmux-navigation'
+        'mikesmithgh/kitty-scrollback.nvim',
+        enabled = true,
+        lazy = true,
+        cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth', 'KittyScrollbackGenerateCommandLineEditing' },
+        event = { 'User KittyScrollbackLaunch' },
+        config = function()
+            require('kitty-scrollback').setup()
+        end,
     },
 
     {
@@ -152,15 +159,6 @@ vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { des
 vim.keymap.set('n', '<leader>fs', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>fb', require('telescope').extensions.file_browser.file_browser, { desc = '[F]file [B]rowser' })
-
-require('nvim-tmux-navigation').setup {
-    keybindings = {
-        left = "<C-q>h",
-        down = "<C-q>j",
-        up = "<C-q>k",
-        right = "<C-q>l",
-    }
-}
 
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
