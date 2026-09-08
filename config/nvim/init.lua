@@ -64,10 +64,20 @@ require('lazy').setup({
         'mikesmithgh/kitty-scrollback.nvim',
         enabled = true,
         lazy = true,
-        cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth', 'KittyScrollbackGenerateCommandLineEditing' },
-        event = { 'User KittyScrollbackLaunch' },
+        cmd = {
+            'KittyScrollbackGenerateKittens',
+            'KittyScrollbackCheckHealth',
+            'KittyScrollbackGenerateCommandLineEditing'
+        },
+        event = {
+            'User KittyScrollbackLaunch'
+        },
         config = function()
-            require('kitty-scrollback').setup()
+            require('kitty-scrollback').setup({
+                {
+                    restore_options = true,
+                },
+            })
         end,
     },
 
