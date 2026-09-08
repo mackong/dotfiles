@@ -1,16 +1,15 @@
 {
   "providers": {
     "zenmux": {
-      "baseUrl": "https://zenmux.dev/api/anthropic",
-      "api": "anthropic-messages",
       "apiKey": "$ZENMUX_API_KEY",
       "models": [
         {
           "id": "anthropic/claude-opus-4.8",
           "name": "Claude Opus 4.8",
+          "baseUrl": "https://zenmux.dev/api/anthropic",
+          "api": "anthropic-messages",
           "compat": {
-            "forceAdaptiveThinking": true,
-            "supportsTemperature": false
+            "forceAdaptiveThinking": true
           },
           "reasoning": true,
           "thinkingLevelMap": {
@@ -22,6 +21,35 @@
           ],
           "contextWindow": 1000000,
           "maxTokens": 128000
+        },
+        {
+          "id": "openai/gpt-6-astra",
+          "name": "GPT-6 Astra",
+          "baseUrl": "https://zenmux.dev/api/v1",
+          "api": "openai-responses",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": "max"
+          },
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 27200,
+          "maxTokens": 128000,
+          "compat": {
+            "supportsStrictMode": true,
+            "supportsOpenAIGrammarTools": true,
+            "supportsAdditionalTools": true,
+            "supportsToolSearch": true,
+            "supportsExplicitPromptCacheMode": true
+          }
         }
       ]
     }
