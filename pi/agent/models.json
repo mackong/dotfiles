@@ -41,7 +41,7 @@
             "text",
             "image"
           ],
-          "contextWindow": 27200,
+          "contextWindow": 1050000,
           "maxTokens": 128000,
           "compat": {
             "supportsStrictMode": true,
