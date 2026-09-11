@@ -320,6 +320,19 @@
         denote-known-keywords '()))
 
 ;; company
+(defun my-company-childframe-extra-height
+    (original buffer-or-name &rest args)
+  (let ((name (if (bufferp buffer-or-name)
+                  (buffer-name buffer-or-name)
+                buffer-or-name))
+        (height (plist-get args :height)))
+    (when (and (equal name company-childframe-buffer)
+               (integerp height))
+      (setq args
+            (plist-put (copy-sequence args)
+                       :height (1+ height))))
+    (apply original buffer-or-name args)))
+
 (use-package company
   :bind (("C-c y" . company-yasnippet)
          ("C-c i" . company-manual-begin)
@@ -335,7 +348,9 @@
         company-echo-delay 0
         company-selection-wrap-around t
         company-dabbrev-downcase nil
-        company-backends '(company-cmake company-capf company-files (company-dabbrev-code company-keywords) company-dabbrev)))
+        company-backends '(company-cmake company-capf company-files (company-dabbrev-code company-keywords) company-dabbrev))
+  (advice-add 'posframe-show :around
+              #'my-company-childframe-extra-height))
 
 ;; slime
 (use-package slime
