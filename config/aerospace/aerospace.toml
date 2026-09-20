@@ -85,3 +85,6 @@ alt-shift-t = 'layout tiling'
 
 alt-minus = 'resize smart -100'
 alt-equal = 'resize smart +100'
+
+[workspace-to-monitor-force-assignment]
+4 = '^built-in retina display$'
