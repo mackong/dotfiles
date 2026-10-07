@@ -6,26 +6,26 @@
     "zenmux/anthropic/claude-opus-4.8",
     "zenmux/openai/gpt-6-astra"
   ],
-  "stripVolatileKeys": [
-    "lastChangelogVersion"
+  "defaultTools": [
+    "+codemode"
   ],
   "packages": [
-    "npm:pi-mcp-adapter",
+    "npm:@dietrichgebert/ponytail",
+    "npm:@plannotator/pi-extension",
+    "npm:@narumitw/pi-lsp",
     "npm:@hypabolic/pi-hypa",
-    "npm:pi-image-paste",
     "npm:@juicesharp/rpiv-todo",
     "npm:@juicesharp/rpiv-btw",
     "npm:@juicesharp/rpiv-ask-user-question",
-    "npm:pi-subagents",
-    "npm:@narumitw/pi-lsp",
-    "npm:@dietrichgebert/ponytail",
-    "npm:@plannotator/pi-extension",
-    "npm:@mcowger/pi-strip-volatile"
+    "npm:pi-background-tasks@latest",
+    "npm:pi-image-paste",
+    "npm:pi-subagents"
   ],
   "defaultThinkingLevel": "high",
   "editorPaddingX": 1,
   "terminal": {
     "images": "kitty",
     "showImages": true
-  }
+  },
+  "lastChangelogVersion": "1.0.4"
 }
