@@ -1,7 +1,5 @@
 {
   "theme": "dark",
-  "defaultProvider": "zenmux",
-  "defaultModel": "zenmux/anthropic/claude-opus-4.8",
   "enabledModels": [
     "zenmux/anthropic/claude-opus-4.8",
     "zenmux/openai/gpt-6-astra"
@@ -27,5 +25,6 @@
     "images": "kitty",
     "showImages": true
   },
-  "lastChangelogVersion": "1.1.0"
+  "lastChangelogVersion": "1.1.0",
+  "tuiMode": "regular"
 }
