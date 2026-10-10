@@ -1,5 +1,9 @@
 {
   "providers": {
+    "typesafe": {
+      "baseUrl": "https://zenmux.dev/api/v1",
+      "apiKey": "$ZENMUX_API_KEY"
+    },
     "zenmux": {
       "apiKey": "$ZENMUX_API_KEY",
       "models": [
