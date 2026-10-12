@@ -13,7 +13,6 @@
  */
 
 import type { ExtensionAPI, Theme } from "@earendil-works/pi-coding-agent";
-import { truncateToWidth } from "@earendil-works/pi-tui";
 
 // ── ZenMux account fetching ──────────────────────────────────────────
 
@@ -146,73 +145,33 @@ function maskKey(raw: string): { type: string; masked: string } {
 
 export default function (pi: ExtensionAPI) {
 	// Fires the background refresh when the cache is stale. Non-blocking.
-	function ensureFresh(requestRender?: () => void): void {
+	function ensureFresh(onUpdated?: () => void): void {
 		if (!managementKey()) return;
 		if (fetchInFlight) return;
 		if (cachedAccount && Date.now() - cacheTimestamp < CACHE_TTL_MS) return;
-		void refreshAccount().then(() => requestRender?.());
+		void refreshAccount().then(() => onUpdated?.());
 	}
 
 	pi.on("session_start", (_event, ctx) => {
 		if (ctx.mode !== "tui") return;
 
-		ctx.ui.setFooter((tui, theme, footerData) => {
-			const unsub = footerData.onBranchChange(() => tui.requestRender());
-			// Periodic refresh of ZenMux data so reset timers/balance stay current.
-			const interval = setInterval(() => {
-				ensureFresh(() => tui.requestRender());
-			}, 30_000);
-			ensureFresh(() => tui.requestRender());
+		const theme = ctx.ui.theme;
+		const dim = (t: string) => theme.fg("dim", t);
+		const sep = ` ${dim("|")} `;
 
-			const dim = (t: string) => theme.fg("dim", t);
-			const sep = ` ${dim("|")} `;
+		// Publish the ZenMux account line as a footer status entry. pi keeps its
+		// built-in status line and renders this on the extension-status line below.
+		const publish = () => ctx.ui.setStatus("zenmux", renderAccountLine(theme, dim, sep));
 
-			return {
-				dispose() {
-					unsub();
-					clearInterval(interval);
-				},
-				invalidate() {},
-				render(width: number): string[] {
-					ensureFresh(() => tui.requestRender());
+		publish();
+		ensureFresh(publish);
+		// Periodic refresh so reset timers/balance stay current.
+		const interval = setInterval(() => ensureFresh(publish), 30_000);
 
-					// ── Line 1: session info ──────────────────────────
-					const modelId = ctx.model?.id ?? "no-model";
-					const dirName = ctx.cwd.split("/").pop() || ctx.cwd;
-
-					const usage = ctx.getContextUsage();
-					const ctxPct = usage?.percent != null ? Math.round(usage.percent) : 0;
-					const ctxBar = makeBar(theme, ctxPct, 10);
-
-					const branch = footerData.getGitBranch();
-					const gitPart = branch ? `${sep}${theme.fg("success", `🌿 ${branch}`)}` : "";
-
-					// Extension statuses (e.g. plan-mode's "⏸ plan" / "📋 2/5"),
-					// shown before the context segment.
-					const statuses = [...footerData.getExtensionStatuses().values()];
-					const statusPart = statuses.length ? `${statuses.join(" ")}${sep}` : "";
-
-					const line1 =
-						theme.fg("accent", `[${modelId}]`) +
-						` 📁 ${dirName}` +
-						gitPart +
-						sep +
-						statusPart +
-						`${ctxBar} ${ctxPct}% ctx`;
-
-					const lines = [truncateToWidth(line1, width)];
-
-					// ── Line 2: ZenMux account ────────────────────────
-					lines.push(truncateToWidth(renderAccountLine(theme, dim, sep), width));
-
-					return lines;
-				},
-			};
+		pi.on("session_shutdown", (_e, c) => {
+			clearInterval(interval);
+			if (c.mode === "tui") c.ui.setStatus("zenmux", undefined);
 		});
-	});
-
-	pi.on("session_shutdown", (_event, ctx) => {
-		if (ctx.mode === "tui") ctx.ui.setFooter(undefined);
 	});
 }
 
