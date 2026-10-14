@@ -250,7 +250,6 @@
     (setq amx-save-file (full-emacs-dir "cache/amx-items"))))
 
 ;; projectile
-(straight-use-package 'project)
 (use-package projectile
   :bind-keymap
   ("C-c p" . projectile-command-map)
@@ -366,13 +365,6 @@
   :init
   (slime-setup '(slime-fancy slime-asdf slime-banner slime-company)))
 
-;; geiser-guile
-(use-package geiser-guile
-  :defer t
-  :init
-  (add-hook 'geiser-repl-mode-hook
-          #'(lambda () (define-key paredit-mode-map (kbd "C-j") 'geiser-repl-maybe-send))))
-
 ;; yasnippet-snippets
 (use-package yasnippet-snippets
   :defer t
@@ -421,56 +413,14 @@
   (indent-bars-no-descend-lists t)
   (indent-bars-treesit-support t))
 
-;; treemacs
-(use-package treemacs
-  :ensure t
-  :defer t
+;; ghostel
+(use-package ghostel
+  :bind (("C-c g e" . ghostel)
+         :map projectile-command-map
+         ("m" . ghostel-project)
+         ("M" . ghostel-project-list-buffers))
   :config
-  (progn
-    (setq treemacs-collapse-dirs                   (if treemacs-python-executable 3 0)
-          treemacs-follow-after-init               t
-          treemacs-persist-file                    (full-emacs-dir "cache/treemacs-persist")
-          treemacs-read-string-input               'from-child-frame
-          treemacs-recenter-after-project-expand   'on-distance)
-
-    (treemacs-follow-mode t)
-    (treemacs-filewatch-mode t)
-    (treemacs-fringe-indicator-mode 'always)
-    (when treemacs-python-executable
-      (treemacs-git-commit-diff-mode t))
-
-    (pcase (cons (not (null (executable-find "git")))
-                 (not (null treemacs-python-executable)))
-      (`(t . t)
-       (treemacs-git-mode 'deferred))
-      (`(t . _)
-       (treemacs-git-mode 'simple)))
-
-    (treemacs-hide-gitignored-files-mode nil))
-  :bind
-  (("C-c t m" . treemacs-select-window)))
-
-(use-package treemacs-projectile
-  :after (treemacs projectile)
-  :ensure t)
-
-(use-package treemacs-icons-dired
-  :hook (dired-mode . treemacs-icons-dired-enable-once)
-  :ensure t)
-
-(use-package treemacs-magit
-  :after (treemacs magit)
-  :ensure t)
-
-(use-package treemacs-nerd-icons
-  :config
-  (treemacs-nerd-icons-config))
-
-(treemacs-start-on-boot)
-
-;; vterm
-(use-package vterm
-  :ensure t)
+  (setopt ghostel-keymap-exceptions (cons "M-o" ghostel-keymap-exceptions)))
 
 ;; agent-shell
 (defun my/agent-shell-dot-subdir (subdir)
@@ -488,11 +438,6 @@
   (setopt agent-shell-dot-subdir-function #'my/agent-shell-dot-subdir)
   :bind
   (("C-c a s" . agent-shell-new-shell)))
-
-(use-package agent-shell-treemacs
-  :straight (:host github :repo "mackong/agent-shell-treemacs" :files ("*.el"))
-  :config
-  (agent-shell-treemacs-enable))
 
 (use-package agent-shell-macext
   :after agent-shell
