@@ -12,6 +12,8 @@
 
 ;;; Code:
 
+(setq org-export-backends '(ascii beamer html latex man md))
+
 ;; see https://emacs-china.org/t/org-mode-latex-mode/22490
 
 ;; Vertically align LaTeX preview in org mode
@@ -145,8 +147,7 @@ Add this to begin of org file.
   "Setup org mode."
   (setup-org-babel)
 
-  (setq org-export-backends '(ascii beamer html latex man md)
-        org-use-speed-commands t
+  (setq org-use-speed-commands t
         org-latex-listings t
         org-latex-pdf-process '("xelatex -shell-escape -interaction nonstopmode %f"
                                 "xelatex -shell-escape -interaction nonstopmode %f")
@@ -162,7 +163,8 @@ Add this to begin of org file.
 
 (setup-org-agenda)
 (setup-org-capture)
-(setup-org-mode)
+(with-eval-after-load 'org
+  (setup-org-mode))
 
 (provide 'setup-org)
 

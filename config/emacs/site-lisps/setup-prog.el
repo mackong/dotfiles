@@ -173,7 +173,7 @@
             (lambda ()
               (paredit-mode)
               (eldoc-mode)
-              (show-paren-mode)
+              (show-paren-local-mode)
               (indent-bars-mode)
 
               (setq-local indent-tabs-mode nil))))
