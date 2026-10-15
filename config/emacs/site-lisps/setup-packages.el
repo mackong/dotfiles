@@ -35,7 +35,7 @@
 ;; editorconfig
 (editorconfig-mode 1)
 
-;; linum-mode
+;; display-line-numbers
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; woman
@@ -62,7 +62,7 @@
 (setq compilation-scroll-output 'first-error)
 
 ;; imenu
-(setq imenu-max-item-length 'Unlimited)
+(setq imenu-max-item-length nil)
 
 ;; eldoc
 (setq eldoc-echo-area-use-multiline-p nil
@@ -135,14 +135,15 @@
   (load-theme 'modus-vivendi-deuteranopia t))
 
 ;; nerd-icons
-(use-package nerd-icons)
+(use-package nerd-icons
+  :defer t)
 
 ;; dired
 (require 'dired-x)
 (add-hook 'dired-mode-hook
           (lambda ()
-            (dired-hide-details-mode 0)))
-(setq-default dired-omit-files-p t)
+            (dired-hide-details-mode 0)
+            (dired-omit-mode)))
 (setq dired-recursive-copies 'always
       dired-recursive-deletes 'top
       dired-dwim-target t
@@ -184,13 +185,15 @@
         transient-history-file (full-emacs-dir "cache/transient/history.el")))
 
 ;; magit
-(use-package magit)
+(use-package magit
+  :defer t)
 
 ;; paredit
 (use-package paredit)
 
 ;; visual-regexp
-(use-package visual-regexp-steroids)
+(use-package visual-regexp-steroids
+  :defer t)
 
 ;; gt
 (use-package gt
@@ -276,31 +279,38 @@
   (add-to-list 'auto-mode-alist '("\\.\\(puml\\)\\'" . plantuml-mode)))
 
 ;; graphviz-dot-mode
-(use-package graphviz-dot-mode)
+(use-package graphviz-dot-mode
+  :mode ("\\.dot\\'" "\\.gv\\'"))
 
 ;; markdown
-(use-package markdown-mode)
+(use-package markdown-mode
+  :mode ("\\.md\\'" "\\.markdown\\'"))
 
 ;; json-mode
-(use-package json-mode)
+(use-package json-mode
+  :mode "\\.json\\'")
 
 ;; glsl-mode
 (use-package glsl-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.vs\\'" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.fs\\'" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.gs\\'" . glsl-mode)))
+  :mode (("\\.vs\\'" . glsl-mode)
+         ("\\.fs\\'" . glsl-mode)
+         ("\\.gs\\'" . glsl-mode)))
 
 ;; protobuf-mode
-(use-package protobuf-mode)
+(use-package protobuf-mode
+  :mode "\\.proto\\'")
 
 ;; rmsbolt
-(use-package rmsbolt)
+(use-package rmsbolt
+  :defer t)
 
 ;; org-babels
-(use-package ob-go)
-(use-package ob-restclient)
-(use-package ob-ipython)
+(use-package ob-go
+  :defer t)
+(use-package ob-restclient
+  :defer t)
+(use-package ob-ipython
+  :defer t)
 (use-package ob-typescript
   :straight nil
   :load-path (lambda () (full-emacs-dir "share/packages/ob-typescript"))
@@ -310,7 +320,8 @@
 
 
 ;; org-exports
-(use-package ox-gfm)
+(use-package ox-gfm
+  :defer t)
 
 ;; denote
 (use-package denote

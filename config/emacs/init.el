@@ -32,13 +32,9 @@
                    (abbreviate-file-name (buffer-file-name))
                  "%b")) " [%*]"))
 
-(custom-set-variables '(initial-frame-alist '((fullscreen . maximized))))
-
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
 (fringe-mode '(nil . 0))
 (delete-selection-mode 1)
+(pixel-scroll-precision-mode 1)
 
 (setq mac-command-modifier 'meta)
 
@@ -67,7 +63,7 @@
 (setq bookmark-default-file (full-emacs-dir "cache/bookmarks"))
 (setq tramp-ssh-controlmaster-options "")
 (setq tramp-persistency-file-name (full-emacs-dir "cache/tramp"))
-(setq native-comp-eln-load-path (append (list (full-emacs-dir "cache/eln-cache" )) native-comp-eln-load-path))
+(startup-redirect-eln-cache (full-emacs-dir "cache/eln-cache"))
 (setq treesit-extra-load-path (list (full-emacs-dir "cache/tree-sitter")))
 
 (with-eval-after-load 'url
@@ -75,7 +71,6 @@
         url-cookie-file (full-emacs-dir "cache/url/cookies")
         url-history-file (full-emacs-dir "cache/url/history")))
 
-(set-buffer-file-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 
@@ -89,19 +84,15 @@
 
 (setq default-text-properties '(line-spacing 0.1 line-height 1.1))
 
-(fset 'yes-or-no-p 'y-or-n-p)
+(setq use-short-answers t)
 
 (setq font-lock-maximum-decoration t)
-(setq font-lock-global-mode t)
 (setq font-lock-verbose t)
 
 (setq line-number-mode t)
 (setq column-number-mode t)
 
 (setq kill-ring-max 1000)
-
-; 100 mb
-(setq gc-cons-threshold 100000000)
 
 ;; 1mb
 (setq read-process-output-max (* 1024 1024))
