@@ -6,6 +6,8 @@
 
 ;;; Code:
 
+(setenv "MACOSX_DEPLOYMENT_TARGET" "27.0")
+
 (setq package-enable-at-startup nil)
 (setq site-run-file nil)
 
