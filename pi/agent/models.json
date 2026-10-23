@@ -8,16 +8,17 @@
       "apiKey": "$ZENMUX_API_KEY",
       "models": [
         {
-          "id": "anthropic/claude-opus-4.8",
-          "name": "Claude Opus 4.8",
+          "id": "anthropic/claude-opus-5.5",
+          "name": "Claude Opus 5.5",
           "baseUrl": "https://zenmux.dev/api/anthropic",
           "api": "anthropic-messages",
           "compat": {
-            "forceAdaptiveThinking": true
+            "supportsStrictMode": true
           },
           "reasoning": true,
           "thinkingLevelMap": {
-            "xhigh": "xhigh"
+            "xhigh": "xhigh",
+            "max": "max"
           },
           "input": [
             "text",

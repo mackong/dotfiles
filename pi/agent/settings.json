@@ -1,7 +1,7 @@
 {
   "theme": "dark",
   "enabledModels": [
-    "zenmux/anthropic/claude-opus-4.8",
+    "zenmux/anthropic/claude-opus-5.5",
     "zenmux/openai/gpt-6-astra"
   ],
   "defaultTools": [
@@ -18,7 +18,8 @@
     "npm:pi-background-tasks@latest",
     "npm:pi-image-paste",
     "npm:pi-subagents",
-    "npm:@pi-kaush/pi-tool-call-markers"
+    "npm:@pi-kaush/pi-tool-call-markers",
+    "npm:pi-rewind"
   ],
   "defaultThinkingLevel": "high",
   "editorPaddingX": 1,
@@ -26,7 +27,7 @@
     "images": "kitty",
     "showImages": true
   },
-  "lastChangelogVersion": "1.3.0",
+  "lastChangelogVersion": "1.4.0",
   "tuiMode": "regular",
   "hideThinkingBlock": true
 }
