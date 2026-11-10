@@ -27,11 +27,12 @@
     "images": "kitty",
     "showImages": true
   },
-  "lastChangelogVersion": "1.5.0",
+  "lastChangelogVersion": "1.5.1",
   "tuiMode": "regular",
   "hideThinkingBlock": true,
   "extensionChangelogVersions": {
-    "{\"source\":\"npm:pi-subagents\",\"scope\":\"user\"}": "0.84.0",
-    "{\"source\":\"npm:@pi-kaush/pi-tool-call-markers\",\"scope\":\"user\"}": "0.3.19"
+    "{\"source\":\"npm:pi-subagents\",\"scope\":\"user\"}": "0.87.0",
+    "{\"source\":\"npm:@pi-kaush/pi-tool-call-markers\",\"scope\":\"user\"}": "0.3.19",
+    "{\"source\":\"npm:@narumitw/pi-lsp\",\"scope\":\"user\"}": "0.49.12"
   }
 }
